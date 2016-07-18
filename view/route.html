@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<script type="text/javascript" src="../js/angular-route.js"></script>
+
+	<body>
+		<div ng-view=""></div>
+	</body>
+	<script>
+		var app = angular.module('wsscat', ['ngRoute']);
+		app.config(function($routeProvider) {
+			$routeProvider.when('/home', {
+				controller: 'homeController',
+				templateUrl: 'home.html'
+			}).
+			when('/detail/:id', {
+				controller: 'detailController',
+				templateUrl: 'detail.html'
+			}).when('/add', {
+				controller: 'addController',
+				templateUrl: 'add.html'
+			}).when('/edit/:id', {
+				controller: 'editController',
+				templateUrl: 'edit.html'
+			})
+		})
+		app.controller('homeController', function($scope, $location, $rootScope) {
+			$rootScope.type = 'SPA';
+			//console.log("123");
+			//$location.path('detail/1');
+			$scope.newsList = newsList;
+		})
+
+		app.controller('detailController',
+			function($scope, $routeParams, $rootScope) {
+				console.log($rootScope.type)
+				$scope.news = newsList[$routeParams.id];
+			})
+
+		app.controller('addController', function($scope, $location, $routeParams, $rootScope) {
+			$scope.title = '';
+			$scope.content = '';
+			$scope.add = function() {
+				newsList.push({
+					id: newsList.length + 1,
+					title: $scope.title,
+					content: $scope.content,
+					date: new Date()
+				});
+
+				$location.path('home');
+			}
+		})
+
+		app.controller('editController', function($scope, $location, $routeParams, $rootScope) {
+			$scope.news = newsList[$routeParams.id];
+			$scope.update = function() {
+				newsList[$routeParams.id] = $scope.news;
+				$location.path('home');
+			}
+		})
+	</script>
+	<script type="text/javascript" src="../control/ajaxData.js"></script>
+</html>

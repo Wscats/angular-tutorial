@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<table class="table">
+	<thead>
+		<td>id</td>
+		<td>标题</td>
+		<td>内容</td>
+		<td>发布时间</td>
+	</thead>
+	<tr ng-repeat="news in newsList">
+		<td>{{news.id}}</td>
+		<td>
+			<a href='#/detail/{{news.id}}'>{{news.title}}</a>
+		</td>
+		<td>{{news.content}}</td>
+		<td>{{news.date}}</td>
+	</tr>
+</table>
+<a class="btn btn-default" href="#/add" role="button">添加</a>
