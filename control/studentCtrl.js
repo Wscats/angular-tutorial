@@ -42,8 +42,10 @@ app.controller('studentCtrl', function($scope, $rootScope) {
 	$scope.jsonArr = '{"name":"yao"}';
 	$scope.article = "limitTo过滤器用来截取数组或字符串，接收一个参数用来指定截取的长度。个人觉得这个filter有点鸡肋，首先只能从数组或字符串的开头进行截取，其次，js原生的函数就可以代替它了";
 	$scope.expend = function(){
-		alert("123");
+		alert("触发了ng-click的事件");
 	}
+	$scope.imgUrl = "../img/3812b31bb051f81972832628ddb44aed2e73e72a.jpg";
+	$scope.style = "border: 1px solid brown;";
 });
 app.controller('student2Ctrl', function($scope, $rootScope) {
 	$scope.text = "进入学生的第二个页面";

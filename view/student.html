@@ -7,8 +7,10 @@
 		<title></title>
 	</head>
 	<script type="text/javascript" src="../js/angular.js"></script>
+	<script type="text/javascript" src="../control/studentCtrl.js" ></script>
+	<script type="text/javascript" src="../control/student2Ctrl.js" ></script>
 
-	<body ng-app="angularDemo" style="border: 1px solid brown;">
+	<body ng-app="angularDemo">
 		<div ng-controller="studentCtrl">
 			{{name}}同学很勤奋
 			<input ng-model="name" value="" />
@@ -19,7 +21,17 @@
 			<p>显示的金钱{{money|currency:'&'}}</p>
 			<p>显示的时间{{data| date:'yyyy-MM-dd hh:mm:ss EEEE'}}</p>
 			<p>显示的Json格式{{jsonObj|json}}</p>
+			<p onclick="expend()">123</p>
 			<p ng-click="expend()">显示一个数字的长度{{article|limitTo:10}}...</p>
+			<!--ng-click onclick -->
+			<!--ng-src src-->
+			<img ng-src="{{imgUrl}}" />
+			<div ng-style="{{style}}">样式456</div>
+			<!--
+				用ng指令是因为，在页面加载的时候，如果我是用了原生的src写法，页面会先加载路径为{{imgUrl}}的图片，
+				但是{{imgUrl}}是错误的，它是属于angular的写法，所以会首先加载一个错误的图片，所以为了解决这个问题
+				我们要在sre前面加一个ng-的前缀，然原生js不认识，不读取，当angular指令触发后再认领执行
+			-->
 			<a ng-href="student2.html">跳转到学生页面2</a>
 		</div>
 		<div ng-controller="student2Ctrl">
@@ -31,5 +43,5 @@
 		</div>	
 	</div>
 	</body>
-	<script type="text/javascript" src="../control/studentCtrl.js" ></script>
+	<!--js-->
 </html>
