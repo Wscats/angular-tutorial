@@ -8,56 +8,23 @@
 	</head>
 	<script type="text/javascript" src="js/angular.js"></script>
 
-	<body ng-app="angularDemo" ng-controller="studentCtrl" style="border: 1px solid brown;">
+	<body ng-app="angularDemo" style="border: 1px solid brown;">
+		<div ng-controller="studentCtrl">
+			{{name}}同学很勤奋
+			<input ng-model="name" value="" />
+		</div>
+		<div ng-controller="student2Ctrl">
+			
+		</div>
 		<!--{{}}是angular把我们控制器中的$scope绑定的text的值，渲染到页面上-->
 		<!--{{text}}-->
-		{{name}}同学很勤奋
 		<!--<div  style="border: 1px solid aqua;">
 			<p id="text">好好学习</p>
 			<p>{{text}}12</p>
 			<p>{{text}}123</p>
 		</div>-->
-		<input ng-model="name" value="" />
 	</body>
-	<script>
-		console.log(angular);
-		//document.getElementById("text").innerHTML = "123";
-		//module的服务其实就是一些我们用到的方法，他可以是对象
-		//用angular对象的module方法来创建名字为angularDemo的ng程序
-		//ng===angular
-		//第一步:就是要创建一个angular.module("angularDemo",[]);
-		//比如我在<html>标签里面写ng-app我们就会在这一个html标签里面让angular程序生效
-		//又如我们在<body>标签里面写ng-app我们这个angular程序就会在body标签里面生效
-		//第二部:就是在DOM页面里面把名字赋给ng-app属性->ng-app="angularDemo"
-		//上面全部的写法就是为了定义这个angular程序运行的作用域
-		//$.each(function(){	
-		//})
-		//jQuery.each(function(){}). jQuery(),$();
-		var app = angular.module("angularDemo", []);
-		console.log(app);
-		//第三部是写一个控制器，控制器方法controller()需要传两个参数，一个是控制器的名字，一个是控制器所要执行的回调方法
-		//$scope,
-		app.controller('studentCtrl', function($scope, $http) {
-			//$http.get(function(){
-			//});
-			//var text, name ,func = function(){alert("124")}; js所在函数的作用域
-			//用$scope定义的变量，方法，对象等等都只是在这个函数的范围内，生命周期就是所在的这个function里面
-			//var text1="456";
-			//document.getElementById("text").innerHTML = text1;
-			//$scope.text = "这个是student1Ctrl的text";
-			$scope.name = "";//被ng-model获取道德yao给覆盖
-			$scope.$watch('name',function(){
-				console.log($scope.name);
-			})
-//			$scope.func = function(){
-//				alert("124")
-//			}
-			
-		});
-//		app.controller('student2Ctrl', function($scope) {
-//			$scope.text = "这个是student2Ctrl的text";
-//		});
-		//$scope.name = "123";
-	</script>
+	<script type="text/javascript" src="control/studentCtrl.js" ></script>
+	<script type="text/javascript" src="control/studentCtrl2.js" ></script>
 
 </html>
