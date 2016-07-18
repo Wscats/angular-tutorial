@@ -1,0 +1,36 @@
+[1mdiff --git a/1.html b/1.html[m
+[1mindex 95f1348..7a05903 100644[m
+[1m--- a/1.html[m
+[1m+++ b/1.html[m
+[36m@@ -24,16 +24,13 @@[m
+ 		//document.getElementById("text").innerHTML = "123";[m
+ 		//module的服务其实就是一些我们用到的方法，他可以是对象[m
+ 		//用angular对象的module方法来创建名字为angularDemo的ng程序[m
+[31m-[m
+ 		//ng===angular[m
+[31m-[m
+ 		//第一步:就是要创建一个angular.module("angularDemo",[]);[m
+ 		//比如我在<html>标签里面写ng-app我们就会在这一个html标签里面让angular程序生效[m
+ 		//又如我们在<body>标签里面写ng-app我们这个angular程序就会在body标签里面生效[m
+ 		//第二部:就是在DOM页面里面把名字赋给ng-app属性->ng-app="angularDemo"[m
+ 		//上面全部的写法就是为了定义这个angular程序运行的作用域[m
+[31m-		//$.each(function(){[m
+[31m-		//	[m
+[32m+[m		[32m//$.each(function(){[m[41m	[m
+ 		//})[m
+ 		//jQuery.each(function(){}). jQuery(),$();[m
+ 		var app = angular.module("angularDemo", []);[m
+[36m@@ -48,7 +45,10 @@[m
+ 			//var text1="456";[m
+ 			//document.getElementById("text").innerHTML = text1;[m
+ 			//$scope.text = "这个是student1Ctrl的text";[m
+[31m-			$scope.name = "li";//被ng-model获取道德yao给覆盖[m
+[32m+[m			[32m$scope.name = "";//被ng-model获取道德yao给覆盖[m
+[32m+[m			[32m$scope.$watch('name',function(){[m
+[32m+[m				[32mconsole.log($scope.name);[m
+[32m+[m			[32m})[m
+ //			$scope.func = function(){[m
+ //				alert("124")[m
+ //			}[m
+warning: LF will be replaced by CRLF in 1.html.
+The file will have its original line endings in your working directory.
