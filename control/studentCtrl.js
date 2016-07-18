@@ -13,7 +13,7 @@
 		var app = angular.module("angularDemo", []);
 		//第三部是写一个控制器，控制器方法controller()需要传两个参数，一个是控制器的名字，一个是控制器所要执行的回调方法
 		//$scope,
-		app.controller('studentCtrl', function($scope, $http) {
+		app.controller('studentCtrl', function($scope, $http, $rootScope) {
 			//$http.get(function(){
 			//});
 			//var text, name ,func = function(){alert("124")}; js所在函数的作用域
@@ -24,5 +24,10 @@
 			$scope.name = "";//被ng-model获取道德yao给覆盖
 			$scope.$watch('name',function(){
 				console.log($scope.name);
-			})		
+			})
+			
+			//$rootScope是所有的$scope的老爸，就是所有$scope都是指向同一个$rootScope
+			//$scope只是控制器所在的作用域
+			//$rootScope可以在两个控制器之间传递数据
+			//要用$rootScope的话，就要在回调函数传入$rootScope的服务
 		});
