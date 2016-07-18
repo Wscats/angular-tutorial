@@ -24,16 +24,13 @@
 		//document.getElementById("text").innerHTML = "123";
 		//module的服务其实就是一些我们用到的方法，他可以是对象
 		//用angular对象的module方法来创建名字为angularDemo的ng程序
-
 		//ng===angular
-
 		//第一步:就是要创建一个angular.module("angularDemo",[]);
 		//比如我在<html>标签里面写ng-app我们就会在这一个html标签里面让angular程序生效
 		//又如我们在<body>标签里面写ng-app我们这个angular程序就会在body标签里面生效
 		//第二部:就是在DOM页面里面把名字赋给ng-app属性->ng-app="angularDemo"
 		//上面全部的写法就是为了定义这个angular程序运行的作用域
-		//$.each(function(){
-		//	
+		//$.each(function(){	
 		//})
 		//jQuery.each(function(){}). jQuery(),$();
 		var app = angular.module("angularDemo", []);
@@ -48,7 +45,10 @@
 			//var text1="456";
 			//document.getElementById("text").innerHTML = text1;
 			//$scope.text = "这个是student1Ctrl的text";
-			$scope.name = "li";//被ng-model获取道德yao给覆盖
+			$scope.name = "";//被ng-model获取道德yao给覆盖
+			$scope.$watch('name',function(){
+				console.log($scope.name);
+			})
 //			$scope.func = function(){
 //				alert("124")
 //			}
