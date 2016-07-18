@@ -29,13 +29,26 @@
 		//又如我们在<body>标签里面写ng-app我们这个angular程序就会在body标签里面生效
 		//第二部:就是在DOM页面里面把名字赋给ng-app属性->ng-app="angularDemo"
 		//上面全部的写法就是为了定义这个angular程序运行的作用域
+		//$.each(function(){
+		//	
+		//})
+		//jQuery.each(function(){}). jQuery(),$();
 		var app = angular.module("angularDemo", []);
 		console.log(app);
 		//第三部是写一个控制器，控制器方法controller()需要传两个参数，一个是控制器的名字，一个是控制器所要执行的回调方法
-		//$scope
-		app.controller('studentCtrl', function($scope,$rootscope) {
+		//$scope,
+		app.controller('studentCtrl', function($scope, $http) {
+			$http.get(function(){
+				
+			});
+			//var; 用$scope定义的变量，方法，对象等等都只是在这个函数的范围内，生命周期就是所在的这个function里面
 			$scope.text = "456";
-			$rootScope = "124";
+			$scope.name = "yao";
+			$scope.func = function(){
+				alert("124")
+			}
+			
+			$scope.obj = 
 		});
 		app.controller('student2Ctrl', function($scope) {
 			$scope.text = "123";
