@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
 		<title></title>
 	</head>
-	<script type="text/javascript" src="js/angular.js" ></script>
-	<body>
-		<p>angular学习</p>
+	<script type="text/javascript" src="js/angular.js"></script>
+
+	<body ng-app="angularDemo" ng-controller="studentCtrl">
+		{{text}}
+		<div ng-controller="student2Ctrl">
+			<p>angular学习</p>
+			<p id="text">好好学习</p>
+			<p>{{text}}</p>
+		</div>
 	</body>
 	<script>
 		console.log(angular);
+		document.getElementById("text").innerHTML = "123";
+		//module的服务其实就是一些我们用到的方法，他可以是对象
+		//用angular对象的module方法来创建名字为angularDemo的ng程序
+
+		//ng===angular
+
+		//第一步:就是要创建一个angular.module("angularDemo",[]);
+		//比如我在<html>标签里面写ng-app我们就会在这一个html标签里面让angular程序生效
+		//又如我们在<body>标签里面写ng-app我们这个angular程序就会在body标签里面生效
+		//第二部:就是在DOM页面里面把名字赋给ng-app属性->ng-app="angularDemo"
+		//上面全部的写法就是为了定义这个angular程序运行的作用域
+		var app = angular.module("angularDemo", []);
+		console.log(app);
+		//第三部是写一个控制器，控制器方法controller()需要传两个参数，一个是控制器的名字，一个是控制器所要执行的回调方法
+		//$scope
+		app.controller('studentCtrl', function($scope,$rootscope) {
+			$scope.text = "456";
+			$rootScope = "124";
+		});
+		app.controller('student2Ctrl', function($scope) {
+			$scope.text = "123";
+		});
+		//$scope.name = "123";
 	</script>
+
 </html>
