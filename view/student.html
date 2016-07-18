@@ -15,22 +15,32 @@
 			{{name}}同学很勤奋
 			<input ng-model="name" value="" />
 			<br ng-app="" />
-			<p id="bind" ng-bind="text" ng-model="text"></p>
+			<p class="pStyle" id="bind">4567890</p>
 			<p>{{text}}</p>
 			<p>显示的单词是{{word|uppercase}}</p>
 			<p>显示的金钱{{money|currency:'&'}}</p>
 			<p>显示的时间{{data| date:'yyyy-MM-dd hh:mm:ss EEEE'}}</p>
 			<p>显示的Json格式{{jsonObj|json}}</p>
-			<p onclick="expend()">123</p>
-			<p ng-click="expend()">显示一个数字的长度{{article|limitTo:10}}...</p>
+			<p ng-click="expend()">
+				显示一个数字的长度
+				<span>{{article|limitTo:10}}</span>
+				<span>{{articleExpend}}</span>
+				<span class="{{isexpand?'ng-show':'ng-hide'}}">...</span>
+			</p>
+			<p ng-click="expend()">显示一个数字的长度<span>{{article|limitTo:10}}</span><span>{{articleExpend}}</span><span ng-show="isexpand">...</span></p>
+			<div ng-show="{{isEven(1)}}"><h2>The number is even.</h2></div>
+
+				
 			<!--ng-click onclick -->
 			<!--ng-src src-->
 			<img ng-src="{{imgUrl}}" />
-			<div ng-style="{{style}}">样式456</div>
+			<div ng-style="style">样式456</div>
 			<!--
 				用ng指令是因为，在页面加载的时候，如果我是用了原生的src写法，页面会先加载路径为{{imgUrl}}的图片，
 				但是{{imgUrl}}是错误的，它是属于angular的写法，所以会首先加载一个错误的图片，所以为了解决这个问题
 				我们要在sre前面加一个ng-的前缀，然原生js不认识，不读取，当angular指令触发后再认领执行
+				
+				要从控制器传值到html页面的话就在该加ng的地方加ng，不用传的话，用原生的方法都可以
 			-->
 			<a ng-href="student2.html">跳转到学生页面2</a>
 		</div>
@@ -43,5 +53,10 @@
 		</div>	
 	</div>
 	</body>
+	<style>
+		.pStyle{
+			color: red;
+		}
+	</style>
 	<!--js-->
 </html>

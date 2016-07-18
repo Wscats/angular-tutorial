@@ -38,16 +38,36 @@ app.controller('studentCtrl', function($scope, $rootScope) {
 	$scope.money = 123
 	$scope.data = 1448864369815;
 	console.log($rootScope.change);
-	$scope.jsonObj = {"name":"yao"};
+	$scope.jsonObj = {
+		"name": "yao"
+	};
 	$scope.jsonArr = '{"name":"yao"}';
 	$scope.article = "limitTo过滤器用来截取数组或字符串，接收一个参数用来指定截取的长度。个人觉得这个filter有点鸡肋，首先只能从数组或字符串的开头进行截取，其次，js原生的函数就可以代替它了";
-	$scope.expend = function(){
-		alert("触发了ng-click的事件");
+	//display:none跟display:block
+	//ng-show跟ng-hide
+	//document.getElementById().style.display = ""
+	$scope.isexpand = true
+	$scope.expend = function() {
+		$scope.articleExpend = $scope.article;
+		$scope.article = '';
+		$scope.isexpand = false;
 	}
 	$scope.imgUrl = "../img/3812b31bb051f81972832628ddb44aed2e73e72a.jpg";
-	$scope.style = "border: 1px solid brown;";
+	$scope.style = {
+		'border': '1px solid brown'
+	};
+	
+	$scope.myNumber = 0;
+	$scope.isEven = function(value) {
+		if(value % 2 == 0)
+			return true;
+		else
+			return false;
+	};
+
 });
 app.controller('student2Ctrl', function($scope, $rootScope) {
 	$scope.text = "进入学生的第二个页面";
 	console.log($rootScope.change);
+	$scope.pStyle = "pStyle";
 });
