@@ -12,12 +12,24 @@
 		<div ng-controller="studentCtrl">
 			{{name}}同学很勤奋
 			<input ng-model="name" value="" />
+			<br ng-app="" />
+			<p id="bind" ng-bind="text" ng-model="text"></p>
+			<p>{{text}}</p>
+			<p>显示的单词是{{word|uppercase}}</p>
+			<p>显示的金钱{{money|currency:'&'}}</p>
+			<p>显示的时间{{data| date:'yyyy-MM-dd hh:mm:ss EEEE'}}</p>
+			<p>显示的Json格式{{jsonObj|json}}</p>
+			<p ng-click="expend()">显示一个数字的长度{{article|limitTo:10}}...</p>
+			<a ng-href="student2.html">跳转到学生页面2</a>
+		</div>
+		<div ng-controller="student2Ctrl">
+			{{name}}同学很勤奋
+			<input ng-model="name" value="" />
 			<br />
 			<p>{{text}}</p>
-			<a href="student2.html">跳转到学生页面2</a>
-		</div>		
+			<a ng-href="student2.html">跳转到学生页面2</a>
+		</div>	
 	</div>
 	</body>
-	<script type="text/javascript" src="../control/Acore.js" ></script>
 	<script type="text/javascript" src="../control/studentCtrl.js" ></script>
 </html>
