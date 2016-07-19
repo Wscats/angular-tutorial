@@ -13,7 +13,15 @@
 var app = angular.module("angularDemo", []);
 //第三部是写一个控制器，控制器方法controller()需要传两个参数，一个是控制器的名字，一个是控制器所要执行的回调方法
 //$scope,
-app.controller('studentCtrl', function($scope, $rootScope) {
+//app.controller('studentCtrl', function($scope, $rootScope) {
+app.controller('studentCtrl',['$scope', '$rootScope',function($scope, $rootScope){
+	
+}])
+//$.ajax().each();//链式调用
+//注入服务$scope，function($scope){
+//	$scope.
+//}
+
 	//$http.get(function(){
 	//});
 	//var text, name ,func = function(){alert("124")}; js所在函数的作用域

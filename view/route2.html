@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-app="angularRouteDemo">
+		<section ng-controller="homeCtrl">
+			<p>{{test}}</p>
+		</section>
+	</body>
+	<script>
+		var app = angular.module('angularRouteDemo', []);
+		app.controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
+			$scope.test = "123";
+		}])
+	</script>
+
+</html>
