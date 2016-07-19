@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="data" data-example-demo="456" e='123'></div>
+	</body>
+	<script>
+		//旧的读取和设置方法
+		var data = document.getElementById('data').getAttribute('data-example');
+		var data1 = document.getElementById('data').getAttribute('e');
+		//document.getElementById('data').setAttribute('fuck','love');
+		
+		
+		//新的读取和设置方法
+		//相当于docunment.getElementById
+		//首先要获取这个节点，再去读这个dataset对象，然后用驼峰的方法把(data-)后面的变量读取出来
+		var data2 = document.querySelector('#data').dataset.exampleDemo;
+		//相当于document.getElementsByTagName
+		var data3 = document.querySelectorAll('#data')[0].dataset.exampleDemo;
+		//设置的(data-)值的方法
+		document.querySelector('#data').dataset.exampleDemo = 'love';
+	</script>
+</html>

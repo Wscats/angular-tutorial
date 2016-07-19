@@ -1,0 +1,27 @@
+<!--进入到home1的页面
+<a ng-href="#/detail">利用$rootScope在控制器之间交换数据</a>
+<p>
+	{{studentData}}
+</p>-->
+<!--ng-repeat-->
+<!--stu == studentData[n]-->
+<!--<ul>
+	<li ng-repeat="stu in studentData">第{{stu.id}}同学是：{{stu.name}}</li>
+	<br />
+	<li>第{{studentData[0].id}}同学是：{{studentData[0].name}}</li>
+	<li>第{{studentData[1].id}}同学是：{{studentData[1].name}}</li>
+	<li>第{{studentData[2].id}}同学是：{{studentData[2].name}}</li>
+</ul>-->
+<table class="table table-striped">
+	<tr>
+		<th>序号</th>
+		<th>名字</th>
+		<th>时间</th>
+	</tr>
+	<tr ng-repeat="stu in studentData">
+		<td>{{stu.id}}</td>
+		<td><a ng-href="#/detail/{{stu.id}}">{{stu.name}}</a></td>
+		<td>{{stu.date}}</td>
+	</tr>
+</table>
+<a class="btn btn-primary" ng-href="#/add">新增</a>
