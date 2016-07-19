@@ -5,17 +5,57 @@
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
+	<script type="text/javascript" src="../js/angular.js"></script>
 
 	<body ng-app="angularRouteDemo">
 		<section ng-controller="homeCtrl">
 			<p>{{test}}</p>
+			<p>{{name}}</p>
+			<input ng-model="name" />
+			<button ng-click="submit()">提交</button>
 		</section>
+		<!--<section ng-controller="addCtrl">
+
+		</section>-->
 	</body>
 	<script>
 		var app = angular.module('angularRouteDemo', []);
-		app.controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
-			$scope.test = "123";
-		}])
+		app.controller('homeCtrl', ['$scope', '$http', '$interval', 'intance', function($scope, $http, $interval, intance) {
+				$scope.test = "123";
+				$scope.name = '1';
+				console.log(intance);
+				//			window.setInterval(function(){
+				//				$scope.name = 2;
+				//			},1000);
+//				$interval(function() {
+//					console.log("1");
+//				}, 1000)
+				console.log(intance.name)
+				console.log(intance.addFunc(1,2));
+
+				$scope.submit = function() {
+					$http.get('http://1.wsscatapi.applinzi.com/?format=' + $scope.name).success(function(e) {
+						console.log(e);
+						$scope.name = e;
+					})
+				}
+			}])
+			//		app.controller('addCtrl',['$scope', '$http', 'intance', function($scope, $http, intance){
+			//			console.log(intance);
+			//		}])
+			//		app.factory('intance',function(){
+			//			return {};
+			//		})
+			app.service('intance',[function(){
+				var obj = {};
+				obj.addFunc = function(a,b){
+					return a+b;
+				}
+				//obj.name = 'yao';
+				obj['name'] = 'yao';
+				return obj;
+				//console.log("这是我的服务");
+			}])
 	</script>
 
 </html>
