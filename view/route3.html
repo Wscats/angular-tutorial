@@ -11,8 +11,10 @@
 	</head>
 
 	<body>
+		<header>这里是头部</header>
 		<!--在这里加一个ng-view的指令-->
-		<div ng-view=""></div>
+		<div ng-view="">
+			<!--innerHtml-->
 	</body>
 	<script>
 		var app = angular.module('angularRoute', ['ngRoute']);
@@ -31,27 +33,38 @@
 				}).when('/add', {
 					controller: 'addCtrl',
 					templateUrl: 'add1.html'
+				}).when('/edit/:number', {
+					controller: 'editCtrl',
+					templateUrl: 'edit1.html'
 				})
 			})
 			//路由就是#这个符号加这个字符串/home——>#/home
-		app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+		app.controller('homeCtrl', ['$scope', '$rootScope', 'instance', '$http', function($scope, $rootScope, instance, $http) {
 			//利用$rootScope交换数据
 			$rootScope.exchange = '123';
 			$scope.name = '123';
 			//$http读后台数据回来
 			$scope.studentData = studentData;
+			//instance.name = '123';
+			instance.name = 'yao';
+			console.log(instance);
+			$http.get('http://127.0.0.1/angular/baiduApi.php').success(function(data) {
+				console.log(data)
+			})
 		}])
 
-		app.controller('detailCtrl', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
+		app.controller('detailCtrl', ['$scope', '$rootScope', '$routeParams', 'instance', function($scope, $rootScope, $routeParams, instance) {
 			console.log($routeParams.number);
 			$scope.studentData = studentData[$routeParams.number];
-			$scope.deleteStu = function(){
-				studentData.splice($routeParams.number,1);
-				window.location.href="#/home";
+			$scope.deleteStu = function() {
+				studentData.splice($routeParams.number, 1);
+				window.location.href = "#/home";
 			}
+			console.log(instance.name);
 		}])
 
-		app.controller('addCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+		app.controller('addCtrl', ['$scope', '$rootScope', '$location', 'instance', function($scope, $rootScope, $location, instance) {
+			console.log(instance);
 			$scope.name = '123';
 			//从input输入框拿拿学生名字
 			$scope.insertStuName;
@@ -66,12 +79,31 @@
 				//studentData.push()
 				//插入数据
 				studentData.push(obj);
-				window.location.href="#/home";
+				//window.location.href = "#/home";
+				$location.path('home');
 			}
 		}])
 
 		app.controller('indexCtrl', ['$scope', function($scope) {
 			$scope.name = '123';
+		}])
+
+		app.controller('editCtrl', ['$scope', '$routeParams','$location', function($scope, $routeParams,$location) {
+			$scope.studentData = studentData[$routeParams.number];
+			$scope.edit = studentData[$routeParams.number].content;
+			$scope.submitEdit = function(){
+				studentData[$routeParams.number].content = $scope.edit;
+				//返回我们学生的detail页
+				$location.path('detail/'+$routeParams.number);
+			}
+		}])
+
+		app.service('instance', [function() {
+			var obj = {}
+			obj['add'] = function(a, b) {
+				return a + b;
+			}
+			return obj;
 		}])
 	</script>
 	<!--<script src=""></script>
@@ -83,17 +115,17 @@
 			id: 0,
 			name: '姚同学',
 			date: new Date(),
-			content:'在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。',
+			content: '在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。',
 		}, {
 			id: 1,
 			name: '晨同学',
 			date: new Date(),
-			content:'在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式我们并不推荐所有网站使用，还是要看你自己的情况而定！',
+			content: '在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式我们并不推荐所有网站使用，还是要看你自己的情况而定！',
 		}, {
 			id: 2,
 			name: '李同学',
 			date: new Date(),
-			content:'Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。我们提供了两个作此用处的类。注意，由于 padding 等属性的原因，这两种 容器类不能互相嵌套。',
+			content: 'Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。我们提供了两个作此用处的类。注意，由于 padding 等属性的原因，这两种 容器类不能互相嵌套。',
 		}]
 	</script>
 
