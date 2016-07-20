@@ -48,9 +48,9 @@
 			//instance.name = '123';
 			instance.name = 'yao';
 			console.log(instance);
-			$http.get('http://127.0.0.1/angular/baiduApi.php').success(function(data) {
-				console.log(data)
-			})
+//			$http.get('http://127.0.0.1/angular/json.txt').success(function(data) {
+//				console.log(data)
+//			})
 		}])
 
 		app.controller('detailCtrl', ['$scope', '$rootScope', '$routeParams', 'instance', function($scope, $rootScope, $routeParams, instance) {
@@ -104,6 +104,15 @@
 				return a + b;
 			}
 			return obj;
+		}])
+		
+		//尽量定义directdemo不要用大写字母
+		app.directive('directdemo',[function(){
+			return {
+				restrict:'ACE',//EAMC,
+				//template:'<div>456</div>'
+				templateUrl:'directdemo.html'
+			}
 		}])
 	</script>
 	<!--<script src=""></script>
