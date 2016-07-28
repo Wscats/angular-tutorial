@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="MyModule">
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<script type="text/javascript" src="../js/angular.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="MyCtrl">
+			Ctrl:
+			<br>
+			<input type="text" ng-model="pureWater">
+			<br> Directive:
+			<br>
+			<drink water="pureWater" drink-water="pureWater"></drink>
+		</div>
+	</body>
+	<script>
+		var myModule = angular.module("MyModule", []);
+		myModule.controller('MyCtrl', ['$scope', function($scope) {
+			$scope.pureWater = "纯净水";
+		}])
+		myModule.directive("drink", function() {
+			return {
+				restrict: 'AE',
+				scope: {
+					water: '=',
+					water2: '=drinkWater'
+				},
+				template: '<input type="text" ng-model="water"/>',
+				link: function(scope, element, attrs) {
+					console.log(scope);
+					scope.$watch('water', function() {
+						console.log(scope.water)
+					})
+				}
+			}
+		});
+	</script>
+
+</html>

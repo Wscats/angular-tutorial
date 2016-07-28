@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="directive">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<!--如果有jQuery,使用jQuery，如果没有的话，使用我们angular自己封装的jQlite-->
+	<!--<script type="text/javascript" src="../js/jquery.js" ></script>-->
+
+	<body>
+		<!--<div expend="123" expend-type="456" expend-data="456" expend-ctrl="number"></div>-->
+		<!--<div expend></div>
+		<expend></expend>-->
+		<expend></expend>
+		<expend2></expend2>
+		<!--以前的方式来写这个组件-->
+		<div ng-controller="directiveCtrl">
+			<!--<div class="title" ng-click="toggle()">{{title}}</div>
+			<div class="body" ng-show="showMe">这是内容</div>-->
+			<!--<div expend></div>-->
+			<div id="text1">987654321</div>
+			<!--<div expend="123" expend-type="456" expend-data="456" expend-ctrl="number"></div>-->
+		</div>
+		<div id="text">123456789</div>
+		<!--<div ng-controller="directive2Ctrl">
+			<div class="title" ng-click="toggle()">{{title}}</div>
+			<div class="body" ng-show="showMe">这是内容</div>
+		</div>-->
+	</body>
+	<script>
+		var app = angular.module('directive', []);
+		app.directive('expend', [function() {
+			return {
+				restrict: 'EA', //标签和属性的写法激活此组件
+				replace: true,
+				transclude: true,
+				scope: {
+					text: '=expendData',
+					text1: '=expend',
+					expend: '=expendCtrl'
+					//text2: '=expendType'
+				},
+				//$scope.text = expendData;
+				template: "<script type='text/javascript' src='../js/jquery.js' />",
+//				template:			'<div>' +
+//									"<div id='text'>这是ID<div>" +
+//									'<div class="title" ng-click="toggle()">{{title}}</div>' +
+//									'<div class="body" ng-show="showMe" ng-transclude></div>' +
+//									'</div>',
+				link: function(scope, element, attrs) {
+						//console.log(attrs.expendCtrl)
+						//console.log(window.jQuery);
+						//jQlite ===jQuery === $
+						//$
+						//angular.element('') === $
+						console.log(angular);
+						//console.log(angular.element('#text').html());
+						//console.log($('#text').html());
+						//sizze
+						//var a = document.getElementById('text');
+						//var a = document.querySelector('#text')
+						var b = angular.element(document.querySelector('#text')).addClass('textClass').css('background','red');
+						console.log(b)
+						if(scope.text){};
+						console.log(scope);
+						scope.title = "我们的第一个组件";
+						scope.showMe = true;
+						scope.toggle = function() {
+						scope.showMe = !scope.showMe;
+						//console.log(angular.element('div'));
+					}
+				}
+			}
+		}])
+		app.controller('directiveCtrl', ['$scope', function($scope) {
+			$scope.title = "我们的第一个组件";
+			$scope.number = 123;
+			$scope.showMe = true;
+			$scope.toggle = function() {
+				$scope.showMe = !$scope.showMe;
+			}
+			//isFunction
+			var obj = {
+				a:'1',
+				name:'yao',
+			};
+			//ng-repeat
+			//isArray
+			var arr = [obj,2,3,'yao'];
+			console.log(angular);
+			angular.extend(obj,{
+				'action':function(){
+					console.log("123");
+				}
+			});
+			angular.uppercase('abc')
+			console.log(angular.uppercase('abc'));
+			//第一个参数是传对象进去，
+			//第二个参数传一个匿名函数
+			angular.forEach(arr,function(data){
+				console.log(data);
+			});
+			
+			//angular.element(document.querySelector('#text1')).addClass('textClass').css('background','blue');
+		}])
+//		app.controller('directive2Ctrl', ['$scope', function($scope) {
+//			$scope.title = "我们的第一个组件";
+//			$scope.showMe = true;
+//			$scope.toggle = function() {
+//				$scope.showMe = !$scope.showMe;
+//			}
+//		}])
+	</script>
+
+</html>

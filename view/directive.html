@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="expanderModule">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+		<script type="text/javascript" src="../js/angular.js"></script>
+		<script type="text/javascript" src="../js/angular-route.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller='SomeController'>
+			<expander class='expander' expander-title='title' expander-text='text' water='{{text}}'>
+				{{text}}
+				<input ng-model="text" />
+			</expander>
+		</div>
+	</body>
+	<script>
+		angular.module('expanderModule', []);
+		var expanderModule = angular.module('expanderModule', [])
+		expanderModule.directive('expander', function() {
+			return {
+				restrict: 'EA',
+				replace: true,
+				transclude: true,
+				scope: {
+					title: '=expanderTitle',
+					text: '=expanderText',
+					water: '@'
+				},
+				template: '<div>' +
+					'<div class="title" ng-click="toggle()">{{title}}</div>' +
+					'<div class="body" ng-show="showMe" ng-transclude></div>' +
+					'</div>',
+				link: function(scope, element, attrs) {
+					console.log(scope);
+					scope.showMe = false;
+					scope.toggle = function toggle() {
+						scope.showMe = !scope.showMe;
+					}
+				}
+			}
+		});
+		expanderModule.controller('SomeController', function($scope) {
+			$scope.title = '点击展开';
+			$scope.text = '这里是内部的内容。';
+		});
+	</script>
+	<style>
+		.expander {
+			border: 1px solid black;
+			width: 250px;
+		}
+		
+		.expander>.title {
+			background-color: black;
+			color: white;
+			padding: .1em .3em;
+			cursor: pointer;
+		}
+		
+		.expander>.body {
+			padding: .1em .3em;
+		}
+	</style>
+
+</html>
