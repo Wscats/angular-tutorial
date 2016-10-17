@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-controller="indexCtrl">
+		{{name}}
+	</body>
+    <script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope, $http) {
+			$scope.name = 'wsscat'
+			$http.jsonp('http://1.wsscatwsscat.applinzi.com/turing.php', {
+				params: {
+					callback: 'JSON_CALLBACK',
+					abc:'先有鸡还是先有蛋'
+				}
+			}).success(function(data) {
+				console.log(data)
+			})
+		})
+	</script>
+
+</html>
