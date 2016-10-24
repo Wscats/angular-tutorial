@@ -6,6 +6,63 @@
 	</head>
 	<script src="js/angular.js"></script>
 	<!--<script src="jquery.js"></script>-->
+	<template id="template.html">
+		<p>{{name}}</p>
+		<div id="wrapper">
+		<div id="banner">
+		<ul class="imgList">
+			<li>
+				<a href=""><img ng-src="{{imgArr[0]}}" alt="1" /></a>
+			</li>
+			<li>
+				<a href=""><img ng-src="{{imgArr[0]}}" alt="2" /></a>
+			</li>
+			<li>
+				<a href=""><img ng-src="{{imgArr[0]}}" alt="3" /></a>
+			</li>
+			<li>
+				<a href=""><img ng-src="{{imgArr[0]}}" alt="4" /></a>
+			</li>
+			<li>
+				<a href=""><img ng-src="{{imgArr[0]}}" alt="5" /></a>
+			</li>
+		</ul>
+	</div>
+</div>
+<style>
+	#wrapper {
+		position: relative;
+		margin: 30px auto;
+		width: 400px;
+		height: 200px
+	}
+	
+	#banner {
+		position: relative;
+		width: 400px;
+		height: 200px;
+		overflow: hidden;
+	}
+	
+	.imgList {
+		position: relative;
+		width: 2000px;
+		height: 200px;
+		z-index: 10;
+		overflow: hidden;
+		transition: left 2.5s;
+	}
+	
+	.imgList li {
+		float: left;
+		display: inline;
+	}
+	
+	img {
+		width: 400px;
+	}
+</style>
+	</template>
 	<script>
 		var app = angular.module('wsscat', []);
 		app.controller('indexCtrl', function($scope) {
@@ -20,7 +77,7 @@
 		})
 		app.directive('swipe', function($interval) {
 			return {
-				templateUrl: 'directive/template.html',
+				templateUrl: 'template.html',
 				//template: "<div>123</div>",
 				//定义directive的作用域
 				//scope:false;
