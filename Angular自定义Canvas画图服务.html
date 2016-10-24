@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		canvas {
+			width: 100%;
+			height: 200px;
+		}
+	</style>
+
+	<body>
+		<article ng-controller="indexCtrl">
+		</article>
+		<article ng-controller="homeCtrl">
+		</article>
+		<p>此DEMO的随机数是JS模拟的，PHP模拟接受后端的动态数据在此页面源码注释部分</p>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope, $document, $http, $interval, hh) {
+			var cans = hh.m('indexCtrl', {
+				color: "blue",
+				default:{
+					x:0,
+					y:0
+				}
+			})
+			console.log(cans)
+			var offset = 5
+			$interval(function() {
+				/*$http.jsonp('shuffle.php', {
+					params: {
+						callback: "JSON_CALLBACK"
+					}
+				}).success(function(data) {
+					console.log(data);
+					cans.lineTo(offset, data);
+					cans.stroke();
+					offset += 5;
+				})*/
+				cans.lineTo(offset, parseInt(Math.random()*50+0));
+				cans.stroke();
+				offset += 5;
+			}, 1000)
+
+		})
+		app.controller('homeCtrl', function($scope, $document, $http, $interval, hh) {
+			var cans = hh.m('homeCtrl', {
+				color: "yellow",
+				default:{
+					x:0,
+					y:0
+				}
+			})
+			console.log(cans)
+			var offset = 5
+			$interval(function() {
+				//用php模拟接受后台返回的动态随机数
+				/*$http.jsonp('shuffle.php', {
+					params: {
+						callback: "JSON_CALLBACK"
+					}
+				}).success(function(data) {
+					console.log(data);
+					cans.lineTo(offset, data);
+					cans.stroke();
+					offset += 5;
+				})*/
+				//用js模拟随机数
+				/*
+				 *  随机生成指定的数据范围的随机数
+					从1开始 至 任意值
+					parseInt(Math.random()*上限+1);
+					从任意值开始至任意值
+					parseInt(Math.random()*(上限-下限+1)+下限);
+				*/
+				cans.lineTo(offset, parseInt(Math.random()*50+0));
+				cans.stroke();
+				offset += 5;
+			}, 1000)
+		})
+		app.service('hh', function($document) {
+			return {
+				m: function(Ctrl, style) {
+					var can = this.e(Ctrl);
+					var cans = can.getContext('2d');
+					cans.moveTo(style.default.x, style.default.y);
+					cans.strokeStyle = style.color;
+					cans.lineWidth = 1;
+					return cans
+				},
+				//生成一个canvas标签，并插入到对应的控制器
+				e: function(Ctrl) {
+					var can = $document[0].querySelector('[ng-controller=' + Ctrl + ']');
+					//创建一个canvas的标签
+					var canvas = $document[0].createElement('canvas');
+					//并且把这个标签插入到对应的控制器DOM结构里面
+					can.appendChild(canvas);
+					canvas.id = Ctrl + 'Canvas';
+					return canvas;
+				}
+			}
+		})
+	</script>
+	<!--
+		<?php
+			$arr = range(1,50);
+			shuffle($arr);
+			echo $_GET['callback']."(".$arr[0].")";
+		?>
+	-->
+</html>
