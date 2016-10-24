@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wsscat {
+			color: red;
+		}
+		.red{
+			color: red;
+		}
+		.code{
+			color: brown;
+		}
+	</style>
+
+	<body>
+		<div ng-controller="indexCtrl" ng-init="kk='hello'">
+			<p class="red">表达式</p>
+			<p class="red">1.ng-init定义值</p>
+			{{kk}}
+			
+			<p class="red">2.ng-bind输出非html格式</p>
+			<div ng-bind="kk"></div>
+			
+			<p class="red">3.ng-bind-html输出html格式,配合$sce服务</p>
+			<div ng-bind-html="html"></div>
+			
+			<p class="red">4.表达式中的三元操作符</p>
+			<div id="{{name}}" class="{{bool?'wsscat':''}}">{{bool?"1":"2"}}</div>
+			<button ng-click="toggle()">Ok</button>
+			
+			<p class="red">服务</p>
+			<p class="red">1.$sce</p>
+			<p>输出html的前提要用$sce把html结构过滤为安全字符才能输出
+				<code class="code">$scope.html = $sce.trustAsHtml($scope.html)</code>
+			</p>
+			
+			<p class="red">2.$timeout</p>
+			<p>{{timeout}}</p>
+			
+			<p class="red">3.$interval</p>
+			<p>{{interval}}</p>
+			
+			<p class="red">3.$window</p>
+			<p>{{location.href}}</p>
+			
+			<p class="red" id="doc">4.$document</p>
+			<p class="red">$document[0].getElementById("doc").innerHTML输出如下结果</p>
+			<p>{{doc}}</p>
+			
+			<p class="red">5.$http</p>
+			
+			<p class="red">6.$location</p>
+			<p>{{locationSers}}</p>
+			
+			<p class="red">7.自定义服务</p>
+			<p>切换浏览器iPhone和非iPhone模式</p>
+			<p>{{version}}</p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("wsscat", []);
+		app.controller('indexCtrl', function($scope, $sce,$rootScope,browser,$timeout,$interval,$window,$http,$document,$location) {
+			$scope.timeout = 0;
+			$scope.interval = 0;
+			$scope.name = "wsscat";
+			$scope.bool = true;
+			$scope.html = "<p>wsscat</p>";
+			$timeout(function(){
+				$scope.timeout = 1;
+			},1000)
+			$interval(function(){
+				$scope.interval++
+			},1000)
+			$scope.html = $sce.trustAsHtml($scope.html)
+			if($scope.bool) {
+				console.log("true");
+				if($scope.name == "wsscat") {
+					console.log('1')
+				} else {
+					console.log('2')
+				}
+			} else {
+				console.log("false");
+			}
+			$scope.toggle = function() {
+				$scope.bool = !$scope.bool;
+			}
+			$scope.bool ? ($scope.name ? console.log('1') : console.log('2')) : console.log("false");
+			
+			//$window服务
+			$scope.location = $window.location;
+			
+			//$document服务
+			$scope.doc = $document[0].getElementById("doc").innerHTML;
+			$scope.locationSers = $location.$$absUrl;
+			//自定义判断机型服务
+			$scope.version = browser.version()
+			console.log(browser.version())
+		})
+		app.controller('homeCtrl', function($scope,$rootScope,browser) {
+			browser.log()
+			$rootScope.browser = {
+				version: function() {
+					var u = window.navigator.userAgent;
+					if(u.indexOf('iPhone') != -1) {
+						console.log("是iPhone");
+					}else{
+						console.log("不是iPhone");
+					}
+				}
+			}
+			$rootScope.abc = '123';
+		})
+		app.service('browser',function($window){
+			return {
+				version: function() {
+					var u = $window.navigator.userAgent;
+					if(u.indexOf('iPhone') != -1) {
+						console.log("是iPhone");
+						return "是iPhone";
+					}else{
+						console.log("不是iPhone");
+						return "不是iPhone";
+					}
+				},
+				log:function(){
+					console.log('test')
+				}
+			}
+		})
+	</script>
+</html>
