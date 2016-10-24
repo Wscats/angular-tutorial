@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/angular.js"></script>
+	<!--<script src="jquery.js"></script>-->
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = 'wsscat'
+			$scope.abc = 'test'
+			$scope.imgArr = ['img/3812b31bb051f81972832628ddb44aed2e73e72a.jpg']
+		})
+		app.controller('homeCtrl', function($scope) {
+			$scope.name = 'indexCtrl wsscat'
+			$scope.abc = 'test'
+			$scope.imgArr = ['img/3812b31bb051f81972832628ddb44aed2e73e72a.jpg']
+		})
+		app.directive('swipe', function($interval) {
+			return {
+				templateUrl: 'directive/template.html',
+				//template: "<div>123</div>",
+				//定义directive的作用域
+				//scope:false;
+				link: function(scope, elm, attr) {
+					//这两句解决Bug的方法有待改善
+					elm.find('ul').css("transition", "left 2.5s")
+					elm.find('ul').css("left", "-" + 400 + "px")
+					console.log(scope)
+					imgLen = elm.find('li').length
+					var curIndex = 0;
+					//imgLen = $('.imgList li').length;
+					console.log(imgLen);
+					var autoChange = setInterval(function() {
+						console.log(curIndex)
+						if(curIndex < imgLen - 1) {
+							curIndex++;
+						} else {
+							curIndex = 0
+						}
+						//
+						changeTo(curIndex)
+					}, 2500)
+
+					function changeTo(num) {
+						var goLeft = num * 400;
+						/*$(".imgList").animate({
+							left: "-" + goLeft + "px"
+						})*/
+						elm.find('ul').css("transition", "left 2.5s")
+						elm.find('ul').css("left", "-" + goLeft + "px")
+					}
+				}
+			}
+		})
+	</script>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--
+				当我们引入图片的时候，用src属性的时候，浏览器会把会{{imgArr[0]}}当作图片资源来请求
+				所以我们让它src指令改为ng-src，这样浏览器首先在加载的时候不会辨认出ng-src的指令，
+				也就不会去执行，当angular加载完成后，angular会把ng-src的指令认领回来，
+				并渲染正确的图片链接
+			-->
+			<!--<img ng-src="{{imgArr[0]}}" />-->
+			<swipe></swipe>
+		</div>
+		<div ng-controller="homeCtrl">
+			<swipe></swipe>
+			<p>实现的方法用到angular自带的jQlite，当然jQuery的方法也在此页的源代码注释中</p>
+		</div>
+	</body>
+</html>
