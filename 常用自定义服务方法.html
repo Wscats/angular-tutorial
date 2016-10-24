@@ -1,0 +1,72 @@
+```
+app.config(['$provide', function($provide) {
+			//$('p').addClass("wsscat");
+			angular.element(document.querySelector('p')).addClass("wsscat").css('backgroundColor','yellow');
+			$provide.service('Math3', function() {
+				this.addd = function(a, b) {
+					return a + b;
+				};
+				this.multipyy = function(a, b) {
+					return a * b
+				}
+			})
+			$provide.factory('Math4', function() {
+				var obj = {
+					add4(a, b) {
+						return a + b;
+					},
+					multipy4(a, b) {
+						return a * b
+					}
+				}
+				return obj;
+			})
+		}])
+app.factory('Math', function() {
+		var obj = {
+			add: function(a, b) {
+				return a + b;
+			},
+			multipy: function(a, b) {
+				return a * b
+			},
+			num:1,
+			str:"abc"
+		}
+		return obj;
+	})
+//service其实一个构造器，但我们注入这个服务的时候，就会自动帮我们new，创建这个对象
+app.service('Math2', function() {
+	this.add = function(a, b) {
+		return a + b;
+	};
+	this.multipy = function(a, b) {
+		return a * b
+	};
+	this.num=1;
+	this.str="abc";
+})
+//constant定义常量
+app.constant('consta','wsscat is cat')
+
+//定义函数，字符串，数字等等，可更改值
+app.value('name',{
+			add: function(a, b) {
+				return a + b;
+			},
+			multipy: function(a, b) {
+				return a * b
+			},
+			num:1,
+			str:"abc"
+		})
+app.service('change',()=>{
+	return {
+		text(){
+			return "wsscat"
+		},
+		number:1
+	}
+})
+
+```
