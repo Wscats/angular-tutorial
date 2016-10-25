@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/angular.js"></script>
+
+	<body>
+		<article ng-controller="indexCtrl" style="border: 1px solid black; padding: 5px;">
+			<p>indexCtrl</p>
+			<p>{{name}}</p>
+			<article ng-controller="homeCtrl" style="border: 1px solid yellow; margin: 5px;">
+				<p>homeCtrl</p>
+				<input ng-change="changeName()" ng-model="name" />
+			</article>
+			<article ng-controller="homeBotherCtrl" style="border: 1px solid blue; margin: 5px;">
+				<p>homeBotherCtrl</p>
+				<input ng-change="changeName2()" ng-model="name" />
+				
+				<article ng-controller="homeChildCtrl" style="border: 1px solid blue; margin: 5px;">
+					<p>homeBotherCtrl</p>
+					<input ng-change="changeName3()" ng-model="name" />
+				</article>
+			</article>
+		</article>
+	</body>
+	<script>
+		var app = angular.module('wsscat', [])
+			//父
+		app.controller('indexCtrl', function($scope) {
+				//父接受子
+				$scope.$on('to-parent', function(e, data) {
+					$scope.name = data;
+				})
+			})
+			//子
+			.controller('homeCtrl', function($scope, $rootScope) {
+				$scope.changeName = function() {
+						//子传父
+						$scope.$emit('to-parent', $scope.name);
+					}
+					//兄弟互传 这个比较特殊 要用到$rootScope 兄弟间接受信息
+				$rootScope.$on('to-parent2', function(e, data) {
+					$scope.name = data;
+				})
+			})
+			.controller('homeBotherCtrl', function($scope, $rootScope) {
+				$scope.changeName2 = function() {
+					//子传父
+					$scope.$emit('to-parent2', $scope.name);
+					//父传子
+					$scope.$broadcast('to-child', $scope.name);
+				}
+			})
+			.controller('homeChildCtrl', function($scope, $rootScope) {
+				//子传父
+				$scope.changeName3 = function() {
+					$scope.$on('to-child', $scope.name);
+				}
+			})
+	</script>
+
+</html>
