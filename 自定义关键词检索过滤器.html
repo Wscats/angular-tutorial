@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--{{name|wsscat:'abc'}}-->
+			<p>{{name}}自定义关键词检索过滤器</p> 
+			<!--{{price}}-->
+			<!--{{price|currency:'￥'}}-->
+			<input ng-model="red" ng-keyup="makeRed()" />
+			<div ng-bind-html="htmlSced"></div>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		console.log(app);
+		app.controller('indexCtrl', function($scope, $filter, $sce) {
+			//过滤器可以已一个服务的形式注入到控制器中使用
+			$scope.name = 'wsscat'
+				//$filter第一个括号接受一个过滤器的名字，
+				//第二个括号的第一个参数接受需要处理的值
+			$scope.price = 123;
+			$scope.price = $filter("currency")($scope.price, '￥');
+			var html = "<p>123456789</p>";
+			//把html的格式安全处理，并配合ng-bind-html渲染到视图
+			$scope.htmlSced = $sce.trustAsHtml(html);
+			$scope.makeRed = function() {
+					$scope.html = $filter("wsscat")(html, $scope.red);
+					$scope.htmlSced = $sce.trustAsHtml($scope.html);
+					if(!$scope.htmlSced) {
+						$scope.htmlSced = $sce.trustAsHtml(html);
+					}
+			}
+				//console.log($scope.html)
+				//<p>1<span style="color:red">2</span>3456789</p>
+		})
+		//app.service()//返回对象
+		//app.directive//返回对象
+		//<!--{{name|wsscat:'abc'}}-->
+		app.filter("wsscat", [function() {
+				//自定义过滤器返回的是一个函数，函数接受两个参数，第一个是需要处理的值，第二个就是过滤器接受的参数
+				var func = function(input, value) {
+					if(value) {
+						console.log("需要处理的值" + input);
+						console.log("过滤器接受的参数" + value);
+						//return input+"我已经处理了这个数据";
+						var str = input.split(value);
+						console.log(str);
+						var addRed = '<span style="color:red">' + value + '</span>';
+						//var stred = str[0]+addRed+str[1];
+						var output = str.join(addRed)
+						console.log(output)
+						return output;
+					}
+				}
+				return func
+			}])
+			//app.service
+			//app.directive
+			//app.controller
+	</script>
+
+</html>
