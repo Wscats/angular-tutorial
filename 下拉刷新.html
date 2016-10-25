@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#fixed {
+			height: 500px;
+			overflow: auto;
+		}
+	</style>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<body ng-controller="indexCtrl">
+		<!--组件就是一个指令 传递函数-->
+		<div id="fixed" ng-scroll="loadMore()" ng-click="loadMore()"></div>
+	</body>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.items = ['wsscat'];
+			var i = 0;
+			for(; i <= 100; i++) {
+				$scope.items.push(Math.random() * 10)
+			}
+			console.log($scope.items);
+			$scope.loadMore = function() {
+				var j = 0;
+				for(; j <= 10; j++) {
+					$scope.items.push(Math.random() * 10)
+				}
+			}
+		})
+		app.directive('ngScroll', function() {
+			return {
+				template:'<ul><li ng-repeat="item in items">{{item}}</li></ul>',
+				link: function(scope, ele, attr) {
+					ele.bind('scroll', function() {
+						if(ele[0].scrollTop + ele[0].offsetHeight >= ele[0].scrollHeight) {
+							console.log("已经到最底");
+							scope.$apply(attr.ngScroll);
+						}
+						//console.log(ele[0].scrollHeight);//1868
+						//console.log(ele[0].scrollTop);   //变化
+						//console.log(ele[0].offsetHeight);//600
+						//手动刷新
+						//scope.$apply(attr.whenscrolled);
+					})
+					scope.$apply;
+				}
+			}
+		})
+	</script>
+</html>
