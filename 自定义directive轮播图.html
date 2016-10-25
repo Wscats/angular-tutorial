@@ -9,59 +9,59 @@
 	<template id="template.html">
 		<p>{{name}}</p>
 		<div id="wrapper">
-		<div id="banner">
-		<ul class="imgList">
-			<li>
-				<a href=""><img ng-src="{{imgArr[0]}}" alt="1" /></a>
-			</li>
-			<li>
-				<a href=""><img ng-src="{{imgArr[0]}}" alt="2" /></a>
-			</li>
-			<li>
-				<a href=""><img ng-src="{{imgArr[0]}}" alt="3" /></a>
-			</li>
-			<li>
-				<a href=""><img ng-src="{{imgArr[0]}}" alt="4" /></a>
-			</li>
-			<li>
-				<a href=""><img ng-src="{{imgArr[0]}}" alt="5" /></a>
-			</li>
-		</ul>
-	</div>
-</div>
-<style>
-	#wrapper {
-		position: relative;
-		margin: 30px auto;
-		width: 400px;
-		height: 200px
-	}
-	
-	#banner {
-		position: relative;
-		width: 400px;
-		height: 200px;
-		overflow: hidden;
-	}
-	
-	.imgList {
-		position: relative;
-		width: 2000px;
-		height: 200px;
-		z-index: 10;
-		overflow: hidden;
-		transition: left 2.5s;
-	}
-	
-	.imgList li {
-		float: left;
-		display: inline;
-	}
-	
-	img {
-		width: 400px;
-	}
-</style>
+			<div id="banner">
+				<ul class="imgList">
+					<li>
+						<a href=""><img ng-src="{{imgArr[0]}}" alt="1" /></a>
+					</li>
+					<li>
+						<a href=""><img ng-src="{{imgArr[0]}}" alt="2" /></a>
+					</li>
+					<li>
+						<a href=""><img ng-src="{{imgArr[0]}}" alt="3" /></a>
+					</li>
+					<li>
+						<a href=""><img ng-src="{{imgArr[0]}}" alt="4" /></a>
+					</li>
+					<li>
+						<a href=""><img ng-src="{{imgArr[0]}}" alt="5" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<style>
+			#wrapper {
+				position: relative;
+				margin: 30px auto;
+				width: 400px;
+				height: 200px
+			}
+			
+			#banner {
+				position: relative;
+				width: 400px;
+				height: 200px;
+				overflow: hidden;
+			}
+			
+			.imgList {
+				position: relative;
+				width: 2000px;
+				height: 200px;
+				z-index: 10;
+				overflow: hidden;
+				transition: left 2.5s;
+			}
+			
+			.imgList li {
+				float: left;
+				display: inline;
+			}
+			
+			img {
+				width: 400px;
+			}
+		</style>
 	</template>
 	<script>
 		var app = angular.module('wsscat', []);
@@ -77,8 +77,29 @@
 		})
 		app.directive('swipe', function($interval) {
 			return {
-				templateUrl: 'template.html',
+				//templateUrl: 'template.html',
 				//template: "<div>123</div>",
+				template: '<div id="wrapper">' +
+					'<div id="banner">' +
+					'<ul class="imgList">' +
+					'<li>' +
+					'<a href=""><img ng-src="{{imgArr[0]}}" alt="1" /></a>' +
+					'</li>' +
+					'<li>' +
+					'<a href=""><img ng-src="{{imgArr[0]}}" alt="2" /></a>' +
+					'</li>' +
+					'<li>' +
+					'<a href=""><img ng-src="{{imgArr[0]}}" alt="3" /></a>' +
+					'</li>' +
+					'<li>' +
+					'<a href=""><img ng-src="{{imgArr[0]}}" alt="4" /></a>' +
+					'</li>' +
+					'<li>' +
+					'<a href=""><img ng-src="{{imgArr[0]}}" alt="5" /></a>' +
+					'</li>' +
+					'</ul>' +
+					'</div>' +
+					'</div>',
 				//定义directive的作用域
 				//scope:false;
 				link: function(scope, elm, attr) {
@@ -127,7 +148,42 @@
 		</div>
 		<div ng-controller="homeCtrl">
 			<swipe></swipe>
-			<p>实现的方法用到angular自带的jQlite，当然jQuery的方法也在此页的源代码注释中</p>
+			<p>实现的方法用到angular自带的jQlite，当然jQuery的方法也在此页的源代码注释中,模板也单独写在template标签里面，如果需要可以把它放在外面的html文件中，然后用templateUrl引入进来</p>
 		</div>
 	</body>
+
+	<style>
+		#wrapper {
+			position: relative;
+			margin: 30px auto;
+			width: 400px;
+			height: 200px
+		}
+		
+		#banner {
+			position: relative;
+			width: 400px;
+			height: 200px;
+			overflow: hidden;
+		}
+		
+		.imgList {
+			position: relative;
+			width: 2000px;
+			height: 200px;
+			z-index: 10;
+			overflow: hidden;
+			transition: left 2.5s;
+		}
+		
+		.imgList li {
+			float: left;
+			display: inline;
+		}
+		
+		img {
+			width: 400px;
+		}
+	</style>
+
 </html>
