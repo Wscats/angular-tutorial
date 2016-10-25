@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			{{name}}
+			<p>把地址写死在src中是可行的</p>
+			<iframe src="https://www.baidu.com"></iframe>
+		</div>
+		<div ng-controller="index2Ctrl">
+			{{name}}
+			<p>经过$sce服务处理渲染出来的地址也是显示的</p>
+			<iframe ng-src="{{myurl}}"></iframe>
+		</div>
+		<div ng-controller="index3Ctrl">
+			{{name}}
+			<p>没经过$sce服务处理渲染出来的地址是不可显示的</p>
+			<iframe ng-src="{{myurl}}"></iframe>
+		</div>
+	</body>
+	<style>
+		iframe {
+			/*border: none;*/
+			width: 100%;
+			height: 100%;
+		}
+		
+		p {
+			color: red;
+		}
+	</style>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = '第一个控制器的iframe';
+		})
+		app.controller('index2Ctrl', function($scope, $sce) {
+			$scope.name = '第二个控制器的iframe';
+			var url = 'https://www.baidu.com';
+			$scope.myurl = $sce.trustAsResourceUrl(url);
+		})
+		app.controller('index3Ctrl', function($scope) {
+			$scope.name = '第二个控制器的iframe';
+			var url = 'https://www.baidu.com';
+			$scope.myurl = url;
+		})
+	</script>
+
+</html>
