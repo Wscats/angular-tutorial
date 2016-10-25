@@ -33,4 +33,7 @@
 [Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)
 
 
+[Angular自定义关键词检索过滤器](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)
+
+
 [百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)
