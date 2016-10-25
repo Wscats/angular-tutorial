@@ -30,4 +30,7 @@
 [Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)
 
 
+[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)
+
+
 [百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)
