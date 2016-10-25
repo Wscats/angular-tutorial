@@ -19,3 +19,6 @@
 
 
 [Angular自定义轮播图组件](https://wscats.github.io/angular-demo/自定义directive轮播图.html)
+
+
+[Angular自定义下拉刷新组件](https://wscats.github.io/angular-demo/下拉刷新.html)
