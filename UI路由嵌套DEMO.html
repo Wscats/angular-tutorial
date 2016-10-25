@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<a ng-href="#/index/aindex">index</a>
+		<a ng-href="#/home/4/yao">home</a>
+		<div ui-view></div>
+	</body>
+	<!--ui route基于angular的模块，记得先引入angular，后引入angular-ui-route-->
+	<script src="js/angular.js"></script>
+	<script src="js/angular-ui-router.js"></script>
+	<script>
+		var app = angular.module('wsscat', ['ui.router']);
+		//$routeProvider.when
+		app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+			//when('/index') #/index
+			$stateProvider.state('index', {
+					//路由
+					url: '/index',
+					//模板
+					//templateUrl: 'views/index.html',
+					template: '<p>进入indexCtrl</p>' +
+						'<p>{{name}}</p>' +
+						'<a ng-href="#/index/aindex">aindex</a>' +
+						'<a ng-href="#/index/bindex">bindex</a>' +
+						'<div ui-view name="first"></div>' +
+						'<a ng-href="#/index/cindex">aindex</a>' +
+						'<a ng-href="#/index/dindex">bindex</a>' +
+						'<div ui-view name="second"></div>',
+					//控制器
+					controller: 'indexCtrl',
+				})
+				//在index下嵌套一个路由,就在index后面.一个路由的名字
+				.state('index.a', {
+					url: '/aindex',
+					//如果一个页面有两个ui-view的时候，我这里就要添加多多一个views的属性
+					//views的属性传一个对象，第一个对象属性名就是对应ui-view name属性名
+					views: {
+						"first": {
+							//templateUrl: 'views/aIndex.html',
+							template: '<p>这是indexCtrl路由中嵌套的第一个子路由</p>',
+							controller: 'aIndexCtrl'
+						}
+					}
+				})
+				.state('index.b', {
+					url: '/bindex',
+					views: {
+						"first": {
+							//templateUrl: 'views/bIndex.html',
+							template: '<p>这是indexCtrl路由中嵌套的第二个子路由</p>',
+							controller: 'bIndexCtrl'
+						}
+					}
+				})
+				.state('index.c', {
+					url: '/cindex',
+					views: {
+						"second": {
+							//templateUrl: 'views/cIndex.html',
+							template: '<p>这是indexCtrl路由中嵌套的第三个子路由</p>',
+							controller: 'cIndexCtrl'
+						}
+					}
+				})
+				.state('index.d', {
+					url: '/dindex',
+					views: {
+						"second": {
+							//templateUrl: 'views/dIndex.html',
+							template: '<p>这是indexCtrl路由中嵌套的第四个子路由</p>',
+							controller: 'dIndexCtrl'
+						}
+					}
+				})
+				.state('home', {
+					//路由
+					url: '/home/:id/:name',
+					//模板
+					//templateUrl: 'views/home.html',
+					template: '<p>进入homeCtrl</p><p>{{name}}</p>',
+					//控制器
+					controller: 'homeCtrl',
+				})
+				//如果路由为空的话，跳转到/index路由
+			$urlRouterProvider.when('', '/index/aindex');
+		}])
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = 'wsscat';
+		})
+		app.controller('homeCtrl', function($scope, $state) {
+			$scope.name = 'tacssw';
+			console.log($state)
+		})
+		app.controller('aIndexCtrl', function($scope) {
+			$scope.name = 'a';
+		})
+		app.controller('bIndexCtrl', function($scope) {
+			$scope.name = 'b';
+		})
+		app.controller('cIndexCtrl', function($scope) {
+			$scope.name = 'c';
+		})
+		app.controller('dIndexCtrl', function($scope) {
+			$scope.name = 'd';
+		})
+	</script>
+
+</html>
