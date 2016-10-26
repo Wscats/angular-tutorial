@@ -6,7 +6,8 @@
 [查看单页面应用代码](https://github.com/Wscats/angular-demo/tree/yao_angular_route)
 
 
-[Angular三级联动](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)
+[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)
+[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)
 
 
 [Angular自定义服务的常用方法](https://github.com/Wscats/angular-demo/blob/gh-pages/%E5%B8%B8%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1%E6%96%B9%E6%B3%95.md)
