@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+
+	<head>
+		<title>原生jsonp例子</title>
+		<!--使用了CDN请求jQ-->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			function CallJSONPServer(url) {
+				//调用JSONP服务器，url为请求服务器地址
+				var oldScript = document.getElementById(url);
+				//如果页面中注册了调用的服务器，则重新调用
+				if(oldScript) {
+					oldScript.setAttribute("src", url);
+					return;
+				}
+				var script = document.createElement("script");
+				//如果未注册该服务器，则注册并请求
+				script.setAttribute("type", "text/javascript");
+				script.setAttribute("src", url);
+				script.setAttribute("id", url);
+				document.body.appendChild(script);
+			}
+
+			//执行带有数据的函数
+			function JSON_CALLBACK(data) {
+				console.log(data);
+				var $ul = $("<ul></ul>");
+				$.each(data, function(i, v) {
+					console.log(i);
+					console.log(v);
+					$("<li/>").text(v["id"] + " " + v["name"]).appendTo($ul)
+				});
+				$("#remote").append($ul);
+			}
+
+			function jqueryJsonp() {
+				$.ajax({
+					url: 'jsonp.js',
+					type: 'get',
+					dataType: 'jsonp',
+					jsonp: 'JSON_CALLBACK',
+					jsonpCallback: 'JSON_CALLBACK',
+					success: function(data) {
+						$.each(data, function(i, d) {
+							//记得隐藏第一个li
+							$('#ul2>li:first').css('display', 'block');
+							$('#ul2>li:first').clone().text(d.name).appendTo('#ul2');
+						})
+						$('#ul2>li:first').css('display', 'none');
+					}
+				})
+			}
+
+			function jqueryJsonp2() {
+				$.ajax({
+					url: 'jsonp.js',
+					type: 'get',
+					dataType: 'jsonp',
+					//jsonp:'JSON_CALLBACK',
+					jsonpCallback: 'JSON_CALLBACK',
+					success: function(data) {
+						console.log(data)
+						var str = "";
+						for(var i = 0; i < 2; i++) {
+							str = str + "<li onclick='wsscat(this)' id='wsscat-" + data[i].id + "'>" + data[i].name + "</li>";
+						}
+						$('#ul').html(str)
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<p>1.$.each配合text()方法动态加载</p>
+		<input type="button" value="获取远程数据" onclick="CallJSONPServer('jsonp.js')" />
+		<div id="remote"></div>
+
+		<p>2.$.each配合clone()和text()方法动态加载，先写好第一个li然后进行拷贝</p>
+		<input type="button" value="获取远程数据" onclick="jqueryJsonp()" />
+		<ul id="ul2">
+			<li id="li" style="display: none;"></li>
+		</ul>
+		
+		<p>3.for配合html()和字符串拼接动态加载，先写好第一个li然后进行拷贝</p>
+		<input type="button" value="获取远程数据" onclick="jqueryJsonp2()" />
+		<ul id="ul"></ul>
+	</body>
+
+</html>
