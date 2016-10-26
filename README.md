@@ -41,3 +41,6 @@
 
 
 [sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)
+
+
+[jquery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)
