@@ -37,7 +37,7 @@
 
 			function jqueryJsonp() {
 				$.ajax({
-					url: 'jsonp.js',
+					url: 'js/jsonp.js',
 					type: 'get',
 					dataType: 'jsonp',
 					jsonp: 'JSON_CALLBACK',
@@ -55,7 +55,7 @@
 
 			function jqueryJsonp2() {
 				$.ajax({
-					url: 'jsonp.js',
+					url: 'js/jsonp.js',
 					type: 'get',
 					dataType: 'jsonp',
 					//jsonp:'JSON_CALLBACK',
@@ -75,7 +75,7 @@
 
 	<body>
 		<p>1.$.each配合text()方法动态加载</p>
-		<input type="button" value="获取远程数据" onclick="CallJSONPServer('jsonp.js')" />
+		<input type="button" value="获取远程数据" onclick="CallJSONPServer('js/jsonp.js')" />
 		<div id="remote"></div>
 
 		<p>2.$.each配合clone()和text()方法动态加载，先写好第一个li然后进行拷贝</p>
