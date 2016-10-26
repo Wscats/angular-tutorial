@@ -38,3 +38,6 @@
 
 
 [百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)
+
+
+[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)
