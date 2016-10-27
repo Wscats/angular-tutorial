@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.wsscat{
+			transition: all 1.5s linear;
+		}
+		.wsscat.ng-enter{
+			opacity: 0;
+		}
+		.wsscat.ng-enter.ng-enter-active{
+			opacity: 1;
+		}
+		.wsscat.ng-leave{
+			opacity: 1;
+		}
+		.wsscat.ng-leave.ng-leave-active{
+			opacity: 0;
+		}
+		/*.pop.ng-enter{
+			animation: popIn 1.5s ease;
+		}
+		
+		@keyframes popIn{
+			from{
+				opacity: 0;
+			}
+			to{
+				opacity: 1;
+			}
+		}*/
+	</style>
+
+	<body ng-controller="indexCtrl">
+		<p>{{name}}'s annimate demo</p>
+		<p style="color: red;">1.app.animation定义动画</p>
+		<button id="button" ng-click="bool=!bool">Ok</button>
+		<div ng-if="bool" class="pop">123</div>
+		
+		<p style="color: red;">2.css的ng-enter，ng-enter-active和ng-leave定义动画</p>
+		<button id="button" ng-click="bool=!bool">Ok</button>
+		<div ng-if="bool" class="wsscat">123</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-animate.js"></script>
+	<script>
+		var app = angular.module('wsscat', ['ngAnimate']);
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = 'wsscat'
+			$scope.bool = true;
+			$scope.$watch('name', function(data) {
+				console.log(data)
+			})
+		})
+		app.animation(".pop", ["$animateCss", function($animateCss) {
+			return {
+				enter: function(element) {
+					return $animateCss(element, {
+						from: {
+							opacity: 0
+						},
+						to: {
+							opacity: 1
+						},
+						duration: 1.5
+					})
+				},
+				leave: function(element) {
+					return $animateCss(element, {
+						from: {
+							opacity: 1
+						},
+						to: {
+							opacity: 0
+						},
+						duration: 1.5
+					})
+				}
+			}
+		}])
+	</script>
+
+</html>
