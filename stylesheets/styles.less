@@ -1,0 +1,79 @@
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+@font-size: 18px;
+#header {
+    color: @light-blue;
+    font-size: @font-size;
+}
+@height: 0.5;
+@size: 10px+10;
+@color: #666 + 111;
+#header2 {
+    color: @color;
+    height: percentage(@height); //0.5->50%
+    font-size: saturate(@size,10%); //增加10%饱和度
+    background-color: spin(lighten(@color, 25%), 10); //颜色亮度降低25%,并且色相值增加10 
+}
+.my-mixin {
+    color: black;
+}
+//定义一个混合方法，想使用的时候再去触发
+.my-other-mixin() {
+    background: white;
+}
+.my-font-mixin {
+    font-size: 20px;
+}
+.cat,
+#wscat {
+    background-color: aquamarine;
+}
+#header3 {
+    .my-mixin;
+    .my-other-mixin; //可以省略括号
+    //.my-other-mixin()//当然也可以这样
+    .my-font-mixin();
+    #wscat;
+    //.cat()//上下两种方法都可以
+}
+#header4 {
+    color: black;
+}
+#header4 .navigation {
+    font-size: 12px;
+}
+#header4 .logo {
+    width: 300px;
+}
+#header4 {
+    color: black;
+    .navigation {
+        font-size: 12px;
+    }
+    .logo {
+        width: 300px;
+    }
+    &:before {
+        content: "你好";
+    }
+    &-wsscat {
+        background-color: bisque;
+    }
+}
+@var: white;
+#header5 {
+    @var: red;
+    #logo {
+        color: @var; // red
+    }
+}
+
+
+.bg(@color, @size) {
+    background-color: @color;
+    font-size: @size;
+}
+
+.background{
+    .bg(#555555,16px)
+}
