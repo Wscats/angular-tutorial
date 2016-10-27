@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/*div{
+			transition: all linear 0.5s;
+		}
+		.ng-hide{
+			background-color: #0000FF;
+		}*/
+		.fad{
+			position: absolute;
+			top: 20px;
+			width: 100%;
+		}
+		.fad.ng-enter{
+			animation: slideInRight 2s ease;
+		}
+		
+		.fad.ng-leave{
+			animation: slideInLeft 2s ease;
+		}
+		@keyframes slideInRight{
+			from{
+				/*transform: translateX(100%);*/
+				transform: rotate(-180deg);
+				opacity: 0;
+			}
+			to{
+				/*transform: translateX(0%);*/
+				transform: rotate(-360deg);
+				opacity: 1;
+			}
+		}
+		
+		@keyframes slideInLeft{
+			from{
+				/*transform: translateX(0%);*/
+				transform: rotate(0deg);
+				opacity: 1;
+			}
+			to{
+				/*transform: translateX(-100%);*/
+				transform: rotate(-180deg);
+				opacity: 0;
+			}
+		}
+	</style>
+	<body ng-controller="indexCtrl">
+		<!--<button ng-click="Click()">Ok</button>
+		<div ng-hide="ishide">wsscat</div>-->
+		<!--<p>{{name}}'s animate demo</p>-->
+		<a ng-href="#/index">index</a>
+		<a ng-href="#/home">home</a>
+		<div ng-view="" class="fad"></div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-animate.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script>
+		var app = angular.module('wsscat',['ngAnimate','ngRoute']);
+		app.controller('indexCtrl',function($scope){
+			$scope.name = 'wsscat'
+			$scope.ishide = false
+			$scope.Click = function(){
+				$scope.ishide=!$scope.ishide
+			}
+		})
+		app.config(['$routeProvider', function($routeProvider) {
+			$routeProvider.when('/index', {
+				templateUrl: 'views/index.html',
+				template:'<p>进入index</p>'+
+						'<p>阅读本教程前，您需要了解的知识：'+
+						'在开始学习 AngularJS 之前，您需要具备以下基础知识：'+
+						'AngularJS 是比较新的技术，版本 1.0 是在 2012 年发布的。'+
+						'AngularJS 是由 Google 的员工 Miško Hevery 从 2009 年开始着手开发。'+
+						'这是一个非常好的构想，该项目目前已由 Google 正式支持，有一个全职的开发团队继续开发和维护这个库。</p>'
+//				controller: 'indexCtrl'
+			}).when('/home', {
+				//templateUrl: 'views/home.html',
+				template:'<p>进入home</p>'+
+						'<p>ngAnimate 模型可以添加或移除 class 。'+
+						'ngAnimate 模型并不能使 HTML 元素产生动画，但是 ngAnimate 会监测事件，类似隐藏显示 HTML 元素 ，如果事件发生 ngAnimate 就会使用预定义的 class 来设置 HTML 元素的动画。'+
+						'AngularJS 添加/移除 class 的指令:'+
+						'ng-show'+
+						'ng-hide'+
+						'ng-class'+
+						'ng-view'+
+						'ng-include'+
+						'ng-repeat'+
+						'ng-if'+
+						'ng-switch'+
+						'ng-show 和 ng-hide 指令用于添加或移除 ng-hide class 的值。'+
+						'其他指令会在进入 DOM 会添加 ng-enter 类，移除 DOM 会添加 ng-leave 属性。'+
+						'当 HTML 元素位置改变时，ng-repeat 指令同样可以添加 ng-move 类 。'+
+						'此外， 在动画完成后，HTML 元素的类集合将被移除。例如： ng-hide 指令会添加一下类：'+
+						'ng-animate'+
+						'ng-hide-animate'+
+						'ng-hide-add (如果元素将被隐藏)'+
+						'ng-hide-remove (如果元素将显示)'+
+						'ng-hide-add-active (如果元素将隐藏)'+
+						'ng-hide-remove-active (如果元素将显示)</p>',
+//				controller: 'homeCtrl'
+			}).otherwise({
+				redirectTo: '/index'
+			})
+		}])
+	</script>
+</html>
