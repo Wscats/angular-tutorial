@@ -3,9 +3,6 @@
 [Angular控制器demo](https://wscats.github.io/angular-demo/view/student.html)
 
 
-[查看单页面应用代码](https://github.com/Wscats/angular-demo/tree/yao_angular_route)
-
-
 [Angular+Weui单页面应用DEMO-每日笑话](https://wscats.github.io/angular-demo/weui每日笑话.html)
 
 
