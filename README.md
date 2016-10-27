@@ -1,6 +1,6 @@
 # angular-demo
 
-[查看控制器demo](https://wscats.github.io/angular-demo/view/student.html)
+[Angular控制器demo](https://wscats.github.io/angular-demo/view/student.html)
 
 
 [查看单页面应用代码](https://github.com/Wscats/angular-demo/tree/yao_angular_route)
@@ -20,6 +20,9 @@
 
 
 [Angular自定义Canvas画图服务](https://wscats.github.io/angular-demo/Angular自定义Canvas画图服务.html)
+
+
+[Angular自定义手势指令](https://wscats.github.io/angular-demo/自定义手势事件.html)
 
 
 [Angular自定义轮播图组件](https://wscats.github.io/angular-demo/自定义directive轮播图.html)
