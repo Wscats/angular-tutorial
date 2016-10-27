@@ -1,5 +1,7 @@
 # angular-demo
 
+_:rabbit:angular的学习资料 These are about angular learning materials, hoping to help you :snowman:关于angular的常用知识点，DEMO和总结，不定时更新，欢迎fork和star On the common knowledge of angular, DEMO and summary, not regular updates, you can fork and star_
+
 [Angular控制器demo](https://wscats.github.io/angular-demo/view/student.html)
 
 
