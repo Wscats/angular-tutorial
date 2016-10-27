@@ -37,7 +37,8 @@
 [Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)
 
 
-[Angular ng-animate动画](https://wscats.github.io/angular-demo/ng-animate动画.html)
+[Angular ng-animate动画1](https://wscats.github.io/angular-demo/ng-animate动画.html)
+[Angular ng-animate动画2](https://wscats.github.io/angular-demo/ng-animate动画2.html)
 
 
 [Angular自定义关键词检索过滤器](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)
