@@ -38,7 +38,7 @@
 			$scope.arrs = [];
 			var more = function(){
 				$scope.loading = true
-				$http.jsonp('joke.js', {
+				$http.jsonp('js/joke.js', {
 					params: {
 						callback: 'JSON_CALLBACK',
 						page: 1,
@@ -86,7 +86,7 @@
 			//$scope.result = change.results[change.jokeId]
 			console.log($routeParams)
 			//$http.jsonp('joke.php', {
-			$http.jsonp('joke.js', {
+			$http.jsonp('js/joke.js', {
 				params: {
 					callback: 'JSON_CALLBACK',
 					page: 1,
