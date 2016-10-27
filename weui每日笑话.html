@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-view=""></div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.js"></script>
+	<!--<link rel="stylesheet" href="css/bootstrap.css" />-->
+	<link rel="stylesheet" href="stylesheets/weui.css" />
+	<script>
+		var app = angular.module('wsscat', ['ngRoute']);
+		app.config(['$routeProvider', function($routeProvider) {
+			$routeProvider.when('/index', {
+				templateUrl: 'view/index.html',
+				controller: 'indexCtrl'
+			}).when('/home', {
+				templateUrl: 'view/home.html',
+				controller: 'homeCtrl'
+			}).when('/detail/:id/:name', {
+				templateUrl: 'view/detail.html',
+				controller: 'detailCtrl'
+			}).otherwise({
+				redirectTo: '/index'
+			})
+		}])
+		app.controller('indexCtrl', function($scope, $rootScope, $http, $window, change, $routeParams) {
+			//默认请求的值
+			$scope.offset = 1;
+			$scope.loading = false
+			//$routeParams服务获取我们url上的参数
+			//在url上带参数，我们就可以让他刷新页面的时候，保留需要传递的数据
+			//然后我们用$routeParams服务获取这个数据就可以完成两个控制器之间交换数据了
+			$scope.arrs = [];
+			var more = function(){
+				$scope.loading = true
+				$http.jsonp('joke.js', {
+					params: {
+						callback: 'JSON_CALLBACK',
+						page: 1,
+						pagesize: 10
+					}
+				}).success(function(data) {
+					$scope.loading = false
+					console.log(data);
+					$scope.results = data.result.data
+					$scope.arrs = $scope.arrs.concat(data.result.data)
+					console.log($scope.arrs)
+				})
+			}
+				//打印交换前change对象是
+			console.log(change)
+			$scope.detail = function(id) {
+				//console.log(id)
+				$window.location.href = '#/detail/' + id + '/yao'
+					//$rootScope全局作用域传递数据
+				$rootScope.jokeId = id
+					//用服务去传递数据
+				change.jokeId = id
+				change.results = $scope.results
+			}
+			//第一次进来时候请求数据
+			more()
+			//点击查看更多的时候触发请求数据
+			$scope.loadMore = function() {
+				$scope.offset += 1
+				more()
+			}
+		})
+		//$state
+		app.controller('detailCtrl', function($scope, $http, $rootScope, change, $routeParams) {
+			//console.log($rootScope.jokeId)
+			//console.log(change)
+			/*$http.jsonp('joke.php', {
+				params: {
+					callback: 'JSON_CALLBACK',
+				}
+			}).success(function(data) {
+				console.log(data);
+				$scope.result = data.result.data[$rootScope.jokeId]
+			})*/
+			//$scope.result = change.results[change.jokeId]
+			console.log($routeParams)
+			//$http.jsonp('joke.php', {
+			$http.jsonp('joke.js', {
+				params: {
+					callback: 'JSON_CALLBACK',
+					page: 1,
+					pagesize: 10
+				}
+			}).success(function(data) {
+				console.log(data);
+				$scope.result = data.result.data[$routeParams.id]
+			})
+		})
+		app.service('change', [function() {
+			//用服务在控制器之间传递数据的时候，我们可以定义一个对象，然后把这个对象注入到需要传递数据的两个控制器里面
+			//然后我们在服务这个单例对象中定义一个用于交换的属性，然后给它赋值，然后我们在另外一个控制器里面获取这个对象属性的值
+			return {}
+		}])
+	</script>
+
+</html>
+
+<!--有服务器的话我们就可以使用后端的joke.php，把请求从joke.js改为joke.php-->
+<!--<?php
+	$url = "http://japi.juhe.cn/joke/content/list.from?key=2341037fb7fe30504eb0bea9a589dfca&page=".$_GET['page']."&pagesize=".$_GET['pagesize']."&sort=asc&time=1418745237";
+	//服务器代理 后端
+	$data = file_get_contents($url);
+	echo $_GET['callback']."(".$data.")";
+?>-->
