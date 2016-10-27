@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/pixelAnimate.js"></script>
+	</head>
+	<style>
+		#line1 {}
+		
+		#line2 {}
+		
+		#line2 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line1 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line3 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line4 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line5 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line6 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line7 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		#line8 div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+		
+		div {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: black;
+		}
+	</style>
+
+	<body>
+		<figure id="line1">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line2">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line3">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line4">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line5">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line6">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line7">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line8">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line9">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+		<figure id="line10">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</figure>
+	</body>
+	<script>
+		console.log(digit);
+		digit[0][0];
+		console.log(digit[0][0].length)
+			//for(){}
+		var z = 0;
+
+		function changeNumber() {
+			for(var j = 0; j < digit[z].length; j++) {
+				for(var i = 0; i < digit[z][j].length; i++) {
+					var line = document.getElementById('line' + (j + 1));
+					var line_divs = line.getElementsByTagName('div');
+					line_divs[i].style.backgroundColor = (digit[z][j][i] == 0 ? "white" : "black");
+				}
+			}
+			z++;
+			if(z>10){
+				clearInterval(changeNumberInterval);
+			}
+		}
+		var changeNumberInterval = setInterval(changeNumber, 1000);
+	</script>
+
+</html>
