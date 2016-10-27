@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+		<title></title>
+	</head>
+
+	<body ng-controller="indexCtrl">
+		<p>移动端环境下测试该DEMO</p>
+		<p>{{name}} angular手势指令</p>
+		<p style="color:red">ng-animate的手势监听</p>
+		<p id="abc">滑动控制台打印坐标点</p>
+		<p style="color:red">ng-animate的左右滑动事件</p>
+		<p ng-swipe-left="left()" ng-swipe-right="right()">向左右滑动</p>
+		<p style="color:red">自定义指令的左右滑动事件</p>
+		<p ng-touch="left()" direction="left">向右滑动</p>
+	</body>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-touch.js"></script>
+	<script>
+		var app = angular.module('wsscat', ['ngTouch']);
+		app.controller('indexCtrl', function($scope, $document, $swipe) {
+			console.log($swipe)
+			var ele = angular.element(document.getElementById('abc'))
+			$swipe.bind(ele, {
+				'start': function(coords) {
+					console.log(coords)
+				},
+				'move': function(coords) {
+
+				},
+				'end': function(coords) {
+
+				}
+			})
+			$scope.left = function() {
+				console.log("向左滑动")
+			}
+			$scope.right = function() {
+				console.log("向右滑动")
+			}
+			$scope.name = 'wsscat'
+				//触摸点击时候触发
+				//x轴开始的坐标
+				//y轴开始的坐标
+				//.....
+				/*var xStart, xEnd, yStart, yEnd
+				$document[0].getElementById("abc").addEventListener('touchstart', function(data) {
+						xStart = data.targetTouches[0].pageX
+						yStart = data.targetTouches[0].pageY
+							//console.log("pageX:"+data.targetTouches[0].pageX)
+							//console.log("pageY:"+data.targetTouches[0].pageY)
+					})
+					//触摸移动的时候触发了
+				$document[0].getElementById("abc").addEventListener('touchmove', function(data) {
+						//console.log(data)
+						//console.log("pageX:"+data.targetTouches[0].pageX)
+						//console.log("pageY:"+data.targetTouches[0].pageY)
+					})
+					//触摸放手的时候触发了
+				$document[0].getElementById("abc").addEventListener('touchend', function(data) {
+					//console.log(data)
+					//console.log("pageX:"+data.changedTouches[0].pageX)
+					//console.log("pageY:"+data.changedTouches[0].pageY)
+					xEnd = data.changedTouches[0].pageX
+					yEnd = data.changedTouches[0].pageY
+						if(Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd)) {
+							//不是左就是右
+							if(xStart >= xEnd) {
+								console.log("left")
+							} else {
+								console.log("right")
+							}
+						} else {
+							//不是上就是下
+							if(yStart >= yEnd) {
+								console.log("top")
+							} else {
+								console.log("down")
+							}
+						}
+					Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd) ? (xStart >= xEnd ? console.log("left") : console.log("right")) : (yStart >= yEnd ? console.log("top") : console.log("down"))
+				})*/
+		})
+		app.directive("ngTouch", function() {
+			return {
+				link: function(scope, ele, attr) {
+					var xStart, xEnd, yStart, yEnd;
+					ele.bind('touchstart', function(data) {
+						xStart = data.targetTouches[0].pageX
+						yStart = data.targetTouches[0].pageY
+					})
+					ele.bind('touchend', function(data) {
+						xEnd = data.changedTouches[0].pageX
+						yEnd = data.changedTouches[0].pageY
+							//Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd) ? (xStart >= xEnd ? console.log("left") : console.log("right")) : (yStart >= yEnd ? console.log("top") : console.log("down"))
+						if(Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd)) {
+							//不是左就是右
+							if(xStart >= xEnd) {
+								console.log("left")
+								scope.$apply(attr.ngTouch)
+							} else {
+								console.log("right")
+							}
+						} else {
+							//不是上就是下
+							if(yStart >= yEnd) {
+								console.log("top")
+							} else {
+								console.log("down")
+							}
+						}
+					})
+				}
+			}
+		})
+	</script>
+</html>
