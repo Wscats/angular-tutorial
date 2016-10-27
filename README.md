@@ -32,37 +32,22 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[Angular路由嵌套](https://wscats.github.io/angular-demo/UI路由嵌套DEMO.html)|
 
-[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)
-[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)
+## 过滤器
+| Filter |
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[Angular自定义关键词检索过滤器](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)|
+
+## 动画
+| Animate ||
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[Angular ng-animate动画1](https://wscats.github.io/angular-demo/ng-animate动画.html)|[Angular ng-animate动画2](https://wscats.github.io/angular-demo/ng-animate动画2.html)|
 
 
-
-
-
-[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)
-
-
-[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)
-
-
-[Angular ng-animate动画1](https://wscats.github.io/angular-demo/ng-animate动画.html)
-[Angular ng-animate动画2](https://wscats.github.io/angular-demo/ng-animate动画2.html)
-
-
-[Angular自定义关键词检索过滤器](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)
-
-
-[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)
-
-
-[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)
-
-
-[jquery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)
-
-
-[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)
-[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)
-
-
-[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)
+## 其他
+| Other ||
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)|[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)|
+|[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|
+|[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
+|[jquery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
+|[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
