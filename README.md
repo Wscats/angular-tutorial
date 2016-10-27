@@ -6,7 +6,7 @@
 [查看单页面应用代码](https://github.com/Wscats/angular-demo/tree/yao_angular_route)
 
 
-[weui单页面应用DEMO](https://wscats.github.io/angular-demo/weui每日笑话.html)
+[Angular+Weui单页面应用DEMO-每日笑话](https://wscats.github.io/angular-demo/weui每日笑话.html)
 
 
 [Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)
