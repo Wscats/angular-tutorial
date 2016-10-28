@@ -52,3 +52,4 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[jquery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
 |[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
 |[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-demo/ngCookie.html)|
+|[图灵机器人](https://wscats.github.io/angular-demo/图灵机器人.html)|
