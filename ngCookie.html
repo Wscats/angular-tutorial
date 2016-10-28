@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-cookies.js"></script>
+
+	<body ng-controller="indexCtrl">
+		<h2>自定义cookie服务的方法</h2>
+		<p>设置键对值</p>
+		<div>
+			<input ng-model="wsscat1" />-<input ng-model="wsscat2" />
+		</div>
+		<p>设置cookie</p>
+		<button ng-click="setCookie()">setCookie</button>
+		<p>读取cookie</p>
+		<button ng-click="getCookie()">getCookie</button>
+		<p>{{text}}</p>
+
+		<h2>ngCookies的方法</h2>
+		<p>设置键对值</p>
+		<div>
+			<input ng-model="wsscat3" />-<input ng-model="wsscat4" />
+		</div>
+		<p>设置cookie</p>
+		<button ng-click="setCookie1()">setCookie</button>
+		<p>读取cookie</p>
+		<button ng-click="getCookie1()">getCookie</button>
+		<p>{{text}}</p>
+	</body>
+	<script>
+		var app = angular.module('wsscat', ['ngCookies'])
+		app.controller("indexCtrl", function($scope, cookie, $cookieStore) {
+			//ngCookies是angular操作cookie的一个模块，它提供$cookieStore服务
+			//$cookieStore.put用于存放键值对
+			//$cookieStore.get用于读取指定的$cookie
+			//$cookieStore.remove用于删除指定的$cookie
+			$scope.setCookie = function() {
+				cookie.setCookie($scope.wsscat1, $scope.wsscat2)
+			}
+			$scope.getCookie = function() {
+				cookie.getCookie($scope.wsscat)
+				console.log(cookie.getCookie($scope.wsscat))
+				$scope.text = '你设置' + $scope.wsscat1 + '的cookie值为' + cookie.getCookie($scope.wsscat1)
+			}
+
+			$scope.setCookie1 = function() {
+				$cookieStore.put($scope.wsscat3, $scope.wsscat4);
+			}
+			$scope.getCookie1 = function() {
+				$cookieStore.get($scope.wsscat3);
+				console.log(cookie.getCookie($scope.wsscat3))
+				$scope.text = '你设置' + $scope.wsscat3 + '的cookie值为' + $cookieStore.get($scope.wsscat3)
+			}
+		})
+		app.service("cookie", function($document) {
+				return {
+					setCookie: function(name, value) {
+						var days = 10;
+						var ex = new Date();
+						ex.setTime(ex.getTime() + days * 24 * 60 * 60 * 1000);
+						$document[0].cookie = name + "=" + value + ";expires=" + ex;
+					},
+					getCookie: function(name) {
+						var a;
+						var reg = new RegExp("(^|)" + name + "=([^;]*)(;|$)");
+						if(a = $document[0].cookie.match(reg)) {
+							return a[2];
+						}
+					},
+					countdown: function(endtime) {
+						var time = new Date();
+						var b = time.getTime();
+						var c = endtime - b;
+						var d = parseInt(c / 1000);
+						var minutes1 = parseInt(d / 60) % 60;
+						var seconds1 = d % 60;
+						var hours1 = parseInt(d / 3600) % 24;
+						var day1 = parseInt(d / 3600 / 24);
+						if(day1 < 10) {
+							day1 = '0' + day1
+						}
+						if(hours1 < 10) {
+							hours1 = '0' + hours1
+						}
+						if(minutes1 < 10) {
+							minutes1 = '0' + minutes1
+						}
+						if(seconds1 < 10) {
+							seconds1 = '0' + seconds1
+						}
+						return day1 + '天' + hours1 + ':' + minutes1 + ':' + seconds1
+					}
+				}
+			})
+			/*var setCookie = function(name, value) {
+				var days = 10;
+				var ex = new Date();
+				ex.setTime(ex.getTime() + days * 24 * 60 * 60 * 1000);
+				document.cookie = name + "=" + value + ";expires=" + ex;
+			}
+			setCookie("yap","{name:'123'}")
+			var getCookie = function(name){
+				var a;
+				var reg = new RegExp("(^|)"+name+"=([^;]*)(;|$)");
+				if(a=document.cookie.match(reg)){
+					return a[2];
+				}
+			}
+			getCookie("yap")
+			console.log(getCookie("yap"))*/
+	</script>
+
+</html>
