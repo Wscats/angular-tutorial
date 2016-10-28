@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input onkeyup="ajax(this)" />
+		<div></div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<script>
+		var str = '';
+
+		function ajax(e) {
+			$.ajax({
+				url: 'http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf&info=' + e.value,
+				type: 'get',
+				//dataType:'jsonp',
+				//jsonp:'JSON_CALLBACK',
+				//jsonpCallback:'JSON_CALLBACK',
+				success: function(data) {
+//					if($('div>p').length >= 10) {
+//						//$('div>p').slice(-1,-10);
+//						console.log($('div>p').length)
+//						$('div>p').eq(0).remove();
+//						$(data.text).insertAfter('div>p')
+//					} else {
+//						console.log($('div>p').length)
+//						console.log(data)
+//						str = str + ('<p>' + data.text + '</p>');
+//						console.log(str)
+//						$('div').html(str);
+//					}
+					str = str + ('<p>' + data.text + '</p>');
+					$('div').html(str);
+				}
+			})
+		}
+	</script>
+
+</html>
