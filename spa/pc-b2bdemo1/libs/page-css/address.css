@@ -1,0 +1,9 @@
+.cart-header{height: 86px; border-bottom:  solid 1px #ccc;}
+.cart-header>span{display: inline-block; height: 48px; margin-top: 15px;}
+.cart-header>span:last-child{height: 32px; line-height: 32px; padding: 0 25px; border-left: solid 1px #bbb; margin-left: 25px; font-size: 18px; color: #000; }
+.cart-header img{height: 48px; }
+
+.input-group{width:auto; height:42px; }
+.input-group>input{height:28px;vertical-align:middle;}
+.input-group>select{padding:5px 10px; margin-right:5px;}
+.input-group>span{display:inline-block; width:80px;}

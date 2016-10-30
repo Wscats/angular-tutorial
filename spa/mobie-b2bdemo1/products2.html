@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>产品列表</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/products2.js"></script>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/products2.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>玖姿JUZUI女装专场</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>
+    <div class="category">
+    	<div>
+    		<div>
+		        <a href="#">分类1</a>
+		        <a href="#">分类1</a>
+		        <a href="#">分类1</a>
+		        <a href="#">分类1</a>
+		        <a href="#">分类1</a>
+		        <a href="#">分类1</a>
+		        <a href="#">分类1</a>
+	        </div>
+        </div>
+        <div ng-click="showfilter($event)"><i class="fa fa-caret-down"></i></div>
+    </div>
+
+    <div class="sub-category item-hidden">
+    	<div>
+    		<div>全部分类</div>
+        </div>
+        <div ng-click="showfilter($event)"><span><i class="fa fa-caret-down"></i></span></div>
+        <div>
+	        <a href="#">分类1</a>
+	        <a href="#">分类1</a>
+	        <a href="#">分类1</a>
+	        <a href="#">分类1</a>
+	        <a href="#">分类1</a>
+	        <a href="#">分类1</a>
+	        <a href="#">分类1</a>        	
+        </div>    	
+    </div>
+    
+    <div class="category-content category-1 item-hidden" ng-click="category($event)">
+        <ul class="col-xs-4 leval1">
+            <li class="active"><a href="#" id="111">分类1-1</a></li>
+            <li><a href="#" id="2">分类1-2</a></li>
+            <li><a href="#" id="3">分类1-3</a></li>
+            <li><a href="#" id="4">分类1-4</a></li>
+            <li><a href="products.html?category=5" id="5">分类1-5</a></li>
+        </ul>
+        <ul class="col-xs-4 leval2">
+            <li><a href="products.html?category=6" id="6" flag="1">分类2-1</a></li>
+            <li><a href="#" id="7" flag="1">分类2-2</a></li>
+            <li><a href="#" id="8" flag="1">分类2-3</a></li>
+            <li><a href="#" id="9" flag="2">分类2-4</a></li>
+            <li><a href="#" id="10" flag="3">分类2-5</a></li>
+        </ul>   
+        <ul class="col-xs-4 leval3">
+            <li><a href="products.html?category=11" id="11" flag="5">分类3-1</a></li>
+            <li><a href="products.html?category=12" id="12" flag="7">分类3-2</a></li>
+            <li class="active"><a href="#" id="13" flag="9">分类3-3</a></li>
+            <li><a href="#" id="14" flag="9">分类3-4</a></li>
+            <li><a href="#" id="15" flag="9">分类3-5</a></li>
+        </ul>              
+    </div>  
+
+    <!--品牌-->
+    <div class="category-content brand  item-hidden">
+        <ul>
+            <li><a href="#"><img src="images/61.jpg">品牌1</a></li>
+            <li><a href="#"><img src="images/61.jpg">品牌2</a></li>
+            <li><a href="#"><img src="images/61.jpg">品牌3</a></li>
+            <li><a href="#"><img src="images/61.jpg">品牌4</a></li>
+            <li><a href="#"><img src="images/61.jpg">品牌5</a></li>
+        </ul>
+    </div>
+
+    
+
+    <div class="layout-body" data-url="data/products.txt" pagescroll>
+        <div class="products">
+            <a href="prodetail.html?id={{m.id}}" ng-repeat="m in datalist">
+                <img ng-src="{{m.src}}" />
+                <div ng-bind="m.title"></div>
+                <div class="item-price" ng-bind="'￥' + m.price"></div>
+            </a>
+        </div>
+    </div>
+    <div class="layout-footer" navcontainer data-active="0"></div>
+
+    <div navmorelist></div>
+</body>
+</html>

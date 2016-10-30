@@ -1,0 +1,6 @@
+﻿.userca{width:100%; padding:10px; color:#fff;}
+.userca>ul{padding:0; height:34px; line-height:34px; width:100%; position:relative; margin-bottom:15px;}
+.userca>ul>li{padding:0; height:100%;}
+.userca>ul>li>button.btn{vertical-align:top; border-radius:0 4px 4px 0; width:100%;}
+.userca>ul>li>button.btn.unactive{background-color:#aaa; border-color:#aaa;}
+.userca>ul>li>.btn{width:100%;background-color:#8E488E; border-color:#8E488E;}

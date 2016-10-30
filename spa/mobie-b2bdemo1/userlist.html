@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>我的团队</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/user.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/userlist.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>我的团队</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>    
+
+    <div class="layout-body userlist" data-url="data/userlist.txt" pagescroll>
+        <div class="user-finance" data-url="data/userfn.txt">
+            <div class="col-xs-6"><div>100</div><div>总计人数</div></div>
+            <div class="col-xs-6"><div>50</div><div>已付费人数</div></div>
+        </div>
+
+        <div ng-repeat="m in datalist" class="list-group-item">
+            <img ng-src="{{m.src}}" /><span ng-bind="m.name" class="item-name"></span><span ng-bind="m.datetime | date:'yyyy-MM-dd'" class="item-time"></span>
+        </div>
+    </div>
+    <div class="layout-footer" navcontainer data-active="3"></div>
+    <div navmorelist></div>
+</body>
+</html>

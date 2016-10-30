@@ -1,0 +1,27 @@
+﻿{
+	"totalCount": 100, "pageSize": 10, "result": [
+		{"orderid": 1, "shopid": 1, "shopname": "店铺1", "statename": "交易成功", "state": 1, "list":[
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0}
+		]},
+		{"orderid": 1, "shopid": 1, "shopname": "店铺1", "statename": "交易成功", "state": 1, "list":[
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0},
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0}
+		]},
+		{"orderid": 1, "shopid": 1, "shopname": "店铺1", "statename": "交易成功", "state": 1, "list":[
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0},
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0}
+		]},
+		{"orderid": 1, "shopid": 1, "shopname": "店铺1", "statename": "交易成功", "state": 1, "list":[
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0},
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0}
+		]},
+		{"orderid": 1, "shopid": 1, "shopname": "店铺1", "statename": "交易成功", "state": 1, "list":[
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0},
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0}
+		]},
+		{"orderid": 1, "shopid": 1, "shopname": "店铺1", "statename": "交易成功", "state": 1, "list":[
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0},
+			{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "state": 1, "evaluate": 0}
+		]}
+	]							 
+}								 

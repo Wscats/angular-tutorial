@@ -1,0 +1,26 @@
+﻿.category-products{height:558px; margin-top:38px;}
+.category-products>.title{font:18px/36px "Microsoft yahei"; width:100%; text-align:left; height:38px; line-height:38px;}
+.category-products>.title>a{display:inline-block; float:right; color:#826046; font:12px/24px simsun;}
+
+.category-products>.content{position:relative; width:100%; height:520px;}
+.category-products>.content>.products-poster{width:190px; height:520px; background-color:#DDD0C6;}
+.category-products>.content>.products-poster>a>img{width:100%;}
+
+.category-products>.content>.products-content{width:790px;position:absolute; top:0; bottom:0; left:190px; border:solid 1px #eee;}
+.category-products>.content>.products-content>ul{width:100%; height:260px; border-bottom:solid 1px #eee;}
+.category-products>.content>.products-content>ul:last-child{border-bottom:none;}
+.category-products>.content>.products-content>ul>li{width:25%; float:left; border-right:solid 1px #eee;}
+.category-products>.content>.products-content>ul>li:last-child{border-right:none;}
+.category-products>.content>.products-content>ul>li>div{width:100%;}
+.category-products>.content>.products-content>ul>li>div.item-img{height:200px; text-align:center;}
+.category-products>.content>.products-content>ul>li>div.item-img>a>img{height:100%;}
+.category-products>.content>.products-content>ul>li>div:not(.item-img){padding:5px 10px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.category-products>.content>.products-content>ul>li>div.item-price{color:#e80080;}
+
+.category-products>.content>.products-orders{width:220px;position:absolute; top:0; bottom:0; right:0; border:solid 1px #eee; border-left:none;}
+.category-products>.content>.products-orders>div{width:100%; height:38px; line-height:38px; background-color:#f2f2f2; color:#666; font:16px/39px "Microsoft yahei"; padding-left:10px;}
+.category-products>.content>.products-orders>a{display:block; width:100%; height:96px; padding:10px 0;}
+.category-products>.content>.products-orders>a>div{height:100%;}
+.category-products>.content>.products-orders>a>div>img{height:100%;}
+.category-products>.content>.products-orders>a>div>div{padding:5px 0;}
+.category-products>.content>.products-orders>a>div>div:last-child{color:#e80080;}

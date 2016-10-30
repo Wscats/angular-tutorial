@@ -1,0 +1,26 @@
+﻿[
+	{"id": 1, "name": "热门品牌", "category":[
+			{"id": 1, "name": "iphone", "logo": "images/21.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/22.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/23.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/21.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/22.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/23.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/21.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/22.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/23.jpg"}
+		]
+	},
+	{"id": 1, "name": "热门品牌", "category":[
+			{"id": 1, "name": "iphone", "logo": "images/21.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/22.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/23.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/21.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/22.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/23.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/21.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/22.jpg"},
+			{"id": 1, "name": "iphone", "logo": "images/23.jpg"}
+		]
+	}
+]

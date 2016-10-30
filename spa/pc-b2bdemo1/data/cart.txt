@@ -1,0 +1,10 @@
+﻿{
+	"totalCount": 100, "pageSize": 10, "result": [
+		{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "itemcount": 1,"size": 100, "color": "白色", "parfor": [{"type": 1, "price1": 1}, {"type": 2, "price1": 500, "price2": 100}, {"type": 3, "price1": 200, "price2": 300}]},
+		{"id": 1, "src": "images/55.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "itemcount": 1,"size": 100, "color": "白色", "parfor": [{"type": 1, "price1": 1}, {"type": 2, "price1": 500, "price2": 100}, {"type": 3, "price1": 200, "price2": 300}]},
+		{"id": 1, "src": "images/56.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "itemcount": 1,"size": 100, "color": "白色", "parfor": [{"type": 1, "price1": 1}, {"type": 2, "price1": 500, "price2": 100}, {"type": 3, "price1": 200, "price2": 300}]},
+		{"id": 1, "src": "images/57.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "itemcount": 1,"size": 100, "color": "白色", "parfor": [{"type": 1, "price1": 1}, {"type": 2, "price1": 500, "price2": 100}, {"type": 3, "price1": 200, "price2": 300}]},
+		{"id": 1, "src": "images/58.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "itemcount": 1,"size": 100, "color": "白色", "parfor": [{"type": 1, "price1": 1}, {"type": 2, "price1": 500, "price2": 100}, {"type": 3, "price1": 200, "price2": 300}]},
+		{"id": 1, "src": "images/59.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120, "itemcount": 1,"size": 100, "color": "白色", "parfor": [{"type": 1, "price1": 1}, {"type": 2, "price1": 500, "price2": 100}, {"type": 3, "price1": 200, "price2": 300}]}
+	]							 
+}								 

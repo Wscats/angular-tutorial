@@ -1,0 +1,8 @@
+﻿.dkpagination .pagination {float: left; margin:0;}
+.dkpagination .pagination span {cursor: pointer;}
+.dkpagination .pagination .separate span {cursor: default;border-top: none;border-bottom: none;}
+.dkpagination .pagination .separate span:hover {background: none;}
+.dkpagination .page-total {float: left;padding:3px 20px;}
+.dkpagination .page-total input, .dkpagination .page-total select {height: 26px;border: 1px solid #ddd;}
+.dkpagination .page-total input {width: 40px;padding-left: 3px;}
+.dkpagination .page-total select {width: 50px;}

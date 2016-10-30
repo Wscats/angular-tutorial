@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>登录</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/common/global.js"></script>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/login.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="max-width login-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>欢迎登录</span>
+    </div>
+
+    <form>
+        <div class="login-content">
+            <div class="item-box">
+                <div class="item-title">账户登录</div>
+                <div class="input-group">
+                    <span class="input-group-addon"> <i class="fa fa-lock"></i> </span>
+                    <input type="text" name="username" class="form-control">
+                </div>          
+                <div class="input-group">
+                    <span class="input-group-addon"> <i class="fa fa-user"></i> </span>
+                    <input type="password" name="pwd" class="form-control">
+                </div>   
+                <div class="item-control">
+                    <a href="findpwd.html">忘记登录密码</a>
+                    <a href="register.html" class="text-right">免费注册</a>
+                </div>     
+                <input type="submit" class="btn" value="登录" />
+            </div>
+        </div>
+    </form>
+    <div id="layout-footer"></div>
+</body>
+</html>

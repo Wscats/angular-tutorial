@@ -1,0 +1,11 @@
+﻿{
+	"id":1,
+	"imgs":[
+		{ "title": "img1", "url": "images/54.jpg" },
+		{ "title": "img1", "url": "images/55.jpg" },
+		{ "title": "img1", "url": "images/56.jpg" }
+	],
+	"title": "斯文印花黑灰色短袖连衣裙",
+	"price": 120.00,
+	"infor2": "<img src=\"images/60.jpg\" />"
+}

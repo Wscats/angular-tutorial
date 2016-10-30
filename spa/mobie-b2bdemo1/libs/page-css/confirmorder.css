@@ -1,0 +1,56 @@
+﻿.address{width:100%; position:relative; height:82px; border-bottom:solid 1px #ccc; background-color: #fff;}
+.address>div:first-child,.address>div:last-child{width:50px; float:left; text-align:center; font-size:18px; line-height:68px;}
+.address>div:nth-child(2){position:absolute; left:50px; right:50px;}
+.address>div:last-child{position:absolute; right: 0; width:50px;}
+.address>div>a{display:block; padding:5px 0; font-size: 12px;}
+.address>div>a>span{margin-right: 10px; font-weight: bold; font-size: 14px;}
+.address.empty{height: 48px; line-height: 48px; font-size: 14px; text-align: center; display: block;}
+.address.empty>i{font-size: 16px; margin-right: 5px; vertical-align: middle;}
+
+.shoppingcar-list div{padding:0;}
+.shoppingcar-list>div.shopname{width: 100%; background-color: #fff; padding: 8px 15px;}
+.shoppingcar-list>div.shopname:not(:first-child){margin-top: 15px;}
+.shoppingcar-list>div.productlist{width:100%; height:105px; border-top:solid 1px #ccc; vertical-align:middle; padding: 10px 0; background-color:#fff; position:relative;}
+.shoppingcar-list .item-content{position:absolute; top:10px; right:10px; bottom:10px; left:80px;}
+.shoppingcar-list img{border-radius:6px; height:85px; max-width:99%;}
+.shoppingcar-list .product-name{font-size:14px; padding:0 5px; height:58px;}
+.shoppingcar-list .item-controller{height:32px; overflow:hidden;}
+.shoppingcar-list .item-option{text-align:center; vertical-align:middle;font-size:20px;width:40px; line-height:90px; float:left;}
+.shoppingcar-list .product-img{width:80px; float:left;}
+.shoppingcar-list .item-option .fa-check-circle{color:#8E488E;}
+.shoppingcar-list .product-price{float:left; height:25px; line-height:25px; color:#e80080; font-size:16px;}
+.shoppingcar-list .item-calc{width:80px; height:25px; line-height:25px; text-align:center; float:right; margin-right:10px;}
+.shoppingcar-list .item-calc div{border:solid 1px #ccc;height:25px;}
+.shoppingcar-list .item-calc div:first-child{border-right:none; border-radius:5px 0 0 5px;}
+.shoppingcar-list .item-calc div:nth-child(2){background-color:#fff; height:25px; border-right:none;}
+.shoppingcar-list .item-calc div:last-child{border-radius:0 5px 5px 0;}
+.shoppingcar-list .item-calc .disabled{color:#ccc;}
+.shoppingcar-list .item-trash{float:right;font-size:20px;}
+.shoppingcar-list .item-count{float:right; margin-top: 5px;}
+
+.shoppingcar-list .list-group{width: 100%; margin:0; padding: 0; background-color: #fff; border: none;}
+.shoppingcar-list .list-group>.list-group-item{width: 100%; height: 48px; line-height: 48px; border: none; border-top: solid 1px #ccc; padding: 0 5px;}
+.shoppingcar-list .list-group>.list-group-item input[type=text]{width: 100%; border:none; box-shadow: none; outline: none;}
+.shoppingcar-list .list-group>.list-group-item input[type=checkbox]{width: 50%; height: 15px; border:none; box-shadow: none; outline: none;}
+.shoppingcar-list .list-group>.list-group-item span.item-price{color:#e80080;}
+
+.shoppingcar-list .list-group.total{margin: 15px 0;}
+
+.shoppingcar-toolbar{width:100%; height:46px; position:fixed; bottom:0; line-height:48px; text-align:center; border-top:solid 1px #8E488E;}
+.shoppingcar-toolbar div{padding:0;}
+.shoppingcar-toolbar i{font-size:20px; vertical-align:middle;}
+.shoppingcar-toolbar i.fa-check-circle{color:#8E488E;}
+.shoppingcar-toolbar span{ vertical-align:middle;}
+.shoppingcar-toolbar>div:first-child{font-size: 12px; padding-right: 5px;}
+.shoppingcar-toolbar>div:first-child i{padding:0 10px;}
+.shoppingcar-toolbar>div:nth-child(2){background-color:#dd3d97; color:#fff;}
+.shoppingcar-toolbar>div:last-child{background-color:#8E488E; color:#fff;}
+.shoppingcar-toolbar>div:last-child>a{color:#fff;}
+
+.orderdetail-toolbar{width:100%; height:46px; position:fixed; bottom:0; text-align:right; border-top:solid 1px #8E488E; padding-right:10px;}
+.orderdetail-toolbar>a{display:inline-block; padding:5px 10px; border:solid 1px #ccc; border-radius:5px; margin-left:5px; margin-top:10px;}
+
+.item-price{color:#e80080;}
+
+.mask{position:absolute; top:0; right:0; bottom:0; left:0; text-align:center; z-index:3333; opacity:0.3; background-color:#000; display:none;}
+.payfor{position:absolute; z-index:4444; width:100%; height:70px; background:#fff; top:40%; color:#000; text-align:center; display:none;}

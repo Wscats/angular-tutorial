@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>产品详情</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-sanitize.min.js"></script>
+    <script src="libs/touchslide-1/TouchSlide.1.1.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/prodetail.js"></script>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/touchslide-1/TouchSlide.1.1.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/prodetail.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div><a href="#" ng-click="swichTag(1, $event)" class="tag active">详情</a><a href="#" ng-click="swichTag(2, $event)" class="tag">评论</a></div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>
+
+    <div class="layout-body" data-url="data/prodetail.txt">
+        <div class="evaluate" data-url="data/evaluate.txt" pagescroll>
+            <div ng-repeat="m in datalist">
+                <ul>
+                    <li class="col-xs-6"><span><img ng-src="{{m.headimg}}"/></span><span ng-bind="m.name"></span></li>
+                    <li class="col-xs-6" ng-bind="m.date | date: 'yyyy-MM-dd hh:mm:ss'"></li>
+                </ul>
+                <ul>
+                    <li><i class="fa fa-star" ng-repeat="n in [] | range:m.count"></i></li>
+                    <li ng-bind="m.content"></li>
+                    <li>购买日期：<span ng-bind="m.buydate | date: 'yyyy-MM-dd hh:mm:ss'"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="proinfor">
+            <!-- 轮播（Carousel） -->
+            <div id="focus" class="focus">
+                <div class="hd"><ul></ul></div>
+                <div class="bd">
+                    <ul>
+                        <li ng-repeat="carousel in myCarousel" repeat-finish><a href="#"><img ng-src="{{carousel.url}}" style="width:auto; height:auto;" /></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category1">
+                <div ng-bind="prodetail.title" class="item-title"></div>
+                <div class="item-price"><span ng-bind="'¥' + prodetail.price"></span></div>
+            </div>
+            <div class="category2">
+                <p><span>品牌名称：</span>LETDIOSTO</p>
+                <p><span>商品名称：</span>女款黑白色条纹上衣阔腿裤套装</p>
+                <p><span>产地：</span>中国</p>
+                <p><span>材质：</span>上衣:粘纤77%    聚酯纤维18.5%    氨纶4.5%     裤子:聚酯纤维100%   (装饰物除外)</p>
+                <p><span>洗涤说明：</span>最高洗涤温度40℃ 不可漂白 平摊晾干 熨斗底板最高温度110℃ 常规干洗（深色或者深色与浅色相拼的衣服洗涤时请注意：不宜用碱性过强的洗涤液；不宜浸泡时间过久）</p>
+            </div>
+            <div class="category3">
+                <span ng-bind-html="prodetail.infor2"></span>
+            </div>
+        </div>
+        
+    </div>
+    <div class="buy-toolbar">
+        <div class="col-xs-3">
+            <a href="shoppingcar.html">
+                <div class="buy-car">
+                    <i class="fa fa-shopping-cart"></i>
+                    <div class="item-count">11</div>
+                </div>
+            </a>
+        </div>
+        <a href="shoppingcar.html?add={{prodetail.id}}" class="col-xs-4">加入购物车</a>
+        <a href="shoppingcar.html?add={{prodetail.id}}" class="col-xs-5">立即购买</a>
+    </div>
+
+    <div navmorelist></div>
+</body>
+</html>

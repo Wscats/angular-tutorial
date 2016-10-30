@@ -1,0 +1,59 @@
+.cart-header{height: 86px; border-bottom:  solid 1px #ccc;}
+.cart-header>span{display: inline-block; height: 48px; margin-top: 15px;}
+.cart-header>span:last-child{height: 32px; line-height: 32px; padding: 0 25px; border-left: solid 1px #bbb; margin-left: 25px; font-size: 18px; color: #000; }
+.cart-header img{height: 48px; }
+
+.cart-content{margin-top:20px; color:#666; width:100%;}
+.cart-content>div>div.content>ul{width:100%;}
+.cart-content>div.thead>div.content>ul{background-color:#f3f3f3; border:1px solid #e9e9e9; height:42px; line-height:42px; color:#666;}
+.cart-content>div.thead>div.content>ul input{vertical-align:-4px; margin-right:10px; width:15px; height:15px;}
+.cart-content>div>div.content>ul>li{float:left; height:100%;}
+.cart-content>div>div.content>ul>li:first-child{width:40%;}
+.cart-content>div>div.content>ul>li:nth-child(2){width:20%; text-align:center;}
+.cart-content>div>div.content>ul>li:nth-child(3){width:10%; text-align:center;}
+.cart-content>div>div.content>ul>li:nth-child(4){width:20%; text-align:center;}
+.cart-content>div>div.content>ul>li:nth-child(5){width:10%; text-align:center;}
+
+.cart-content>div.tbody>div.content>div.item-shopname{width:100%; height:42px; line-height:42px; border-bottom:solid 1px #ccc;}
+.cart-content>div.tbody>div.content>div.item-shopname>span{padding:0 10px;}
+
+.cart-content>div.tbody>div.content>ul{background-color:#fffdee; width:100%; height:98px; border-bottom:dotted 1px #ccc;}
+.cart-content>div.tbody>div.content>ul>li{height:100%;}
+.cart-content>div.tbody>div.content>ul>li>span{display:inline-block; height:100%; line-height: 98px;}
+.cart-content>div.tbody>div.content>ul>li>span>em{display:inline-block;}
+.cart-content>div.tbody>div.content>ul>li.item-prod>span{padding:0;}
+.cart-content>div.tbody>div.content>ul>li.item-prod>.item-img{width:80px; height:80px; padding:0;}
+.cart-content>div.tbody>div.content>ul>li.item-prod>.item-img img{height:99%;}
+.cart-content>div.tbody>div.content>ul>li.item-prod>.item-size{line-height:normal; margin-top:36px; }
+.cart-content>div.tbody>div.content>ul>li.item-prod>.item-proname{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cart-content>div.tbody>div.content>ul>li.item-prod>.item-select{width:42px; float:left;}
+.cart-content>div.tbody>div.content>ul>li.item-prod>.item-select input{vertical-align:-4px; margin-right:10px; width:15px; height:15px; margin-left:16px;}
+
+.cart-content>div.tbody>div.content>ul>li.item-calc{}
+
+.cart-content>div.tbody>div.content>ul>li.item-total{padding:18px 0;}
+.cart-content>div.tbody>div.content>ul>li.item-total>span{display:block; height:22px;line-height:normal;}
+.cart-content>div.tbody>div.content>ul>li.item-total>span>i{margin-right:5px;}
+
+.cart-content>div.tfoot>div.content>ul{background-color:#f3f3f3; border:1px solid #e9e9e9; height:42px; line-height:42px; color:#666;}
+.cart-content>div.tfoot>div.content>ul>li:first-child{width:30%;}
+.cart-content>div.tfoot>div.content>ul>li:nth-child(2){width:10%;}
+.cart-content>div.tfoot>div.content>ul>li:nth-child(2) em{margin:0 5px;}
+.cart-content>div.tfoot>div.content>ul>li:nth-child(3){width:50%;}
+.cart-content>div.tfoot>div.content>ul>li:nth-child(3)>span{padding:0 10px;}
+.cart-content>div.tfoot>div.content>ul>li:nth-child(3)>span>i{margin-right:5px;}
+.cart-content>div.tfoot>div.content>ul>li:nth-child(4){width:10%; background-color:#e80080; color:#fff; font-size:18px; cursor:pointer;}
+.cart-content>div.tfoot>div.content>ul input{vertical-align:-4px; margin-right:10px; width:15px; height:15px;}
+
+.address-content{border: solid 1px #e9e9e9; padding:10px;}
+.address-content>ul{height:42px; line-height:42px;}
+.address-content>ul:first-child{background-color:#f3f3f3;}
+.address-content>ul:not(:first-child){cursor:pointer; border-bottom: dotted 1px #ccc;}
+.address-content>ul:last-child{border:none;}
+.address-content>ul.active{background-color:#fffdee; color:#e80080;}
+.address-content>ul>li{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.address-content>ul>li>a{padding:0 10px;}
+
+.payfor-content{margin-top:15px;}
+.payfor-content>ul:last-child>li{border:solid 1px #ccc; height:38px; margin-top:8px; margin-right:10px; text-align:center;}
+.payfor-content>ul:last-child>li.active{background-color:#fffdee; border-color: #e80080;}

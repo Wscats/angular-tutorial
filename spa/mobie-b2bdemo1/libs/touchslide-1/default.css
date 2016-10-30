@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/* CSS 重置 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td,img { padding: 0; margin: 0; }
+fieldset,img { border: 0; }
+address,caption,cite,code,dfn,em,strong,th,var,i { font-weight: normal; font-style: normal; }
+ol,ul,li { list-style: none; }
+caption,th { text-align: left; }
+h1,h2,h3,h4,h5,h6 { font-weight: normal; font-size: 100%; }
+q:before,q:after { content:''; }
+abbr,acronym { border: 0; }
+
+
+/* css 重置 */
+body { color: #333; -webkit-text-size-adjust: none; font:normal 12px/20px "微软雅黑", helvetica, arial; text-align:left;   }
+header, section, footer, img { display: block; margin: 0; padding: 0 }
+a{text-decoration:none;color:#333;}
+a:hover{ color:#333; text-decoration:none;  }
+html{ height:100%;  }
+body{ color:#333; height:100%;  min-width:1000px; }
+
+
+/* 头部 */
+#header{ background:#fff; height:50px; line-height:50px;  border-bottom:3px solid #CF7F21; padding:0 10px;  }
+#header .logo{ font-style:italic; font-weight:bold; font-size:12px; color:#d07b13;  }
+#header .logo a{ font-size:20px; color:#d07b13;  }
+.nav{ float:right; color:#333;  }
+.nav a{ padding:0 15px; border-left:1px solid #eee; display:block; height:50px; float:left;    }
+.nav a:hover{ color:#f60;  line-height:46px;   }
+
+/* 底部 */
+#footer{ height:40px; line-height:40px;  background:#fff; text-align:center; color:#666;    }
+
+/* 主内容 */
+#content{ padding:40px;  min-height:610px;_height:610px; _overflow:visible;text-align:center; color:#fff;  }
+#content .contentIn{ width:1000px; margin:0 auto; }
+
+/* 首页 index.html ---------------------------------------------- */
+.indLogo h2{ position:relative; height:140px;  padding-top: 20px;  }
+.indLogo h2 em{ font:italic bold 100px/140px arial;  text-shadow:2px 2px 0 #965e18; letter-spacing:-3px; }
+.indLogo h2 span{ position:absolute; right: 160px; top: 30px; display:block; width:54px; height:28px; line-height:28px; text-align:center; background:#ca7512; 
+	-webkit-border-radius:28px; -moz-border-radius:28px; border-radius:28px; font-style:italic; 
+}
+.indLogo h3{ font-size:24px; line-height:24px;  text-shadow:1px 1px 0 #965e18; }
+.indIntro{ padding:40px 0 20px 0; color:#333; font-size:18px; line-height:200%; text-shadow:0 1px 0 #face8d;  }
+.indOthers{ overflow:hidden; padding-top:20px;  }
+.indOthers .indBtn{ display:inline-block; *display:inline; zoom:1; width:280px; height:100px; background:#fff; text-align:right; margin:2px 30px 0 30px; cursor:pointer; overflow:hidden; 
+	-webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px; background:url(images/indIcons.png) 160px -322px #fff no-repeat; 
+	vertical-align:top;
+}
+.indOthers .indBtn p{ padding:20px 110px 0 0; color:#333; font-size:16px; font-weight:bold;  }
+.indOthers .indBtn:hover{ margin-top:0  }
+.indOthers .indBtn:hover p{   }
+.indOthers .indDownLoad{ background-position: 160px -31px; }
+.indOthers .indDownLoad p{  color:#56AB6C }
+
+.indNotice{ width:630px; margin:0 auto;   text-align:left; padding-top:20px; font-size:14px;  }
+.indNotice li{ padding:5px 0 15px 40px; margin-top:10px;   background:url(images/indIcons.png) 0 -575px no-repeat;  }
+.indNotice li.android{ background-position:0 -733px; }
+.indNotice li.win{ background-position:0 -866px; }
+
+/* 查看参数 param.html ---------------------------------------------- */
+.paramPage .ps,.usePage .ps{ text-align:left; color:#333; font-size:12px; padding-bottom:10px; line-height:22px;    }
+.paramPage .ps i{ color:#c00;  }
+.usePage .ps i{ color:#f60;  }
+.paramPage .paramWrap{ background:#fff;  }
+.paramPage .param { border-collapse: collapse; border-spacing: 0; empty-cells:show; 
+	
+}
+.paramPage .param td,.paramPage .param th{ border:#eee solid 1px; padding:5px 10px; }
+.paramPage .param th{ background:#bd7200; font-weight:bold; color:#fff;  }
+.paramPage .param .new td{ color:#f60; font-weight:bold;  }
+
+.paramPage .param{ width:100%;  margin-bottom:20px;  color:#333; font-size:12px;  }
+.paramPage .param th{ text-align:center;  }
+.paramPage .param td{ text-align:left;  }
+.paramPage .param .intro{ text-align:left;  }
+.paramPage .param .link{ color:#c00; text-decoration:underline;   }
+.paramPage .param .t b{ color:#c00;  }
+.paramPage .param i{ color:#c00;   }
+.paramPage .param .on td{ background:#fdeacc;  }
+.paramPage .notice{ overflow:hidden;  text-align:left; padding-bottom:10px;  }
+.paramPage .notice li{ width:120px; height:30px; line-height:30px; text-align:center; float:left; margin-right:10px; color:#fff; background:#666; cursor:pointer; }
+.paramPage .notice .on{ background:#c00;   }

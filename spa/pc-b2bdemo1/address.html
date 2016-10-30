@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>收货地址</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/common/global.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/confirmorder.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="admin-header"></div>
+
+    <div class="max-width cart-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>收货地址</span>
+    </div>
+
+    <div class="max-width admin">
+        <div id="admin-menu" class="col-sm-2" active="2"></div>
+
+        <div class="address-content col-sm-8">
+            <ul>
+                <li class="col-sm-10">收货人信息</li>
+                <li class="col-sm-2"><a href="addressform.html">添加收货地址</a></li>
+            </ul>
+            <ul class="active" addressid="1">
+                <li class="col-sm-2">张三</li>
+                <li class="col-sm-8">广东省广州市天河区天河大街1000号10001</li>
+                <li class="col-sm-2"><a href="addressform.html?id=1">编辑</a><a href="javascript:" class="item-del">删除</a></li>
+            </ul>
+            <ul addressid="2">
+                <li class="col-sm-2">张三</li>
+                <li class="col-sm-8">广东省广州市天河区天河大街1000号10001</li>
+                <li class="col-sm-2"><a href="addressform.html?id=2">编辑</a><a href="javascript:" class="item-del">删除</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="layout-footer"></div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.item-del').on('click', function () {
+                var _currobj = $(this);
+                var id = $(this).closest('ul').attr('addressid');
+                $.ajax({
+                    url: '#?id=' + id,
+                    beforeSend: function () {
+                        $.mask.show();
+                    },
+                    complete: function () {
+                        _currobj.closest('ul').remove();
+                        $.mask.hide();
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

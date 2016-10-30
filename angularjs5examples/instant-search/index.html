@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Learn AngularJS - Instant Search</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
+
+		<!-- The main CSS file -->
+		<link href="style.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<!-- Initialize a new AngularJS app and associate it with a module named "instantSearch"-->
+	<body ng-app="instantSearch" ng-controller="InstantSearchController">
+
+		<div class="bar">
+			<!-- Create a binding between the searchString model and the text field -->
+			<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+		</div>
+
+		<ul>
+			<!-- Render a li element for every entry in the items array. Notice
+				 the custom search filter "searchFor". It takes the value of the
+				 searchString model as an argument.
+			 -->
+			<li ng-repeat="i in items | searchFor:searchString">
+				<a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
+				<p>{{i.title}}</p>
+			</li>
+		</ul>
+
+		<!-- Include AngularJS from Google's CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

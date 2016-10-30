@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>评价</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/evaluate.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/evaluate.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form">
+        <a href="orderdetail.html?orderid={{orderid}}">
+            <div class="pro-content">
+                <div><img src="images/tu.png" /></div>
+                <div>
+                    <div>订单名称或店铺名称</div><span>2016-01-01</span>
+                </div>
+                <div><span>详情</span><i class="clip-chevron-right"></i></div>
+            </div>
+        </a>
+        <div class="label-split"><div class="split-line"></div><span>匿名评价</span></div>
+        <div class="evaluate-star">
+            <i class="fa fa-star {{m.active ? 'active' : ''}}" ng-repeat="m in starList" ng-click="starClick(m, $event)"></i>
+            <div ng-bind="currStars.descript"></div>
+        </div>
+        <div class="item-title">请选标签</div>
+        <div class="evaluate-lables">
+            <span ng-repeat="m in currStars.lables" ng-click="lableClick($event)"><i class="clip-checkmark-2"></i><a href="javascript:" ng-bind="m.title"></a></span>
+            <div class="hidden">点击展开更多<i class="icon-xiasanjiao iconfont"></i></div>
+        </div>
+
+
+        <div class="evaluate_content">
+            <textarea ng-model="descript" ng-change="descriptInput(descript)" maxlength="60" placeholder="其它意见和建议（内容匿名，可放心填写）" name="descript"></textarea>
+            <div ng-bind="maxlen"></div>
+        </div>
+
+        <div class="btn btn-danger btn-lg upload" ng-click="evaluate()"><input type="file" name="qrcode" />上传图片</div>
+
+        <div class="btn btn-danger btn-lg" ng-click="evaluate()">提交匿名评价</div>
+
+        <input type="hidden" name="satisfy" id="satisfy" />
+        <input type="hidden" name="secontent" id="secontent" />
+    </form>
+</body>
+</html>

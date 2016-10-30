@@ -1,0 +1,9 @@
+﻿{
+	"totalCount": 30, "pageSize": 10, "result":[
+		{"name": "匿名", "headimg": "images/18.jpg", "date": "2016-05-16 12:00", "count": 5, "content": "真心好，下次还会再来买", "buydate": "2016-05-10 14:00"},
+		{"name": "匿名", "headimg": "images/18.jpg", "date": "2016-05-16 12:00", "count": 5, "content": "真心好，下次还会再来买", "buydate": "2016-05-10 14:00"},
+		{"name": "匿名", "headimg": "images/18.jpg", "date": "2016-05-16 12:00", "count": 5, "content": "真心好，下次还会再来买", "buydate": "2016-05-10 14:00"},
+		{"name": "匿名", "headimg": "images/18.jpg", "date": "2016-05-16 12:00", "count": 5, "content": "真心好，下次还会再来买", "buydate": "2016-05-10 14:00"},
+		{"name": "匿名", "headimg": "images/18.jpg", "date": "2016-05-16 12:00", "count": 5, "content": "真心好，下次还会再来买", "buydate": "2016-05-10 14:00"}
+	]
+}

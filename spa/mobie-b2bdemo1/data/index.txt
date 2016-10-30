@@ -1,0 +1,14 @@
+﻿{
+	"totalCount": 30, "pageSize": 10, "result": [
+		{"id": 1, "src": "images/5.jpg", "title": "拱辰享雪美白精华套装", "price": 120},
+		{"id": 1, "src": "images/6.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/7.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/8.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/9.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/10.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/1.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/2.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/3.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120},
+		{"id": 1, "src": "images/4.jpg", "title": "津率享红华凝香平衡液 150ml", "price": 120}
+	]							 
+}								 

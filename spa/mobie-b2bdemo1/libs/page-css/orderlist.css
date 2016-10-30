@@ -1,0 +1,31 @@
+﻿.order-content{width:100%; font-size:12px;}
+.order-content .order-item{width:100%;}
+.order-content .shopname{width:100%; height:38px; line-height:38px; background-color:#fff; border-bottom:solid 1px #ccc; padding:0 10px;}
+.order-content .shopname>div{padding:0;}
+.order-content .shopname>div:last-child{color:#e80080;}
+.order-content .product-content{width:100%;}
+.order-content .product-content>div{width:100%; height:95px; background:#fff; margin-bottom:5px;position:relative;}
+.order-content .product-content>div:last-child{margin:0;}
+.order-content .item-img{width:80px; float:left;}
+.order-content .item-img img{border-radius:6px; height:85px; max-width:99%;}
+.order-content .item-name{font-size:14px; padding:0 5px; height:58px; display:block;}
+.order-content .item-controller{height:32px; overflow:hidden;}
+.order-content .item-notes{position:absolute; top:10px; right:10px; bottom:10px; right:10px; width:65px; color:#aaa;}
+.order-content .item-content{display:block; position:absolute; top:10px; right:10px; bottom:10px; left:80px;}
+.order-content .item-content>div{padding:0;}
+.order-content .item-total{width:100%; height:38px; line-height:38px; background-color:#fff; padding:0 10px;border-top:solid 1px #ccc;}
+.order-content .item-control{width:100%; height:48px; background-color:#fff;padding:0 10px;border-top:solid 1px #ccc; margin-bottom:15px; text-align:right;}
+.order-content .item-control>a{display:inline-block; padding:5px 10px; border:solid 1px #ccc; border-radius:5px; margin-left:5px; margin-top:10px;}
+.order-content .item-count{display:inline-block; float:right;}
+.item-price{color:#e80080;}
+
+.mask{position:absolute; top:0; right:0; bottom:0; left:0; text-align:center; z-index:3333; opacity:0.3; background-color:#000; display:none;}
+.payfor{position:absolute; z-index:4444; width:100%; height:70px; background:#fff; top:40%; color:#000; text-align:center; display:none;}
+
+.layout-body{top:96px;}
+
+.category{font-size: 12px; width:100%; height: 48px; line-height: 48px; padding: 10px 0; position: fixed; top: 48px; border-bottom: solid 1px #ccc;}
+.category>a{border-right: solid 1px #ccc; height: 28px; line-height: 28px; text-align: center; width:20%; float:left; display:block;}
+.category>a:last-child{border:none;}
+.category>a>i{padding-left: 5px;}
+.category>a.active{color: #8E488E;}

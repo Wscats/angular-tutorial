@@ -1,0 +1,24 @@
+﻿{
+	"totalCount": 100, "pageSize": 10, "result":[
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" },
+		{ "id": "1", "type": "in", "createtime": 1462981671759,"balance":100, "note": "提成" }
+	]
+}

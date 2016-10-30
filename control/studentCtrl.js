@@ -54,7 +54,7 @@ app.controller('studentCtrl', function($scope, $rootScope) {
 	}
 	$scope.imgUrl = "../img/3812b31bb051f81972832628ddb44aed2e73e72a.jpg";
 	$scope.style = {
-		'border': '1px solid brown'
+		'border': '1px solid blue'
 	};
 	
 	$scope.myNumber = 0;

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商城</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/touchslide-1/TouchSlide.1.1.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/index.js"></script>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/touchslide-1/TouchSlide.1.1.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/index.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"></a>
+            <div>OYA商城</div>
+            <a href="#" ng-click="showSearch()"><i class="clip-search-3"></i></a>
+        </div>
+    </div>
+
+    <div class="search-content item-hidden">
+        <div class="search-bar">
+            <div>商品搜索</div>
+            <a href="#" ng-click="closeSearch()"><i class="clip-close-2"></i></a>
+        </div>  
+        <div class="input-group">
+            <span class="input-group-addon"><i class="clip-search-3"></i> </span>
+            <input type="text" class="form-control date-range" ng-model="keyword">
+            <span class="input-group-addon" ><a href="index.html?keyword={{keyword}}">搜索</a></span>
+        </div>
+    </div>
+
+    <div class="layout-body" data-url="data/index.txt" pagescroll>
+        <!-- 轮播（Carousel）导航 -->
+        <div id="focus" class="focus" data-url="data/index-carousel.txt">
+            <div class="hd"><ul></ul></div>
+            <div class="bd">
+                <ul>
+                    <li ng-repeat="carousel in myCarousel" repeat-finish><a href="#"><img ng-src="{{carousel.url}}" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 分类导航 -->
+        <img src="images/49.jpg" class="item-img" />
+        <a href="products.html"><img src="images/31.jpg" class="item-img" /></a>
+        <div class="category1">
+            <div class="col-xs-6"><a href="products.html"><img src="images/27.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/28.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/29.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/30.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/32.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/33.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/34.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/35.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/36.jpg" class="item-img" /></a></div>
+            <div class="col-xs-6"><a href="products.html"><img src="images/37.jpg" class="item-img" /></a></div>
+        </div>
+
+        <a href="products.html"><img src="images/50.jpg" class="item-img" /></a>
+        <a href="products.html"><img src="images/51.jpg" class="item-img" /></a>
+        <a href="products.html"><img src="images/52.jpg" class="item-img" /></a>
+        <a href="products.html"><img src="images/53.jpg" class="item-img" /></a>
+        <img src="images/26.jpg" class="item-img" />
+        <div class="productlist">
+            <div ng-repeat="pro in datalist">
+                <div class="proimg"><a href="products.html"><img ng-src="{{pro.src}}" /></a></div>
+                <div ng-bind="pro.title" class="item-title"></div>
+                <div class="item-price"><span ng-bind="'¥' + pro.price"></span></div>
+            </div>
+        </div>
+        <div class="scroll_top" scrolltop><i class="fa fa-arrow-up"></i></div>
+    </div>
+    <div class="layout-footer" navcontainer data-active="0"></div>
+   
+</body>
+</html>

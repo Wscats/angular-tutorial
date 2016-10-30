@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>我的金库</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/user.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/fnlist.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>我的金库</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>    
+
+    <div class="layout-body" data-url="data/fnlist.txt" pagescroll>
+        <div class="user-finance">
+            <div class="col-xs-6"><div>1500</div><div>已结算佣金</div></div>
+            <div class="col-xs-6"><div>800</div><div>当前佣金</div></div>
+        </div>
+
+        <div class="column-content fnlist">
+            <div class="col-xs-3">收入/支出</div>
+            <div class="col-xs-3">当前结余</div>
+            <div class="col-xs-3">备注</div>
+            <div class="col-xs-3">时间</div>
+        </div>
+        <div class="list-group fnlist" id="fnlist">
+            <div ng-repeat="m in datalist" class="list-group-item">
+                <div class="col-xs-3" ng-bind="m.type == 'in' ? '收入' : '支出'">收入/支出</div>
+                <div class="col-xs-3" ng-bind="m.balance"></div>
+                <div class="col-xs-3" ng-bind="m.note">备注</div>
+                <div class="col-xs-3" ng-bind="m.createtime | date:'yyyy-MM-dd'"></div>
+            </div>
+        </div>
+    </div>
+    <div class="layout-footer" navcontainer data-active="3"></div>
+    <div navmorelist></div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>找回密码</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/common/global.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>    
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/register.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="max-width register-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>找回密码</span>
+    </div>
+
+    <form>
+        <div class="register-content">
+           	<div class="item-input item-relative">
+           		<span>用户名</span>
+           		<input type="text" name="username" class="required" placeholder="输入用户名">
+           	</div>
+            <div class="item-input item-relative">
+                <span>手机号码</span>
+                <input type="text" name="poxy" class="item-poxy required" placeholder="编码" value="+86">
+                <input type="text" name="phone" class="item-pohne required isMobile" placeholder="输入手机号码" maxlength="11">
+            </div>
+            <div class="item-input item-relative">
+                <span>手机验证码</span>
+                <input type="text" name="phonecode" placeholder="输入手机验证码" class="required item-phonecode">
+                <input type="button" class="btn-getcode" id="btn_getcode" value="获取验证码" />
+            </div>  
+           	<div class="item-input item-relative">
+           		<span>密码</span>
+           		<input type="password" name="pwd" placeholder="输入密码" class="{required:true,minlength:6}">
+           	</div>
+           	<div class="item-input item-relative">
+           		<span>确认密码</span>
+           		<input type="password" name="confirmpwd" placeholder="输入确认密码" class="{required:true,minlength:6,comparePwd:'#password'}">
+           	</div>           	
+ 
+           	<div class="item-input noneborder">        	            	
+            	<input type="submit" id="btn_submit" class="btn" value="提交" />                                      
+            </div>
+        </div>
+    </form>
+    <div id="layout-footer"></div>
+
+    <script type="text/javascript">
+	    $(function(){
+	    	$('#btn_submit').on('click', function(){
+	    		if(!$('#btn_submit').closest('form').valid()){
+	    			return false;
+	    		}
+	    	})
+	    	$('#btn_getcode').on('click', function(){
+				    var _currobj = $('#btn_getcode');
+		        if (_currobj.hasClass('unactive')) {
+		            return false;
+		        }
+		        _currobj.addClass('unactive').attr('disabled', true).text('发送中...');
+		        // $.post('').success(function (response) {
+		        //     if (response.state) {
+		                $.alert('验证码已发送，请查收！');
+		                var _sec = 60;
+		                var _time = window.setInterval(function () {
+		                    if (_sec < 1) {
+		                        window.clearInterval(_time);
+		                        _time = null;
+		                        _currobj.removeClass('unactive').attr('disabled', false).val('发送验证码');
+		                        return false;
+		                    }
+		                    _sec--;
+		                    _currobj.val(_sec + '秒可后重发');
+		                }, 1000);
+		            // } else {
+		                // $.alert('验证码发送失败，请重新发送！');
+		                // _currobj.removeClass('unactive').attr('disabled', false).text('发送验证码');
+		            // }
+		        // })	    		
+	    	})
+	    })
+    </script>
+</body>
+</html>

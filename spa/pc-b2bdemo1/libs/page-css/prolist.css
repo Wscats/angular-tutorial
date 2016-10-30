@@ -1,0 +1,30 @@
+﻿/*筛选条件*/
+.proattrs{ margin-top:15px;}
+.proattrs>ul{width:100%; border-bottom:solid 1px #ccc; display:-webkit-box; display:-webkit-flex;}
+.proattrs>ul>li{float:left; padding:10px 15px; text-align:center;}
+.proattrs>ul>li:first-child{width:100px; background-color:#eee;}
+
+/*产品排序操作*/
+.profilter{background-color:#eee; display:-webkit-box; display:-webkit-flex; padding:5px 10px; margin-top:25px; margin-bottom:10px;}
+.profilter>a{display:inline-block; float:left; padding:5px 10px; background-color:#fff; border:solid 1px #ccc;text-align:center; border-right:none;}
+.profilter>a:last-child{border-right: solid 1px #ccc;}
+.profilter>a.active{background-color:#dd3d97; color:#fff; border-color:#dd3d97;}
+
+
+/*产品列表*/
+.prolist>ul{width:100%; height:320px;}
+.prolist>ul>li{width:20%; float:left; height:99%; padding:5px 15px;}
+.prolist>ul>li:hover{border:solid 3px #dd3d97; padding:2px 12px;}
+.prolist>ul>li>div.item-img{height:210px; overflow:hidden; text-align:center;}
+.prolist>ul>li>div.item-img img{height:100%;}
+.prolist>ul>li>div.item-price{font-size:14px; height:38px; line-height:38px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.prolist>ul>li>div.item-price>span:not(:first-child){color:#eb882b;}
+.prolist>ul>li>div.item-price>span>i{font-size:10px; margin-right:2px;}
+.prolist>ul>li>div.item-proname>a{color:#666;}
+.prolist>ul>li>div.item-control{margin-top:10px; width:100%;}
+.prolist>ul>li>div.item-control>span{display:inline-block; float:left; border:1px solid #ddd; padding:5px;  text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border-collapse:collapse;color:#666;}
+.prolist>ul>li>div.item-control>span:first-child{width:40%; border-right:none;}
+.prolist>ul>li>div.item-control>span:first-child>em{color:#b57c5b; font-style:normal; font-weight:700; font-family:arial;}
+.prolist>ul>li>div.item-control>span:nth-child(2){width:40%; border-right:none;}
+.prolist>ul>li>div.item-control>span:nth-child(2)>a{color:#38b; font-style:normal; font-weight:700; font-family:arial;}
+.prolist>ul>li>div.item-control>span:last-child{width:20%;}

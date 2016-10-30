@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>分类</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/category.js"></script>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/category.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>分类</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>
+    <div class="category-left" data-url="data/tags.txt">
+        <div ng-repeat="m in tags" ng-bind="m.name" ng-click="tagClick(m, $event)" class="{{$index == 0 ? 'active' : ''}}"></div>
+    </div>
+    <div class="category-right" data-url="data/category.txt">
+        <div ng-repeat="m1 in category">
+            <div ng-bind="m1.name" class="category-name"></div>
+            <div class="category-content">
+                <a href="products.html?type={{m.id}}" ng-repeat="m2 in m1.category" class="col-xs-4">
+                    <img ng-src="{{m2.logo}}" />
+                    <div ng-bind="m2.name"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="layout-footer" navcontainer data-active="1"></div>
+    
+    <div navmorelist></div>
+</body>
+</html>

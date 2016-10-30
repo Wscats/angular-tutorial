@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>会员中心</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/user.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/user.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>会员中心</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>    
+
+    <div class="layout-body">
+        <a href="userinfo.html" class="user-head">
+            <span><img src="images/18.jpg" /></span>
+            <span>
+                <span>13800138000</span>
+                <span><img src="images/18.jpg" />普通会员</span>
+            </span>
+            <span><i class="clip-chevron-right"></i></span>
+        </a>
+        <div class="user-finance">
+            <div class="col-xs-4"><a href="fnlist.html?id=2&amp;name=我的金额"><div>100</div><div>我的金额</div></a></div>
+            <div class="col-xs-4"><a href="fnlist.html?id=1&amp;name=我的佣金"><div>50</div><div>可用金额</div></a></div>
+            <div class="col-xs-4"><a href="fnlist.html?id=1&amp;name=我的佣金"><div>1000</div><div>代币</div></a></div>
+        </div>
+
+        <div class="list-group user-menu">
+            <a href="userlist.html?id=1" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="clip-user-4 fa-stack-1x fa-inverse"></i></span>
+                <span>一级会员</span>
+                <div class="item-count">5</div>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>
+            <a href="userlist.html?id=2" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="clip-users-2 fa-stack-1x fa-inverse"></i></span>
+                <span>二级会员</span>
+                <div class="item-count">5</div>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>
+            <a href="userlist.html?id=3" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="clip-user-5 fa-stack-1x fa-inverse"></i></span>
+                <span>三级会员</span>
+                <div class="item-count">5</div>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>
+        </div>
+
+        <div class="list-group user-menu">
+            <a href="orderlist.html" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i></span>
+                <span>我的订单</span>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>
+            <a href="#" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-trophy fa-stack-1x fa-inverse"></i></span>
+                <span>升级为商家</span>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>
+            <a href="userinfo.html" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-edit fa-stack-1x fa-inverse"></i></span>
+                <span>完善资料</span>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>
+            <!--<a href="#" class="list-group-item">
+                <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-key fa-stack-1x fa-inverse"></i></span>
+                <span>修改密码</span>
+                <span><i class="clip-chevron-right"></i></span>
+            </a>-->
+        </div>
+    </div>
+    <div class="layout-footer" navcontainer data-active="3"></div>
+    <div navmorelist></div>
+</body>
+</html>

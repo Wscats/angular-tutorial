@@ -1,0 +1,13 @@
+.cart-header{height: 86px; border-bottom:  solid 1px #ccc;}
+.cart-header>span{display: inline-block; height: 48px; margin-top: 15px;}
+.cart-header>span:last-child{height: 32px; line-height: 32px; padding: 0 25px; border-left: solid 1px #bbb; margin-left: 25px; font-size: 18px; color: #000; }
+.cart-header img{height: 48px; }
+
+.admin-content{width:100%;}
+.user-content{width:100%; height:98px; background-color:#f5f5f5; padding:10px;}
+.user-content>.user-head{width:75px; background-color:#fff; height:100%; float:left; border-radius:100%; text-align:center; padding:9px 0; margin-right:25px; border:solid 1px #ccc;}
+.user-content>.user-head>span{display:block; height:28px; line-height:28px;}
+
+.user-content>.user-detail{ float:left;}
+.user-content>.user-detail>ul{width:158px; float:left; border-right: solid 1px #ccc; padding:0 15px; margin-left:15px;}
+.user-content>.user-detail>ul>li{height:28px; line-height:28px;}

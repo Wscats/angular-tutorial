@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>收货地址编辑</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/common/global.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+    
+    <script src="libs/page-js/userinfo.js"></script>
+
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/address.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="admin-header"></div>
+        
+    <div class="max-width cart-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>收货地址编辑</span>
+    </div>
+
+    <div class="max-width admin">
+        <div id="admin-menu" class="col-sm-2" active="2"></div>
+        <div class="admin-content col-sm-8">
+            <form action="data/bussiness.txt" method="get">
+                <div class="input-group item-relative">
+                    <span>姓名 </span>
+                    <input type="text" name="nickname" class="required">
+                </div>
+                <div class="input-group item-relative">
+                    <span class="">手机号码 </span>
+                    <input type="text" class="required isMobile" name="account">
+                </div>
+                <div class="input-group item-relative">
+                    <span>收货地址 </span>
+                    <select id="province" name="province" data-url="data/address.txt" data-next="city">
+                        <option value="">选择省</option>
+                        <option ng-repeat="m in province" value="{{m.id}}" ng-bind="m.name"></option>
+                    </select>
+                    <select id="city" name="city" data-next="area">
+                        <option value="">选择市</option>
+                        <option ng-repeat="m in city" value="{{m.id}}" ng-bind="m.name"></option>
+                    </select>
+                    <select id="area" name="area">
+                        <option value="">选择区/县</option>
+                        <option ng-repeat="m in area" value="{{m.id}}" ng-bind="m.name"></option>
+                    </select>
+                </div>
+                <div class="input-group item-relative">
+                    <span>详细地址 </span>
+                    <input type="text" name="address" class="required">
+                </div>
+                <div class="input-group item-relative">
+                    <span>邮政编码 </span>
+                    <input type="text" class="required " name="postcode">
+                </div>
+                <div class="input-group item-relative">
+                    <span>默认地址 </span>
+                    <input type="checkbox" name="default">
+                </div>
+                <div class="input-group">
+                    <input type="button" value="提交" class="btn btn-bricky" ng-click="submit($event)">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="layout-footer"></div>
+</body>
+</html>

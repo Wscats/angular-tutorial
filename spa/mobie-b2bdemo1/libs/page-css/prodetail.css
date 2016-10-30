@@ -1,0 +1,38 @@
+﻿.buy-toolbar{position:fixed; bottom:0; height:48px; width:100%; line-height:48px; font-size:14px; color:#fff; text-align:center; border-top:solid 1px #8E488E;}
+.buy-toolbar .buy-car{position:relative; height:40px; color:#000; margin-top:8px;}
+.buy-toolbar div.item-count{ background-color:#8E488E; min-width:15px; height:15px; border-radius:100%; position:absolute; right:8px;top:3px; font-size:9px; text-align:center; color:#fff; padding:0 2px; line-height:15px;}
+.buy-toolbar i{font-size:25px; color:#8E488E;}
+.buy-toolbar>a:nth-child(2){background-color:#dd3d97; height:100%; color:#fff;}
+.buy-toolbar>a:last-child{background-color:#8E488E; height:100%; color:#fff;}
+
+.category1{width:100%; background-color:#fff;}
+.category1>div{padding:0 10px; padding:5px 0; color:#616b7f; padding:3px 10px; white-space:nowrap; text-overflow:ellipsis; width:100%; overflow:hidden;}
+.category1>div.item-title{font-size:14px;}
+.category1>div.item-price{font-size:12px;}
+.category1>div.item-price>span:last-child{font-size:16px; color:#e80080;}
+
+.category2{width:100%; background-color:#fff; margin-top:10px; padding:10px;}
+.category2>p{text-align:left; color:#999;}
+.category2>p>span{color:#000; font-size:14px;}
+
+.category3{width:100%; background-color:#fff; margin-top:10px;}
+.category3 img{width:100%;}
+
+.evaluate{width:100%; display:none; position:absolute; top:0; left:0; right:0; bottom:0; overflow:auto;}
+.evaluate>div{width:100%; margin-top:10px; background-color: #fff;}
+.evaluate>div>ul{width:100%; padding:0 10px;}
+.evaluate>div>ul>li{text-align:left; padding:0;}
+/*评论人*/
+.evaluate>div>ul:first-child{height:42px; line-height:42px; border-bottom:solid 1px #eee;}
+.evaluate>div>ul:first-child>li{height:41px;}
+.evaluate>div>ul:first-child>li:first-child>span{vertical-align:middle;}
+.evaluate>div>ul:first-child>li:first-child>span>img{width:25px; height:25px; border-radius:100%; vertical-align:middle; margin-right:10px;}
+.evaluate>div>ul:first-child>li:last-child{text-align:right; color:#aaa;}
+
+/*评论星星*/
+.evaluate>div>ul:last-child>li:first-child>i{color:red; padding:2px;}
+/*评论内容*/
+.evaluate>div>ul:last-child>li:nth-child(2){padding:5px 0;}
+/*购买日期*/
+.evaluate>div>ul:last-child>li:last-child{color:#aaa; font-size:9px;}
+

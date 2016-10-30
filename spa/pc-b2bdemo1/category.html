@@ -1,0 +1,108 @@
+﻿<div class="main-cateory-content">
+    <div class="category-menu">
+        <ul class="category-ul" id="1">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+        <ul class="category-ul" id="2">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+        <ul class="category-ul" id="3">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+        <ul class="category-ul" id="4">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+        <ul class="category-ul" id="5">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+        <ul class="category-ul" id="6">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+        <ul class="category-ul" id="7">
+            <li><a href="prolist.html?type=1">服装</a><span>></span></li>
+            <li><a href="prolist.html?type=1">男装</a><a href="prolist.html?type=1">女装</a><a href="prolist.html?type=1">童装</a></li>
+        </ul>
+    </div>
+    <div class="sub-category-menu">
+        <ul flag="1" class="active">
+            <li>
+                <a href="prolist.html?type=1">分类1<i>></i></a>
+                <span>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                    <a href="prolist.html?type=1">分类1</a>
+                </span>
+            </li>
+            <li><a href="prolist.html?type=1">分类1<i>></i></a></li>
+            <li><a href="prolist.html?type=1">分类1<i>></i></a></li>
+            <li><a href="prolist.html?type=1">分类1<i>></i></a></li>
+        </ul>
+        <ul flag="2">
+            <li><a href="prolist.html?type=1">分类2<i>></i></a></li>
+            <li><a href="prolist.html?type=1">分类2<i>></i></a></li>
+            <li><a href="prolist.html?type=1">分类2<i>></i></a></li>
+            <li><a href="prolist.html?type=1">分类2<i>></i></a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var _show = false;
+
+        $('#category-main-menu').hover(function () {
+            $('.main-cateory-content').show();
+        }, function () {
+            if ($('#layout-category').hasClass('ingnore')) {
+                return false;
+            }
+            window.setTimeout(function () {
+                if (!_show) {
+                    $('.main-cateory-content').hide();
+                }
+            }, 100);
+        })
+
+        $('.main-cateory-content').on('mouseover', function (e) {
+            _show = true;
+            var _currobj = $(e.target);
+            if (!_currobj.is('ul.category-ul') && _currobj.closest('ul.category-ul')[0]) {
+                _currobj = _currobj.closest('ul.category-ul');
+            }
+            if (!_currobj.is('ul.category-ul')) {
+                return false;
+            }
+
+            var _id = _currobj.prop('id');
+            var _subcategory = $('.sub-category-menu');
+            var _tagul = $('ul[flag=' + _id + ']', _subcategory);
+            if (_tagul[0]) {
+                $('ul', _subcategory.show()).hide();
+                _tagul.show();
+            } else {
+                $('ul', _subcategory.hide()).hide();
+            }
+        }).hover(null, function () {
+            if (!$('#layout-category').hasClass('ingnore')) {
+                $('.main-cateory-content').hide();
+            }
+            $('ul', $('.sub-category-menu').hide()).hide();
+            _show = false;
+        })
+    })
+</script>
+

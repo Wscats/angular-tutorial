@@ -1,0 +1,11 @@
+﻿.category-left{position:fixed; top:48px; bottom:54px; left:0; width:100px; overflow-y:auto;}
+.category-left>div{width:100%; height:42px; line-height:42px; background-color:#fff; text-align:center; margin-bottom:1px;}
+.category-left>div.active{background-color:#f1f5f6; color:red;}
+
+.category-right{position:absolute; top:48px; bottom:54px; left:100px; right:0; overflow-y:auto;}
+.category-right>div{width:100%; padding:0 10px;}
+.category-right>div>div.category-name{width:100%; height:38px; line-height:38px;}
+.category-right>div>div.category-content{width:100%; background-color:#fff;display:-webkit-box; display:-webkit-flex; flex-flow:wrap;}
+.category-right>div>div.category-content>a{height:100px; padding:0; display:block;}
+.category-right>div>div.category-content>a>img{width:100%; height:62px;}
+.category-right>div>div.category-content>a>div{width:100%; height:38px; line-height:38px; text-align:center;}

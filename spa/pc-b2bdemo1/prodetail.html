@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>商品详情</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/common/global.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-sanitize.min.js"></script>    
+    <script src="libs/angular/angular.pagination.js"></script> 
+    <script src="libs/angular/angular.global.js"></script>    
+    <script src="libs/page-js/prodetail.js"></script>
+
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/prodetail.css" rel="stylesheet" />
+    <link href="libs/angular/angular.pagination.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div id="layout-header"></div>
+
+    <div class="max-width"><div id="layout-category"></div></div>
+
+    <div class="max-width pro-view-content">
+        <div class="item-img"><img src="images/54.jpg" /></div>
+        <div class="item-info">
+            <div class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</div>
+            <div class="item-total">
+                <span>月销量<em>31500</em></span>
+                <span>累计评论<em>87511</em></span>
+                <span>送积分<em>500</em></span>
+                <span>送N币<em>500</em></span>
+            </div>
+            <div class="item-size" id="item-size">
+                <span class="caption" >尺码</span>
+                <span class="active" val="100">1</span>
+                <span val="100">100</span>
+                <span val="100">1</span>
+                <span val="100">1</span>
+            </div>
+            <div class="item-size" id="item-color">
+                <span class="caption">颜色</span>
+                <span class="active" val="red">白色</span>
+                <span val="red">红色</span>
+                <span val="red">黑色</span>
+                <span val="red">黄色</span>
+            </div>
+            <div class="item-count">
+                <span class="caption">数量</span>
+                <input type="text" name="count" id="count" value="1" />
+            </div>
+            <div class="item-price-content">
+                <div paytype="1" val="1000">
+                    <label><input type="radio" name="payfor" checked /><em class="item-price">￥1000</em></label>
+                </div>
+                <div paytype="2" val="100|100">
+                    <label><input type="radio" name="payfor" /><em class="item-price">￥100.00</em> + <em class="item-price-2"><i class="clip-database"></i>200</em></label>
+                </div>
+                <div paytype="3" val="100|100">
+                    <label><input type="radio" name="payfor" /><em class="item-price">￥100.00</em> + <em class="item-price-2"><i class="clip-bookmark"></i>200</em></label>
+                </div>
+            </div>
+            <div class="item-control">
+                <a href="javascript:" id="btn_buy">立即购买</a>
+                <a href="javascript:" id="btn_cart">加入购物车</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-width item-recommand">
+        <div class="item-title"><span>店长推荐</span></div>
+        <ul>
+            <li>
+                <a href="prodetail.html?id=1" class="item-img text-center"><img src="images/54.jpg" /></a>
+                <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                <a href="prodetail.html?id=1" class="item-price">￥100</a>            
+            </li>
+            <li>
+                <a href="prodetail.html?id=1" class="item-img text-center"><img src="images/54.jpg" /></a>
+                <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                <a href="prodetail.html?id=1" class="item-price">￥100</a>            
+            </li>
+            <li>
+                <a href="prodetail.html?id=1" class="item-img text-center"><img src="images/54.jpg" /></a>
+                <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                <a href="prodetail.html?id=1" class="item-price">￥100</a>            
+            </li>
+            <li>
+                <a href="prodetail.html?id=1" class="item-img text-center"><img src="images/54.jpg" /></a>
+                <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                <a href="prodetail.html?id=1" class="item-price">￥100</a>            
+            </li>
+            <li>
+                <a href="prodetail.html?id=1" class="item-img text-center"><img src="images/54.jpg" /></a>
+                <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                <a href="prodetail.html?id=1" class="item-price">￥100</a>            
+            </li>          
+            <li>
+                <a href="prodetail.html?id=1" class="item-img text-center"><img src="images/54.jpg" /></a>
+                <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                <a href="prodetail.html?id=1" class="item-price">￥100</a>            
+            </li>                                                    
+        </ul>       
+    </div>
+
+    <div class="max-width prodetail">
+        <div class="item-content-left">
+            <div class="item-box">
+                <div class="box-title"><span>推荐产品</span><a href="#">更多</div>
+                <div class="box-content">
+                    <a href="prodetail.html?id=1" class="item-img"><img src="images/54.jpg" /></a>
+                    <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                    <a href="prodetail.html?id=1" class="item-price">￥100</a>
+                </div>
+                <div class="box-content">
+                    <a href="prodetail.html?id=1" class="item-img"><img src="images/54.jpg" /></a>
+                    <a href="prodetail.html?id=1" class="item-proname">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a>
+                    <a href="prodetail.html?id=1" class="item-price">￥100</a>
+                </div>                
+            </div>
+        </div>
+        <div class="item-content-right">
+            <div class="item-tabs">
+                <a href="javacript:" class="active" ng-click="swichTag(1, $event)">产品详情</a>
+                <a href="javacript:" id="item-tab2" ng-click="swichTag(2, $event)" >商品评论</a>
+            </div>
+            <!--产品详情-->
+            <div class="item-content proinfor">
+                <div class="tab-content" flag="item-tab1">
+                    <img src="images/65.jpg" />
+                    <img src="images/66.jpg" />
+                    <img src="images/67.jpg" />
+                </div>
+            </div>
+            <!--商品评论-->
+            <div class="item-content evaluate" data-url="data/evaluate.txt" pagination>
+                <div ng-repeat="m in datalist">
+                    <ul>
+                        <li class="col-xs-6"><span><img ng-src="{{m.headimg}}" /></span><span ng-bind="m.name"></span></li>
+                        <li class="col-xs-6" ng-bind="m.date | date: 'yyyy-MM-dd hh:mm:ss'"></li>
+                    </ul>
+                    <ul>
+                        <li><i class="fa fa-star" ng-repeat="n in [] | range:m.count"></i></li>
+                        <li ng-bind="m.content"></li>
+                        <li>购买日期：<span ng-bind="m.buydate | date: 'yyyy-MM-dd hh:mm:ss'"></span></li>
+                    </ul>
+                </div>
+                <dkpagination conf='paginationConf'></dkpagination>
+            </div>            
+        </div>
+    </div>
+    <div id="layout-footer"></div>
+    <script type="text/javascript">
+        $(function(){
+            $('.pro-view-content>.item-info>.item-size>span:not(:first-child)').on('click', function () {
+                $('span', $(this).closest('.item-size')).removeClass('active');
+                $(this).addClass('active');
+            })
+
+            var getData = function () {
+                var data = {
+                    id: $.getparams('id'),
+                    size: $('#item-size>span.active').attr('val'),
+                    color: $('#item-color>span.active').attr('val'),
+                    count: $('#count').val(),
+                    paytype: $(':radio[name=payfor]:checked').closest('div').attr('paytype'),
+                    price: $(':radio[name=payfor]:checked').closest('div').attr('val')
+                }
+                return data;
+            }
+
+            $('#btn_buy').on('click', function () {
+                $.ajax({
+                    url: 'confirmorder.html',
+                    data: getData(),
+                    beforeSend: function () {
+                        $.mask.show();
+                    },
+                    complete: function () {
+                        $.mask.hide();
+                        window.location.href = 'confirmorder.html';
+                    }
+                })
+            })
+
+            $('#btn_cart').on('click', function () {
+                $.ajax({
+                    url: 'cart.html',
+                    data: getData(),
+                    beforeSend: function () {
+                        $.mask.show();
+                    },
+                    complete: function () {
+                        $.mask.hide();
+                        window.location.href = 'cart.html';
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

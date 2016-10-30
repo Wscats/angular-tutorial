@@ -1,0 +1,46 @@
+﻿body {background-color:#fff; padding:0 20px!important;}
+a{text-decoration:none; color:inherit;}
+a:active{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:focus{text-decoration:none;}
+a:hover{color:inherit;}
+a:link{text-decoration:none;}
+
+.pro-content{width:100%; display:-webkit-box;margin-top:20px; position:relative; height:48px; color:#000;}
+.pro-content>div{padding:0; position:absolute;top:0;}
+.pro-content>div:first-child{left:0; width:50px;}
+.pro-content>div:nth-child(2){left:60px; right:45px;}
+.pro-content>div:last-child{right:0; width:100px; text-align:right; top:15%;}
+.pro-content>div>img{width:100%;}
+.pro-content>div>div{font-size:16px; font-weight:bold; padding-bottom:5px;}
+.pro-content>div>span{font-size:12px; color:#aaa; vertical-align:middle ;}
+.pro-content>div>i{font-size:20px; vertical-align:middle;color:#aaa;}
+
+.evaluate-star{width:100%; height:100px; text-align:center;}
+.evaluate-star>i{font-size:40px; padding:5px; color:#ccc;}
+.evaluate-star>i.active{color:#d92727;}
+.evaluate-star>div{padding:5px 0; color:#d92727;}
+
+.item-title{color:#808080; margin-bottom:10px;}
+
+.evaluate-lables{width:100%;}
+.evaluate-lables>span{padding:2px 5px; border:solid 1px #ccc; border-radius:5px; margin-right:10px; margin-bottom:10px; display:inline-block;}
+.evaluate-lables>span>i{padding-right:5px; display:none;}
+.evaluate-lables>span.active{border-color:#d92727; color:#d92727;}
+.evaluate-lables>span.active>i{display:inline-block; font-size:8px;}
+.evaluate-lables>span.active>a{color:#d92727;}
+.evaluate-lables>div{padding:2px 5px; border:solid 1px #ccc; border-radius:4px; margin-right:10px; margin-bottom:10px;width:120px;}
+.evaluate-lables>div>i{margin-left:5px;}
+
+.evaluate_content{width:100%; border:solid 1px #d92727; border-radius:4px; height:95px; margin-top:20px; padding:5px;}
+.evaluate_content>textarea{width:100%; height:65px;border:none; box-shadow:none; outline:none; resize:none;border-radius:5px; font-size:12px;}
+.evaluate_content>div{ font-size:10px; text-align:right; color:#ccc; }
+
+.btn{width:100%; margin-top:20px; border-radius:4px;}
+
+.label-split {width: 100%; height: 40px; position: relative; text-align: center; background: green; vertical-align: middle; background-color: initial; line-height: 40px;}
+.label-split .split-line {width: 100%;border-top: solid 1px #ccc;height: 5px;position: absolute;top: 20px;z-index: -1; }
+.label-split span {padding: 0 10px;background-color: #fff;color: #808080;font-size: 12px;}
+
+.upload{position:relative;}
+.upload>input[type=file] {position: absolute;top: 0;right: 0; left:0; bottom:0; opacity: 0;}

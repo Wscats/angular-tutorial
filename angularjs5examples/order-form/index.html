@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Learn AngularJS - Order Form</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
+
+		<!-- The main CSS file -->
+		<link href="style.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<!-- Declare a new AngularJS app and associate the controller -->
+	<body ng-app ng-controller="OrderFormController">
+
+		<form>
+
+			<h1>Services</h1>
+
+			<ul>
+				<!-- Loop through the services array, assign a click handler, and set or
+					remove the "active" css class if needed -->
+				<li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+					<!-- Notice the use of the currency filter, it will format the price -->
+					{{service.name}} <span>{{service.price | currency}}</span>
+				</li>
+			</ul>
+
+			<div class="total">
+				<!-- Calculate the total price of all chosen services. Format it as currency. -->
+				Total: <span>{{total() | currency}}</span>
+			</div>
+
+		</form>
+
+		<!-- Include AngularJS from Google's CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+﻿{
+	"totalCount": 100, "pageSize": 10, "result": [
+		{"id": 1, "src": "images/54.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120},
+		{"id": 1, "src": "images/55.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120},
+		{"id": 1, "src": "images/56.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120},
+		{"id": 1, "src": "images/57.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120},
+		{"id": 1, "src": "images/58.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120},
+		{"id": 1, "src": "images/59.jpg", "title": "斯文印花黑灰色短袖连衣裙", "price": 120}
+	]							 
+}								 

@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>我的订单</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/orderlist.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/orderlist.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>我的订单</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>    
+    <div class="category">
+        <a href="orderlist.html?state=0" class="{{state == 0 ? 'active' : ''}}">全部</a>
+        <a href="orderlist.html?state=1" class="{{state == 1 ? 'active' : ''}}">待付款</a>
+        <a href="orderlist.html?state=2" class="{{state == 2 ? 'active' : ''}}">待发货</a>
+        <a href="orderlist.html?state=3" class="{{state == 3 ? 'active' : ''}}">待收货</a>
+        <a href="orderlist.html?state=4" class="{{state == 4 ? 'active' : ''}}">待评价</a>
+    </div>
+    <div class="layout-body order-content" data-url="data/orderlist.txt" data-bussinessurl="data/bussiness.txt" pagescroll>
+        <div class="order-item" ng-repeat="m in datalist">
+            <div class="shopname">
+                <div class="col-xs-8"><a href="#" ng-bind="m.shopname"></a></div>
+                <div class="col-xs-4 text-right" ng-bind="m.statename"></div>
+            </div>
+            <div class="product-content">
+                <div ng-repeat="pro in m.list">
+                    <div class="item-img"><a href="orderdetail.html?id={{m.orderid}}"><img ng-src="{{pro.src}}" /></a></div>
+                    <a href="orderdetail.html?id={{m.orderid}}" class="item-content">
+                        <span class="item-name" ng-bind="pro.title"></span>
+                        <span class="item-controller">
+                            <span class="item-price" ng-bind="'￥' + pro.price">￥ 120</span>
+                            <span class="item-count">X <span>2</span></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="item-total text-right">
+                <span>共{{m.list.length}}商品，合计：￥100</span>
+            </div>
+            <div class="item-control">
+                <a href="orderdetail.html?id={{m.orderid}}">付款</a>
+                <a href="#">删除订单</a>
+                <a href="#">查看物流</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout-footer" navcontainer data-active="3"></div>
+    <div navmorelist></div>
+</body>
+</html>

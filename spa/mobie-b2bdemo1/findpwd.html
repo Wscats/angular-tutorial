@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>找回密码</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/register.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/register.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>找回密码</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>    
+
+    <div class="layout-body">
+        <form class="userca login" action="data/bussiness.txt" method="post">
+            <ul>
+                <li class="col-xs-4 item-relative"><input type="text" placeholder="国家编码" name="code" class="form-control required" value="86"></li>
+                <li class="col-xs-8 item-relative"><input type="tel" placeholder="输入手机号码" name="account" class="form-control required isMobile"></li>
+            </ul>
+            <ul>
+                <li class="col-xs-8 item-relative"><input type="text" placeholder="输入短信验证码" name="smsCode" class="form-control required"></li>
+                <li class="col-xs-4 item-relative"><button type="button" class="btn btn-bricky" ng-click="fetchcode($event)" data-url="data/bussiness.txt" data-method="get">获取验证码</button></li>
+            </ul>
+            <ul>
+                <li class="col-xs-12 item-relative"><input type="password" placeholder="输入密码" id="forgetpwd_password" name="password" class="form-control {required:true,minlength:6}"></li>
+            </ul>
+            <ul>
+                <li class="col-xs-12 item-relative"><input type="password" placeholder="确认密码" name="password2" class="form-control {required:true,minlength:6,comparePwd:'#forgetpwd_password'}"></li>
+            </ul>
+            <ul>
+                <li class="col-xs-12"><div class="btn btn-bricky" ng-click="submit($event)">找回密码</div></li>
+            </ul>
+        </form>
+    </div>
+
+    <div navmorelist></div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的订单</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/common/global.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/orderlist.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div id="admin-header"></div>
+
+    <div class="max-width cart-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>我的订单</span>
+    </div>
+
+    <div class="max-width admin">
+        <div id="admin-menu" class="col-sm-2" active="0"></div>
+        <div class="cart-content ">
+            <div class="thead">
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="col-xs-4"></span>
+                            <span>商品</span>
+                        </li>
+                        <li><span>单价(元)</span></li>
+                        <li><span>数量</span></li>
+                        <li><span>金额（元）</span></li>
+                        <li><span>配送方式</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tbody">
+                <div class="content">
+                    <div class="item-shopname"><span>店铺1</span><span>2016-01-01</span><span>订单号：00010010</span></div>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-img text-center col-xs-2"><a href="#"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="#">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>￥100 + 币100</span>
+                        </li>
+                        <li class="item-calc">
+                            <span>1</span>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>100</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span>快递免邮</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="item-shopname"><span>店铺1</span><span>2016-01-01</span><span>订单号：00010010</span></div>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-img text-center col-xs-2"><a href="#"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="#">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>￥100 + 币100</span>
+                        </li>
+                        <li class="item-calc">
+                            <span>1</span>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>100</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span>快递免邮</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="pagination" rowscount="100" pagesize="10" url="cart.html?page="></ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout-footer"></div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#btn_gopay').click(function () {
+                var data = {
+                    address: $('.item-address>ul.active').attr('addressid'),
+                    payfor:$('.payfor-content>ul:last-child>li.active').attr('payfor')
+                }
+                console.log(data);
+            })
+
+            $('.payfor-content>ul:last-child>li').on('click', function () {
+                $('.payfor-content>ul:last-child>li').removeClass('active');
+                $(this).addClass('active');
+            })
+
+            $('.item-address>ul:not(:first-child)').on('click', function () {
+                $('.item-address>ul:not(:first-child)').removeClass('active');
+                $(this).addClass('active');
+            })
+
+            $('.item-del').on('click', function () {
+                var _currobj = $(this);
+                var id = $(this).closest('ul').attr('addressid');
+                $.ajax({
+                    url: '#?id=' + id,
+                    beforeSend: function () {
+                        $.mask.show();
+                    },
+                    complete: function () {
+                        _currobj.closest('ul').remove();
+                        $.mask.hide();
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

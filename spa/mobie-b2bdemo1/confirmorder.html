@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="mainapp" ng-controller="maincontroller">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>确认下单</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/page-js/confirmorder.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap-main.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.global.css" rel="stylesheet" />
+    <link href="libs/page-css/confirmorder.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="layout-header">
+        <div class="search-bar">
+            <a href="javascript:window.history.go(-1)"><i class="clip-chevron-left"></i></a>
+            <div>确认下单</div>
+            <a href="javascript:$('.navmorelist').toggleClass('item-hidden')"><i class="clip-list"></i></a>
+        </div>
+    </div>
+
+    <div class="layout-body" data-url="data/shoppingcar.txt" data-bussinessurl="data/bussiness.txt" pagescroll>
+        <div class="address">
+            <div><i class="clip-location"></i></div>
+            <div>
+                <a href="address.html"><span>张三</span><span>13800138000</span></a>
+                <a href="address.html">广东省广州市天河区天河路99999号天河大楼11111楼4114</a>
+            </div>
+            <div><a href="address.html"><i class="clip-chevron-right"></i></a></div>
+        </div>
+        <a href="address.html" class="address empty">
+            <i class="clip-plus-circle"></i>添加收货地址
+        </a>        
+        <div class="shoppingcar-list">
+            <div class="shopname">店铺1</div>
+            <div class="productlist">
+                <div class="product-img"><a href="#"><img src="images/54.jpg"></a></div>
+                <div class="item-content">
+                    <div class="product-name">斯文印花黑灰色短袖连衣裙</div>
+                    <div class="item-controller">
+                        <div class="product-price">￥ 120</div>
+                        <div class="item-count">X <span>2</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="productlist">
+                <div class="product-img"><a href="#"><img src="images/54.jpg"></a></div>
+                <div class="item-content">
+                    <div class="product-name">斯文印花黑灰色短袖连衣裙</div>
+                    <div class="item-controller">
+                        <div class="product-price">￥ 120</div>
+                        <div class="item-count">X <span>2</span></div>
+                    </div>
+                </div>
+            </div> 
+            <div class="list-group">
+                <div class="list-group-item">
+                    <div class="col-xs-4">配送方式</div>
+                    <div class="col-xs-8 text-right">快递免邮</div>
+                </div>
+                <div class="list-group-item">
+                    <div class="col-xs-4">发票抬头</div>
+                    <div class="col-xs-8"><input type="text" name="invoice" placeholder="请输入发票抬头，如：个人"/></div>
+                </div>
+                <div class="list-group-item">
+                    <div class="col-xs-4">买家留言</div>
+                    <div class="col-xs-8"><input type="text" name="notes" placeholder="选填"/></div>
+                </div>    
+                <div class="list-group-item">
+                    <div class="col-xs-12 text-right">共4件商品，合计：<span class="item-price">￥ 480.00</span></div>
+                </div>                                
+            </div>            
+            <div class="shopname">店铺1</div>
+            <div class="productlist">
+                <div class="product-img"><a href="#"><img src="images/54.jpg"></a></div>
+                <div class="item-content">
+                    <div class="product-name">斯文印花黑灰色短袖连衣裙</div>
+                    <div class="item-controller">
+                        <div class="product-price">￥ 120</div>
+                        <div class="item-count">X <span>2</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="productlist">
+                <div class="product-img"><a href="#"><img src="images/54.jpg"></a></div>
+                <div class="item-content">
+                    <div class="product-name">斯文印花黑灰色短袖连衣裙</div>
+                    <div class="item-controller">
+                        <div class="product-price">￥ 120</div>
+                        <div class="item-count">X <span>2</span></div>
+                    </div>
+                </div>
+            </div> 
+            <div class="list-group">
+                <div class="list-group-item">
+                    <div class="col-xs-4">配送方式</div>
+                    <div class="col-xs-8 text-right">快递免邮</div>
+                </div>
+                <div class="list-group-item">
+                    <div class="col-xs-4">发票抬头</div>
+                    <div class="col-xs-8"><input type="text" name="invoice" placeholder="请输入发票抬头，如：个人"/></div>
+                </div>
+                <div class="list-group-item">
+                    <div class="col-xs-4">买家留言</div>
+                    <div class="col-xs-8"><input type="text" name="notes" placeholder="选填"/></div>
+                </div>    
+                <div class="list-group-item">
+                    <div class="col-xs-12 text-right">共4件商品，合计：<span class="item-price">￥ 480.00</span></div>
+                </div>                                
+            </div>             
+            <div class="list-group total">
+                <div class="list-group-item">
+                    <div class="col-xs-9">使用积分(200积分)</div>
+                    <div class="col-xs-3 text-right"><input type="checkbox"  ng-click="calc($event)" integrals="200" name="integrals"/></div>
+                </div>  
+                <div class="list-group-item">
+                    <div class="col-xs-4">支付方式</div>
+                    <div class="col-xs-8 text-right" ng-click="payforselect(m, $event)">
+                        <span ng-bind="payfor.name"></span> >
+                    </div>
+                </div>                                 
+            </div>                      
+        </div>        
+    </div>
+    <div class="shoppingcar-toolbar">
+        <div class="col-xs-8 text-right">共8件，总金额：<span class="item-price" id="totalAmount" amount="960">￥ 960.00</span></div>
+        <div class="col-xs-4">提交订单</div>
+    </div>
+
+    <div class="mask"></div>
+    <div class="list-group payfor">
+        <div ng-repeat="m in payforList" ng-bind="m.name" ng-click="payforselect(m, $event)" class="list-group-item"></div>
+    </div>
+
+    <div navmorelist></div>
+</body>
+</html>

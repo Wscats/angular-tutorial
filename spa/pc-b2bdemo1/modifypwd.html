@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>修改密码</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/common/global.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular.global.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+    <script src="libs/jquery-validation-1.15.0/dist/localization/messages_zh.js"></script>
+
+    <link href="libs/bootstrap/css/style.min.css" rel="stylesheet" />
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/address.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="admin-header"></div>
+        
+    <div class="max-width cart-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>修改密码</span>
+    </div>
+
+    <div class="max-width admin">
+        <div id="admin-menu" class="col-sm-2" active="3"></div>
+        <div class="admin-content col-sm-8">
+            <form action="data/bussiness.txt" method="get">
+                <div class="input-group item-relative">
+                    <span>旧密码</span>
+                    <input type="password" name="pwd" placeholder="输入密码" class="{required:true,minlength:6}">
+                </div>
+                <div class="input-group item-relative">
+                    <span>新密码</span>
+                    <input type="password" id="password" name="pwd2" placeholder="输入密码" class="{required:true,minlength:6}">
+                </div>
+                <div class="input-group item-relative">
+                    <span>确认密码</span>
+                    <input type="password" name="confirmpwd" placeholder="输入确认密码" class="{required:true,minlength:6,comparePwd:'#password'}">
+                </div> 
+                <div class="input-group">
+                    <input type="button" value="提交" class="btn btn-bricky" id="btn_submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="layout-footer"></div>
+    <script type="text/javascript">
+        $(function () {
+            $('#btn_submit').on('click', function () {
+                if (!$('#btn_submit').closest('form').valid()) {
+                    return false;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

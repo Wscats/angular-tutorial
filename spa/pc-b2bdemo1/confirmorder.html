@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>订单结算</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/common/global.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/confirmorder.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="max-width cart-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>订单结算</span>
+    </div>
+
+    <div class="max-width address-content item-address">
+        <ul>
+            <li class="col-sm-10">收货人信息</li>
+            <li class="col-sm-2"><a href="addressform.html">添加收货地址</a></li>
+        </ul>
+        <ul class="active" addressid="1">
+            <li class="col-sm-2">张三</li>
+            <li class="col-sm-8">广东省广州市天河区天河大街1000号10001</li>
+            <li class="col-sm-2"><a href="addressform.html?id=1">编辑</a><a href="javascript:" class="item-del">删除</a></li>
+        </ul>
+        <ul addressid="2">
+            <li class="col-sm-2">张三</li>
+            <li class="col-sm-8">广东省广州市天河区天河大街1000号10001</li>
+            <li class="col-sm-2"><a href="addressform.html?id=2">编辑</a><a href="javascript:" class="item-del">删除</a></li>
+        </ul>
+    </div>
+
+    <div class="max-width address-content payfor-content">
+        <ul>
+            <li class="col-sm-10">支付方式</li>
+        </ul>
+        <ul>
+            <li class="col-sm-1 active" payfor="1">货到付款</li>
+            <li class="col-sm-1" payfor="2">微信支付</li>
+            <li class="col-sm-1" payfor="3">支付宝支付</li>
+        </ul>
+    </div>
+
+    <form action="#">
+        <div class="max-width cart-content">
+            <div class="thead">
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="col-xs-4">全选</span>
+                            <span>商品</span>
+                        </li>
+                        <li><span>单价(元)</span></li>
+                        <li><span>数量</span></li>
+                        <li><span>金额（元）</span></li>
+                        <li><span>配送方式</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tbody">
+                <div class="content">
+                    <div class="item-shopname">店铺1</div>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-select"></span>
+                            <span class="item-img text-center col-xs-2"><a href="prodetail.html?id=1"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="prodetail.html?id=1">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>￥100 + 币100</span>
+                        </li>
+                        <li class="item-calc">
+                            <span>1</span>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>100</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span>快递免邮</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tfoot">
+                <div class="content">
+                    <ul>
+                        <li>
+                        </li>
+                        <li><span>共<em class="item-price-2">2</em>件商品</span></li>
+                        <li>
+                            总价：
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>0</em></span>
+                        </li>
+                        <li><span id="btn_gopay">提交订单</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="layout-footer"></div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#btn_gopay').click(function () {
+                var data = {
+                    address: $('.item-address>ul.active').attr('addressid'),
+                    payfor:$('.payfor-content>ul:last-child>li.active').attr('payfor')
+                }
+                console.log(data);
+            })
+
+            $('.payfor-content>ul:last-child>li').on('click', function () {
+                $('.payfor-content>ul:last-child>li').removeClass('active');
+                $(this).addClass('active');
+            })
+
+            $('.item-address>ul:not(:first-child)').on('click', function () {
+                $('.item-address>ul:not(:first-child)').removeClass('active');
+                $(this).addClass('active');
+            })
+
+            $('.item-del').on('click', function () {
+                var _currobj = $(this);
+                var id = $(this).closest('ul').attr('addressid');
+                $.ajax({
+                    url: '#?id=' + id,
+                    beforeSend: function () {
+                        $.mask.show();
+                    },
+                    complete: function () {
+                        _currobj.closest('ul').remove();
+                        $.mask.hide();
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

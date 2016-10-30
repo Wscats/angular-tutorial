@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>购物车</title>
+    <script src="libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/jquery-confirm/jquery-confirm.js"></script>
+    <script src="libs/common/global.js"></script>
+
+    <link href="libs/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="libs/fonts/style.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/common/global.css" rel="stylesheet" />
+    <link href="libs/page-css/cart.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="max-width cart-header">
+        <span><img src="images/logo.jpg"></span>
+        <span>购物车</span>
+    </div>
+
+    <form action="confirmorder.html">
+        <div class="max-width cart-content">
+            <div class="thead">
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="col-xs-4"><input type="checkbox" name="selectAll">全选</span>
+                            <span>商品</span>
+                        </li>
+                        <li><span>单价(元)</span></li>
+                        <li><span>数量</span></li>
+                        <li><span>金额（元）</span></li>
+                        <li><span>操作</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tbody">
+                <div class="content">
+                    <div class="item-shopname"><input type="checkbox" name="selectItem">店铺1</div>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-select"><input type="checkbox" name="selectItem"></span>
+                            <span class="item-img text-center col-xs-2"><a href="prodetail.html?id=1"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="prodetail.html?id=1">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>
+                                <select name="price">
+                                    <option value="1000.00" paytype="1">￥1000.00</option>
+                                    <option value="100|100" paytype="2">￥100 + 积100</option>
+                                    <option value="100|100" paytype="3">￥100 + 币100</option>
+                                    <option value="100|100|100" paytype="3">￥100 + 积100 + 币100</option>
+                                </select>
+                            </span>
+                        </li>
+                        <li class="item-calc">
+                            <a href="javascript:" class="minus">-</a>
+                            <input type="number" name="procount" value="1" />
+                            <a href="javascript:" class="plus">+</a>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>0</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span><a href="#">删除</a></span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-select"><input type="checkbox" name="selectItem"></span>
+                            <span class="item-img text-center col-xs-2"><a href="prodetail.html?id=1"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="prodetail.html?id=1">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>
+                                <select name="price">
+                                    <option value="1000.00" paytype="1">￥1000.00</option>
+                                    <option value="100|100" paytype="2">￥100 + 积100</option>
+                                    <option value="100|100" paytype="3">￥100 + 币100</option>
+                                    <option value="100|100|100" paytype="3">￥100 + 积100 + 币100</option>
+                                </select>
+                            </span>
+                        </li>
+                        <li class="item-calc">
+                            <a href="javascript:" class="minus">-</a>
+                            <input type="number" name="procount" value="1" />
+                            <a href="javascript:" class="plus">+</a>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>0</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span><a href="#">删除</a></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="item-shopname"><input type="checkbox" name="selectItem">店铺1</div>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-select"><input type="checkbox" name="selectItem"></span>
+                            <span class="item-img text-center col-xs-2"><a href="prodetail.html?id=1"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="prodetail.html?id=1">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>
+                                <select name="price">
+                                    <option value="1000.00" paytype="1">￥1000.00</option>
+                                    <option value="100|100" paytype="2">￥100 + 积100</option>
+                                    <option value="100|100" paytype="3">￥100 + 币100</option>
+                                    <option value="100|100|100" paytype="3">￥100 + 积100 + 币100</option>
+                                </select>
+                            </span>
+                        </li>
+                        <li class="item-calc">
+                            <a href="javascript:" class="minus">-</a>
+                            <input type="number" name="procount" value="1" />
+                            <a href="javascript:" class="plus">+</a>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>0</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span><a href="#">删除</a></span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="item-prod">
+                            <span class="item-select"><input type="checkbox" name="selectItem"></span>
+                            <span class="item-img text-center col-xs-2"><a href="prodetail.html?id=1"><img src="images/54.jpg" /></a></span>
+                            <span class="item-proname col-xs-5"><a href="prodetail.html?id=1">法国PELLIOT户外防晒衣男女皮肤衣超薄情侣防晒服夏透气皮肤风衣</a></span>
+                            <span class="item-size col-xs-3">颜色：白色<br />尺码：100</span>
+                        </li>
+                        <li class="item-price">
+                            <span>
+                                <select name="price">
+                                    <option value="1000.00" paytype="1">￥1000.00</option>
+                                    <option value="100|100" paytype="2">￥100 + 积100</option>
+                                    <option value="100|100" paytype="3">￥100 + 币100</option>
+                                    <option value="100|100|100" paytype="3">￥100 + 积100 + 币100</option>
+                                </select>
+                            </span>
+                        </li>
+                        <li class="item-calc">
+                            <a href="javascript:" class="minus">-</a>
+                            <input type="number" name="procount" value="1" />
+                            <a href="javascript:" class="plus">+</a>
+                        </li>
+                        <li class="item-total">
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>0</em></span>
+                        </li>
+                        <li class="item-control">
+                            <span><a href="#">删除</a></span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="pagination" rowscount="100" pagesize="10" url="cart.html?page="></ul>
+            </div>
+            <div class="tfoot">
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="col-xs-4"><input type="checkbox" name="selectAll">全选</span>
+                        </li>
+                        <li><span>已选<em class="item-price-2">2</em>件商品</span></li>
+                        <li>
+                            总价：
+                            <span class="item-price"><i class="fa fa-cny"></i><em>1000.00</em></span>
+                            <span class="item-price-2"><i class="clip-database"></i><em>0</em></span>
+                            <span class="item-price-2"><i class="clip-bookmark"></i><em>0</em></span>
+                        </li>
+                        <li id="btn_gopay"><span>去结算</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="layout-footer"></div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.item-shopname :checkbox').on('change', function (e) {
+                $('ul :checkbox', $(this).closest('.content')).prop('checked', $(this).is(':checked'));
+                calc();
+            })
+
+            $(':checkbox[name=selectAll]').on('change', function (e) {
+                $(':checkbox').prop('checked', $(this).is(':checked'));
+                calc();
+            })
+
+            $('.item-price select, .item-prod :checkbox').on('change', function (e) {
+                calc(e);
+            })
+
+            $('.item-calc').on('click', function (e) {
+                var _currobj = $(e.target);
+                var _parentobj = _currobj.closest('.item-calc');
+                var _pcs = parseInt($('input', _parentobj).val());
+                if (_currobj.hasClass('minus')) {
+                    if (_pcs <= 1) {
+                        $('input', _parentobj).val(1);
+                        return false;
+                    }
+                    $('input', _parentobj).val(_pcs - 1);
+                } else if (_currobj.hasClass('plus')) {
+                    $('input', _parentobj).val(_pcs + 1);
+                }
+                calc(e);
+            }).find('input').on('blur', function (e) {
+                if (parseInt($(this).val()) < 1) {
+                    $(this).val(1);
+                }
+                $(this).val(parseInt($(this).val()));
+                calc(e);
+            });
+
+            var _amount1 = 0, _amount2 = 0; _amount3 = 0;
+
+            var calc = function (e) {
+                if (e) {
+                    var _currobj = $(e.target);
+                    var _parentobj = _currobj.closest('ul');
+                    var _priceobj = $('.item-price select option:selected', _parentobj);
+                    var _paytype = _priceobj.attr('paytype');
+                    var _price1 = parseFloat(_priceobj.attr('value').split('|')[0]);
+                    var _price2 = parseFloat(_priceobj.attr('value').split('|')[1] || 0);
+                    var _price3 = parseFloat(_priceobj.attr('value').split('|')[2] || 0);
+                    var _pcs = parseInt($('.item-calc input', _parentobj).val());
+                    var _totalamount1 = parseFloat(_pcs * _price1).toFixed(2);
+                    var _totalamount2 = parseFloat(_pcs * _price2);
+                    var _totalamount3 = parseFloat(_pcs * _price3);
+                    $('.item-total>span>em', _parentobj).eq(0).text(_totalamount1);
+                    $('.item-total>span>em', _parentobj).eq(1).text(_totalamount2);
+                    $('.item-total>span>em', _parentobj).eq(2).text(_totalamount3);
+
+                }
+
+                _amount1 = 0, _amount2 = 0; _amount3 = 0;
+                var _itemCount = 0;
+                $.each($('.cart-content .tbody>div.content>ul'), function () {
+                    if ($(':checkbox:checked', $(this))[0]) {
+                        _itemCount += parseInt($('.item-calc>input', $(this)).val());
+                        _amount1 += parseFloat($('.item-total>span>em', $(this)).eq(0).text());
+                        _amount2 += parseFloat($('.item-total>span>em', $(this)).eq(1).text());
+                        _amount3 += parseFloat($('.item-total>span>em', $(this)).eq(2).text());
+                    }
+                });
+                $('.cart-content>div.tfoot>div.content>ul>li:nth-child(3)>span>em').eq(0).text(_amount1);
+                $('.cart-content>div.tfoot>div.content>ul>li:nth-child(3)>span>em').eq(1).text(_amount2);
+                $('.cart-content>div.tfoot>div.content>ul>li:nth-child(3)>span>em').eq(2).text(_amount3);
+
+                $('.cart-content>div.tfoot>div.content>ul>li:nth-child(2) em').text(_itemCount);
+            }
+
+            calc();
+
+            $('#btn_gopay').click(function () {
+                if (_amount1 + _amount2 + _amount3 > 0) {
+                    $('form').submit();
+                } else {
+                    $.alert('请选择要结算的商品!');
+                }
+            })
+
+            $('.item-control a').click(function () {
+                var _currobj = $(this);
+                $.ajax({
+                    url: '#',
+                    beforeSend: function () {
+                        $.mask.show();
+                    },
+                    complete: function () {
+                        if (_currobj.closest('div.content').find('ul').size() < 2) {
+                            _currobj.closest('div.content').remove();
+                        } else {
+                            _currobj.closest('ul').remove();
+                        }
+                        calc();
+                        $.mask.hide();
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
