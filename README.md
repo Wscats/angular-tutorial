@@ -56,4 +56,4 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 
 | Other2 ||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[Angular内联编辑器]https://wscats.github.io/angular-demo/angularjs5examples/inline-editor/index.html|
+|[Angular内联编辑器](https://wscats.github.io/angular-demo/angularjs5examples/inline-editor/index.html)|[Angular即时搜索](https://wscats.github.io/angular-demo/angularjs5examples/instant-search/index.html)|
