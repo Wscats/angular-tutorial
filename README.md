@@ -57,6 +57,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | Other ||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)|[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)|
+|[Angular中使用ng-switch](https://wscats.github.io/angular-demo/ngSwitch.html)||
 |[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|
 |[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
 |[jquery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
