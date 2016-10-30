@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="utf-8">
+		<script src="js/angular.js"></script>
+	</head>
+
+	<body ng-controller="baseCtrl">
+		Angular
+		<select ng-model="myWsscat" ng-options="option.id as option.name for option in options">
+			<option value="">控制器</option>
+		</select>
+		<hr>
+		<button ng-click="myWsscat='a'">切换到表达式页面</button>
+		<div ng-switch="myWsscat">
+			<div ng-switch-when="a">
+				<div ng-include="'a.html'"></div>
+			</div>
+			<div ng-switch-when="b" ng-controller="bCtrl">
+				<h1>{{name}}</h1>
+				<p>AngularJS 通过被称为 指令 的新属性来扩展 HTML。 AngularJS 通过内置的指令来为应用添加功能。 AngularJS 允许你自定义指令。 AngularJS 指令 AngularJS 指令是扩展的 HTML 属性，带有前缀 ng-。 ng-app 指令初始化一个 AngularJS 应用程序。 ng-init 指令初始化应用程序数据。 ng-model 指令把元素值（比如输入域的值）绑定到应用程序。 完整的指令内容可以参阅 AngularJS 参考手册。</p>
+			</div>
+			<div ng-switch-when="c">
+				<h1>AngularJS 作用域</h1>
+				<p>Scope(作用域) 是应用在 HTML (视图) 和 JavaScript (控制器)之间的纽带。 Scope 是一个对象，有可用的方法和属性。 Scope 可应用在视图和控制器上。 如何使用 Scope 当你在 AngularJS 创建控制器时，你可以将 $scope 对象当作一个参数传递:</p>
+			</div>
+			<div ng-switch-default>
+				<h1>AngularJS 控制器</h1>
+				<p> AngularJS 控制器 控制 AngularJS 应用程序的数据。 AngularJS 控制器是常规的 JavaScript 对象。 AngularJS 控制器 AngularJS 应用程序被控制器控制。 ng-controller 指令定义了应用程序控制器。 控制器是 JavaScript 对象，由标准的 JavaScript 对象的构造函数 创建。</p>
+			</div>
+		</div>
+		<hr>
+		<p> AngularJS 事件 AngularJS 支持以下事件: ng-click ng-dbl-click ng-mousedown ng-mouseenter ng-mouseleave ng-mousemove ng-keydown ng-keyup ng-keypress ng-change
+		</p>
+	</body>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('baseCtrl', function($scope) {
+			$scope.options = [{
+				id:'a',
+				name: '表达式'
+			}, {
+				id:'b',
+				name: '指令'
+			}, {
+				id:'c',
+				name: '作用域'
+			}];
+		})
+		app.controller('bCtrl',function($scope){
+			$scope.name = 'AngularJS 指令';
+		})
+	</script>
+</html>
