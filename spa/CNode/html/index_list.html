@@ -1,0 +1,89 @@
+<section class="content">
+    <ul>
+        <li ng-repeat="data in data">
+            <a href="#/details/{{data.id}}">
+                <h4 class="title">
+                    <span ng-show="data.top" class="put_top">置顶</span>
+                    <span ng-show="data.good" class="put_good">精华</span>
+                    <span ng-show="data.$first&&!data.top&&!data.good" class="topiclist-tab">{{data.tab | type}}</span>
+                    {{data.title}}
+                </h4>
+                <p class="from">来自：<img ng-src="{{data.author.avatar_url}}" alt="" />
+                    <span class="nickname">{{data.author.loginname}}</span></p>
+                <div class="details">
+                    <span>发布于 {{data.create_at | timeDiff}}</span>
+                    <span class="right"><i class="iconfont">&#xe600;</i> <i><span>{{data.reply_count}}</span></i></span>
+                    <span class="right"><i class="iconfont">&#xe60f;</i> <i>{{data.visit_count}}</i></span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="loadMore" ng-show="!loading" ng-click="loadMore()">点击加载更多 <span>&gt;</span></div>
+</section>
+
+<div class="mask" ng-show="loading">
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+</div>
+
+<style>
+    .content{
+        width: 100%;
+        padding-top: .72rem;
+        padding-bottom: .48rem;
+    }
+    .content > ul > li{
+        width: 100%;
+        padding: .12rem;
+        height: 1.3rem;
+        border-bottom: 1px solid #eee;
+    }
+    .content > ul > li > a > .title{
+        width: 90%;
+        height: .54rem;
+        line-height: .18rem;
+        font-size: .14rem;
+    }
+    .content > ul > li > a > .from{
+        height: .24rem;
+        line-height: .24rem;
+        font-size: .12rem;
+        color: #c0c0c0;
+    }
+    .content > ul > li > a > .details{
+        height: .2rem;
+        margin-top: .08rem;
+        font-size: .12rem;
+        line-height: .2rem;
+        color: #c0c0c0;
+    }
+    .content > ul > li > a > .from > .nickname{
+        color: #666;
+    }
+    .content > ul > li > a > .details > .right{
+        float: right;
+        margin: 0 .06rem;
+    }
+    .content > ul > li > a > .from > img{
+        width: .2rem;
+    }
+    .content > .loadMore{
+        width: 90%;
+        height: 36px;
+        margin-left: 5%;
+        font-size: .18rem;
+        line-height: 36px;
+        text-align: center;
+    }
+    .content > .loadMore > span{
+        float: right;
+    }
+    .content > ul > li > a > .title{
+        width: 100%;
+    }
+    .content > ul > li > a:visited > .title{
+        color: red;
+    }
+</style>

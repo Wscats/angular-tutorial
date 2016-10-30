@@ -1,0 +1,59 @@
+<header class="headlines-top-nav">
+    <h3 class="title"><span class="iconfont">&#xe610;</span></h3>
+    <nav>
+        <ul>
+            <li autofocus><a href="#/index/all">全部</a></li>
+            <li autofocus><a href="#/index/good">精华</a></li>
+            <li autofocus><a href="#/index/share">分享</a></li>
+            <li autofocus><a href="#/index/ask">问答</a></li>
+            <li autofocus><a href="#/index/job">招聘</a></li>
+        </ul>
+    </nav>
+</header>
+<div ui-view></div>
+
+
+<style>
+
+/*--------顶部导航---------------*/
+.headlines-top-nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.headlines-top-nav > .title {
+    height: .42rem;
+    line-height: .42rem;
+    color: #fff;
+    background: #29a1f7;
+    font-size: .28rem;
+    text-align: center;
+}
+
+.headlines-top-nav > nav > ul {
+    width: 100%;
+    height: .3rem;
+    background: #fafbfe;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.headlines-top-nav > nav > ul > li {
+    float: left;
+    width: 20%;
+    height: 100%;
+    line-height: .3rem;
+    font-size: .12rem;
+    text-align: center;
+}
+
+.headlines-top-nav > nav > ul > li.active {
+    border-bottom: 1px solid #29a1f7;
+}
+
+.headlines-top-nav > nav > ul > li.active > a {
+    color: #29a1f7;
+}
+
+</style>

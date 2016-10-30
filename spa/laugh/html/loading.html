@@ -1,0 +1,31 @@
+<!--根据控制器传递过来的isShowJuhua的真假值，让菊花是否显示-->
+<div class="juhua" ng-show="isShowJuhua"><img src="image/juhua.png" /></div>
+<style>
+	.juhua {
+		/*居中菊花，给一个z层的高度*/
+		position: absolute;
+		z-index: 20;
+		left: 50%;
+		top: 50%;
+		margin-left: -36px;
+		margin-top: -26;
+	}
+	
+	.juhua img {
+		width: 72px;
+		height: 52px;
+		/*让菊花无限旋转*/
+		animation: juhuaRotate 2s infinite;
+		animation-timing-function: linear;
+	}
+	/*菊花的旋转动画*/
+	
+	@keyframes juhuaRotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>

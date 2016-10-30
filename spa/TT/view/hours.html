@@ -1,0 +1,50 @@
+<div id="fixed_top_box">
+	<div id="fixed_top">
+		<header>
+			<div>
+				<img src="img/cai_head.png"/>
+			</div>
+			<div class="img01">
+				<img src="img/logo_head.png"/>
+				<span class="vertical"></span>
+			</div>
+			<div class="img02">
+				<img src="img/tv_head.png"/>
+			</div>
+		</header>
+		<nav id = "nav" ng-controller="navCtrl">
+			<div id="a_box">
+				<!--<li ng-repeat="mesg in mesgs" ng-click='fnck($event)'><a>{{mesg.name}}</a></li>-->
+				<!--组件应用,导航部分-->
+				<navs ></navs>
+				<!--组件应用，导航部分-->
+			</div>
+		</nav>
+	</div>
+</div>
+<!--页头部分结束-->
+<div id="big_box_hours">
+<div id="refresh" class="refresh">
+	<div id="shuaXin">松开马上刷新了</div>
+	<div id="hours">
+		<span>{{mesgs[0].newstime|date:'MM-dd'}}</span>
+		<ul>
+			<li ng-repeat='mesg in mesgs'>
+				<div class="borders">
+					<p>
+						{{mesg.shorttitle}}
+						<span></span>
+						<span>{{mesg.newstime|date:'HH:mm'}}</span>
+					</p>
+					<p>
+						{{mesg.content}}
+					</p>
+					<p ng-if="mesg.img" class="youTu">
+						<img  ng-src="{{mesg.img[0].imgurl}}"/>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</div>

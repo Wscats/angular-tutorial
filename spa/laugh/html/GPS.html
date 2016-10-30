@@ -1,0 +1,20 @@
+<!--从demo里面拿模板-->
+<div id="l-map"></div>
+<div id="driving_way">
+	<select ng-model="sel">
+		<option value="0">最少时间</option>
+		<option value="1">最少换乘</option>
+		<option value="2">最少步行</option>
+		<option value="3">不乘地铁</option>
+	</select>
+	<!--从视图获取数据绑定到控制器-->
+	<input ng-model="startPlace" placeholder="开始地点" />
+	<input ng-model="endPlace" placeholder="结束地点" />
+	<input type="button" value="查询" ng-click="resultClick()"/>
+</div>
+<style type="text/css">
+#l-map {
+		height: 500px;
+		width: 100%;
+	}
+</style>

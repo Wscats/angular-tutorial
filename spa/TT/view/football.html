@@ -1,0 +1,39 @@
+		<div id="fixed_top_box">
+			<div id="fixed_top">
+				<header>
+					<div>
+						<img src="img/cai_head.png"/>
+					</div>
+					<div class="img01">
+						<img src="img/logo_head.png"/>
+					</div>
+					<div class="img02">
+						<img src="img/tv_head.png"/>
+					</div>
+				</header>
+				<nav id = "nav" ng-controller="navCtrl">
+					<div id="a_box">
+						<!--<li ng-repeat="mesg in mesgs" ng-click='fnck($event)'><a>{{mesg.name}}</a></li>-->
+						<!--组件应用,导航部分-->
+						<navs ></navs>
+						<!--组件应用，导航部分-->
+					</div>
+				</nav>
+			</div>
+		</div>
+<div class="football">
+	<ul class="list">
+		<li ng-repeat='mesg in mesgs'>
+			<p class="p_img">
+				<img ng-src='{{mesg.imgurl}}'/>
+			</p>
+			<div class="right_text">
+				<h3>{{mesg.shorttitle}}</h3>
+				<p>
+					{{mesg.summary}}
+					<span><i><img src="img/pinlun.png"/></i>{{mesg.commentnum}}</span>
+				</p>
+			</div>
+		</li>
+	</ul>
+</div>

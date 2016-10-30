@@ -1,0 +1,43 @@
+<section ng-repeat="joke in jokes">
+	<div ng-if="joke.picUrl">
+		<img ng-src="{{joke.picUrl?joke.picUrl:'../20160816/TT/img/denglu.png'}}" />
+	</div>
+	<div>
+		<p>{{joke.content}}</p>
+		<p class="author">作者：{{joke.author}}</p>
+	</div>
+</section>
+<style>
+	section {
+		position: relative;
+		height: 60px;
+		line-height: 60px;
+		width: 100%;
+		border-bottom: 1px solid black;
+		padding: 5px;
+	}
+	
+	section img {
+		width: 50px;
+		height: 50px;
+		float: left;
+		margin-left: 20px;
+	}
+	
+	section div {
+		float: left;
+	}
+	
+	section div p {
+		overflow: hidden;
+		padding-left: 20px;
+		line-height: 25px;
+		height: 25px;
+		width: 400px;
+	}
+	
+	.author {
+		color: red;
+		font-size: 10px;
+	}
+</style>

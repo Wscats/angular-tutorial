@@ -1,0 +1,125 @@
+<div id="content" ng-show="!loading">
+    <div class="top">
+        <span class="goback iconfont" ng-click="goback()">&#xe60e;</span>
+        详情
+    </div>
+    <div class="panel">
+        <div class="header topic_header">
+            <span class="topic_full_title"><span class="put_top" ng-show="data.top">顶置</span>{{data.title}}</span>
+            <div class="changes">
+                <span>发布于
+                {{data.create_at | timeDiff}}
+                </span>
+                <span>
+                作者
+                <i>{{data.author.loginname}}</i>
+                </span>
+                <span>
+                {{data.visit_count}}
+                次浏览
+                </span>
+                <span>
+                最后一次编辑是
+                {{data.last_reply_at | timeDiff}}
+                </span>
+                <span>
+                来自
+                {{data.tab | type}}
+                </span>
+            </div>
+        </div>
+        <div class="inner topic">
+            <div class="topic_content" ng-bind-html="content | sceurl"></div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="header">
+            <span class="col_fade">
+            {{data.reply_count}}
+            回复
+            </span>
+        </div>
+        <div class='cell reply_area reply_item' id="reply1" reply_id="57ea26383670ca3f44c5beb7" reply_to_id="" ng-repeat="arr in replies">
+            <a class="anchor" id="57ea26383670ca3f44c5beb7"></a>
+            <div class='author_content'>
+                <a href="##" class="user_avatar">
+                    <img ng-src="{{arr.author.avatar_url}}" />
+                </a>
+                <div class='user_info'>
+                    <span>
+                        {{arr.author.loginname}}
+                    </span>
+                    <span>
+                        {{$index+1}}楼 •
+                        {{arr.create_at | timeDiff}}
+                    </span>
+                </div>
+                <div class='user_action'>
+                    <span>
+                    <i class="iconfont"></i>
+                        <span class="iconfont">&#xe601;</span>
+                        <span class="up-count">{{arr.ups.length}}</span>
+                    </span>
+                    <span></span>
+                </div>
+            </div>
+            <div class='reply_content from-{{arr.author.loginname}}' ng-bind-html="arr.content | sceurl">
+            </div>
+            <div class='clearfix'>
+                <div class='reply2_area'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask" ng-show="loading">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+</div>
+<style>
+.mask {
+    top: 0;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+.topic_content {
+    padding-bottom: .48rem;
+}
+
+a {
+    color: #08c;
+}
+#content .topic_full_title{
+    width: 100%;
+}
+#content{
+    padding-top: .42rem;
+    padding-bottom: .48rem;
+}
+#content > .top{
+    width: 100%;
+    height: .42rem;
+    text-align: center;
+    line-height: .42rem;
+    color: #fff;
+    font-size: .2rem;
+    background-color: #29a1f7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+#content > .top > .goback{
+    width: .42rem;
+    height: .42rem;
+    font-size: .24rem;
+    position: absolute;
+    left: 0;
+}
+</style>

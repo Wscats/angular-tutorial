@@ -1,0 +1,78 @@
+<div id="fixed_top_box">
+	<div id="fixed_top">
+		<header>
+			<div>
+				<img src="img/cai_head.png" />
+			</div>
+			<div class="img01">
+				<img src="img/logo_head.png" />
+			</div>
+			<div class="img02">
+				<img src="img/tv_head.png" />
+			</div>
+		</header>
+		<nav id="nav" ng-controller="navCtrl">
+			<div id="a_box">
+				<!--<li ng-repeat="mesg in mesgs" ng-click='fnck($event)'><a>{{mesg.name}}</a></li>-->
+				<!--组件应用,导航部分-->
+				<navs></navs>
+				<!--组件应用，导航部分-->
+			</div>
+		</nav>
+	</div>
+</div>
+<div id="refresh" class="refresh">
+	<div id="shuaXin">松开马上刷新了</div>
+<section class="kuai">
+	<div id="page2" ng-controller='page02Ctrl'>
+<!--===============Swiper-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" data-hash="slide1">
+            	<img  ng-src="{{mesgs[0].imgurl}} "/>
+				<p class="p1 "></p>
+				<p class="p2 ">{{mesgs[0].shorttitle}}</p>
+            </div>
+            <div class="swiper-slide" data-hash="slide2">
+            	<img  ng-src="{{mesgs[1].imgurl}} "/>
+				<p class="p1 "></p>
+				<p class="p2 ">{{mesgs[1].shorttitle}}</p>
+            </div>
+            <div class="swiper-slide" data-hash="slide3">
+            	<img  ng-src="{{mesgs[2].imgurl}} "/>
+				<p class="p1 "></p>
+				<p class="p2 ">{{mesgs[2].shorttitle}}</p>
+            </div>
+            <div class="swiper-slide" data-hash="slide4">
+            	<img  ng-src="{{mesgs[3].imgurl}} "/>
+				<p class="p1 "></p>
+				<p class="p2 ">{{mesgs[3].shorttitle}}</p>
+            </div>
+            <div class="swiper-slide" data-hash="slide5">
+            	<img  ng-src="{{mesgs[4].imgurl}} "/>
+				<p class="p1 "></p>
+				<p class="p2 ">{{mesgs[4].shorttitle}}</p>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+<!--===============Swiper-->
+		
+		<ul class="list " ng-controller='page02_detil_Ctrl'>
+			<li ng-repeat='mesg in mesgs'>
+				<p class="p_img ">
+					<img ng-src='{{mesg.imgurl}}'/>
+				</p>
+				<div class="right_text ">
+					<h3>{{mesg.shorttitle}}</h3>
+					<p>
+						{{mesg.summary}}
+						<span><i><img src="img/pinlun.png "/></i>{{mesg.commentnum}}</span>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+</div>

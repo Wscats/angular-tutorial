@@ -1,0 +1,121 @@
+
+.view{
+    height: 100%;
+    padding-bottom: .48rem;
+}
+
+
+/*底部固定导航*/
+
+.foot-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .48rem;
+    background: #fafbfe;
+    border-top: 1px solid #e1e1e1;
+}
+
+.foot-nav > ul {
+    width: 100%;
+    height: 100%;
+}
+
+.foot-nav > ul > li {
+    float: left;
+    width: 50%;
+    height: 100%;
+    font-size: .20rem;
+    text-align: center;
+    line-height: .48rem;
+}
+.foot-nav > ul > li span{
+    vertical-align: middle;
+    margin-left: .05rem;
+}
+.foot-nav > ul > li a{
+    color: #888;
+}
+.foot-nav > ul > li span.iconfont{
+    font-size: .28rem;
+}
+.foot-nav ul .active a span{
+    color: #29a1f7;
+}
+
+/*等待样式*/
+.spinner {
+  margin: 1.5rem auto;
+  width: .4rem;
+  height: .4rem;
+  position: relative;
+  text-align: center;
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1,
+.dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate {
+  100% {
+    -webkit-transform: rotate(360deg)
+  }
+}
+
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg)
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0.0)
+  }
+  50% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  }
+  50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+.mask {
+  position: fixed;
+  left: 0;
+  top: .66rem;
+  right: 0;
+  bottom: .48rem;
+  background-color: rgba(200, 200, 200, .2);
+  z-index: 2000;
+}

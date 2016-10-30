@@ -1,0 +1,215 @@
+<article>
+	<div class="wrap" ng-show="isShow"></div>
+	<!--没有图片的样式-->
+	<section ng-if="data.dtype==0" ng-repeat="data in datas" class="noImg clear">
+		<a ng-href="{{data.url}}">
+			<div class="left text">
+				<p class="title">{{data.title}}</p>
+				<p class="source">{{data.source}}</p>
+			</div>
+		</a>
+		
+		<span class="btn" ng-click="toggle()">一</span>
+		<div class="box" ng-show="isShow">
+			<h4>选择理由，即可精准屏蔽</h4>
+			<ul class="clear">
+				<li>标题党</li>
+				<li>内容质量差</li>
+				<li>来源:{{data.source}}</li>
+				<li>{{data.dislike_reasons[0]}}</li>
+				<li>{{data.dislike_reasons[1]}}</li>
+				<li>{{data.dislike_reasons[2]}}</li>
+			</ul>
+			<p>不感兴趣</p>
+		</div>	
+	</section>
+	<!--三张图片的样式-->
+	<section ng-if="data.dtype==3" ng-repeat="data in datas" class="threeImg">
+		<a ng-href="{{data.url}}">
+			<!--Title简述-->
+			<p>{{data.title}}</p>
+			<!--新闻图片-->
+			<div class="clear">
+				<img ng-src="http://i1.go2yd.com/image.php?type=_186x123&url={{data.image_urls[0]}}&news_id=0E79imex" />
+				<img ng-src="http://i1.go2yd.com/image.php?type=_186x123&url={{data.image_urls[1]}}&news_id=0E79imex" />
+				<img ng-src="http://i1.go2yd.com/image.php?type=_186x123&url={{data.image_urls[2]}}&news_id=0E79imex" />
+			</div>
+			<!--文章来源  选择-->
+			<p class="source">{{data.source}}</p>
+		</a>
+		<span class="btn">一</span>	
+	</section>
+	<!--一张图片的样式-->
+	<section ng-if="data.dtype==1" ng-repeat="data in datas" class="oneImg clear">
+		<a ng-href="{{data.url}}">
+			<div class="left text">
+				<p class="title">{{data.title}}</p>
+				<p class="source">{{data.source}}</p>
+			</div>
+			<div class="left">
+				<img ng-src="http://i1.go2yd.com/image.php?type=_186x123&url={{data.image_urls[0]}}&news_id=0E79imex" />
+			</div>
+		</a>
+		<span class="btn">一</span>
+	</section>
+	<div class="loadMore" ng-click="loadMore()">
+		<p>查看更多</p>
+	</div>
+</article>
+<div class="loading" ng-show="loading"><img src="image/loading_img_56@2x.png" /></div>
+<style>
+	.loading {
+		position: absolute;
+		z-index: 20;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		/*background-color: #999999;*/
+		opacity: 0.5;
+	}
+	
+	.loading img {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		margin-left: -28px;
+		margin-top: -28px;
+		/*transform: rotate(360deg);
+		transition-duration: ;
+		transition: 1s;*/
+		animation: mymove 2s infinite;
+		animation-timing-function: linear;
+		animation-direction: normal;
+		-webkit-animation: mymove 2s infinite;
+		-webkit-animation-timing-function: linear;
+		-webkit-animation-direction: normal;
+	}
+	
+	@-webkit-keyframes mymove {
+		from {
+			-webkit-transform: rotate(0deg)
+		}
+		to {
+			-webkit-transform: rotate(360deg)
+		}
+	}
+	
+	.loadMore {
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		color: #d43d3d;
+	}
+	
+	article section a {
+		text-decoration: none;
+		color: black;
+	}
+	
+	article {
+		position: relative;
+		padding: 10px 12px 0;
+	}
+	
+	article section:nth-of-type(1){
+		margin-top: 84px;
+	}
+	
+	article section {
+		position: relative;
+		height: auto;
+		border-bottom: 1px solid #e7e7e7;
+		padding-bottom: 13px;
+	}
+	
+	article section p {
+		margin-top: 10px;
+	}
+	
+	.source {
+		width: 100%;
+		font-size: 12px;
+		color: #b4b4b4;
+	}
+	.btn {
+		position: absolute;
+		right: 0;
+		bottom: 13px;
+		color: #d6d6d6;
+		padding: 0 3px;
+		border-radius: 8px;
+		border: 1px solid #d6d6d6;
+	}
+	.box{
+		text-align:center;
+		position:absolute;
+		width:100%;
+		height:220px;
+		z-index:12;
+		background: #fff;
+		border-radius: 4px;
+	}
+	.box h4{
+		font-weight:300;
+		font-size:13px;
+		height:38px;
+		line-height:38px;
+	}
+	.box ul{
+		padding:0 8px 2px;
+		font-size:13px;
+		border-bottom:1px solid #eee;
+	}
+	.box ul li{
+		border:1px solid #eee;
+		margin:0 4px 12px;
+		border-radius: 20px;
+		line-height:32px;
+		width:46%;
+		height:32px;
+		float:left;
+	}
+	.box p{
+		color:#fd95ba;
+	}
+	.wrap{
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		z-index:11;
+		background: rgba(229, 229, 229, 0.3);
+	}
+	article .threeImg img {
+		height: 63px;
+		float: left;
+		margin-top: 10px;
+		margin-right: 5px;
+	}
+	
+	article .threeImg img:nth-of-type(3) {
+		margin-right: 0;
+	}
+	
+	article .oneImg .btn{
+		right: 34%;
+	}
+	article .oneImg .text{
+		width:66%;
+	}
+	article .oneImg .source{
+		position:absolute;
+		left:0;
+		bottom:13px;
+	}
+	article .oneImg img{
+		margin-top: 10px;
+		margin-left: 10px;
+		height:58px;
+	}
+	article section span {
+		font-size: 10px;
+		color: #999;
+	}
+</style>

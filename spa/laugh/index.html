@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<title></title>
+	</head>
+
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="css/swiper.css">
+	<script src="script/swiper.min.js"></script>
+	<!--<script src="js/zepto.min.js"></script>-->
+
+	<body>
+		<header>每日笑话</header>
+		<navd></navd>
+		<article>
+			<div ng-view=""></div>
+		</article>
+		<loading id="loading"></loading>
+	</body>
+	<script type="text/javascript" src="script/angular.js"></script>
+	<script type="text/javascript" src="script/angular-route.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jKaZX2RsTYAxYuq5wf2lCv6GaQfzYyin"></script>
+	<script>
+		var app = angular.module('wsscat', ['ngRoute']);
+		app.config(['$routeProvider', function($routeProvider) {
+			$routeProvider.when('/index', {
+					controller: 'indexCtrl',
+					templateUrl: 'html/index.html'
+				}).when('/index2', {
+					controller: 'index2Ctrl',
+					templateUrl: 'html/index2.html'
+				}).when('/detail/:num/:page', {
+					//该路由获取一个num的参数和name的参数，在控制器中我们可以用routeParams服务来获取
+					controller: 'detailCtrl',
+					templateUrl: 'html/detail.html'
+				}).when('/baiduMap', {
+					controller: 'baiduMapCtrl',
+					templateUrl: 'html/baiduMap.html'
+				}).when('/baiduMapSearch', {
+					controller: 'baiduMapSearchCtrl',
+					templateUrl: 'html/baiduSearch.html'
+				}).when('/gps', {
+					controller: 'gpsCtrl',
+					templateUrl: 'html/GPS.html'
+				})
+				.otherwise({
+					redirectTo: '/index2'
+				})
+		}])
+		app.controller('indexCtrl', ['$scope', '$http', function($scope, $http) {
+			$http.get('http://1.wsscatweixin.applinzi.com/joke.php').success(function(data) {
+				console.log(data);
+				$scope.jokes = data.detail;
+			})
+		}])
+		app.controller('index2Ctrl', ['$scope', '$http', '$rootScope', 'changeData', function($scope, $http, $rootScope, changeData) {
+			console.log(angular);
+			//$('#loading');
+			/*var loading = angular.element(document.querySelector('#loading'));
+			loading.addClass('red');
+			var obj = {
+				name: 'wsscat',
+				age: '0'
+			}
+			angular.forEach(obj, function(data) {
+				console.log(data);
+			})
+			var json = angular.toJson(obj)
+			console.log(angular.fromJson(json));*/
+			//获取设备的高度，并减去header的高度，所剩下的高度就是ng-view的高度
+			console.log(window.outerHeight);
+			//用scope绑定height，并把height传递到模板文件的style标签里面，用于更改fixed类的高度
+			//$scope.height = (window.outerHeight-50)+"px";
+			$scope.jokeClick = function(num) {
+				changeData.data = num;
+				//$rootScope.num = num;
+				console.log(num);
+				localStorage.setItem('num', num);
+				var name = "yao";
+				//window.location.href = '#/detail/?num='+name;
+				window.location.href = '#/detail/' + num + '/' + $scope.page;
+			}
+
+			$scope.jokes = [];
+			$scope.page = 1;
+			$scope.loadMore = function(callback) {
+					$rootScope.isShowJuhua = true;
+					$http.jsonp('http://1.wsscatweixin.applinzi.com/joke.php', {
+							params: {
+								//传递分页信息给后台
+								callback: 'JSON_CALLBACK',
+								page: $scope.page
+							}
+						}).success(function(data) {
+							$rootScope.isShowJuhua = false
+							console.log(data);
+							//在尾部加载数据
+							$scope.jokes = $scope.jokes.concat(data.detail);
+							//在开头加载数据
+							//$scope.jokes = data.detail.concat($scope.jokes);
+							//执行组件传过来的回调函数
+							callback ?
+								callback() :
+								'';
+						})
+						//分页自增
+					$scope.page++;
+				}
+				//首页第一次加载时候自执行第一次加载数据
+			$scope.loadMore();
+		}])
+		app.controller('detailCtrl', ['$scope', '$http', '$rootScope', 'changeData', '$routeParams', function($scope, $http, $rootScope, changeData, $routeParams) {
+			console.log($routeParams);
+			//$routeParams用于获取url上，即路由后面所带的参数，进行控制器之间的数据交换
+			$http.get('http://1.wsscatweixin.applinzi.com/joke.php', {
+					params: {
+						page: $routeParams.page - 1,
+					}
+				}).success(function(data) {
+					console.log(data);
+					//$scope.joke = data.detail[$rootScope.num];
+					//console.log(changeData.data);
+					//$scope.joke = data.detail[changeData.data];
+					$scope.joke = data.detail[$routeParams.num];
+				})
+				//console.log($rootScope.num);
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				effect: 'coverflow',
+				grabCursor: true,
+				centeredSlides: true,
+				slidesPerView: 'auto',
+				coverflow: {
+					rotate: 50,
+					stretch: 0,
+					depth: 100,
+					modifier: 1,
+					slideShadows: true
+				}
+			});
+		}])
+		app.controller('baiduMapCtrl', function($scope) {
+			//创建百度地图这个对象,用于我们在DOM中画地图
+			var map = new BMap.Map("l-map");
+			var geolocation = new BMap.Geolocation();
+			//var point = new BMap.Point(113.347147,23.181806);
+			//默认设置到广州
+			map.centerAndZoom("香港", 16)
+				//用百度提供的geolocation对象的getCurrentPosition方法去获取定位信息
+			geolocation.getCurrentPosition(
+					//成功回调函数
+					function(r) {
+						var mk = new BMap.Marker(r.point);
+						//在地图画这个红点
+						map.addOverlay(mk);
+						//移到地图正中间
+						map.panTo(r.point);
+					},
+					function() {
+
+					})
+				// 百度地图API功能
+				//var map = new BMap.Map("l-map");
+				//map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+
+			var transit = new BMap.TransitRoute(map, {
+				renderOptions: {
+					map: map,
+					panel: "r-result"
+				}
+			});
+			//transit.search("王府井", "西单");
+			$scope.search = function() {
+				console.log($scope.startPlace + "   " + $scope.endPlace)
+				$scope.startPlace
+				$scope.endPlace
+				transit.search($scope.startPlace, $scope.endPlace);
+			}
+		})
+		app.controller('baiduMapSearchCtrl', function($scope) {
+			// 百度地图API功能
+			function G(id) {
+				return document.getElementById(id);
+			}
+
+			var map = new BMap.Map("l-map");
+			map.centerAndZoom("北京", 12); // 初始化地图,设置城市和地图级别。
+
+			var ac = new BMap.Autocomplete( //建立一个自动完成的对象
+				{
+					"input": "suggestId",
+					"location": map
+				});
+
+			ac.addEventListener("onhighlight", function(e) { //鼠标放在下拉列表上的事件
+				var str = "";
+				var _value = e.fromitem.value;
+				var value = "";
+				if(e.fromitem.index > -1) {
+					value = _value.province + _value.city + _value.district + _value.street + _value.business;
+				}
+				str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+				value = "";
+				if(e.toitem.index > -1) {
+					_value = e.toitem.value;
+					value = _value.province + _value.city + _value.district + _value.street + _value.business;
+				}
+				str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+				//G("searchResultPanel").innerHTML = str;
+				$scope.searchResultPanel = str;
+			});
+
+			var myValue;
+			ac.addEventListener("onconfirm", function(e) { //鼠标点击下拉列表后的事件
+				var _value = e.item.value;
+				myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+				//G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+				$scope.searchResultPanel = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+				setPlace();
+			});
+
+			function setPlace() {
+				map.clearOverlays(); //清除地图上所有覆盖物
+				function myFun() {
+					var pp = local.getResults().getPoi(0).point; //获取第一个智能搜索的结果
+					map.centerAndZoom(pp, 18);
+					map.addOverlay(new BMap.Marker(pp)); //添加标注
+				}
+				var local = new BMap.LocalSearch(map, { //智能搜索
+					onSearchComplete: myFun
+				});
+				local.search(myValue);
+			}
+		})
+		app.controller('gpsCtrl', function($scope) {
+			// 百度地图API功能
+			var map = new BMap.Map("l-map");
+			//实现定位的方法
+			var geolocation = new BMap.Geolocation();
+			//默认定位的地点
+			map.centerAndZoom(new BMap.Point(116.404, 39.915), 16);
+			//用getCurrentPosition方法获取定位信息
+			geolocation.getCurrentPosition(
+			//成功回调函数
+			function(r) {
+				var mk = new BMap.Marker(r.point);
+				//在地图画这个红点
+				map.addOverlay(mk);
+				//移到地图正中间
+				map.panTo(r.point);
+			},
+			function(error) {
+				
+			})
+			//var start = $scope.startPlace;
+			//var end = $scope.endPlace;
+			var routePolicy = [BMAP_TRANSIT_POLICY_LEAST_TIME, BMAP_TRANSIT_POLICY_LEAST_TRANSFER, BMAP_TRANSIT_POLICY_LEAST_WALKING, BMAP_TRANSIT_POLICY_AVOID_SUBWAYS];
+			var transit = new BMap.TransitRoute(map, {
+				renderOptions: {
+					map: map
+				},
+				policy: 0
+			});
+			$scope.resultClick = function() {
+				map.clearOverlays();
+				var i = $scope.sel;
+				console.log($scope.startPlace+" "+$scope.endPlace);
+				search($scope.startPlace, $scope.endPlace, routePolicy[i]);
+
+				function search(start, end, route) {
+					transit.setPolicy(route);
+					transit.search(start, end);
+				}
+			};
+
+		})
+		app.directive('jokelist', function() {
+				return {
+					templateUrl: 'html/indexDir.html',
+					link: function(scope, element, attrs) {
+						element.addClass('red');
+					}
+				}
+			})
+			//自定义一个下拉刷新的组件
+			//引用组件的时候在标签上以属性方式（ng-scroll）就可以使用该组件
+			//用$window服务获取设备的高度
+		app.directive('ngScroll', ['$window', function($window) {
+			return {
+				//此处省略了上面的一些redrict属性scope属性等等，工作中记得最好写上
+				//template:'<ul><li ng-repeat="item in items">{{item}}</li></ul>',
+				//下面是这个组件写逻辑业务的地方
+				//scope跟控制器通信数据的一个对象
+				//ele操作这个组件DOM的节点
+				//attr组件标签上的属性值
+				link: function(scope, ele, attr) {
+					//$window服务包含了一些设备信息
+					console.log($window.innerHeight)
+					console.log(ele)
+					ele.css('height', ($window.innerHeight - 50) + "px")
+					ele.bind('scroll', function() {
+							//判断是否为滑动到最底部
+							if(ele[0].scrollTop + ele[0].offsetHeight >= ele[0].scrollHeight) {
+								console.log("已经到最底");
+								//当scope是默认的时候，scope.$apply(attr.ngScroll)和scope.$apply(scope.loadMore)的效果一样，scope在组件和控制器之间实现双向数据绑定
+								//手动刷新并执行加载数据的操作
+								scope.$apply(scope.loadMore(function() {}));
+							}
+							//console.log(ele[0].scrollHeight);//列表真实的高度，包括下面没有翻出来的列表高度
+							//console.log(ele[0].scrollTop);   //翻滚距离顶部的距离
+							//console.log(ele[0].offsetHeight);//列表仅在设备显示的高度
+							//手动刷新
+							//scope.$apply(attr.whenscrolled);
+						})
+						//开始跟结束所在的点
+					var touchstart;
+					var touchend;
+					//touchstart，监听触摸开始的那个点
+					ele.bind('touchstart', function(data) {
+						//console.log(data.targetTouches[0].pageY)
+						//获取开始坐标
+						touchstart = data.targetTouches[0].pageY;
+					})
+
+					//touchmove，监听触摸时候划过的点
+					ele.bind('touchmove', function(data) {
+						//获取结束坐标，如果是监听touchend的话，我们用changedTouches对象
+						//设置下拉过程中出现空白区域高度
+						touchend = data.targetTouches[0].pageY;
+						//判断位移的方向一定是向下并且是在顶部
+						(touchend - touchstart > 0) && ele[0].scrollTop == 0 ?
+							//用CSS来实现位移，产生顶部空白的区域
+							ele.css('top', (touchend - touchstart) + "px") :
+							'';
+					})
+
+					//touchend,监听触摸时候结束的点
+					ele.bind('touchend', function(data) {
+						//判断位移的方向一定是向下并且是在顶部
+						(touchend - touchstart > 0) && ele[0].scrollTop == 0 ?
+							//如果是的话就加载数据
+							scope.$apply(scope.loadMore(function() {
+								//传递回调函数，在控制器的函数里面执行这个回调的函数
+								ele.css('top', '0px')
+							})) :
+							'';
+					})
+				}
+			}
+		}])
+		app.directive("loading", function() {
+				return {
+					templateUrl: 'html/loading.html',
+					link: function(scope, ele, attr) {}
+				}
+			})
+			/*app.directive('navd',function(){
+				return {
+					templateUrl: 'directive/nav.html'
+				}
+			})*/
+	</script>
+	<script type="text/javascript" src="script/changeData.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			position: fixed;
+			z-index: 10;
+			top: 0;
+			left: 0;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background-color: red;
+			width: 100%;
+			color: white;
+		}
+		
+		article {
+			position: absolute;
+			top: 50px;
+			width: 100%;
+		}
+	</style>
+
+</html>

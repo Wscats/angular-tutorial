@@ -1,0 +1,52 @@
+<!--页头部分开始-->
+<div id="fixed_top_box">
+	<div id="fixed_top">
+		<header>
+			<div>
+				<img src="img/cai_head.png"/>
+			</div>
+			<div class="img01">
+				<img src="img/logo_head.png"/>
+			</div>
+			<div class="img02">
+				<img src="img/tv_head.png"/>
+			</div>
+		</header>
+		<nav id = "nav" ng-controller="navCtrl">
+			<div id="a_box">
+				<!--<li ng-repeat="mesg in mesgs" ng-click='fnck($event)'><a>{{mesg.name}}</a></li>-->
+				<!--组件应用,导航部分-->
+				<navs ></navs>
+				<!--组件应用，导航部分-->
+			</div>
+		</nav>
+	</div>
+</div>
+<!--页头部分结束-->
+
+<section id="shouYe">
+	<div class="kuai">
+		<ul id="page01">
+			<li ng-repeat='mesg in mesgs'>
+				<!--详情跳转路由-->
+				<a href="#/detial_index/{{$index}}">
+					<p class="p1">
+						<img ng-src="{{mesg.imgurl}}" />
+						<span><img ng-src="{{mesg.authorHeadImage}}" alt="头像"/></span>
+					</p>
+					<p class="date">
+						<span>{{mesg.newstime|date:'MM:dd h:mm'}}</span>
+						<span>{{mesg.authorName}}</span>
+					</p>
+					<h3>
+							{{mesg.title}}
+							<span><i><img src="img/pinlun.png"/></i>{{mesg.authorAuthentication}}</span>
+					</h3>
+				</a>
+			</li>
+		</ul>
+		<div id="loadMore" ng-hide='loading' ng-click='clickMore()'>
+			加载更多...
+		</div>
+	</div>
+</section>

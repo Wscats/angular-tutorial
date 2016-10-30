@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>CSDN</title>
+    <link rel="stylesheet" href="./css/main.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="view" ui-view></div>
+    <nav class="foot-nav" ng-controller="footnavCtrl">
+        <ul>
+            <li navfocus class=""><a href="#/index/all/1"><span class="iconfont">&#xe611;</span><span>首页</span></a></li>
+            <li navfocus><a href="#/my"><span class="iconfont">&#xe602;</span><span>我的</span></a></li>
+        </ul>
+    </nav>
+</body>
+<script src="./script/angular.js"></script>
+<script src="./script/angular-ui-router.js"></script>
+<script src="./script/ngStorage.js"></script>
+<script src="./script/app.js"></script>
+</html>

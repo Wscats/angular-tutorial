@@ -1,0 +1,18 @@
+<div class="index_detial">
+	<div class="content_detial">
+		<p class="big_img">
+			<img ng-src='{{mesgs.list.imgurl}}'/>
+		</p>
+		<div class="text">
+			<h3>{{mesgs.list.title}}</h3>
+			<p>
+				<span>{{mesgs.list.newstime|date:'MM:dd h:mm'}}</span>
+				<span>{{mesgs.list.columns}}</span>
+			</p>
+			<p class="author" ng-hide='loading'>
+				<img src="{{mesgs.list.authorHeadImage}}"/><span>{{mesgs.list.authorName}} </span>{{mesgs.list.autohrDescription}}<span></span>
+			</p>
+		</div>
+		<div id="discrip"></div>
+	</div>
+</div>

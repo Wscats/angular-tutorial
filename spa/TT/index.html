@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='sua'>
+	<head>
+		<meta charset="UTF-8">
+		<title>体坛+</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<link type="text/css" rel="stylesheet" href="css/index.css" />
+		
+		<!--引入ionic css文件-->
+		<!--<link rel="stylesheet" href="css/ionic.min.css" />-->
+	</head>
+	<body>
+		<!--===================路由渲染视图-->
+		<div ng-view='' class="view" id="view"></div>
+		<!--=====================路由渲染视图-->
+		<footer>
+			<!--==================页脚组件渲染视图-->
+			<footers></footers>
+			<!--================页脚组件渲染视图-->
+		</footer>
+		<!--=====================菊花中开始-->
+		<div id="loading" ng-show="loading"></div>
+		<div class="black_box" ng-show="loading">
+				<span><img src="img/loading.gif"/></span>
+		</div>
+		<!--=============菊花中结束-->
+	</body>
+	<!--引入angularjs文件-->
+		<script type="text/javascript" src="js/angular.js"></script>
+	<!--引入angularjs路由文件-->
+		<script type="text/javascript" src="js/angular-route.js"></script>
+	<!--引入我的操作js文件文件-->
+		<script src="control/index.js"></script>
+	<!--引入swiper css文件-->
+		<link rel="stylesheet" href="css/swiper.css" />
+	<!--引入swiper js文件-->
+		<script src="js/swiper.js"></script>
+</html>

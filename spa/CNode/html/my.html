@@ -1,0 +1,161 @@
+<div id="my">
+
+<header>
+    <span class="iconfont goback" ng-click="goback()">&#xe60e;</span>
+    <h3 class="title">我的</h3>
+</header>
+<section class="content">
+    <section class="about-me">
+        <div class="session">
+            <a class="avatar" href="##">
+                <img src="./image/avatar.jpg" alt="" />
+            </a>
+            <a href="##"><span>Administrator</span><span>c币</span></a>
+        </div>
+        <div class="flink">
+            <div><span>关注</span></div>
+            <div><span>粉丝</span></div>
+            <div><span>访客</span></div>
+        </div>
+    </section>
+    <section class="my-list list">
+        <div><span class="iconfont">&#xe606;</span><span>我的分享</span><span class="right">&gt;</span></div>
+        <div><span class="iconfont">&#xe609;</span><span>我的博客</span><span class="right">&gt;</span></div>
+        <div><span class="iconfont">&#xe60d;</span><span>我的问答</span><span class="right">&gt;</span></div>
+        <div><span class="iconfont">&#xe60c;</span><span>我的论坛</span><span class="right">&gt;</span></div>
+    </section>
+    <section class="my-history list">
+        <div><span class="iconfont">&#xe607;</span><span>浏览历史</span><span class="right">&gt;</span></div>
+        <div><span class="iconfont">&#xe60a;</span><span>离线阅读</span><span class="right">&gt;</span></div>
+    </section>
+    <section class="my-set list">
+        <div><span class="iconfont">&#xe608;</span><span>我的下载</span><span class="right">&gt;</span></div>
+        <div><span class="iconfont">&#xe60b;</span><span>我的收藏</span><span class="right">&gt;</span></div>
+        <div><span class="iconfont">&#xe605;</span><span>设置</span><span class="right">&gt;</span></div>
+    </section>
+</section>
+
+</div>
+
+
+<style>
+    #my{
+        height: 100%;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: .42rem;
+        line-height: .42rem;
+        font-size: .2rem;
+        color: #fff;
+        text-align: center;
+        border-bottom: 1px solid #d7d7d7;
+    }
+    #my > header > .goback{
+        width: .42rem;
+        height: .42rem;
+        font-size: .24rem;
+        position: absolute;
+        left: 0;
+    }
+    header > .title{
+        height: 100%;
+        font-size: .2rem;
+        background: #29a1f7;
+    }
+    .content{
+        height: 100%;
+        background: #f7f7f7;
+        padding-top: .42rem;
+    }
+    .content > .about-me{
+        height: 25%;
+        padding: .1rem 0;
+    }
+    .content > .about-me > .session{
+        height: 60%;
+        background: #fff;
+        border-top: 1px solid #d7d7d7;
+        border-bottom: 1px solid #d7d7d7;
+    }
+    .content > .about-me > .session > .avatar{
+        display: inline-block;
+        height: 80%;
+        vertical-align: middle;
+        margin: 0 .2rem;
+        margin-top: 1.5%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .content > .about-me > .session > .avatar > img{
+        height: 100%;
+    }
+    .content > .about-me > .session > a{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .content > .about-me > .session > a > span{
+        display: block;
+    }
+    .content > .about-me > .flink{
+        height: 40%;
+        background: #fff;
+        border-bottom: 1px solid #d7d7d7;
+    }
+    .content > .about-me > .flink > div{
+        height: 100%;
+        width: 33.3333%;
+        float: left;
+        text-align: center;
+    }
+    .content > .about-me > .flink > div > span{
+        display: block;
+        height: 100%;
+        -webkit-transform: translateY(20%);
+        -ms-transform: translateY(20%);
+        -o-transform: translateY(20%);
+        transform: translateY(20%);
+    }
+    .content > .my-list{
+        height: 30%;
+        background: #fff;
+    }
+    .content > .list > div{
+        padding: 0 .1rem;
+        border-top: 1px solid #d7d7d7;
+    }
+    .content > .my-list > div{
+        height: 25%;
+    }
+    .content > .list > div:last-child{
+        border-bottom: 1px solid #d7d7d7;
+    }
+    .content > .list > div > span{
+        display: inline-block;
+        margin-left: .1rem;
+        transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+    }
+    .content > .my-history{
+        height: 18%;
+        padding-top: .1rem;
+    }
+    .content > .my-history > div{
+        height: 50%;
+        background: #fff;
+    }
+    .content > .my-set{
+        height: 27%;
+        padding-top: .1rem;
+    }
+    .content > .my-set > div{
+        height: 33.33333%;
+        background: #fff;
+    }
+    .content .list .right{
+        float: right;
+    }
+</style>

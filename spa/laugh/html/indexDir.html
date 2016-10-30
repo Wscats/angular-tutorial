@@ -1,0 +1,66 @@
+<div class="container-fluid fixed" ng-scroll="loadMore()">
+	<div class="row-fluid">
+		<div class="span12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							描述
+						</th>
+						<th>
+							作者
+						</th>
+						<th>
+							图片
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="joke in jokes" ng-click="jokeClick($index)" id="joke_{{$index}}">
+						<td class="content">
+							{{joke.content}}
+						</td>
+						<td>
+							{{joke.author}}
+						</td>
+						<td>
+							<img ng-src="{{joke.picUrl?joke.picUrl:'image/denglu.png'}}" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--<div class="loadMore" ng-click="loadMore()">查看更多</div>-->
+	</div>
+</div>
+<style>
+	.loadMore {
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+		color: #0044CC;
+	}
+	
+	.fixed {
+		/*添加绝对定位来改变这个模板的高度*/
+		position: absolute;
+		/*height是由控制器带过来的，用$scope绑定的height*/
+		/*height: {{height}};*/
+		overflow: auto;
+		transition: all 1s;
+	}
+	
+	/*.fixed::-webkit-scrollbar {
+		display: none
+	}*/
+	/*.content{
+		display: -webkit-box;
+		overflow : hidden;
+		text-overflow: ellipsis;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}*/
+</style>
+<!--<a ng-href="#/detail/{{$index}}/yao" ng-repeat="joke in jokes">
+	<p>{{joke.content}}</p>
+</a>-->

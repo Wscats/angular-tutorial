@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app='sua'>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<link type="text/css" rel="stylesheet" href="../css/index.css" />
+		<script type="text/javascript" src="../js/angular.js"></script>
+		<script src="../control/index.js"></script>
+		<script type="text/javascript" src="../control/page01.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="fixed_top_box">
+			<div id="fixed_top">
+				<header>
+					<div>
+						<img src="../img/cai_head.png"/>
+					</div>
+					<div class="img01">
+						<img src="../img/logo_head.png"/>
+					</div>
+					<div class="img02">
+						<img src="../img/tv_head.png"/>
+					</div>
+				</header>
+				<nav id = "nav" ng-controller="navCtrl">
+					<ul>
+						<li ng-repeat="mesg in mesgs" ng-click='fnck($event)'><a>{{mesg.name}}</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<section>
+			<ul id="page01" ng-controller="page01">
+				<a href="">
+					<li ng-repeat='mesg in mesgs'>
+						<p class="p1">
+							<img  ng-src="{{mesg.imgurl}}"/>
+							<span><img ng-src="{{mesg.authorHeadImage}}" alt="头像"/></span>
+						</p>
+						<p class="date">
+							<span>{{mesg.newstime|date:'MM:dd h:mm'}}</span>
+							<span>{{mesg.authorName}}</span>
+						</p>
+						<h3>
+							{{mesg.title}}
+							<span><i><img src="../img/pinlun.png"/></i>{{mesg.authorAuthentication}}</span>
+						</h3>
+					</li>
+				</a>
+			</ul>
+		</section>
+		<footer>
+			<ul>
+				<li>
+					<img  src="../img/news_img.png"/>
+					<p>新闻</p>
+				</li>
+				<li>
+					<img  src="../img/bisai_img.png"/>
+					<p>比赛</p>
+				</li>
+				<li>
+					<img  src="../img/aoyun_img.png"/>
+				</li>
+				<li>
+					<img  src="../img/faxian_img.png"/>
+					<p>新闻</p>
+				</li>
+				<li>
+					<img  src="../img/mine_img.png"/>
+					<p>新闻</p>
+				</li>
+			</ul>
+		</footer>
+	</body>
+</html>
