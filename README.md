@@ -5,6 +5,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 
 | Guess you like ||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[Angular商城Demo](https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html)||
 |[Angular内联编辑器](https://wscats.github.io/angular-demo/angularjs5examples/inline-editor/index.html)|[Angular即时搜索](https://wscats.github.io/angular-demo/angularjs5examples/instant-search/index.html)|
 |[Angular导航菜单](https://wscats.github.io/angular-demo/angularjs5examples/navigation-menu/index.html)|[Angular订单表单](https://wscats.github.io/angular-demo/angularjs5examples/order-form/index.html)|
 |[Angular切换网格](https://wscats.github.io/angular-demo/angularjs5examples/switchable-grid/index.html)||
