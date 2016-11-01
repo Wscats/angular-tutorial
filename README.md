@@ -40,7 +40,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 ## 路由
 | Router |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[Angular路由嵌套](https://wscats.github.io/angular-demo/UI路由嵌套DEMO.html)|
+|[Angular路由嵌套](https://wscats.github.io/angular-demo/UI路由嵌套DEMO.html)|[Angular路由单页多个ui-view](https://wscats.github.io/angular-demo/uiRoute/index.html)|
 
 ## 过滤器
 | Filter ||
