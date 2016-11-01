@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p style="color:red">currency</p>
+			<p>{{num|currency : '&'}}</p>
+			<p style="color:red">date</p>
+			<p>{{date|date:'yyyy/MM/dd hh:mm:ss EEEE'}}</p>
+			<p style="color:red">fillter</p>
+			<input ng-model="filter" />
+			<ul>
+				<li ng-repeat="name in names|filter:filter">{{name.name}}</li>
+			</ul>
+			<p style="color:red">orderBy</p>
+			<button ng-click="orderBy=!orderBy">升降序</button>
+			<ul>
+				<li ng-repeat="name in names|filter:filter|orderBy:'id':orderBy">{{name.name}}</li>
+			</ul>
+			<p style="color:red">uppercase</p>
+			<p>{{name|uppercase}}</p>
+			<p style="color:red">lowercase</p>
+			<p>{{name|lowercase}}</p>
+			<p style="color:red">limitTo</p>
+			<p>{{name|limitTo:-3}}</p>
+			<p style="color: red;">自定义过滤器</p>
+			<p>{{name|wsscat : 1}}</p>
+			<p style="color: red;">用$filter服务触发过滤器</p>
+			<p>{{nameFiltered}}</p>
+			<p>{{numed}}</p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope, $filter) {
+			$scope.name = 'wSsCat';
+			$scope.num = 100;
+			$scope.date = 1477966081000;
+			$scope.names = [{
+				name: 'wss',
+				id: 1
+			}, {
+				name: 'ete',
+				id: 3
+			}, {
+				name: 'djd',
+				id: 2
+			}];
+			//用$filter服务触发过滤器
+			$scope.nameFiltered = $filter('wsscat')($scope.name, 1);
+			$scope.numed = $filter('currency')($scope.num, '&');
+		})
+		app.filter('wsscat', function() {
+			return function(input, value) {
+				console.log(input)
+				console.log(value)
+				return input + '你已经处理了';
+			}
+		})
+	</script>
+
+</html>
