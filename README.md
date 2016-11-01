@@ -64,4 +64,4 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
 |[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-demo/ngCookie.html)|[图灵机器人](https://wscats.github.io/angular-demo/图灵机器人.html)|
 |[Javascript的createElement](https://wscats.github.io/angular-demo/createElement.html)|[Javascript的createDocumentFragment](https://wscats.github.io/angular-demo/createDocumentFragment.html)|
-|[Angular利用angular.module()实现模块化](https://wscats.github.io/angular-demo/angular模块化.html)||
+|[Angular利用angular.module()实现模块化](https://wscats.github.io/angular-demo/angular模块化.html)|[Angular的form表单验证.html](https://wscats.github.io/angular-demo/form表单验证.html)|
