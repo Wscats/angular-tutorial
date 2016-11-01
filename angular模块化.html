@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="wsCtrl">
+		<p>type:{{wsscat.type}}</p>
+		<p>age:{{wsscat.age}}</p>
+		<xheader></xheader>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var services = angular.module('services',[]);
+		services.service('wsscat',function(){
+			return {
+				type:'cat',
+				age:255
+			}
+		})
+		var controllers = angular.module('controllers',['services']);
+		controllers.controller('wsCtrl',function($scope,wsscat){
+			$scope.wsscat = wsscat;
+		})
+		var directives = angular.module('directives',['controllers','services']);
+		directives.directive('xheader',function(){
+			return {
+				template:'<p>directive tests</p>',
+			}
+		})
+		var app = angular.module('app',['controllers','services','directives'])
+	</script>
+</html>
