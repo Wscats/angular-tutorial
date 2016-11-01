@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p style="color:red">currency</p>
+			<p>{{num|currency : '¥'}}</p>
+			<p style="color:red">date</p>
+			<p>{{date|date:'yyyy/MM/dd hh:mm:ss EEEE'}}</p>
+			<p style="color:red">fillter</p>
+			<input ng-model="filter" />
+			<ul>
+				<li ng-repeat="name in names|filter:filter">{{name.name}}</li>
+			</ul>
+			<p style="color:red">orderBy</p>
+			<!--orderBy过滤器可以将一个数组中的元素进行排序，接收一个参数来指定排序规则，参数可以是一个字符串，表示以该属性名称进行排序。可以是一个函数，定义排序属性。还可以是一个数组，表示依次按数组中的属性值进行排序（若按第一项比较的值相等，再按第二项比较），还是拿上面的孩子数组举例-->
+			<button ng-click="orderBy=!orderBy">升降序</button>
+			<ul>
+				<li ng-repeat="name in names|filter:filter|orderBy:'id':orderBy">{{name.name}}</li>
+			</ul>
+			<p style="color:red">num</p>
+			<!--number过滤器可以为一个数字加上千位分割，像这样，123,456,789。同时接收一个参数，可以指定小float类型保留几位小数-->
+			<p>{{num|number:2}}</p>
+			<p style="color:red">uppercase</p>
+			<p>{{name|uppercase}}</p>
+			<p style="color:red">lowercase</p>
+			<p>{{name|lowercase}}</p>
+			<p style="color:red">limitTo</p>
+			<!--limitTo过滤器用来截取数组或字符串，接收一个参数用来指定截取的长度-->
+			<p>{{name|limitTo:-3}}</p>
+			<p style="color:red">json</p>
+			<!--json过滤器可以把一个js对象格式化为json字符串，没有参数,作用就和我们熟悉的JSON.stringify()一样-->
+			<p>{{obj|json}}</p>
+			<p style="color: red;">自定义过滤器</p>
+			<p>{{name|wsscat : 1}}</p>
+			<p style="color: red;">用$filter服务触发过滤器</p>
+			<p>{{nameFiltered}}</p>
+			<p>{{numed}}</p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope, $filter) {
+			$scope.name = 'wSsCat';
+			$scope.num = 100000;
+			$scope.date = 1477966081000;
+			$scope.names = [{
+				name: 'wss',
+				id: 1
+			}, {
+				name: 'ete',
+				id: 3
+			}, {
+				name: 'djd',
+				id: 2
+			}];
+			$scope.obj = {
+				name:'wsscat',
+				age:2
+			}
+			//用$filter服务触发过滤器
+			$scope.nameFiltered = $filter('wsscat')($scope.name, 1);
+			$scope.numed = $filter('currency')($scope.num, '&');
+		})
+		app.filter('wsscat', function() {
+			return function(input, value) {
+				console.log(input)
+				console.log(value)
+				return input + '你已经处理了';
+			}
+		})
+	</script>
+
+</html>
