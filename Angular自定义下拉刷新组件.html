@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		body{
+			height: 100%;
+			width: 100%;
+		}
+		
+		li {
+			/*height: 120px;*/
+			border-bottom: 1px solid gray;
+		}
+		
+		#fixed {
+			height: 90%;
+			width: 100%;
+			overflow: auto;
+			position: absolute;
+			transition: all 1s;
+			top:10%
+		}
+		
+		.transTop {
+			transition: all 1s;
+		}
+		
+		header{
+			text-align: center;
+			height: 10%;
+			width: 100%;
+			position: fixed;
+			line-height: 400%;
+		}
+	</style>
+
+	<body ng-controller="indexCtrl">
+		<header>下拉刷新</header>
+		<div id="fixed" when-scrolled="loadMore()">
+			<ul>
+				<li ng-repeat="item in items">{{item}}</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope, $timeout) {
+			$scope.items = ['wsscat number'];
+			//产生随机数组
+			for(var i = 0; i <= 50; i++) {
+				$scope.items.push(Math.random() * 10);
+			}
+			console.log($scope.items);
+			$scope.loadMore = function(callback) {
+				console.log('下拉刷新更多');
+				for(var j = 0; j <= 50; j++) {
+					$scope.items.push(Math.random() * 10);
+				}
+				//console.log(elm);
+				$timeout(callback, 1000)
+
+			}
+		})
+		app.directive('whenScrolled', function($window) {
+			return function(scope, elm, attr) {
+				var raw = elm[0];
+				//elm.css('height', $window.innerHeight + 'px');
+				elm.bind('scroll', function() {
+					//console.log(raw.offsetHeight); //未翻滚前列表的高度 （一直固定）
+					//console.log(raw.scrollHeight); //列表的加载完的高度 （一直固定）
+					if(raw.scrollTop + raw.offsetHeight + 0.10*$window.innerHeight >= raw.scrollHeight) {
+						console.log(attr.whenScrolled); //log loadMore()	
+						//scope.$apply(attr.whenScrolled); //执行 loadMore函数
+						scope.$apply(scope.loadMore)
+					}
+				});
+				var touchstart;
+				var touchend;
+				elm.bind('touchstart', function(data) {
+					touchstart = data.touches[0].pageY;
+				})
+				elm.bind('touchmove', function(data) {
+					touchend = data.changedTouches[0].pageY;
+					(touchend - touchstart)>0&&(raw.scrollTop==0)?
+					//添加位移和过渡动画
+					elm.addClass('transTop').css('top', (touchend - touchstart) + 'px')
+					:'';
+				})
+				elm.bind('touchend', function(data) {
+					//往下拉才加载，如果往上则忽略
+					if(touchend - touchstart>0){
+						scope.$apply(scope.loadMore(
+						//传回调函数给控制器中的loadMore函数
+						function() {
+							elm.css('top', '0px')
+						}
+					))
+					}
+				})
+			};
+		});
+	</script>
+</html>
