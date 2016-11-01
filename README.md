@@ -38,7 +38,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular自定义下拉刷新组件1](https://wscats.github.io/angular-demo/下拉刷新.html)|[Angular自定义下拉刷新组件2](https://wscats.github.io/angular-demo/Angular自定义下拉刷新组件.html)|
 
 ## 路由
-| Router |
+| Router ||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[Angular路由嵌套](https://wscats.github.io/angular-demo/UI路由嵌套DEMO.html)|[Angular路由单页多个ui-view](https://wscats.github.io/angular-demo/uiRoute/index.html)|
 
