@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title>wsscat表单认证</title>
+	</head>
+	<style>
+		span {
+			color: red;
+		}
+	</style>
+
+	<body ng-controller="indexCtrl">
+		<form name="form">
+			<p>
+				<input type="text" name="user" ng-model="user" required />
+				<!--
+					$dirty	    表单有填写记录   也就是说表单在进入页面前是没有任何填写纪录的，一旦我们做来第一次输入之后，后面这个都判断为是有过填写记录
+					$valid	    字段内容合法的
+					$invalid	    字段内容是非法的 如果输入框为空那就属于非法的
+					$pristine	表单没有填写记录
+				-->
+
+				<!--这里做了严谨的判断 第一个是让它进来的时候判断它是否已经输入过内容如果没输入就隐藏用户名必须这个红色输入框，第二个是判断非法字符-->
+				<span ng-show="form.user.$dirty&&form.user.$invalid">
+					<span ng-show="form.user.$error.required">用户名是必须</span>
+				</span>
+			</p>
+			<p>
+				<input type="email" name="email" ng-model="email" required />
+				<span ng-show="form.email.$dirty && form.email.$invalid">
+					<span ng-show="form.email.$error.required">邮箱是必须的</span>
+				<span ng-show="form.email.$error.email">非法的邮箱地址</span>
+				</span>
+			</p>
+			<p>
+				<!--有输入并且输入的是非法内容，有输入并且输入的邮箱是非法内容-->
+				<input type="submit" ng-disabled="form.user.$dirty && form.user.$invalid ||  
+				form.email.$dirty && form.email.$invalid">
+			</p>
+		</form>
+	</body>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope) {})
+	</script>
+</html>
