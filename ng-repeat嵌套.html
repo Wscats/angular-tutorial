@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/angular.js"></script>
+
+	<body ng-controller="indexCtrl">
+		{{name}}
+		<div ng-repeat="links in slides">
+			<hr/>
+			<div ng-repeat="link in links.arr track by $index">
+				{{link}}
+			</div>
+		</div>
+	</body>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.run(function($http,$window) {
+			console.log("456");
+			$window.addEventListener("resize", function() {
+				document.querySelector('body').style.fontSize = document.body.clientWidth / 20 + 'px';
+				console.log(document.body.clientWidth);
+			})
+		})
+		app.config(function() {
+			
+		})
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = "wsscat";
+			$scope.slides = [{
+				arr: [1, 1, 1],
+			}, {
+				arr: [4, 5, 6],
+			}];
+		})
+	</script>
+
+</html>
