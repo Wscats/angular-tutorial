@@ -35,7 +35,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | Directive ||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[Angular自定义手势指令](https://wscats.github.io/angular-demo/自定义手势事件.html)|[Angular自定义轮播图组件](https://wscats.github.io/angular-demo/自定义directive轮播图.html)|
-|[Angular自定义下拉刷新组件](https://wscats.github.io/angular-demo/下拉刷新.html)||
+|[Angular自定义下拉刷新组件1](https://wscats.github.io/angular-demo/下拉刷新.html)||[Angular自定义下拉刷新组件2](https://wscats.github.io/angular-demo/Angular自定义下拉刷新组件.html)|
 
 ## 路由
 | Router |
