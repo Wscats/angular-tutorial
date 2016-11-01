@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<header>路由嵌套和单页多路由情况</header>
+		<a ng-href="#/main/pageMain1" id="{{path}}" data-a="abc"  class="{{'#/main/pageMain1'==path?'red':''}}">page1</a>
+		<a ng-href="#/main/pageMain2/8">page2</a>
+		<a ng-href="#/main/pageMain3/9">page3</a>
+		<div ui-view></div>
+	</body>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<script type="text/javascript" src="angular-ui-router.js"></script>
+	<script type="text/javascript" src="ngAnimate.js"></script>
+	<script type="text/javascript" src="../touch/ng-touch.js"></script>
+	<script>
+		/* 使用ui-router来进行路由定义，需要注入ui.router模块 */
+		var app = angular.module('wsscat', ['ui.router', 'ngAnimate']);
+		/* 注入$stateProvider，$urlRouterProvider */
+		app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+			/* 使用when来对一些不合法的路由进行重定向 */
+			$urlRouterProvider.when('', '/main');
+			/* 通过$stateProvider的state()函数来进行路由定义 */
+			$stateProvider.state('main', {
+				url: '/main',
+				templateUrl: 'views/main.html',
+				controller: 'mainCtrl'
+			}).state('main.a', {
+				url: '/pageMain1',
+				views: {
+					"first": {
+						templateUrl: 'views/pageMain1.html',
+						controller: 'pageMain1Ctrl'
+					},
+					"second": {
+						templateUrl: 'views/pageMain3.html',
+						//controller: 'pageMain3Ctrl'
+					}
+				}
+			}).state('main.b', {
+				url: '/pageMain2/:id',
+				views: {
+					"first": {
+						templateUrl: 'views/pageMain2.html',
+						controller: 'pageMain2Ctrl'
+					}
+				}
+			}).state('main.c', {
+				url: '/pageMain3/:id',
+				views: {
+					"second": {
+						templateUrl: 'views/pageMain3.html',
+						//controller: 'pageMain3Ctrl'
+					}
+				}
+			})
+		}]);
+		app.run(function($rootScope, $location) {
+				$rootScope.$on('$stateChangeSuccess',
+					function(data) {
+						console.log($location.path())
+						$rootScope.path = "#"+$location.path()
+					})
+			})
+			//路由地址为#/main
+		app.controller('mainCtrl', function($scope) {
+			$scope.name = 'wsscat';
+		})
+
+		//路由地址为#/main/pageMain1
+		app.controller('pageMain1Ctrl', function($scope) {
+			$scope.name = 'autumns';
+			//$scope.pageClass = 'page-index';
+		})
+
+		app.controller('pageMainChildCtrl', function($scope) {
+			$scope.child = 'hello';
+			//$scope.pageClass = 'page-index';
+		})
+
+		app.controller('pageMain2Ctrl', function($scope, $state) {
+			//$scope.name = 'pageMain2'
+			console.log($state.params);
+			//$scope.pageClass = 'page-hot';
+		})
+	</script>
+</html>

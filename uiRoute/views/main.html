@@ -1,0 +1,118 @@
+<!--<style>
+.slide {
+    -webkit-transition: -webkit-transform .7s ease-in-out;
+    -moz-transition: -moz-transform .7s ease-in-out;
+    -o-transition: -o-transform .7s ease-in-out;
+    transition: transform .7s ease-in-out;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide.ng-enter {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.slide.ng-enter.ng-enter-active, .slide.ng-leave {
+    position: absolute;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide.ng-leave.ng-leave-active {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+.ng-enter {
+            animation: slideInLeft 1s both ease-in;
+        }
+
+        .ng-leave {
+            animation: slideOutRight 1s both ease-in;
+        }
+	.fad1 {
+		bottom: 0;
+		/*padding-top: 200px;*/
+		position: absolute;
+		text-align: center;
+		top: 100px;
+		width: 100%;
+	}
+	
+	.fad2 {
+		bottom: 0;
+		/*padding-top: 200px;*/
+		position: absolute;
+		text-align: center;
+		top: 50px;
+		width: 100%;
+	}
+	
+	@keyframes slideOutLeft {
+		to {
+			transform: translateX(-100%);
+		}
+	}
+	
+	@keyframes slideInRight {
+		from {
+			transform: translateX(100%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+	
+	@keyframes slideInLeft {
+		from {
+			transform: translateX(-100%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+	
+	@keyframes slideOutRight {
+		to {
+			transform: translateX(100%);
+		}
+	}
+	
+	.page-index.ng-enter {
+		animation: slideInRight 5s both ease-in;
+	}
+	
+	.page-index.ng-leave {
+		animation: slideOutLeft 5s both ease-in;
+	}
+	
+	.page-hot.ng-enter {
+		animation: slideInLeft 5s both ease-in;
+	}
+	
+	.page-hot.ng-leave {
+		animation: slideOutRight 5s both ease-in;
+	}
+	
+	.page-index.ng-enter {
+		animation: slideInLeft 1s both ease-in;
+	}
+	
+	.page-index.ng-leave {
+		animation: slideOutRight 1s both ease-in;
+	}
+	
+	.page-hot.ng-enter {
+		animation: slideInLeft 1s both ease-in;
+	}
+	
+	.page-hot.ng-leave {
+		animation: slideOutRight 1s both ease-in;
+	}
+</style>-->
+<!--main {{name}}-->
+<p>第一个路由</p>
+<div ui-view class="fad1 slide" name="first"></div>
+
+<p>第二个路由</p>
+<div ui-view class="fad2 slide" name="second"></div>
