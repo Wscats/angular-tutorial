@@ -1,0 +1,58 @@
+<style>
+	.rotate {
+		-webkit-animation-duration: 1s;
+	}
+	
+	.ng-leave.rotate {
+		-webkit-animation-name: rotate-leave;
+	}
+	
+	.ng-enter.rotate {
+		-webkit-animation-name: rotate-enter;
+	}
+	
+	@-webkit-keyframes rotate-leave {
+		0% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(0);
+			opacity: 1;
+		}
+		100% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(-180deg);
+			opacity: 0;
+		}
+	}
+	
+	@-webkit-keyframes rotate-enter {
+		0% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(-180deg);
+			opacity: 0;
+		}
+		100% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(-360deg);
+			opacity: 1;
+		}
+	}
+</style>
+<!--
+<p>第一个路由</p>
+<a href="#/index/a">a</a>
+<a href="#/index/b">b</a>
+<div ui-view="" class="rotate"></div>
+<button ng-click="bool=!bool">show/hide</button>-->
+<!--ng-if直接删除节点-->
+<!--<div ng-if="bool" class="rotate">打折</div>-->
+<!--css来隐藏-->
+<!--<div ng-show="bool">123</div>-->
+<!--<div ui-view="" name="view1"></div>
+<div ui-view="" name="view2"></div>
+<div ui-view="" name="view3"></div>-->
+<weui-tab></weui-tab>
+<div style="position: absolute; top: 50px; width: 100%;">
+	<!--有动画  class="rotate"-->
+	<!--<div ui-view="" class="rotate"></div>-->
+	<div ui-view=""></div>
+</div>

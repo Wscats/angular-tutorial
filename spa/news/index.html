@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ui-view=""></div>
+	</body>
+	<script src="script/angular.js"></script>
+	<script src="script/ui-route.js"></script>
+	<script src="script/angular-animate.js"></script>
+	<link rel="stylesheet" href="css/weui.css" />
+	<script>
+		var app = angular.module('wsscat', ['ui.router', 'ngAnimate']);
+		//angular jquery react vue eno one;
+		//ui路由 $stateProvider ng路由$routeProvider
+		app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+			//$routeProvider.when
+			$stateProvider.state('index', {
+				//#/index
+				url: '/index',
+				templateUrl: 'views/index.html',
+				controller: 'indexCtrl'
+			}).state('detail', {
+				//#/home
+				url: '/detail/:id',
+				templateUrl: 'views/detail.html',
+				controller: 'detailCtrl'
+			}).state('index.a', {
+				url: '/a',
+				templateUrl: 'views/indexA.html',
+				controller: 'indexACtrl'
+					/*views:{
+						"view1":{
+							templateUrl:'views/indexA.html',
+							//controller:'indexACtrl'
+						},
+						"view2":{
+							templateUrl:'views/indexC.html',
+							//controller:'indexACtrl'
+						},
+						"view3":{
+							templateUrl:'views/indexC.html',
+							//controller:'indexACtrl'
+						},
+					}*/
+			}).state('index.b', {
+				url: '/b',
+				templateUrl: 'views/indexB.html',
+				controller: 'indexBCtrl'
+			})
+			$urlRouterProvider.when('', '/index/a')
+		}])
+		app.controller('indexCtrl', function($scope) {
+				$scope.name = 'index';
+			})
+			//$state获取路由上面的哈希值
+		app.controller('detailCtrl', function($scope, $state, $http) {
+			//$state获取url上的哈希值 $routeParams
+			$scope.name = 'home';
+			console.log($state.params.id)
+			//$http.jsonp('news.php', {
+			$http.jsonp('script/callback.js', {
+				params: {
+					callback: 'JSON_CALLBACK',
+					page: 1
+				}
+			}).success(function(data) {
+				console.log(data.showapi_res_body.pagebean.contentlist[$state.params.id])
+				$scope.new = data.showapi_res_body.pagebean.contentlist[$state.params.id];
+			})
+		})
+		app.controller('indexACtrl', function($scope, $http, $rootScope) {
+			$scope.loading = true;
+			$rootScope.tab = 1;
+			//默认第一页
+			$scope.offset = 1;
+			//定义一个空数组存放的是列表显示的新闻
+			$scope.arrs = [];
+			var getNews = function() {
+				//$http.jsonp('news.php', {
+				//模拟的后端数据
+				$http.jsonp('script/callback.js', {
+					params: {
+						callback: 'JSON_CALLBACK',
+						page: $scope.offset
+					}
+				}).success(function(data) {
+					$scope.loading = false;
+					console.log(data);
+					//每次我们加载下一页的数据的时候我们就往arrs合并
+					$scope.arrs = $scope.arrs.concat(data.showapi_res_body.pagebean.contentlist);
+					$scope.news = $scope.arrs;
+				})
+			}
+			//进来的时候先加载数据一次
+			getNews();
+			$scope.loadMore = function() {
+				//每点击加载更多前，出现loading
+				$scope.loading = true;
+				//每点击一次的时候，请求下一页
+				$scope.offset++;
+				console.log("加载更多");
+				getNews();
+			}
+		})
+		app.controller('indexBCtrl', function($scope, $http, $rootScope) {
+			$rootScope.tab = 2;
+		})
+		app.directive('weuiTab', function() {
+			return {
+				templateUrl: 'directives/weuiTab.html'
+			}
+		})
+	</script>
+</html>
