@@ -38,6 +38,8 @@
 			<p>{{obj|json}}</p>
 			<p style="color: red;">自定义过滤器</p>
 			<p>{{name|wsscat : 1}}</p>
+			<p style="color: red;">自定义过滤器输出html</p>
+			<div ng-bind-html="html|html"></div>
 			<p style="color: red;">用$filter服务触发过滤器</p>
 			<p>{{nameFiltered}}</p>
 			<p>{{numed}}</p>
@@ -47,6 +49,7 @@
 	<script>
 		var app = angular.module('wsscat', []);
 		app.controller('indexCtrl', function($scope, $filter) {
+			
 			$scope.name = 'wSsCat';
 			$scope.num = 100000;
 			$scope.date = 1477966081000;
@@ -64,6 +67,7 @@
 				name:'wsscat',
 				age:2
 			}
+			$scope.html = '<p>wsscat</p>';
 			//用$filter服务触发过滤器
 			$scope.nameFiltered = $filter('wsscat')($scope.name, 1);
 			$scope.numed = $filter('currency')($scope.num, '&');
@@ -74,6 +78,12 @@
 				console.log(value)
 				return input + '你已经处理了';
 			}
+		})
+		//处理html格式的
+		app.filter("html", function($sce) {
+			return function(input) {
+				return $sce.trustAsHtml(input);
+			};
 		})
 	</script>
 
