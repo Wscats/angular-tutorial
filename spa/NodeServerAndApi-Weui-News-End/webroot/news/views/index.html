@@ -1,0 +1,74 @@
+<style>
+	.rotate {
+		-webkit-animation-duration: 1s;
+	}
+	
+	.ng-leave.rotate {
+		-webkit-animation-name: rotate-leave;
+	}
+	
+	.ng-enter.rotate {
+		-webkit-animation-name: rotate-enter;
+	}
+	
+	@-webkit-keyframes rotate-leave {
+		0% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(0);
+			opacity: 1;
+		}
+		100% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(-180deg);
+			opacity: 0;
+		}
+	}
+	
+	@-webkit-keyframes rotate-enter {
+		0% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(-180deg);
+			opacity: 0;
+		}
+		100% {
+			-webkit-transform-origin: center center;
+			-webkit-transform: rotate(-360deg);
+			opacity: 1;
+		}
+	}
+</style>
+<!--
+<p>第一个路由</p>
+<a href="#/index/a">a</a>
+<a href="#/index/b">b</a>
+<div ui-view="" class="rotate"></div>
+<button ng-click="bool=!bool">show/hide</button>-->
+<!--ng-if直接删除节点-->
+<!--<div ng-if="bool" class="rotate">打折</div>-->
+<!--css来隐藏-->
+<!--<div ng-show="bool">123</div>-->
+<!--<div ui-view="" name="view1"></div>
+<div ui-view="" name="view2"></div>
+<div ui-view="" name="view3"></div>-->
+<weui-tab></weui-tab>
+<div class="weui-search-bar {{search?'weui-search-bar_focusing':''}}" id="search_bar" style="position: absolute; top: 50px; width: 100%;">
+	<form class="weui-search-bar__form">
+		<div class="weui-search-bar__box">
+			<i class="weui-icon-search"></i>
+			<input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" ng-focus="search=!search" ng-model="searchInput" />
+			<a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
+		</div>
+		<label for="search_input" class="weui-search-bar__label" id="search_text">
+            <i class="weui-icon-search"></i>
+            <span>搜索</span>
+        </label>
+	</form>
+	<a ng-click="search=!search" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
+</div>
+<!--轮播图组件-->
+<!--<swipe></swipe>-->
+<div style="position: absolute; top: 94px; width: 100%;">
+	<!--有动画  class="rotate"-->
+	<!--<div ui-view="" class="rotate"></div>-->
+	<div ui-view=""></div>
+</div>
