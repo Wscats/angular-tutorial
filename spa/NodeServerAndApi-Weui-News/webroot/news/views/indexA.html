@@ -41,7 +41,7 @@
 	<div class="weui-panel__hd">图文组合列表</div>
 	<div class="weui-panel__bd">
 		<!--<a ng-href="{{news[0].link}}" class="weui-media-box weui-media-box_appmsg">-->
-		<a ng-href="#/detail/{{$index}}" class="weui-media-box weui-media-box_appmsg" ng-repeat="new in news">
+		<a ng-href="#/detail/{{$index}}" class="weui-media-box weui-media-box_appmsg" ng-repeat="new in news|filter:''|orderBy:'pubDate':0">
 			<!--有图片的情况下-->
 			<!--<div ng-if="new.imageurls[0].url">-->
 			<div class="weui-media-box__hd" ng-if="new.imageurls[0].url">

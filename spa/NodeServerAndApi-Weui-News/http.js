@@ -3,8 +3,11 @@ var http = require('http'),
 	fs = require('fs'),
 	url = require('url'),
 	querystring = require('querystring');
-path = require('path'),
-	mime = require('./mime');
+	path = require('path'),
+	mime = require('./mime'),
+	//引入newsApi模块
+	newsApi = require('./newsApi.js');
+	console.log(newsApi);
 
 http.createServer(function(request, response) {
 	//路由
@@ -55,7 +58,7 @@ http.createServer(function(request, response) {
 			break;
 		case '/api':
 			//执行代理请求，请求图灵机器人接口，并返回jsonp
-			newApi(param, response);
+			newsApi.newsApi(param, response);
 			break;
 		default:
 			//读文件的方式，展示html页面
@@ -64,40 +67,3 @@ http.createServer(function(request, response) {
 	}
 }).listen(8889);
 console.log('Server start in port 8889');
-
-function newApi(param, response) {
-	var data = {
-		channelId: '5572a109b3cdc86cf39001db',
-		channelName: '国内最新',
-		title: '上市',
-		needContent: '0',
-		needHtml: '0',
-		page: param.page,
-	};
-	http.request({
-		//域名
-		hostname: 'apis.baidu.com',
-		//端口号
-		port: '80',
-		//路由和参数  后面是需要提交的数据
-		path: '/showapi_open_bus/channel_news/search_news?' + querystring.stringify(data),
-		//请求方法 可以为post
-		method: 'GET',
-		//这里放期望发送出去的请求头
-		//注意百度是把API KEY放在请求头里面
-		headers: {
-			'apiKey': '0aea38d1a7c4443f2f00adc86c4c3e72'
-		}
-	}, function(resquest) {
-		resquest.setEncoding('utf8');
-		var str = '';
-		resquest.on('data', function(data) {
-			str += data;
-		});
-		resquest.on('end', function() {
-			response.end(param.callback + "(" + JSON.stringify(str) + ")");
-		})
-	}).on('error', function(e) {
-		console.log('problem with request: ' + e.message);
-	}).end();
-}
