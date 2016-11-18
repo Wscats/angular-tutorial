@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="qingwen">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+	<title>新闻</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="font-web/iconfont.css">
+	<link rel="stylesheet" href="css/ionic.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/sideindex.css">
+</head>
+	<body ng-controller="mainCtrl">
+		<div ui-view="" class="{{nightcalss==true?'night':''}}"></div>
+	</body>
+	<script src="js/ionic.bundle.min.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script src="js/index.js"></script>
+<!-- 	<script src="../js/ng-infinite-scroll.min.js"></script> -->
+</html>

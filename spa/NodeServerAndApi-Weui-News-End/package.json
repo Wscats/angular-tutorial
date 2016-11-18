@@ -1,0 +1,20 @@
+{
+  "name": "wsscats",
+  "version": "1.0.0",
+  "description": "angular and weui and node server",
+  "main": "http.js",
+  "scripts": {
+    "test": "node http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wscats"
+  },
+  "keywords": [
+    "node",
+    "weui",
+    "angular"
+  ],
+  "author": "wscats",
+  "license": "ISC"
+}

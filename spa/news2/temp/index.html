@@ -1,0 +1,71 @@
+<!-- 加上侧边菜单 -->
+<div ng-controller="newlistCtrl">
+	<ion-side-menus>
+		<ion-side-menu-content  drag-content="true" edge-drag-threshold="100">
+			<!-- 头部导航 -->
+			<mheader></mheader>
+
+			<div class="wrap">
+				<ion-content class="wrap-content" scroll="true" >
+					<!-- 新闻内容列表 -->
+					<div ui-view=""></div>
+				</ion-content>
+			</div>
+		</ion-side-menu-content>
+	  <!-- 左侧菜单 -->
+	  <ion-side-menu side="left" width="260" ng-controller="ContentController">
+	  	<div class="sideleft">
+			<div class="sides-header">
+				<div class="user-img">
+					<img src="images/touxiang.jpg" alt="">
+					<div class="login-user">
+						<a href="javascript:;">注册</a>|<a href="javascript:;">登录</a>
+					</div>
+				</div>
+			</div>
+			<div class="sides-content">
+				<ul class="list">
+					<li class="item item-divider">
+						<i class="ion-home" data-pack="default" data-tags="house"></i>
+						<a href="/#/index/newlist/0">首页</a>
+					</li>
+					<li class="item item-divider">
+						<i class="iconfont">&#xe62c;</i>
+						<a href="javascript:;">个人中心</a>
+					</li>
+					<li class="item item-divider">
+						<i class="iconfont">&#xe6f3;</i>
+						<a href="javascript:;">我的订阅</a>
+					</li>
+					<li class="item item-divider"  ng-click="showPopup()">
+						<i class="iconfont">&#xe604;</i>
+						<a href="javascript:;">主题色彩</a>
+					</li>
+					<li class="item item-divider">
+						<i class="iconfont">&#xe645;</i>
+						<a href="javascript:;">夜间模式</a>
+						<label  ng-click="night()" class="toggle toggle-dark switch"><input type="checkbox" class="ng-untouched ng-valid ng-dirty ng-valid-parse" value="on"><div class="track"><div class="handle"></div></div>
+						</label>
+					</li>
+					<li class="item item-divider">
+						<i class="iconfont">&#x3434;</i>
+						<a href="javascript:;">更多设置</a>
+					</li>
+				</ul>
+			</div>
+	  	</div>
+	  </ion-side-menu>
+	</ion-side-menus>
+</div>
+<!-- 搜索框 -->
+<div class="search-box" id="is_{{propo}}"  style="{{propo?'display: block':'display:none'}}">
+	 <div class="bar bar-header item-input-inset" style="background: rgba(0,0,0,0.1);">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="text" placeholder="搜索" id="search">
+      </label>
+      <button class="button button-clear" ng-click="close()">
+        取消
+      </button>
+    </div>
+</div>

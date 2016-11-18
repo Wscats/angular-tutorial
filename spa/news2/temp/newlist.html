@@ -1,0 +1,60 @@
+
+<div class="main">
+	<!-- <ion-spinner icon="android" class="loading-box" ng-if="isShow"></ion-spinner> -->
+	<ion-refresher pulling-text="下拉刷新" refreshing-text="正在更新..." on-refresh="doRefresh()">
+	</ion-refresher>
+	<div class="section">
+		<ul class="newslist"  ng-if="newslist[0].source" >
+			<li class="items" ng-repeat="items in newslist">
+				<a href="#/detail/{{$index}}" class="items-box">
+					<div class="newtext">
+						<h3>{{items.title}}</h3>
+						<div class="soure">
+							<span>{{items.source}}</span>
+							<span>{{items.pubDate}}</span>
+						</div>
+					</div>
+					<!-- ng-if判断图片是否存在 -->
+					<div class="newspic" ng-if="items.imageurls[0].url">
+						<img src="{{items.imageurls[0].url}}" alt="">
+					</div>
+				</a>
+			</li>
+		</ul>
+		<!-- 图片 -->
+		<ul class="newslist" ng-if="newslist[0].type==10">
+			<li class="items" ng-repeat="items in newslist">
+				<a href="javascript:;" class="duanzi">
+					<div class="img-text">
+						<img src="{{items.profile_image}}" class="headerpic" alt="">
+						<h3>{{items.name}}</h3>
+						<span>{{items.create_time}}</span>
+					</div>
+					<img src="{{items.image0}}" alt="">
+					<div class="img-text2">
+						<span>{{items.text}}</span>
+					</div>
+				</a>
+			</li> 
+		</ul>
+		<!-- 段子 -->
+		<ul class="newslist" ng-if="newslist[0].type==29">
+			<li class="items" ng-repeat="items in newslist">
+				<a href="javascript:;" class="duanzi">
+					<div class="img-text">
+						<img src="{{items.profile_image}}" class="headerpic" alt="">
+						<h3>{{items.name}}</h3>
+						<span>{{items.create_time}}</span>
+					</div>
+					<div class="img-text2">
+						<span>{{items.text}}</span>
+					</div>
+				</a>
+			</li> 
+		</ul>
+	</div>
+	<ion-infinite-scroll ng-if="!hasmore" on-infinite="loadMore()" distance="1%">
+    </ion-infinite-scroll>
+</div>
+
+

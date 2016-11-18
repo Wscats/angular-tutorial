@@ -1,0 +1,23 @@
+<div class="header" id="headerbg" data="{{newcolor}}" style="{{newcolor?newcolor:oldbgcolor}}">
+	<div class="header-box clearfix">
+		<div class="menu">
+			<a href="javascript:;" menu-toggle="menutoggle=!menutoggle"><i class="iconfont menu-text">&#xe628;</i></a>
+			<span class="logo-text">新闻</span>
+		</div>
+		<div class="search" ng-click="search()">
+			<a href="javascript:;"><i class="iconfont">&#xe662;</i></a>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="navlist">
+			<li ng-click="tab({{$index}})" class="allLi" ng-repeat="item in newnav"><a href="#/index/newlist/{{$index}}">{{item.title}}</a></li>
+			<!-- <li><a href="javascript:;">推荐</a></li>
+			<li><a href="javascript:;">科技</a></li>
+			<li><a href="javascript:;">数码</a></li>
+			<li><a href="javascript:;">视频</a></li>
+			<li><a href="javascript:;">娱乐</a></li>
+			<li><a href="javascript:;">国际</a></li>
+			<li><a href="javascript:;">国内</a></li> -->
+		</ul>
+	</nav>
+</div>

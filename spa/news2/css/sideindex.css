@@ -1,0 +1,19 @@
+.sides-header{width: 260px;height:200px;  background: url(../images/androidbg.jpg);background-size: 100% 100%; position: relative;}
+.user-img{ width: 80px;height: 120px; position: absolute;bottom: 0px;left: 10%;color: #fff;}
+.user-img img{ width: 80px;height: 80px;border-radius: 50%;overflow: hidden; }
+.login-user{ text-align: center;font-size: 14px; }
+.login-user a{ padding: 5px 3px;color: #fff; }
+.sides-content{ width: 100%; }
+.sides-content ul li{ position: relative; line-height: 30px;}
+.sides-content ul li a{ color: #222; }
+.switch{ position: absolute;right: 10px;top: 8px; }
+.loading-box{ position: fixed;top: 200px;left: 50%;z-index: 10001;margin-left: -20px; }
+.item{ background: #fff; }
+#getcolor li{ float: left; width: 20px;height: 20px;background: red;margin-left: 11px ;border-radius: 4px;}
+#getcolor li:nth-child(1){ background: #28908a; }
+#getcolor li:nth-child(2){ background: #FB7299; }
+#getcolor li:nth-child(3){ background: #3F51B5; }
+#getcolor li:nth-child(4){ background: #673AB7; }
+#getcolor li:nth-child(5){ background: #2196F3; }
+#getcolor li:nth-child(6){ background: #795548; }
+#getcolor li:nth-child(7){ background: #607D8B; }

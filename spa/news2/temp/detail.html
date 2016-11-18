@@ -1,0 +1,29 @@
+<div class="detail-header">
+	<div class="forback"><a href="javascript:history.go(-1)" class="ion-ios-arrow-left" data-pack="ios" data-tags="chevron"></a></div>
+	<div class="share">
+		<a href="###"><i class="iconfont">&#xe636;</i></a>
+		<a href="###"><i class="iconfont">&#xe766;</i></a>
+	</div>
+</div>
+<div class="detailtitle-wrap">
+	<ion-content class="wrap-content" scroll="true" >
+	<div class="detail-contennt">
+		<div class="detail-title">
+			<h3>{{detail.title}}</h3>
+			<div class="soure">
+				<span>{{detail.source}}</span>
+				<span>{{detail.pubDate}}</span>
+			</div>
+		</div>
+		<div class="detail-news">
+			<div ng-repeat="item in detail.allList">
+				<p ng-if="item.url"><img src="{{item.url}}" alt=""></p>
+				<p ng-if="!item.url">{{item}}</p>
+			</div>
+		</div>
+		<div class="detail-footer">
+			<div class="recommend">相关推荐</div>
+		</div>
+	</div>
+	</ion-content>
+</div>
