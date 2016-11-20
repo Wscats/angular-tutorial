@@ -66,3 +66,4 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Javascript的createElement](https://wscats.github.io/angular-demo/createElement.html)|[Javascript的createDocumentFragment](https://wscats.github.io/angular-demo/createDocumentFragment.html)|
 |[Angular利用angular.module()实现模块化](https://wscats.github.io/angular-demo/angular模块化.html)|[Angular的form表单验证](https://wscats.github.io/angular-demo/form表单验证.html)|
 |[Angular的ng-repeat嵌套](https://wscats.github.io/angular-demo/ng-repeat嵌套.html)|[NodeJs静态服务器](https://github.com/Wscats/angular-demo/tree/gh-pages/diyNodeServer)|
+|[Angular利用angular.module()实现模块化2](https://wscats.github.io/angular-demo/angular模块化2.html)||
