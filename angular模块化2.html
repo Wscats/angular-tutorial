@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/angular.js"></script>
+
+	<body ng-controller="indexCtrl">
+		<p>{{name|wsscat}}</p>
+		<wsscat></wsscat>
+	</body>
+	<script>
+		console.log("wsscatApp");
+		//这里前后记得最好加分号,不然会报错
+		;(function() {
+			var wsService = angular.module('wsService', []);
+			wsService.service("sum", function() {
+				return {
+					add: function(a, b) {
+						return a+b;
+					}
+				}
+			})
+		})();
+		;(function() {
+			var wsController = angular.module('wsController', []);
+			wsController.controller("indexCtrl", function($scope, sum) {
+				$scope.name = "wsscat";
+				console.log(sum)
+			})
+		})();
+		;(function() {
+			var wsFilter = angular.module('wsFilter', []);
+			wsFilter.filter("wsscat", function(sum) {
+				return function(input){
+					return input.length+"过滤器服务的测试"+sum.add(1,2);
+				}
+			})
+		})();
+		;(function() {
+			var wsDirective = angular.module('wsDirective', []);
+			wsDirective.directive("wsscat", function() {
+				return {
+					template: "<div>I'm wsscat</div>"
+				}
+			})
+		})();
+	</script>
+	<script>
+		//模块的顺序可以不按定义的顺序来写
+		;(function() {
+			var app = angular.module('wsscat', ['wsController', 'wsService', 'wsFilter' ,'wsDirective']);
+		})();
+	</script>
+
+</html>
