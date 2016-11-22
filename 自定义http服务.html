@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="wscats">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>打开控制台查看请求</p>
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("wscats", []);
+		app.controller("indexCtrl", function($scope, http, $http) {
+			$scope.name = "wscats";
+			$http.get("post.php", {
+				params: {
+					name: "abc",
+					skill: "ps"
+				}
+			}).success(function(data) {
+
+			})
+			http.get("post.php", {
+				params: {
+					name: "abc",
+					skill: "ps"
+				}
+			}).success(function(data) {
+				console.log(data)
+			})
+			http.post("post.php", {
+				params: {
+					name: "abc",
+					skill: "ps"
+				}
+			}).success(function(data) {
+				console.log(data)
+			})
+			http.post("posterror.php", {
+				params: {
+					name: "abc",
+					skill: "ps"
+				}
+			}).success(function(data) {
+				console.log(data)
+			}).error(function(data){
+				console.log(data)
+			})
+		})
+		app.service("http", function() {
+			return {
+				ajax: function(url, params, method) {
+					xmlhttp = new XMLHttpRequest();
+					var data;
+					var str = "";
+					if(method == "POST") {
+						data = JSON.stringify(params);
+					} else {
+						data = null;
+						for(props in params.params) {
+							str += str + props + "=" + params.params[props] + "&";
+						}
+						//删除字符串最后的"&"
+						str = str.substring(0, str.length - 1)
+					}
+					xmlhttp.open(method, url + (method == "GET" ? "?" : "") + str, true);
+					xmlhttp.send(data);
+				},
+				success: function(callback) {
+					xmlhttp.onreadystatechange = function() {
+						if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							callback(xmlhttp.responseText);
+						}
+					}
+					return this;
+				},
+				error: function(callback) {
+					xmlhttp.onreadystatechange = function() {
+						if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {} else {
+							callback(xmlhttp.responseText);
+						}
+					}
+					return this;
+				},
+				get: function(url, params) {
+					this.ajax(url, params, "GET");
+					return this;
+				},
+				post: function(url, params) {
+					this.ajax(url, params, "POST");
+					return this;
+				}
+			}
+		})
+	</script>
+
+</html>
