@@ -15,7 +15,7 @@
 	<script src="js/angular.js"></script>
 	<script>
 		var app = angular.module("wscats", []);
-		app.controller("indexCtrl", function($scope, http, $http) {
+		app.controller("indexCtrl", function($scope, http, $http, httpp, httppp) {
 			$scope.name = "wscats";
 			$http.get("post.php", {
 				params: {
@@ -48,12 +48,31 @@
 				}
 			}).success(function(data) {
 				console.log(data)
-			}).error(function(data){
+			}).error(function(data) {
 				console.log(data)
 			})
+
+			httpp.get("postt.php", {
+				params: {
+					name: "abc",
+					skill: "ps"
+				}
+			});
+
+			httppp.get("posttt.php", {
+				params: {
+					name: "abc",
+					skill: "ps"
+				}
+			}).success(function(data) {
+				console.log(data)
+			}).error(function(data) {
+				console.log(data)
+			})
+			console.log(httppp)
 		})
 		app.service("http", function() {
-			return {
+			var obj = {
 				ajax: function(url, params, method) {
 					xmlhttp = new XMLHttpRequest();
 					var data;
@@ -96,6 +115,87 @@
 					return this;
 				}
 			}
+			return obj;
+		})
+		app.service("httpp", function() {
+			this.ajax = function(url, params, method) {
+				xmlhttp = new XMLHttpRequest();
+				var data;
+				var str = "";
+				if(method == "POST") {
+					data = JSON.stringify(params);
+				} else {
+					data = null;
+					for(props in params.params) {
+						str += str + props + "=" + params.params[props] + "&";
+					}
+					//删除字符串最后的"&"
+					str = str.substring(0, str.length - 1)
+				}
+				xmlhttp.open(method, url + (method == "GET" ? "?" : "") + str, true);
+				xmlhttp.send(data);
+			}
+			this.get = function(url, params) {
+				this.ajax(url, params, "GET");
+				return this;
+			}
+		})
+		app.service("httppp", function() {
+			function tool() {
+				this.toStr = function(params) {
+					var str = "";
+					for(props in params.params) {
+						str += str + props + "=" + params.params[props] + "&";
+					}
+					//删除字符串最后的"&"
+					str = str.substring(0, str.length - 1)
+					return str;
+				}
+			}
+
+			//构造函数＋原型链封装方法
+			function httpp() {
+				console.log("实例话httpp");
+				//继承tool
+				tool.call(this);
+				this.ajax = function(url, params, method) {
+					xmlhttp = new XMLHttpRequest();
+					var data;
+					if(method == "POST") {
+						data = JSON.stringify(params);
+					} else {
+						data = null;
+					}
+					xmlhttp.open(method, url + (method == "GET" ? "?" : "") + this.toStr(params), true);
+					xmlhttp.send(data);
+				}
+				this.success = function(callback) {
+					xmlhttp.onreadystatechange = function() {
+						if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							callback(xmlhttp.responseText);
+						}
+					}
+					return this;
+				}
+				this.error = function(callback) {
+					xmlhttp.onreadystatechange = function() {
+						if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {} else {
+							callback(xmlhttp.responseText);
+						}
+					}
+					return this;
+				}
+			}
+			httpp.prototype.get = function(url, params) {
+				this.ajax(url, params, "GET");
+				return this;
+			};
+			httpp.prototype.post = function(url, params) {
+				this.ajax(url, params, "POST");
+				return this;
+			}
+			var obj = new httpp();
+			return obj;
 		})
 	</script>
 
