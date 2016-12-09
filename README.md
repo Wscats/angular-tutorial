@@ -12,6 +12,17 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular导航菜单](https://wscats.github.io/angular-demo/angularjs5examples/navigation-menu/index.html)|[Angular订单表单](https://wscats.github.io/angular-demo/angularjs5examples/order-form/index.html)|
 |[Angular切换网格](https://wscats.github.io/angular-demo/angularjs5examples/switchable-grid/index.html)|[Angular新闻＋WEUI DEMO](https://wscats.github.io/angular-demo/spa/news/index.html) [源码](https://github.com/Wscats/angular-demo/tree/gh-pages/spa/NodeServerAndApi-Weui-News)|
 
+## Angular文档
+| Article ||
+| ------------- |:-------------:| :-------------:| :-------------:| -----:|
+|[ng-repeat绑定事件和嵌套](ng-repeat绑定事件和嵌套)|[Angular的post请求后台接受不了数据的解决方法](https://github.com/Wscats/angular-demo/issues/4)|
+|[ionic总结](https://github.com/Wscats/angular-demo/issues/19)|[ui-route和ng-route](https://github.com/Wscats/angular-demo/issues/17)|
+|[ng-options&&ng-switch](https://github.com/Wscats/angular-demo/issues/15)|[https://github.com/Wscats/angular-demo/issues/14](https://github.com/Wscats/angular-demo/issues/14)|
+|[表单认证](https://github.com/Wscats/angular-demo/issues/13)|[$broadcast,$emit and $on](https://github.com/Wscats/angular-demo/issues/11)|
+|[自定义过滤器](https://github.com/Wscats/angular-demo/issues/9)|[自定义手势指令ng-touch](https://github.com/Wscats/angular-demo/issues/8)|
+|[ng-animate](https://github.com/Wscats/angular-demo/issues/7)|[单页面应用的技术点](https://github.com/Wscats/angular-demo/issues/3)|
+
+
 ## 控制器
 
 | Controller |
