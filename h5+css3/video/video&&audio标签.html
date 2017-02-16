@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		tr th {
+			width: 50%;
+			border: 1px solid #000000;
+		}
+	</style>
+
+	<body>
+		<table style="width: 100%;">
+			<tr>
+				<th>src ：</th>
+				<th>视频的属性</th>
+			</tr>
+			<tr>
+				<th>poster：</th>
+				<th>视频封面，没有播放时显示的图片</th>
+			</tr>
+			<tr>
+				<th>preload：</th>
+				<th>预加载</th>
+			</tr>
+			<tr>
+				<th>autoplay：</th>
+				<th>自动播放</th>
+			</tr>
+			<tr>
+				<th>loop：</th>
+				<th>循环播放</th>
+			</tr>
+			<tr>
+				<th>controls：</th>
+				<th>浏览器自带的控制条</th>
+			</tr>
+			<tr>
+				<th>width：</th>
+				<th>视频宽度</th>
+			</tr>
+			<tr>
+				<th>height：</th>
+				<th>视频高度</th>
+			</tr>
+		</table>
+		<h4>(1) src属性和poster属性</h4>
+		<p>你能想象src属性是用来干啥的。跟img标签的一样，这个属性用于指定视频的地址。而poster属性用于指定一张图片，在当前视频数据无效时显示（预览图）。视频数据无效可能是视频正在加载，可能是视频地址错误等等。</p>
+		<video width="320" height="240" poster="img/logo.png">
+			<source src="video/mov.mp4" type="video/mp4">
+		</video>
+
+		<h4>(2) preload属性</h4>
+		<p>这个属性也能通过名字了解用处，此属性用于定义视频是否预加载。属性有三个可选择的值：none、metadata、auto。如果不使用此属性，默认为auto。</p>
+		<video width="320" height="240">
+			<source src="video/mov.mp4" type="video/mp4">
+		</video>
+		<ul>
+			<li>None：不进行预加载。使用此属性值，可能是页面制作者认为用户不期望此视频，或者减少HTTP请求。</li>
+			<li>Metadata：部分预加载。使用此属性值，代表页面制作者认为用户不期望此视频，但为用户提供一些元数据（包括尺寸，第一帧，曲目列表，持续时间等等）。</li>
+			<li>Auto：全部预加载。</li>
+		</ul>
+
+		<h4>(3) autoplay属性</h4>
+		<p>又是一个看名字知道用处的属性。Autoplay属性用于设置视频是否自动播放，是一个布尔属性。当出现时，表示自动播放，去掉是表示不自动播放。</p>
+		<video width="320" height="240" src="video/mov.mp4" autoplay="autoplay" poster="img/logo.png">
+		</video>
+		<p>注意，HTML中布尔属性的值不是true和false。正确的用法是，在标签中使用此属性表示true，此时属性要么没有值，要么其值恒等于他的名字 （此处，自动播放为autoplay或者autoplay="autoplay"）；而在标签中不使用此属性表示false。</p>
+
+		<h4>(4) loop属性</h4>
+		<p>一目了然，loop属性用于指定视频是否循环播放，同样是一个布尔属性。</p>
+		<video width="320" height="240" src="video/mov.mp4" loop autoplay="autoplay" poster="img/logo.png">
+		</video>
+
+		<h4>(5) controls属性</h4>
+		<p>Controls属性用于向浏览器指明页面制作者没有使用脚本生成播放控制器，需要浏览器启用本身的播放控制栏。控制栏须包括播放暂停控制，播放进度控制，音量控制等等。每个浏览器默认的播放控制栏在界面上不一样。由于我浏览器的诡异问题，Firefox和Safari的Video标签不正常，所以这两个只能在网上找截图了。</p>
+		<video width="320" height="240" src="video/mov.mp4" controls>
+		</video>
+
+		<h4>(6) width属性和height属性</h4>
+		<p>属于标签的通用属性了</p>
+		<video width="200" height="200" src="video/mov.mp4" controls>
+		</video>
+
+		<h4>(7) source标签</h4>
+		<video width="320" height="240" controls>
+			<source src="video/mov0.mp4" />
+			<source src="video/mov2.mp4" />
+		</video>
+		<p>Source标签用于给媒体（因为audio标签同样可以包含此标签，所以这儿用媒体，而不是视频）指定多个可选择的（浏览器最终只能选一个）文件地址，且只能在媒体标签没有使用src属性时使用。浏览器按source标签的顺序检测标签指定的视频是否能够播放（可能是视频格式不支持，视频不存在等等），如果不能播放，换下一个。此方法多用于兼容不同的浏览器。Source标签本身不代表任何含义，不能单独出现。此标签包含src、type、media三个属性。
+		</p>
+		<ul>
+			<li>src属性：用于指定媒体的地址，和video标签的一样。</li>
+			<li>Type属性：用于说明src属性指定媒体的类型，帮助浏览器在获取媒体前判断是否支持此类别的媒体格式。</li>
+			<li>Media属性：用于说明媒体在何种媒介中使用，不设置时默认值为all，表示支持所有媒介。你想到style标签的media属性了么？一样一样一样的。</li>
+		</ul>
+
+		<h4>(8) 一个完整的例子</h4>
+		<video width="658" height="444" poster="img/logo.png" autoplay="autoplay" preload="none" controls="controls">
+			<source src="video/mov.mp4" />
+			<source src="video/mov2.mp4" />
+		</video>
+		<p>这段代码在页面中定义了一个视频，此视频的预览图为poster的属性值，显示浏览器的默认媒体控制栏，预加载视频的元数据，循环播放，宽度为900像素，高度为240像素。第一选择视频地址为第一个source标签的src属性值，视频类别为Ogg视频，视频编码译码器为Theora，音频编码译码器为Vorbis，播放媒 介为显示器；第二选择视频地址不再累述。如果你还要兼容IE的话，可以在最后一个source标签后再加上Flash播放器的标签集，或者使用一点 JavaScript代码</p>
+
+		<h4>(8) muted静音</h4>
+		<video width="658" muted height="444" poster="img/logo.png" autoplay="autoplay" preload="none" controls="controls">
+			<source src="video/mov.mp4" />
+			<source src="video/mov2.mp4" />
+		</video>
+
+		<video id="test1" src="video/mov.mp4" width="658" height="444" poster="img/logo.png" autoplay="autoplay" preload="none" controls="controls">
+		</video>
+
+		<p>play</p>
+		<button onclick="play()">play</button>
+		<p>pause</p>
+		<button onclick="pause()">pause</button>
+		<p>load</p>
+		<button onclick="load()">load</button>
+		<p>canPlayType</p>
+		<ul>
+			<li><button onclick="isSupport('video/mp4')">MP4</button></li>
+			<li><button onclick="isSupport('video/ogg')">ogg</button></li>
+			<li><button onclick="isSupport('video/webm')">webm</button></li>
+			<li><button onclick="isSupport('video/mp5')">MP5</button></li>
+		</ul>
+		<p>currentTime</p>
+		<button onclick="getCurTime()">获取当前时间位置</button>
+		<button onclick="setCurTime()">将时间设置为5秒</button>
+
+		<h4>audio</h4>
+		<audio controls="controls">
+			<source src="video/song.mp3" type="audio/ogg">
+		</audio>
+	</body>
+	<script>
+		var test1 = document.getElementById('test1');
+
+		function play() {
+			test1.play();
+		}
+
+		function pause() {
+			test1.pause();
+		}
+
+		function load() {
+			test1.src = "video/mov2.mp4"
+				//test1.load();
+		}
+
+		function isSupport(type) {
+			alert(test1.canPlayType(type))
+		}
+
+		function getCurTime() {
+			alert(test1.currentTime);
+		}
+
+		function setCurTime() {
+			test1.currentTime = 5;
+		}
+	</script>
+
+</html>
