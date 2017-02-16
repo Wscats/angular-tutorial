@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myFilterApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/angular.js"></script>
+
+	<body ng-controller="indexCtrl">
+		<input ng-model="search" ng-keyup="makeRed()" />
+		<div ng-bind-html="htmlSced"></div>
+	</body>
+	<script>
+		var app = angular.module('myFilterApp', []);
+		app.controller('indexCtrl', ['$scope', '$sce', '$filter', '$rootScope', function($scope, $sce, $filter, $rootScope) {
+			$scope.html = '<p>(1)angular的学习资料 These are about angular learning materials, hoping to help you <br/>(2)关于angular的常用知识点，DEMO和总结，不定时更新，欢迎fork和star On the common knowledge of angular, DEMO and summary, not regular updates, you can fork and star</p>';
+			$scope.htmlSced = $sce.trustAsHtml($scope.html);
+			$scope.makeRed = function() {
+				var html = $filter('wscat')($scope.html, $scope.search);
+				$scope.htmlSced = $sce.trustAsHtml(html);
+			}
+		}])
+		app.filter('wscat', [function() {
+			return function(input, value) {
+				if(value) {
+					console.log('html:' + input); 
+					console.log('search:' + value); 
+
+					var arr = input.split(value);
+					console.log(arr);
+					var makeRed = '<span style="color:red">' + value + '</span>';
+					var output = arr.join(makeRed);
+					return output;
+				} else {
+					return input
+				}
+			}
+		}])
+	</script>
+
+</html>
