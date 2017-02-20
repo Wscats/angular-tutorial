@@ -48,6 +48,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
 |[Angular自定义手势指令](https://wscats.github.io/angular-demo/自定义手势事件.html)|[Angular自定义轮播图组件](https://wscats.github.io/angular-demo/自定义directive轮播图.html)|
 |[Angular自定义下拉刷新组件1](https://wscats.github.io/angular-demo/下拉刷新.html)|[Angular自定义下拉刷新组件2](https://wscats.github.io/angular-demo/Angular自定义下拉刷新组件.html)|
+|[Angular内置指令](https://wscats.github.io/angular-demo/Angular内置指令.html)||
 
 ## 路由
 | Router ||
@@ -57,7 +58,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 ## 过滤器
 | Filter ||
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
-|[Angular自带过滤器](https://wscats.github.io/angular-demo/angular自带过滤器.html)|[Angular自定义关键词检索过滤器(1)](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)|
+|[Angular内置过滤器](https://wscats.github.io/angular-demo/angular自带过滤器.html)|[Angular自定义关键词检索过滤器(1)](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)|
 |[Angular自定义关键词检索过滤器(2)](https://wscats.github.io/angular-demo/自定义关键词检索过滤器(2).html)|[limitTo实现分页](https://wscats.github.io/angular-demo/limitTo实现分页.html)|
 
 ## 动画
