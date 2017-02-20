@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="filterApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<button ng-click='pageTo(1)'>第一页</button>
+			<button ng-click='pageTo(2)'>第二页</button>
+			<button ng-click='pageTo(3)'>第三页</button>
+			<button ng-click='pageTo(4)'>第四页</button>
+			<button ng-click='pre()'>上一页</button>
+			<button ng-click='next()'>下一页</button>
+			<ul>
+				<li ng-repeat="arr in arrs|limitTo:2:pageNum">{{arr.name}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('filterApp', []);
+		app.controller('indexCtrl', ['$scope', function($scope) {
+			$scope.name = 'yao';
+			$scope.pageNum = 0;
+			$scope.pre = function() {
+				if($scope.pageNum == 0) {} else {
+					$scope.pageNum -= 2
+				}
+			}
+			$scope.next = function() {
+				console.log($scope.pageNum)
+				console.log($scope.arrs.length)
+					//+2分页的长度，如果分页的列表是3，则加3
+				if($scope.pageNum + 2 < $scope.arrs.length) {
+					$scope.pageNum += 2
+				} else {
+					$scope.pageNum
+				}
+			}
+			$scope.pageTo = function(pageNum) {
+				$scope.pageNum = (pageNum - 1) * 2;
+			}
+			$scope.arrs = [{
+				name: 'wscats',
+				age: 16
+			}, {
+				name: 'autumns',
+				age: 16
+			}, {
+				name: 'windiest',
+				age: 16
+			}, {
+				name: 'kimi',
+				age: 18
+			}, {
+				name: 'hello',
+				age: 17
+			}, {
+				name: 'world',
+				age: 22
+			}, {
+				name: 'bye',
+				age: 10
+			}];
+		}])
+	</script>
+
+</html>
