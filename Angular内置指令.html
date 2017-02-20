@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html ng-app="wApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/angular.js"></script>
+
+	<body>
+		<div ng-controller="indexCtrl">
+
+			<p style="color: red;">表达式的三元操作</p>
+			<p style="color:{{color}}">{{bool?(bool2?'真1':'真2'):'假'}}</p>
+			<button ng-click="func()">Ok</button>
+
+			<p style="color: red;">ng-model</p>
+			<select ng-model="color">
+				<option value="red">red</option>
+				<option value="blue">blue</option>
+			</select>
+
+			<textarea ng-model="name"></textarea>
+
+			<input ng-model="name"></input>
+
+			<p style="color: red;">ng-bind</p>
+			<p ng-bind="name"></p>
+
+			<p style="color: red;">ng-repeat</p>
+			<ul>
+				<!--ng-repeat="数组[索引值] in 数组" 索引值默认为0 每次循环自增1-->
+				<li ng-repeat="arr in arrs">name:{{arr.name}} age:{{arr.age}}</li>
+			</ul>
+			<table>
+				<tr>
+					<th>name</th>
+					<th>age</th>
+				</tr>
+				<tr ng-repeat="arr in arrs">
+					<th>{{arr.name}}</th>
+					<th>{{arr.age}}</th>
+				</tr>
+			</table>
+			<select>
+				<option ng-repeat="arr in arrs">{{arr.age}}</option>
+			</select>
+
+			<p style="color: red;">ng-show</p>
+			<p ng-show="bool">{{name}}</p>
+			<!--<p ng-show="!bool">{{name}}</p>-->
+			<p style="display: {{bool?'block':'none'}};">{{name}}</p>
+			<button ng-click="bool=!bool">toggle</button>
+
+			<p style="color: red;">ng-hide</p>
+			<p ng-hide="bool">{{name}}</p>
+			<p ng-hide="!bool">{{name}}</p>
+
+			<p style="color: red;">ng-switch</p>
+			<select ng-model="switchName">
+				<option value="a">a</option>
+				<option value="b">b</option>
+				<option value="c">c</option>
+			</select>
+			<button ng-click="switchFunc(a)">a</button>
+			<button ng-click="switchFunc('b')">b</button>
+			<button ng-click="switchFunc('c')">c</button>
+			<button ng-click="switchName='asdasdasd'">dasdasdasd</button>
+			<div ng-switch="switchName">
+				<p ng-switch-when="a">a</p>
+				<p ng-switch-when="b">b</p>
+				<p ng-switch-when="c">c</p>
+				<p ng-switch-default>d</p>
+			</div>
+
+			<p style="color: red;">ng-if</p>
+			<p ng-if="bool">1</p>
+			<p ng-if="!bool">2</p>
+
+			<p style="color: red;">ng-style</p>
+			<input type="range" ng-model="num" />
+			<p ng-style="{'color':'red','fontSize':num+'px'}">red</p>
+			<p style="font-size: {{num+'px'}};">red</p>
+
+			<p style="color: red;">ng-class</p>
+			<p ng-class="{'red':bool,'size':bool}">red</p>
+			<p class="{{bool?'red':''}}">red</p>
+
+			<p style="color: red;">ng-src</p>
+			<!--<img ng-src="{{src}}" />-->
+			<!--<img src="     img/1.jpg" /><script>alert('123')</script><img src="img/1.jpg       " />-->
+			
+			<p style="color: red;">ng-href</p>
+			<a ng-href="{{src}}">a</a>
+		</div>
+	</body>
+	<style>
+		.red {
+			color: red;
+		}
+		
+		.blue {
+			color: blue;
+		}
+		
+		.size {
+			font-size: 20px;
+		}
+	</style>
+	<script>
+		var app = angular.module('wApp', []);
+		app.controller('indexCtrl', ['$scope', '$http', function($scope, $http) {
+			$scope.a = 'a';
+			$scope.bool = true;
+			$scope.bool2 = false;
+			$scope.name = 'wscats';
+			$scope.src = 'img/1.jpg';
+			$scope.func = function() {
+				$scope.bool = !$scope.bool;
+			}
+			$scope.num = 10;
+			$scope.arrs = [{
+				name: 'a',
+				age: 1
+			}, {
+				name: 'b',
+				age: 2
+			}, {
+				name: 'c',
+				age: 3
+			}];
+			$scope.switchName = 'b';
+			$scope.switchFunc = function(switchName) {
+				$scope.switchName = switchName
+			}
+		}])
+	</script>
+
+</html>
