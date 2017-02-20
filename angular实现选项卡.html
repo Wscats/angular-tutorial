@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="tabsApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#tab {
+			display: flex;
+		}
+		
+		#tab div {
+			flex: 1;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		
+		.page {
+			text-align: center;
+		}
+		
+		.active {
+			border-bottom: 1px solid red;
+		}
+	</style>
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--<p>{{name}}</p>-->
+			<div id="tab">
+				<div ng-click="show(1)" ng-class="{'active':page1}">第一页</div>
+				<div ng-click="show(2)" ng-class="{'active':page2}">第二页</div>
+			</div>
+			<div class="page" ng-if="page1">1</div>
+			<div class="page" ng-if="page2">2</div>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('tabsApp', []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = 'wscat';
+			$scope.page1 = true;
+			$scope.page2 = false;
+			$scope.show = function(page) {
+				console.log(page)
+				if(page == 1) {
+					$scope.page1 = true;
+					$scope.page2 = false;
+				} else if(page == 2) {
+					$scope.page1 = false;
+					$scope.page2 = true;
+				}
+			}
+		})
+	</script>
+
+</html>
