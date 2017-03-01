@@ -1,0 +1,94 @@
+<html ng-app="myApp">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="angular.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="myctrl">
+			{{test}}
+			<p>{{data}}</p>
+		</div>
+		<script type="text/javascript">
+			var myAppModule = angular.module("myApp", []);
+			myAppModule.controller("myctrl", ["$scope", "$q", "githubService", function($scope, $q, githubService) {
+				$scope.test = '$q'; //这个只是用来测试angularjs是否正常的，没其他的作用
+				var defer1 = $q.defer();
+				var promise = defer1.promise;
+				//第一个回调
+				promise
+					.then(function(value) {
+						//成功回调
+						console.log("in promise1 ---- success");
+						console.log(value);
+						//将返回值传给下一个then链
+						return value;
+					}, function(error) {
+						//失败回调
+						console.log("in promise1 ---- error");
+						console.log(value);
+						return error;
+					}, function(value) {
+						//状态变更回调
+						console.log("in promise1 ---- notify");
+						console.log(value);
+					})
+					//第二个回调
+					.then(function(value) {
+						//成功回调
+						console.log("in promise2 ---- success");
+						console.log(value);
+					}, function(error) {
+						//失败回调
+						console.log("in promise2 ---- error");
+						console.log(value);
+					}, function(value) {
+						//状态变更回调
+						console.log("in promise2 ---- notify");
+						console.log(value);
+					})
+					.catch(function(e) {
+						console.log("in promise1 ---- catch");
+						console.log(e);
+					})
+					.finally(function(value) {
+						console.log('in promise1 ---- finally');
+						console.log(value);
+					});
+
+				defer1.resolve("hello");
+				githubService.getPullRequests().then(function(result) {
+					console.log(result)
+					$scope.data = result;
+				}, function(error) {
+					$scope.data = "error!";
+				}, function(progress) {
+					console.log(progress)
+					$scope.progress = progress;
+					$scope.show = false;
+				});
+				//defer1.reject("sorry,reject");
+			}]).factory('githubService', ["$q", "$http", function($q, $http) {
+				return {
+					getPullRequests: function() {
+						var deferred = $q.defer();
+						var promise = deferred.promise;
+						var progress;
+						$http.get("test.json")
+							.success(function(data) {
+								var result = ['wscats','autumns'];
+								deferred.notify("success");
+								deferred.resolve(result);
+							})
+							.error(function(error) {
+								deferred.reject(error);
+							});
+						return promise;
+
+					}
+				};
+			}]);
+		</script>
+	</body>
+
+</html>
