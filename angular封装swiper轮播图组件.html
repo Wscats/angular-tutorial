@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="wsscat">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<script src="js/swiper.js"></script>
+	<link rel="stylesheet" href="stylesheet.css" />
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.swiper-container {
+			width: 500px;
+			height: 300px;
+			margin: 20px auto;
+		}
+		
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+	</style>
+
+	<body ng-controller="indexCtrl">
+		<!--<swiper></swiper>-->
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" ng-repeat="n in news" have-load="haveLoad()">{{n}}</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var app = angular.module('wsscat', []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.news = ['wscats', 'autumns', 'hello'];
+			$scope.haveLoad = function(){
+				var swiper = new Swiper('.swiper-container');
+			}
+		})
+		app.directive('swiper', function($window) {
+			return {
+				template: '<div class="swiper-container">' +
+					'<div class="swiper-wrapper">' +
+					'<div class="swiper-slide">Slide 1</div>' +
+					'<div class="swiper-slide">Slide 2</div>' +
+					'<div class="swiper-slide">Slide 3</div>' +
+					'<div class="swiper-slide">Slide 4</div>' +
+					'<div class="swiper-slide">Slide 5</div>' +
+					'<div class="swiper-slide">Slide 6</div>' +
+					'<div class="swiper-slide">Slide 7</div>' +
+					'<div class="swiper-slide">Slide 8</div>' +
+					'<div class="swiper-slide">Slide 9</div>' +
+					'<div class="swiper-slide">Slide 10</div>' +
+					'</div>' +
+					'</div>',
+				link: function(scope, elm, attr) {
+					var swiper = new Swiper('.swiper-container');
+				}
+			};
+		});
+		//第二种写法，把逻辑交给控制器，封装一个监听swiper是否已经完全渲染的组件
+		app.directive('haveLoad', function($window) {
+			return {
+				link: function(scope, elm, attr) {
+					if(scope.$last) { // 这个判断意味着最后一个元素渲染完成
+						scope.$eval(attr.haveLoad) // 执行绑定的表达式
+					}
+				}
+			};
+		});
+	</script>
+
+</html>
