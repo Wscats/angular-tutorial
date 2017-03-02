@@ -49,7 +49,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular自定义手势指令](https://wscats.github.io/angular-demo/自定义手势事件.html)|[Angular自定义轮播图组件](https://wscats.github.io/angular-demo/自定义directive轮播图.html)|
 |[Angular自定义下拉刷新组件1](https://wscats.github.io/angular-demo/下拉刷新.html)|[Angular自定义下拉刷新组件2](https://wscats.github.io/angular-demo/Angular自定义下拉刷新组件.html)|
 |[Angular内置指令](https://wscats.github.io/angular-demo/Angular内置指令.html)|[Angular实现选项卡](https://wscats.github.io/angular-demo/angular实现选项卡.html)|
-|[Angular封装swiper轮播图](https://wscats.github.io/angular-demo/angular封装swiper轮播图组件.html)|[angular自定义点击返回顶部指令.html](https://wscats.github.io/angular-demo/angular自定义点击返回顶部指令.html)|
+|[Angular封装swiper轮播图](https://wscats.github.io/angular-demo/angular封装swiper轮播图组件.html)|[angular自定义点击返回顶部指令](https://wscats.github.io/angular-demo/angular自定义点击返回顶部指令.html)|
 
 ## 路由
 | Router ||
