@@ -82,4 +82,4 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular利用angular.module()实现模块化](https://wscats.github.io/angular-demo/angular模块化.html)|[Angular的form表单验证](https://wscats.github.io/angular-demo/form表单验证.html)|
 |[Angular的ng-repeat嵌套](https://wscats.github.io/angular-demo/ng-repeat嵌套.html)|[NodeJs静态服务器](https://github.com/Wscats/angular-demo/tree/gh-pages/diyNodeServer)|
 |[Angular利用angular.module()实现模块化2](https://wscats.github.io/angular-demo/angular模块化2.html)|[Angular+Webpack](https://github.com/Wscats/angular-demo/tree/gh-pages/angular%2Bwebpack)|
-|[video和audio标签Demo](https://wscats.github.io/angular-demo/h5+css3/video/video&&audio标签.html)||
+|[video和audio标签Demo](https://wscats.github.io/angular-demo/h5+css3/video/video&&audio标签.html)|[canvas烟花效果](https://wscats.github.io/angular-demo/canvas烟花效果2.html)|
