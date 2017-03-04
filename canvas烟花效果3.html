@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<script>
+		var canvas = document.createElement("canvas");
+		//将canvas插入文档：body
+		document.body.appendChild(canvas);
+		//canvas背景色
+		canvas.style.backgroundColor = "#515151";
+		//为canvas设置宽高
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		//取出画笔
+		var context = canvas.getContext("2d");
+		var x = 500;
+		var y = 500;
+
+		var yVal = -5;
+		var gravity = 0.1;
+		var xVal = Math.random() * 4 - 2;
+		setInterval(function() {
+			x = x + xVal;
+			y = y + yVal;
+			yVal = yVal + gravity;
+			context.beginPath();
+			//告诉画笔，要画一个圆 圆心、半径、起始角度、最终角度、正/反向
+			context.arc(x, y, 5, 0, Math.PI * 2, false);
+			//结束路径
+			context.closePath();
+			context.fillStyle = "#" + Math.floor(Math.random() * 16777215).toString(16);
+			//填充颜色
+			context.fill();
+		}, 100)
+	</script>
+
+</html>
