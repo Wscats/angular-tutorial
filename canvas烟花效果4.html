@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<script>
+		var canvas = document.createElement("canvas");
+		//将canvas插入文档：body
+		document.body.appendChild(canvas);
+		//canvas背景色
+		canvas.style.backgroundColor = "#515151";
+		//为canvas设置宽高
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		//取出画笔
+		var context = canvas.getContext("2d");
+
+		function makeCicle(x, y) {
+			this.x = x;
+			this.y = y;
+			this.yVal = -5;
+			this.gravity = 0.1;
+			this.xVal = Math.random() * 4 - 2;
+			
+			//随机颜色
+			//this.color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+			this.update = function() {
+				this.x = this.x + this.xVal;
+				this.y = this.y + this.yVal;
+				this.yVal = this.yVal + this.gravity;
+				context.beginPath();
+				//告诉画笔，要画一个圆 圆心、半径、起始角度、最终角度、正/反向
+				context.arc(this.x, this.y, 5, 0, Math.PI * 2, false);
+				//结束路径
+				context.closePath();
+				context.fillStyle = "#" + Math.floor(Math.random() * 16777215).toString(16);
+				//填充颜色
+				context.fill();
+			}
+		}
+		var cicles = [];
+		setInterval(function() {
+			var part = new makeCicle(500, 500);
+			cicles.push(part);
+			for(var i = 0; i < cicles.length; i++) {
+				//更新粒子的位置
+				cicles[i].update();
+			}
+		}, 100)
+	</script>
+
+</html>
