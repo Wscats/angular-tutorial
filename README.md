@@ -61,6 +61,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | --------- | --------- |
 |[Angular内置过滤器](https://wscats.github.io/angular-demo/angular自带过滤器.html)|[Angular自定义关键词检索过滤器(1)](https://wscats.github.io/angular-demo/自定义关键词检索过滤器.html)|
 |[Angular自定义关键词检索过滤器(2)](https://wscats.github.io/angular-demo/自定义关键词检索过滤器(2).html)|[limitTo实现分页](https://wscats.github.io/angular-demo/limitTo实现分页.html)|
+|[Angular自定义关键词检索过滤器(简版)](https://wscats.github.io/angular-demo/自定义关键词检索过滤器(简版).html)||
 
 ## 动画
 | Animate | |
