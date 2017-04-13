@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+			<input ng-model="search" />
+			<p ng-bind-html="html|highlight:search|html"></p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("demo", []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.html = "<p>(1)angular的学习资料 These are about angular learning materials, hoping to help you <br/>(2)关于angular的常用知识点，DEMO和总结，不定时更新，欢迎fork和star On the common knowledge of angular, DEMO and summary, not regular updates, you can fork and star</p>";
+		})
+		app.filter("highlight", function() {
+			return function(input, value) {
+				var arr = input.split(value);
+				var output = arr.join("<span style='color:red'>" + value + "</span>");
+				return output;
+			}
+		})
+		app.filter("html", function($sce) {
+			return function(input) {
+				return $sce.trustAsHtml(input)
+			}
+		})
+	</script>
+</html>
