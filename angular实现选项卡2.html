@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app='main'>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="geniusfy.ico" type="image/x-icon">
+	</head>
+	<style type="text/css">
+		.active{
+			background: #efefef;
+		}
+		
+		#tab>div:first-child{
+			display: flex;
+		}
+		#tab>div>div{
+			/*width: 100%;*/
+			height: 200px;
+			line-height: 200px;
+			background: #f90;
+			text-align: center;
+		}
+		#tab h3{
+			height: 50px;
+			line-height: 50px;
+			flex: 1;
+			text-align: center;
+			cursor: pointer;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			margin: 0;
+		}
+	</style>
+	<body>
+		
+		<div ng-controller="tab" id="tab">
+			<div>
+				<h3 ng-click="select(1)" ng-class="{active:arr[idx-1][0]}">oaoafly</h3>
+				<h3 ng-click="select(2)" ng-class="{active:arr[idx-1][1]}">wscats</h3>
+				<h3 ng-click="select(3)" ng-class="{active:arr[idx-1][2]}">windiest</h3>
+			</div>
+			<div ng-switch="idx">
+				<div ng-switch-when='1'>1</div>
+				<div ng-switch-when='2'>2</div>
+				<div ng-switch-when='3'>3</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var app = angular.module('main',[]);
+		app.controller('tab',function ($scope) {
+			$scope.idx = 1;
+			$scope.arr=[[1,0,0],[0,1,0],[0,0,1]]
+			$scope.select=function (n) {
+				this.idx = n;
+			}
+		})
+	</script>
+</html>
