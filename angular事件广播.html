@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl" style="border: 1px solid blue;">
+			父
+			<p>{{name}}</p>
+			<p>{{skill}}</p>
+			<input ng-model="toChildContent" />
+			<button ng-click="toChild()">传给子</button>
+			<input ng-model="toBrotherContnet" />
+			<button ng-click="toBrother()">传给兄弟</button>
+			<div ng-controller="ChildCtrl" style="border: 1px solid red;">
+				子
+				<p>{{name}}</p>
+				<p>{{skill}}</p>
+				<input ng-model="toFatherContent" />
+				<button ng-click="toFather()">传给父</button>
+			</div>
+			
+		</div>
+		<br />
+		<div ng-controller="brotherCtrl" style="border: 1px solid blue;">
+			兄弟
+			<p>{{name}}</p>
+			<p>{{skill}}</p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("demo", []);
+		app.controller("indexCtrl", function($scope, $location) {
+			$scope.name = "index";
+			$scope.toChild = function() {
+				//广播事件的名字 广播的值
+				$scope.$broadcast('to-child', $scope.toChildContent);
+			}
+			$scope.$on('to-father', function(event, data) {
+				//从$emit或者$broadcast中获取的args事件传递来的信息
+				console.log(data)
+			})
+			//兄弟
+			$scope.toBrother = function(){
+				$scope.$emit("to-brother", $scope.toBrotherContnet);
+			}
+		})
+		app.controller("ChildCtrl", function($scope, $location) {
+			$scope.name = "child";
+			$scope.$on('to-child', function(event, data) {
+				//从$emit或者$broadcast中获取的args事件传递来的信息
+				console.log(data)
+			})
+			$scope.toFather = function(){
+				$scope.$emit('to-father', $scope.toFatherContent);
+			}
+		})
+		app.controller("brotherCtrl", function($scope, $location, $rootScope) {
+			$scope.name = "brother";
+			$rootScope.$on('to-brother', function(event, data) {
+				//从$emit或者$broadcast中获取的args事件传递来的信息
+				console.log(data)
+			})
+		})
+	</script>
+</html>
