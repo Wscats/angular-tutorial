@@ -70,12 +70,12 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular ng-animate动画1](https://wscats.github.io/angular-demo/ng-animate动画.html)|[Angular ng-animate动画2](https://wscats.github.io/angular-demo/ng-animate动画2.html)|
 
 ## API
-| API | |
+| API |
 | --------- |
 [Angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)|
 
 ## 表单验证
-| FORM | |
+| FORM |
 | --------- |
 |[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)|
 
