@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+			<p>邮箱格式 xx@xx</p>
+			<form name="myForm">
+				<input placeholder="wscats's demo" type="email" name="user" ng-model="user" required />
+				<table>
+					<tr>
+						<th>
+							<!--有输入过内容，不管是否为空都是代表有填写记录-->
+							<span ng-class="{'red':myForm.user.$dirty}">有填写记录</span></th>
+						<th>{{myForm.user.$dirty}}</th>
+					</tr>
+					<tr>
+						<th><span ng-class="{'red':myForm.user.$pristine}">没有填写记录</span></th>
+						<th>{{myForm.user.$pristine}}</th>
+					</tr>
+					<tr>
+						<th>
+							<!--type类型跟输入的格式一致就为合法-->
+							<span ng-class="{'red':myForm.user.$valid}">字段内容合法</span></th>
+						<th>{{myForm.user.$valid}}</th>
+					</tr>
+					<tr>
+						<th><span ng-class="{'red':myForm.user.$invalid}">字段内容非法</span></th>
+						<th>{{myForm.user.$invalid}}</th>
+					</tr>
+					<tr>
+						<th><span ng-class="{'red':myForm.user.$error.required}">用户名是必须的</span></th>
+						<th>{{myForm.user.$error.required}}</th>
+					</tr>
+				</table>
+				<button ng-disabled="!(myForm.user.$dirty && myForm.user.$valid)">提交</button>
+			</form>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('demo', []);
+		app.controller('indexCtrl', function($scope) {
+			$scope.name = '表单验证';
+		})
+	</script>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		tr th {
+			border: 1px solid black;
+		}
+		
+		.red {
+			color: red;
+		}
+	</style>
+
+</html>
