@@ -75,7 +75,9 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 [Angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)||
 
 ## 表单验证
-[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)
+| FORM | |
+| --------- | --------- |
+|[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)||
 
 ## 其他
 | Other | |
