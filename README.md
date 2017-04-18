@@ -71,19 +71,19 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 
 ## API
 | API | |
-| --------- | --------- |
+| --------- |
 [Angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)|
 
 ## 表单验证
 | FORM | |
-| --------- | --------- |
+| --------- |
 |[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)|
 
 ## 其他
 | Other | |
 | --------- | --------- |
 |[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)|[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|
-|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|Angular事件广播(https://wscats.github.io/angular-demo/angular事件广播.html)|
+|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|[Angular事件广播](https://wscats.github.io/angular-demo/angular事件广播.html)|
 |[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
 |[jQuery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
 |[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
