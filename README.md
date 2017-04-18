@@ -72,7 +72,10 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 ## API
 | API | |
 | --------- | --------- |
-[angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)||
+[Angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)||
+
+## 表单验证
+[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)
 
 ## 其他
 | Other | |
@@ -81,7 +84,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular中使用ng-switch](https://wscats.github.io/angular-demo/ngSwitch.html)||
 |[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|
 |[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
-|[jquery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
+|[jQuery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
 |[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
 |[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-demo/ngCookie.html)|[图灵机器人](https://wscats.github.io/angular-demo/图灵机器人.html)|
 |[Javascript的createElement](https://wscats.github.io/angular-demo/createElement.html)|[Javascript的createDocumentFragment](https://wscats.github.io/angular-demo/createDocumentFragment.html)|
