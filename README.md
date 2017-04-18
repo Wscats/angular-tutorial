@@ -50,7 +50,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular自定义下拉刷新组件1](https://wscats.github.io/angular-demo/下拉刷新.html)|[Angular自定义下拉刷新组件2](https://wscats.github.io/angular-demo/Angular自定义下拉刷新组件.html)|
 |[Angular内置指令](https://wscats.github.io/angular-demo/Angular内置指令.html)|[Angular自定义点击返回顶部指令](https://wscats.github.io/angular-demo/angular自定义点击返回顶部指令.html)|
 |[Angular实现选项卡(1)](https://wscats.github.io/angular-demo/angular实现选项卡.html)|[Angular实现选项卡(2)](https://wscats.github.io/angular-demo/angular实现选项卡2.html)|
-|[Angular封装swiper轮播图](https://wscats.github.io/angular-demo/angular封装swiper轮播图组件.html)||
+|[Angular封装swiper轮播图](https://wscats.github.io/angular-demo/angular封装swiper轮播图组件.html)|[Angular中使用ng-switch](https://wscats.github.io/angular-demo/ngSwitch.html)|
 
 ## 路由
 | Router | |
@@ -72,19 +72,18 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 ## API
 | API | |
 | --------- | --------- |
-[Angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)||
+[Angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)|
 
 ## 表单验证
 | FORM | |
 | --------- | --------- |
-|[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)||
+|[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)|
 
 ## 其他
 | Other | |
 | --------- | --------- |
-|[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)|[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)|
-|[Angular中使用ng-switch](https://wscats.github.io/angular-demo/ngSwitch.html)||
-|[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|
+|[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)|[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|
+|[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|Angular事件广播(https://wscats.github.io/angular-demo/angular事件广播.html)|
 |[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
 |[jQuery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
 |[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
@@ -94,4 +93,4 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular的ng-repeat嵌套](https://wscats.github.io/angular-demo/ng-repeat嵌套.html)|[NodeJs静态服务器](https://github.com/Wscats/angular-demo/tree/gh-pages/diyNodeServer)|
 |[Angular利用angular.module()实现模块化2](https://wscats.github.io/angular-demo/angular模块化2.html)|[Angular+Webpack](https://github.com/Wscats/angular-demo/tree/gh-pages/angular%2Bwebpack)|
 |[video和audio标签Demo](https://wscats.github.io/angular-demo/h5+css3/video/video&&audio标签.html)|[canvas烟花效果](https://wscats.github.io/angular-demo/canvas烟花效果2.html)|
-|[canvas烟花效果汇总](https://wscats.github.io/angular-demo/canvas烟花效果汇总.html)||
+|[canvas烟花效果汇总](https://wscats.github.io/angular-demo/canvas烟花效果汇总.html)|[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)|
