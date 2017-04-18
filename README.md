@@ -69,6 +69,10 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | --------- | --------- |
 |[Angular ng-animate动画1](https://wscats.github.io/angular-demo/ng-animate动画.html)|[Angular ng-animate动画2](https://wscats.github.io/angular-demo/ng-animate动画2.html)|
 
+## API
+| API | |
+| --------- | --------- |
+[angular常用api接口](https://wscats.github.io/angular-demo/angular常用api接口.html)||
 
 ## 其他
 | Other | |
