@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module('demo', []);
+		app.controller('indexCtrl', function($scope) {
+
+			//fromJson
+			$scope.name = "wscats";
+			console.log(angular)
+			var data = angular.fromJson('{"name":"a"}');
+			console.log(data)
+
+			//toJson
+			var data2 = angular.toJson({
+				name: 'b'
+			});
+			console.log(data2)
+			var obj = {
+				name: 'c',
+				age: 18
+			}
+
+			//copy 深拷贝
+			var obj2 = angular.copy(obj);
+			console.log(obj2)
+
+			//extend 拓展你的对象（增加属性值）
+			angular.extend(obj, {
+				skill: 'PS',
+
+			})
+			console.log(obj)
+
+			//merge (合并对象)
+			var obj4 = angular.merge(obj, {
+				as: 'd',
+				asdasd: 'e'
+			});
+			console.log(obj4)
+
+			//equals (判断对象是否一样)
+			var obj5 = {
+				name: 'f',
+				age: 17
+			}
+			var obj6 = {
+				name: 'g',
+				age: 18
+			}
+			console.log(angular.equals(obj5, obj6))
+
+			//element 
+			//angular.element() === jQlite == jQuery == $()
+			angular.element(document.querySelector('p')).css('color', 'red').css('fontSize', '30px')
+			console.log()
+
+			//forEach
+			var arr = [{
+				name: 'h'
+			}, {
+				name: 'i'
+			}, {
+				name: 'j'
+			}]
+			var obj7 = {
+				name: 'k',
+				skill: 'ps',
+				age: '00'
+			}
+			angular.forEach(arr, function(value, key) {
+				console.log(value)
+				value.skill = "html"
+			})
+			angular.forEach(obj7, function(value, key) {
+				console.log(key + '=>' + value)
+			})
+			console.log(arr)
+
+			//isString
+			console.log(angular.isString(123))
+
+			//lowercase
+			console.log(angular.lowercase("AbCdEf"))
+		})
+		angular.bootstrap(document.body, ['demo'])
+	</script>
+
+</html>
