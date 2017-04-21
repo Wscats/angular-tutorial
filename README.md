@@ -54,7 +54,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 
 | Component | |
 | --------- | --------- |
-|[Angular的component方法](https://wscats.github.io/angular-demo/angular component的用法.html)||
+|[Angular的component方法](https://wscats.github.io/angular-demo/Angular的component方法.html)||
 
 ## 路由
 | Router | |
