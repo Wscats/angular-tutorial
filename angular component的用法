@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="indexCtrl">
+		<index-cp show="'这是一个组件'" submit="textEvent()"></index-cp>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("wscats", []);
+		app.controller("indexCtrl", function($scope) {
+			$scope.textEvent = function() {
+				console.log("Hello Oaoafly")
+			}
+		})
+		app.component("indexCp", {
+			bindings: {
+				show: "=",
+				submit: "&"
+			},
+			transclude: true,
+			controller: ($scope) => {
+				//接受来自控制器通信的值
+				console.log($scope.$ctrl)
+				$scope.name = "Hello Oaoafly";
+				$scope.testClick = () => {
+					$scope.name = "Bye Oaoafly";
+				}
+			},
+			template: `
+				<p>{{$ctrl.show}}</p>
+				<p>{{name}}</p>
+				<button ng-click="$ctrl.submit()">控制器定义的事件</button>
+				<button ng-click="testClick()">组件定义的事件</button>
+			`
+		})
+		angular.bootstrap(document, ["wscats"])
+	</script>
+
+</html>
