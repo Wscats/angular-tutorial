@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--css-->
+	<link rel="stylesheet" />
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<!--view-->
+			<p style="color: red;">字符串</p>
+			<!--$().text();-->
+			<p ng-bind="name"></p>
+			<p style="color: red;">字符串拼接和算数运算</p>
+			<!--$().attr();-->
+			<p>你的名字就是:{{name + str}}</p>
+			<p style="color: red;">数字</p>
+			<p>{{num}}</p>
+			<p style="color: red;">数组</p>
+			<p>{{arr[2]}}</p>
+			<p style="color: red;">对象</p>
+			<p>{{obj.skill}}</p>
+			<p style="color: red;">布尔值</p>
+			<p>{{bool}}</p>
+			<p style="color: red;">三元运算</p>
+			<p>{{bool?(bool2?"11":"12"):"假"}}</p>
+			<p style="color: red;">绑定函数</p>
+			<button ng-click="Click()">Ok</button>
+			<p style="color: {{bool?'blue':'red'}};">{{name}}</p>
+			<p style="color: red;">ng-bind&&表达式</p>
+			<p ng-bind="name"></p>
+			<p>{{name}}</p>
+			<p ng-init="test='windiest'">{{test}}</p>
+		</div>
+	</body>
+	<!--js-->
+	<script src="js/angular.js"></script>
+	<script>
+		//MVC框架
+		var app = angular.module("demo", []);
+		//controller层
+		app.controller("indexCtrl", ["$scope", function($scope) {
+			//model层
+			$scope.name = "wscats ";
+			$scope.str = "oaoafly";
+			$scope.num = 5;
+			$scope.arr = [1, 2, 3];
+			$scope.obj = {
+				skill: 'PS'
+			};
+			$scope.bool = true;
+			$scope.bool2 = false;
+			$scope.Click = function() {
+				$scope.bool = !$scope.bool
+			}
+		}])
+	</script>
+
+</html>
