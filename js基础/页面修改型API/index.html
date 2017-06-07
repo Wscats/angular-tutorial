@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>
+			前面我们提到创建型api，它们只是创建节点，并没有真正修改到页面内容，而是要调用appendChild来将其添加到文档树中。我在这里将这类会修改到页面内容归为一类。 修改页面内容的api主要包括：appendChild，insertBefore，removeChild，replaceChild。
+		</p>
+		<h3>appendChild</h3>
+		<p>
+			appendChild我们在前面已经用到多次，就是将指定的节点添加到调用该方法的节点的子元素的末尾。调用方法如下：
+		</p>
+		<code>parent.appendChild(child);</code>
+		<p>
+			child节点将会作为parent节点的最后一个子节点。 appendChild这个方法很简单，但是还有有一点需要注意：如果被添加的节点是一个页面中存在的节点，则执行后这个节点将会添加到指定位置，其原本所在的位置将移除该节点，也就是说不会同时存在两个该节点在页面上，相当于把这个节点移动到另一个地方。
+		</p>
+		<div id="child">
+			要被添加的节点 <span>右键查看源代码</span>
+		</div>
+		<br/>
+		<br/>
+		<br/>
+		<div id="parent">
+			要移动的位置
+		</div>
+		<input id="btnMove" type="button" value="移动节点" />
+		<script>
+			document.getElementById("btnMove").onclick = function() {
+				var child = document.getElementById("child");
+				document.getElementById("parent").appendChild(child);
+			}
+		</script>
+		<p>
+			上面DEMO，主要是获取页面上的child节点，然后添加到指定位置，可以看到原本的child节点被移动到parent中了。 这里还有一个要注意的点：如果child绑定了事件，被移动时，它依然绑定着该事件。
+		</p>
+
+		<h3>insertBefore</h3>
+		<p>insertBefore用来添加一个节点到一个参照节点之前，用法如下：</p>
+
+		<code>parentNode.insertBefore(newNode,refNode);</code>
+		<ul>
+			<li>parentNode表示新节点被添加后的父节点</li>
+			<li>newNode表示要添加的节点</li>
+			<li>refNode表示参照节点，新节点会添加到这个节点之前</li>
+		</ul>
+		<div id="parents">
+			父节点
+			<div id="children">
+				子元素
+			</div>
+		</div>
+		<input type="button" id="insertNode" value="插入节点" />
+		<script>
+			var parents = document.getElementById("parents");
+			var children = document.getElementById("children");
+			document.getElementById("insertNode").onclick = function() {
+				var newNode = document.createElement("div");
+				newNode.textContent = "新节点";
+				//父节点.insertBefore(需要插入的新节点,子节点)
+				parents.insertBefore(newNode, children);
+			}
+		</script>
+		<p>
+			这段代码创建了一个新节点，然后添加到child节点之前。 和appendChild一样，如果插入的节点是页面上的节点，则会移动该节点到指定位置，并且保留其绑定的事件。
+		</p>
+		<p>
+			关于第二个参数参照节点还有几个注意的地方：
+			<ul>
+				<li>（1）refNode是必传的，如果不传该参数会报错</li>
+				<li>（2）如果refNode是undefined或null，则insertBefore会将节点添加到子元素的末尾</li>
+			</ul>
+		</p>
+
+		<h3>removeChild</h3>
+		<p>removeChild顾名思义，就是删除指定的子节点并返回，用法如下：</p>
+		<code>var deletedChild = parent.removeChild(node);</code>
+		<p>
+			deletedChild指向被删除节点的引用，它等于node，被删除的节点仍然存在于内存中，可以对其进行下一步操作。 注意：如果被删除的节点不是其子节点，则程序将会报错。我们可以通过下面的方式来确保可以删除：
+		</p>
+		<code>
+			if(node.parentNode){<br />
+				node.parentNode.removeChild(node);<br />
+			}<br />
+		</code>
+		<p>通过节点自己获取节点的父节点，然后将自身删除。</p>
+		<ul id="myList">
+			<li>Oaoafly</li>
+			<li>Wscats</li>
+			<li>Windiest</li>
+			<li>Winds</li>
+		</ul>
+		<button onclick="deleteListNode()">删除节点</button>
+		<script>
+			function deleteListNode() {
+				var list = document.getElementById("myList");
+				list.removeChild(list.childNodes[0]);
+			}
+		</script>
+
+		<h3>replaceChild</h3>
+		<p>replaceChild用于使用一个节点替换另一个节点，用法如下</p>
+		<code>parent.replaceChild(newChild,oldChild);</code>
+		<p>
+			newChild是替换的节点，可以是新的节点，也可以是页面上的节点，如果是页面上的节点，则其将被转移到新的位置 oldChild是被替换的节点
+		</p>
+		<ul id="myList2"><li>Coffee</li><li>Tea</li><li>Milk</li></ul>
+		<p id="demo">点击按钮来替换列表中的首个项目。</p>
+		<button onclick="myFunction()">试一下</button>
+		<script>
+			function myFunction() {
+				var textnode = document.createTextNode("Water");
+				var item = document.getElementById("myList2").childNodes[0];
+				item.replaceChild(textnode, item.childNodes[0]);
+			}
+		</script>
+		<p>
+			页面修改型API总结
+			页面修改型api主要是这四个接口，要注意几个特点：
+			<ul>
+			<li>（1）不管是新增还是替换节点，如果新增或替换的节点是原本存在页面上的，则其原来位置的节点将被移除，也就是说同一个节点不能存在于页面的多个位置</li>
+			<li>（2）节点本身绑定的事件会不会消失，会一直保留着。</li>
+			</ul>
+		</p>
+		<a href="http://luopq.com/2015/11/30/javascript-dom/">参考文章</a>
+	</body>
+
+</html>

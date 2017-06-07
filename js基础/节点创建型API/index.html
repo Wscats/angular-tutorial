@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h3>createElement</h3>
+		<p>
+			createElement通过传入指定的一个标签名来创建一个元素，如果传入的标签名是一个未知的，则会创建一个自定义的标签，注意：IE8以下浏览器不支持自定义标签。 使用如下：
+		</p>
+		<code>var div = document.createElement("div");</code>
+		<p>
+			使用createElement要注意：通过createElement创建的元素并不属于html文档，它只是创建出来，并未添加到html文档中，要调用appendChild或insertBefore等方法将其添加到HTML文档树中。
+		</p>
+		<div id="createElement"></div>
+		<script>
+			var div = document.createElement("div");
+			div.innerHTML = "右键查看源代码";
+			div.style.color = "red";
+			document.getElementById("createElement").appendChild(div);
+		</script>
+
+		<h3>createTextNode</h3>
+		<p>
+			createTextNode用来创建一个文本节点，用法如下：
+		</p>
+		<code>var textNode = document.createTextNode("一个TextNode");</code>
+		<p>
+			createTextNode接收一个参数，这个参数就是文本节点中的文本，和createElement一样，创建后的文本节点也只是独立的一个节点，同样需要appendChild将其添加到HTML文档树中
+		</p>
+		<div id="createTextNode"></div>
+		<script>
+			var textNode = document.createTextNode("右键查看源代码");
+			var createTextNode = document.getElementById("createTextNode")
+			createTextNode.style.color = "red";
+			createTextNode.appendChild(textNode);
+		</script>
+
+		<h3>cloneNode</h3>
+		<p>
+			cloneNode是用来返回调用方法的节点的一个副本，它接收一个bool参数，用来表示是否复制子元素，使用如下：
+		</p>
+		<code>
+			var parent = document.getElementById("parentElement");
+			<br />
+			var parent2 = parent.cloneNode(true);// 传入true
+			<br />
+			parent2.id = "parent2";
+		</code>
+		<p>
+			这段代码通过cloneNode复制了一份parent元素，其中cloneNode的参数为true，表示parent的子节点也被复制，如果传入false，则表示只复制了parent节点。
+		</p>
+		<p>
+			这段代码很简单，主要是绑定button事件，事件内容是复制了一个parent，修改其id，然后添加到文档中。 这里有几点要注意：
+			<ul>
+				<li>（1）和createElement一样，cloneNode创建的节点只是游离有html文档外的节点，要调用appendChild方法才能添加到文档树中</li>
+				<li>（2）如果复制的元素有id，则其副本同样会包含该id，由于id具有唯一性，所以在复制节点后必须要修改其id</li>
+				<li>（3）调用接收的bool参数最好传入，如果不传入该参数，不同浏览器对其默认值的处理可能不同</li>
+			</ul>
+			除此之外，我们还有一个需要注意的点： 如果被复制的节点绑定了事件，则副本也会跟着绑定该事件吗？这里要分情况讨论：
+			<ul>
+				<li>（1）如果是通过addEventListener或者比如onclick进行绑定事件，则副本节点不会绑定该事件</li>
+				<li>（2）如果是内联方式绑定比如</li>
+			</ul>
+		</p>
+		<div id="cloneNode">右键查看源代码</div>
+		<div id="parent"></div>
+		<script>
+			var parent = document.getElementById("cloneNode");
+			parent.addEventListener("click", function() {
+				console.log("cloneNode")
+			})
+
+			var parent2 = parent.cloneNode(true); // 传入true
+			parent2.id = "cloneNode2";
+			parent2.style.color = "red";
+			document.getElementById("cloneNode").appendChild(parent2);
+		</script>
+
+		<h3>createDocumentFragment</h3>
+		<p>
+			createDocumentFragment方法用来创建一个DocumentFragment。在前面我们说到DocumentFragment表示一种轻量级的文档，它的作用主要是存储临时的节点用来准备添加到文档中。
+		</p>
+		<p>
+			createDocumentFragment方法主要是用于添加大量节点到文档中时会使用到。假设要循环一组数据，然后创建多个节点添加到文档中，代码如下：
+		</p>
+		<ul id="list"></ul>
+		<input type="button" value="正常添加多项" id="btnAdd" />
+		<script>
+			document.getElementById("btnAdd").onclick = function() {
+				var list = document.getElementById("list");
+				for(var i = 0; i < 10; i++) {
+					var li = document.createElement("li");
+					li.textContent = i;
+					list.appendChild(li);
+				}
+			}
+		</script>
+		<p>
+			这段代码将按钮绑定了一个事件，这个事件创建了10个li节点，然后依次将其添加HTML文档中。这样做有一个缺点：每次一创建一个新的元素，然后添加到文档树中，这个过程会造成浏览器的回流。所谓回流简单说就是指元素大小和位置会被重新计算，如果添加的元素太多，会造成性能问题。这个时候，就是使用createDocumentFragment了。 DocumentFragment不是文档树的一部分，它是保存在内存中的，所以不会造成回流问题。我们修改上面的代码如下：
+		</p>
+		<ul id="list2"></ul>
+		<input type="button" value="createDocumentFragment添加多项" id="btnAdd2" />
+		<script>
+			document.getElementById("btnAdd2").onclick = function() {
+				var list2 = document.getElementById("list2");
+				var fragment = document.createDocumentFragment();
+				for(var i = 0; i < 10; i++) {
+					var li = document.createElement("li");
+					li.textContent = i;
+					fragment.appendChild(li);
+				}
+				list2.appendChild(fragment);
+			}
+		</script>
+		<p>优化后的代码主要是创建了一个fragment，每次生成的li节点先添加到fragment，最后一次性添加到list。</p>
+		<p>
+			创建型API总结 创建型api主要包括createElement，createTextNode，cloneNode和createDocumentFragment四个方法，需要注意下面几点：
+			<ul>
+				<li>（1）它们创建的节点只是一个孤立的节点，要通过appendChild添加到文档中</li>
+				<li>（2）cloneNode要注意如果被复制的节点是否包含子节点以及事件绑定等问题</li>
+				<li>（3）使用createDocumentFragment来解决添加大量节点时的性能问题</li>
+			</ul>
+		</p>
+		<a href="http://luopq.com/2015/11/30/javascript-dom/">参考文章</a>
+	</body>
+
+</html>
