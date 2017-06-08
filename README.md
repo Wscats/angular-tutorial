@@ -89,14 +89,11 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | --------- | --------- |
 |[Angular三级联动(1)](https://wscats.github.io/angular-demo/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8.html)|[Angular三级联动(2)](https://wscats.github.io/angular-demo/三级联动改进.html)|
 |[Angular事件监听](https://wscats.github.io/angular-demo/事件监听.html)|[Angular事件广播](https://wscats.github.io/angular-demo/angular事件广播.html)|
-|[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
-|[jQuery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|
-|[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|
-|[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-demo/ngCookie.html)|[图灵机器人](https://wscats.github.io/angular-demo/图灵机器人.html)|
+|[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-demo/ngCookie.html)||
 |[Angular利用angular.module()实现模块化](https://wscats.github.io/angular-demo/angular模块化.html)|[Angular的form表单验证](https://wscats.github.io/angular-demo/form表单验证.html)|
 |[Angular的ng-repeat嵌套](https://wscats.github.io/angular-demo/ng-repeat嵌套.html)|[NodeJs静态服务器](https://github.com/Wscats/angular-demo/tree/gh-pages/diyNodeServer)|
 |[Angular利用angular.module()实现模块化2](https://wscats.github.io/angular-demo/angular模块化2.html)|[Angular+Webpack](https://github.com/Wscats/angular-demo/tree/gh-pages/angular%2Bwebpack)|
-|[canvas烟花效果汇总](https://wscats.github.io/angular-demo/canvas烟花效果汇总.html)|[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)|
+|[Angular中使用iframe](https://wscats.github.io/angular-demo/iframesdemo.html)|[百度定位DEMO](https://wscats.github.io/angular-demo/百度地图定位DEMO.html)|
 
 ## JS基础
 | JS基础 | |
@@ -104,8 +101,12 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Javascript的createElement](https://wscats.github.io/angular-demo/createElement.html)|[Javascript的createDocumentFragment](https://wscats.github.io/angular-demo/createDocumentFragment.html)|
 |[Javascript的节点关系型API](https://github.com/Wscats/angular-demo/blob/gh-pages/js基础/节点关系型API/oaoafly.md)|[Javascript的节点创建型API](https://wscats.github.io/angular-demo/js基础/节点创建型API)|
 |[Javascript的节点查询型API](https://wscats.github.io/angular-demo/js基础/节点查询型API)|[Javascript的页面修改型API](https://wscats.github.io/angular-demo/js基础/页面修改型API)|
+|[像素帧动画](https://wscats.github.io/angular-demo/像素动画.html)|[jQuery模拟ng-repeat](https://wscats.github.io/angular-demo/jquery模拟ng-repeat.html)|
+|[lessDemo](https://wscats.github.io/angular-demo/lessDemo.html)|[lessDemo的less文件](https://wscats.github.io/angular-demo/stylesheets/styles.less)|
+|[图灵机器人](https://wscats.github.io/angular-demo/图灵机器人.html)|[sessionStorage和localStorage](https://wscats.github.io/angular-demo/sessionStoragelocalStorage.html)|
 
 ## HTML基础
 | HTML基础 | |
 | --------- | --------- |
 |[video和audio标签Demo](https://wscats.github.io/angular-demo/h5+css3/video/video&&audio标签.html)|[canvas烟花效果](https://wscats.github.io/angular-demo/canvas烟花效果2.html)|
+|[canvas烟花效果汇总](https://wscats.github.io/angular-demo/canvas烟花效果汇总.html)||
