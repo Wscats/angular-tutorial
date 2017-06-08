@@ -16,7 +16,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 ## Angular文档
 | Article | |
 | --------- | --------- |
-|[ng-repeat绑定事件和嵌套](ng-repeat绑定事件和嵌套)|[Angular的post请求后台接受不了数据的解决方法](https://github.com/Wscats/angular-demo/issues/4)|
+|[ng-repeat绑定事件和嵌套](https://github.com/Wscats/angular-demo/issues/21)|[Angular的post请求后台接受不了数据的解决方法](https://github.com/Wscats/angular-demo/issues/4)|
 |[ionic总结](https://github.com/Wscats/angular-demo/issues/19)|[ui-route和ng-route](https://github.com/Wscats/angular-demo/issues/17)|
 |[ng-options&&ng-switch](https://github.com/Wscats/angular-demo/issues/15)|[directive组件作用域](https://github.com/Wscats/angular-demo/issues/14)|
 |[表单认证](https://github.com/Wscats/angular-demo/issues/13)|[$broadcast,$emit and $on](https://github.com/Wscats/angular-demo/issues/11)|
