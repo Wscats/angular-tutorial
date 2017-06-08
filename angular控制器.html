@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h1>ng-app</h1>
+		<p>skill:{{skill}}</p>
+		<div name="parentCtrl" ng-controller="parentCtrl">
+			<h1>indexCtrl</h1>
+			<p>name:{{name}}</p>
+			<p>skill:{{skill}}</p>
+			<button ng-click="changeName()">子定义值</button>
+			<div name="childCtrl" ng-controller="childCtrl">
+				<h1>indexCtrl</h1>
+				<p>name:{{name}}</p>
+				<p>skill:{{skill}}</p>
+				<button ng-click="changeName()">子定义值</button>
+			</div>
+		</div>
+		</div>
+		<div name="homeCtrl" ng-controller="homeCtrl">
+			<h1>indexCtrl</h1>
+			<p>name:{{name}}</p>
+			<p>skill:{{skill}}</p>
+		</div>
+		<p>
+			skill被两个控制器继承了，name受独自的控制器影响，子控制器会继承父控制器的值(包括函数)，如果子重复定义父的$scope值，那么子取自身控制器定义的
+		</p>
+		<p>
+			当我们在页面上创建一个控制器时，Angularjs会生成并传递一个$scope给这个控制器，由于Angularjs会自动实例化控制器，所以我们只需要写构造函数即可。
+		</p>
+		<p>
+			AngularJS应用的任何一个部分，无论它渲染在哪个上下文中，都有父级作用域存在。对于ng-app所处的层级来讲，它的父级作用域就是$rootScope。 默认情况下，AngularJS在当前作用域中无法找到某个属性时，便会在父级作用域中进行查找。如果AngularJS找不到对应的属性，会顺着父级作用域一直向上寻找，直到抵达$rootScope为止。如果在$rootScope中也找不到，程序会继续运行，但视图无法更新。
+		</p>
+	</body>
+	<script src="js/angular-1.5.9.js"></script>
+	<script>
+		var app = angular.module("wscats", []);
+		app.run(function($rootScope) {
+			$rootScope.skill = "Javascript"
+		})
+		app.controller("parentCtrl", function($scope) {
+			$scope.name = "Oaoafly"
+			$scope.changeName = function() {
+				$scope.name = "Ylfaoao"
+			}
+		})
+		app.controller("childCtrl", function($scope) {
+			$scope.changeName = function() {
+				$scope.name = "Winds"
+			}
+		})
+		app.controller("homeCtrl", function($scope) {
+			$scope.name = "Wscats"
+		})
+		angular.bootstrap(document.body, ["wscats"])
+	</script>
+	<style>
+		[name="parentCtrl"] {
+			border: 1px solid red;
+			padding: 10px;
+		}
+		
+		[name="childCtrl"] {
+			border: 1px solid green;
+			padding: 10px;
+		}
+		
+		[name="homeCtrl"] {
+			margin-top: 10px;
+			border: 1px solid blue;
+			padding: 10px;
+		}
+		
+		body {
+			border: 1px solid black;
+			padding: 10px;
+		}
+	</style>
+
+</html>
