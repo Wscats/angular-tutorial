@@ -3,27 +3,6 @@
 
 _:rabbit:angular的学习资料 These are about angular learning materials, hoping to help you :snowman:关于angular的常用知识点，DEMO和总结，不定时更新，欢迎fork和star On the common knowledge of angular, DEMO and summary, not regular updates, you can fork and star_
 
-
-| Guess you like | |
-| --------- | --------- |
-|[Angular商城Demo](https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html)|[Angular的Cnode社区](https://wscats.github.io/angular-demo/spa/CNode/index.html)|
-|[AngularStovepipe](https://wscats.github.io/angular-demo/spa/Stovepipe/index.html)|[Angular的新闻客户端](https://wscats.github.io/angular-demo/spa/TT/index.html)|
-|[Angular商城Demo](https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html)|[Angular的Cnode社区](https://wscats.github.io/angular-demo/spa/CNode/index.html)|
-|[Angular内联编辑器](https://wscats.github.io/angular-demo/angularjs5examples/inline-editor/index.html)|[Angular即时搜索](https://wscats.github.io/angular-demo/angularjs5examples/instant-search/index.html)|
-|[Angular导航菜单](https://wscats.github.io/angular-demo/angularjs5examples/navigation-menu/index.html)|[Angular订单表单](https://wscats.github.io/angular-demo/angularjs5examples/order-form/index.html)|
-|[Angular切换网格](https://wscats.github.io/angular-demo/angularjs5examples/switchable-grid/index.html)|[Angular新闻＋WEUI DEMO](https://wscats.github.io/angular-demo/spa/news/index.html) [源码](https://github.com/Wscats/angular-demo/tree/gh-pages/spa/NodeServerAndApi-Weui-News)|
-
-## Angular文档
-| Article | |
-| --------- | --------- |
-|[ng-repeat绑定事件和嵌套](https://github.com/Wscats/angular-demo/issues/21)|[Angular的post请求后台接受不了数据的解决方法](https://github.com/Wscats/angular-demo/issues/4)|
-|[ionic总结](https://github.com/Wscats/angular-demo/issues/19)|[ui-route和ng-route](https://github.com/Wscats/angular-demo/issues/17)|
-|[ng-options&&ng-switch](https://github.com/Wscats/angular-demo/issues/15)|[directive组件作用域](https://github.com/Wscats/angular-demo/issues/14)|
-|[表单认证](https://github.com/Wscats/angular-demo/issues/13)|[$broadcast,$emit and $on](https://github.com/Wscats/angular-demo/issues/11)|
-|[自定义过滤器](https://github.com/Wscats/angular-demo/issues/9)|[自定义手势指令ng-touch](https://github.com/Wscats/angular-demo/issues/8)|
-|[ng-animate](https://github.com/Wscats/angular-demo/issues/7)|[单页面应用的技术点](https://github.com/Wscats/angular-demo/issues/3)|
-
-
 ## 控制器
 
 | Controller ||
@@ -83,6 +62,26 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | FORM |
 | --------- |
 |[Angular表单验证](https://wscats.github.io/angular-demo/angular表单验证.html)|
+
+## 项目
+| Guess you like | |
+| --------- | --------- |
+|[Angular商城Demo](https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html)|[Angular的Cnode社区](https://wscats.github.io/angular-demo/spa/CNode/index.html)|
+|[AngularStovepipe](https://wscats.github.io/angular-demo/spa/Stovepipe/index.html)|[Angular的新闻客户端](https://wscats.github.io/angular-demo/spa/TT/index.html)|
+|[Angular商城Demo](https://wscats.github.io/angular-demo/spa/mobie-b2bdemo1/index.html)|[Angular的Cnode社区](https://wscats.github.io/angular-demo/spa/CNode/index.html)|
+|[Angular内联编辑器](https://wscats.github.io/angular-demo/angularjs5examples/inline-editor/index.html)|[Angular即时搜索](https://wscats.github.io/angular-demo/angularjs5examples/instant-search/index.html)|
+|[Angular导航菜单](https://wscats.github.io/angular-demo/angularjs5examples/navigation-menu/index.html)|[Angular订单表单](https://wscats.github.io/angular-demo/angularjs5examples/order-form/index.html)|
+|[Angular切换网格](https://wscats.github.io/angular-demo/angularjs5examples/switchable-grid/index.html)|[Angular新闻＋WEUI DEMO](https://wscats.github.io/angular-demo/spa/news/index.html) [源码](https://github.com/Wscats/angular-demo/tree/gh-pages/spa/NodeServerAndApi-Weui-News)|
+
+## 文档
+| Article | |
+| --------- | --------- |
+|[ng-repeat绑定事件和嵌套](https://github.com/Wscats/angular-demo/issues/21)|[Angular的post请求后台接受不了数据的解决方法](https://github.com/Wscats/angular-demo/issues/4)|
+|[ionic总结](https://github.com/Wscats/angular-demo/issues/19)|[ui-route和ng-route](https://github.com/Wscats/angular-demo/issues/17)|
+|[ng-options&&ng-switch](https://github.com/Wscats/angular-demo/issues/15)|[directive组件作用域](https://github.com/Wscats/angular-demo/issues/14)|
+|[表单认证](https://github.com/Wscats/angular-demo/issues/13)|[$broadcast,$emit and $on](https://github.com/Wscats/angular-demo/issues/11)|
+|[自定义过滤器](https://github.com/Wscats/angular-demo/issues/9)|[自定义手势指令ng-touch](https://github.com/Wscats/angular-demo/issues/8)|
+|[ng-animate](https://github.com/Wscats/angular-demo/issues/7)|[单页面应用的技术点](https://github.com/Wscats/angular-demo/issues/3)|
 
 ## 其他
 | Other | |
