@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="exchangeData">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		[ng-controller="indexCtrl"] {
+			border: 1px solid red;
+		}
+		
+		[ng-controller="homeCtrl"] {
+			margin-top: 5px;
+			border: 1px solid blue;
+		}
+		
+		[ng-controller="index2Ctrl"] {
+			margin-top: 5px;
+			border: 1px solid green;
+		}
+		
+		[ng-controller="home2Ctrl"] {
+			margin-top: 5px;
+			border: 1px solid hotpink;
+		}
+	</style>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>indexCtrl{{content}}</p>
+			<input ng-model="name" />
+			<p>{{name}}</p>
+			<p>修改输入框的值，通过数据通信让下面的控制器的值得到改变</p>
+		</div>
+		<div ng-controller="homeCtrl">
+			<p>homeCtrl{{content}}</p>
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="index2Ctrl">
+			<p>index2Ctrl{{content}}</p>
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="home2Ctrl">
+			<p>home2Ctrl{{content}}</p>
+			<input ng-model="name" ng-change="changeValue()" />
+			<p>{{name}}</p>
+		</div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("exchangeData", []);
+		//config阶段是给了ng上下文一个针对constant与provider修改其内部属性的一个阶段
+		app.config(function() {
+				console.log("angular的数据通信方案")
+			})
+			//run阶段是在config之后的在运行独立的代码块
+		app.run(function($window) {
+			//类似redux vuex
+			$window.storage = {
+				state: {
+					//初始化的值
+					name: "Oaoafly Wscats"
+				}
+			}
+		})
+		app.controller("indexCtrl", function($scope, exchangeService, $window) {
+			//通过注入的服务享用数据
+			$scope.content = exchangeService.content;
+			$scope.name = "Oaoafly";
+			$scope.$watch("name", function() {
+				$window.storage.name = $scope.name;
+			})
+		})
+		app.controller("homeCtrl", function($scope, exchangeService, $window) {
+			//通过注入的服务享用数据
+			$scope.content = exchangeService.content;
+			// 监听修改
+			$scope.$watch(function() {
+				return $window.storage.name;
+			}, function(n) {
+				$scope.name = n;
+			});
+		})
+		app.controller("index2Ctrl", function($scope, $window, exchangeService) {
+			//通过注入的服务享用数据
+			$scope.content = exchangeService.content;
+			$scope.$watch(function() {
+				//这里一定要监听$window.data，只监听$window是不行的
+				return $window.data;
+			}, function(n) {
+				$scope.name = $window.data;
+			});
+		})
+		app.controller("home2Ctrl", function($scope, $window, exchangeService) {
+			$scope.name = "Windiest"
+				//通过注入的服务享用数据
+			$scope.content = exchangeService.content;
+			$scope.$watch("name", function() {
+				$window.data = $scope.name;
+			})
+		})
+		app.service("exchangeService", function() {
+			return {
+				//两个控制器共享的数据
+				content: "控制器"
+			}
+		})
+	</script>
+
+</html>
