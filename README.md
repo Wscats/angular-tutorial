@@ -8,7 +8,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | Controller ||
 | --------- | --------- |
 |[Angular控制器](https://wscats.github.io/angular-demo/angular控制器.html)|[Angular表达式](https://wscats.github.io/angular-demo/angular表达式.html)|
-|[Angular事件广播](https://wscats.github.io/angular-demo/angular事件广播.html)||
+|[Angular事件广播](https://wscats.github.io/angular-demo/angular事件广播.html)|[Angular基于$window的数据通信](https://wscats.github.io/angular-demo/angular基于$window的数据通信.html)|
 
 
 ## 单页面应用
