@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="indexCtrl">
+      右键查看源代码
+    </div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("myApp", []);
+		//需要注意的是：在config注入provider时，名字应该是：providerName+Provider
+		app.config(function(wscatsProvider) {
+			//配置服务的默认状态
+			//传入默认值到服务中配置初始状态
+			wscatsProvider.setName("Wscats")
+		})
+		app.provider("wscats", function() {
+			//私有变量
+			//如果没有传入的值配置，就取该默认值
+			var defaultName = "Oaoafly";
+			//注意的是，setter方法必须是(set+变量首字母大写)格式
+			this.setName = function(newName) {
+				defaultName = newName;
+			}
+			this.$get = function($http) {
+				//暴露出外面的服务接口方法或者数据
+				return {
+					name: defaultName,
+					getData: function(){
+						$http({
+							method: "GET",
+							url: "wind.php",
+							params: {
+								name: defaultName
+							}
+						}).then(function(data) {
+							console.log(data)
+						}, function(err) {
+							console.log(err)
+						})
+					}
+				}
+			}
+		})
+		app.controller("indexCtrl", function($scope, wscats) {
+			console.log(wscats.getData())
+		})
+	</script>
+
+</html>
