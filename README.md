@@ -11,7 +11,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular事件广播](https://wscats.github.io/angular-tutorial/angular事件广播.html)|[Angular基于$window的数据通信](https://wscats.github.io/angular-tutorial/angular基于$window的数据通信.html)|
 
 ## 双向数据绑定
-| Controller |
+| bi-directional data binding |
 | --------- |
 |[Angular的$watch,$apply和$digest](https://wscats.github.io/angular-tutorial/angular的$watch,$apply和$digest.html)|
 
