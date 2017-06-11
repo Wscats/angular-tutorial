@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>自定义指令间的互相交互</title>
+		<script src="./js/angular.js"></script>
+	</head>
+	<body>
+		<div>
+			<hello>
+				<!--这里相当于一个插槽-->
+				<hi></hi>
+				<p>Hi Oaoafly</p>
+			</hello>
+			<p>绿色就是插槽部分</p>
+			<my-name-is>
+				Wscats Oaoafly
+			</my-name-is>
+		</div>
+		<script type="text/javascript">
+			var app = angular.module('myApp', []);
+			app.directive('hello', function() {
+				return {
+					restrict: 'E',
+					replace: true,
+					//允许自定义指令的嵌套，通过ng-transclude指定嵌套的范围
+					transclude: true,
+					controller: function($scope) {
+						$scope.name = 'Wscats';
+						$scope.skill = "Javascript";
+						//使用this共享给其他指令 下面用parentController接受
+						this.name = 'Wscats';
+					},
+					template: '<div>标题为:<h1 ng-transclude></h1></div>'
+				};
+			});
+			app.directive('hi', function() {
+				return {
+					restrict: 'E',
+					replace: true,
+					require: '^hello', //hello指令属性hi指令的父级，需要用^符号指定。如果无法指定，使用?容错处理。
+					template: '<span>Hi {{name}}</span>',
+					link: function(scope, element, attr, parentController) {
+						//得到父级hello指令中共享出来的数据
+						console.log(parentController);
+						console.log(scope)
+					}
+				};
+			});
+			app.directive('myNameIs',function(){
+				return {
+					//用ng-transclude一定要配置这个为true
+					transclude: true,
+					template: '<p style="border:1px solid red;padding:20px">My name is <span style="border:1px solid green;padding:10px" ng-transclude></span></p>',
+				}
+			})
+		</script>
+	</body>
+</html>
