@@ -10,12 +10,10 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular控制器](https://wscats.github.io/angular-tutorial/angular控制器.html)|[Angular表达式](https://wscats.github.io/angular-tutorial/angular表达式.html)|
 |[Angular事件广播](https://wscats.github.io/angular-tutorial/angular事件广播.html)|[Angular基于$window的数据通信](https://wscats.github.io/angular-tutorial/angular基于$window的数据通信.html)|
 
-
-## 单页面应用
-| SPA DEMO |
+## 双向数据绑定
+| Controller |
 | --------- |
-|[Angular+Weui单页面应用DEMO-每日笑话](https://wscats.github.io/angular-tutorial/weui每日笑话.html)|
-
+|[Angular的$watch,$apply和$digest](https://wscats.github.io/angular-tutorial/angular的$watch,$apply和$digest.html)|
 
 ## 服务
 | Service | |
@@ -73,6 +71,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular内联编辑器](https://wscats.github.io/angular-tutorial/angularjs5examples/inline-editor/index.html)|[Angular即时搜索](https://wscats.github.io/angular-tutorial/angularjs5examples/instant-search/index.html)|
 |[Angular导航菜单](https://wscats.github.io/angular-tutorial/angularjs5examples/navigation-menu/index.html)|[Angular订单表单](https://wscats.github.io/angular-tutorial/angularjs5examples/order-form/index.html)|
 |[Angular切换网格](https://wscats.github.io/angular-tutorial/angularjs5examples/switchable-grid/index.html)|[Angular新闻＋WEUI DEMO](https://wscats.github.io/angular-tutorial/spa/news/index.html) [源码](https://github.com/Wscats/angular-tutorial/tree/gh-pages/spa/NodeServerAndApi-Weui-News)|
+|[Angular+Weui单页面应用DEMO-每日笑话](https://wscats.github.io/angular-tutorial/weui每日笑话.html)||
 
 ## 文档
 | Article | |
