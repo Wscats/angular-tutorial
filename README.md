@@ -22,6 +22,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | --------- | --------- |
 |[Angular自定义服务的常用方法](https://github.com/Wscats/angular-tutorial/blob/gh-pages/%E5%B8%B8%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9C%8D%E5%8A%A1%E6%96%B9%E6%B3%95.md)|[Angular部分服务demo](https://wscats.github.io/angular-tutorial/部分服务demo.html)|
 |[Angular自定义Canvas画图服务](https://wscats.github.io/angular-tutorial/Angular自定义Canvas画图服务.html)|[Angular自定义http服务 面向对象封装](https://wscats.github.io/angular-tutorial/自定义http服务.html)|
+|[Angular的provider方法配置服务](https://wscats.github.io/angular-tutorial/angular的provider配置服务.html)||
 
 ## 组件与指令
 | Directive | |
