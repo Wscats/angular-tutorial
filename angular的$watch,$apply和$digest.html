@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="test">
+			<div ng-controller="OuterCtrl" style="border: 1px solid red; padding: 20px">
+				<div ng-controller="InnerCtrl" style="border: 1px solid green; padding: 20px">
+					<button increaseb>increase b by $digest</button>
+					<span ng-bind="b"></span>
+				</div>
+				<button increasea>increase a by $apply</button>
+				<span ng-bind="a"></span>
+			</div>
+		</div>
+		<h4 style="color: red;">$watch</h4>
+		<p>
+			当我们写表达式{{Wscats}}时候，AngularJS在幕后会为你在scope模型上设置一个 watcher，它用来在数据发生变化的时候更新view
+		</p>
+		<p>
+			这里的 watcher和你会在 AngularJS中设置的watcher，如下面代码
+		</p>
+		<p>
+			$scope.$watch('Wscats', function(newValue, oldValue) {//update the DOM with newValue});
+		</p>
+		<h4 style="color: red;">$digest VS $apply</h4>
+		<p>
+			Angular为了要知道上面{{Wscats}}的变化，它会检测Wscats的$watch，当然如果模型很多值的$watch，它会周期性的运行一个函数来检查scope模型中的数据是否发生了变化
+			$digest就是触发这个周期运作的方法
+		</p>
+		<p>
+			最直接的差异是，$apply可以带参数，它可以接受一个函数，然后在应用数据之后，调用这个函数
+		</p>
+		<p>
+			$digest从当前的$scope开始访问$watch
+		</p>
+		<p>
+			$apply从$rootScope开始访问$watch
+		</p>
+		<p>
+			$scope.$apply()相当于$rootScope.$digest() 
+		</p>
+		<p>
+			Angular的内置ng指令就是自动帮我们完成完成每一轮的$digest，当我们用ng-click修改model数据的时候，$digest循环也会被触发，确保view也会被更新
+		</p>
+		<h4 style="color: red;">$scope.$apply(function(){}) VS $scope.$apply()</h4>
+		<p>
+			 $apply()方法有两种形式。第一种会接受一个function作为参数，执行该function并且触发一轮 $digest循环。第二种会不接受任何参数，只是触发一轮$digest循环。第一种形式更好，因为在触发$digest前可以执行多一步逻辑
+		</p>
+		<p>
+			因此，从性能上讲，如果能确定自己作的这个数据变更所造成的影响范围，应当尽量调用$digest，只有当无法精确知道数据变更造成的影响范围时，才去用$apply，很暴力地遍历整个作用域树，调用其中所有的监控。
+		</p>
+		<p>
+			从另外一个角度，我们也可以看到，为什么调用外部框架的时候，是推荐放在$apply中，因为只有这个地方才是对所有数据变更都应用的地方，如果用$digest，有可能临时丢失数据变更。
+		</p>
+	</body>
+	<script src=".js/angular.js"></script>
+	<script>
+		var app = angular.module("test", []);
+		app.directive("increasea", function() {
+			return function(scope, element, attr) {
+				element.on("click", function() {
+					scope.a++;
+					scope.$digest();
+				});
+			};
+		});
+		app.directive("increaseb", function() {
+			return function(scope, element, attr) {
+				element.on("click", function() {
+					scope.b++;
+					scope.$apply(); //这个换成$apply即可
+				});
+			};
+		});
+		app.controller("OuterCtrl", ["$scope", function($scope) {
+			$scope.a = 1;
+			$scope.$watch("a", function(newVal) {
+				console.log("a:" + newVal);
+			});
+			$scope.$on("test", function(evt) {
+				$scope.a++;
+			});
+		}]);
+
+		app.controller("InnerCtrl", ["$scope", function($scope) {
+			$scope.b = 2;
+			$scope.$watch("b", function(newVal) {
+				console.log("b:" + newVal);
+				$scope.$emit("test", newVal);
+			});
+		}]);
+	</script>
+</html>
