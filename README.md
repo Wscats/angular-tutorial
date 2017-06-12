@@ -1,4 +1,4 @@
-# Angular Demo code by Wsscat
+# Angular-tutorial code by Wsscat
 
 
 _:rabbit:angular的学习资料 These are about angular learning materials, hoping to help you :snowman:关于angular的常用知识点，DEMO和总结，不定时更新，欢迎fork和star On the common knowledge of angular, DEMO and summary, not regular updates, you can fork and star_
@@ -1082,22 +1082,22 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 }]);
 ```
-主路由，路由地址为__#/main__
-```
+主路由，路由地址为#/main
+```javascript
 app.controller('mainCtrl', function($scope) {
      $scope.name = 'Wscats';
 })
 ```
 
-main路由下的子路由，路由地址为__#/main/pageMain1__
+main路由下的子路由，路由地址为#/main/pageMain1
 
-```
+```javascript
 app.controller('pageMain1Ctrl',function($scope){
      $scope.name = 'Oaoafly'
 })
 ```
 ### 嵌套路由
-此时我们就可以在__main.html__上放第二个`ui-view`这里比原生好的地方在于可以嵌套路由
+此时我们就可以在main.html上放第二个`ui-view`这里比原生好的地方在于可以嵌套路由
 main.html
 ```html
 <!--main-->
@@ -1105,7 +1105,7 @@ main.html
 <div ui-view></div>
 ```
 pageMain1.html
-```
+```html
 <!--pageMain1-->
 {{name}}
 ```
@@ -1113,7 +1113,7 @@ pageMain1.html
 ### 路由传参
 
 我们在生成一个新的子控制器
-```
+```javascript
 .state('main.b', {
        url: '/pageMain2/:id',
        templateUrl: 'views/pageMain2.html',
@@ -1122,12 +1122,12 @@ pageMain1.html
 ```
 
 留意我们在url定义的路由中多了个`:id`，这样我们就可以在控制器之间传递参数
-```
+```javascript
 url: '/pageMain2/:id'
 ```
 在控制器中我们注入$state服务
 
-```
+```javascript
 app.controller('pageMain2Ctrl', function($scope, $state) {
 	$scope.name = 'Hello Wscats Oaoafly'
 	console.log($state.params);
@@ -1140,14 +1140,14 @@ app.controller('pageMain2Ctrl', function($scope, $state) {
 ### 一个视图多个ui-view
 
 当一个视图拥有多个ui-view,例如下面这样，平时我们一般一个视图只有一个`ui-view`的情况
-```
+```html
 <div ui-view name="first"></div>
 <div ui-view name="second"></div>
 ```
 
 当拥有多个这样的`ui-view`我们就要加上**name**属性，并绑定它到路由配置中的views属性，让子视图决定渲染到哪一个`ui-view`里面
 
-```
+```javascript
 .state('main.a', {
 	url: '/pageMain1',
 	views: {
