@@ -1267,3 +1267,10 @@ module.config(['$routeProvider', function($routeProvider) {
 		});
 }]);
 ```
+
+## 登录注册逻辑
+
+1. 首先获取用户输入的用户名和密码(ng-model->$scope)
+2. 根据后端给我们提供的接口,把用户输入的信息提交到服务器($http,post)
+3. 用ng-cookie保存后端给我们的token
+4. 判断是否登录状态(自动登录),我们就把token提交服务器作为验证,如果验证成功则继续逻辑,如果失败则返回登录注册页面
