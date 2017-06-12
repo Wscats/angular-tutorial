@@ -1193,8 +1193,9 @@ angular.module('helloWscatsApp',['ngRoute'])
 ```
 
 **$routeProvider**
+
 两个核心方法`when()`和`otherwise()`
-|||
+|配置参数|用法|
 |-|-|
 |controller|function或string类型。在当前模板上执行的controller函数，生成新的scope|
 |controllerAs|string类型，为controller指定别名|
@@ -1220,5 +1221,4 @@ module.config(['$routeProvider', function($routeProvider) {
 			redirectTo: '/'
 		});
 }]);
-```
 ```
