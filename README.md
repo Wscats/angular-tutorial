@@ -1137,6 +1137,27 @@ app.controller('pageMain2Ctrl', function($scope, $state) {
 用`$state.params`就可以访问到路由上的参数
 例如我们输入#/main/pageMain2/1，就会返回一个对象`Object {id: "1"}`
 
+### 页面之间通信数据
+### 路由之间通信数据
+>不同页面之前的控制器之间通信数据
+
+在url上传递和接受（拼接参数到url上，然后用$loacion.search()接受）
+思路就如同在路由上配置以下代码
+```javascript
+.state('page2',{
+	url:'/page2/:id/:name',//参数用:params的形式，多个参数的话用/隔开
+	templateUrl:'template/page2.html',
+	controller:'page2Ctrl'
+})
+```
+然后在控制器中用$state服务接受
+```javascript
+app.controller("page2Ctrl",function($state){
+	$state.params.id
+	$state.params.name
+})
+```
+
 ### 一个视图多个ui-view
 
 当一个视图拥有多个ui-view,例如下面这样，平时我们一般一个视图只有一个`ui-view`的情况
@@ -1175,15 +1196,16 @@ app.controller('pageMain2Ctrl', function($scope, $state) {
 })
 ```
 **ng路由**
+1.下载ng路由文件
 
-1.加载ng路由模块，引入angular.js之后
+引入angular-route.js到项目中,放在angular.js之后,然后在代码里面引入`ngRoute`模块
 
 ```html
 <script type="text/javascript" src="../js/angular.js"></script>
 <script type="text/javascript" src="../js/angular-route.js"></script>
 ```
 
-2.包含了 ngRoute 模块作为主应用模块的依赖模块
+2.包含了`ngRoute`模块作为主应用模块的依赖模块
 ```javascript
 angular.module('helloWscatsApp',['ngRoute'])
 ```
@@ -1191,6 +1213,11 @@ angular.module('helloWscatsApp',['ngRoute'])
 3.使用`ngView`指令
 ```javascript
 <div ng-view></div>
+```
+
+4. 打开浏览器，定位到需要呈现路由所在的页面，我们在url基础上加`#!/路由的名字`
+```javascript
+url + #!/路由的名字
 ```
 
 **$routeProvider**
