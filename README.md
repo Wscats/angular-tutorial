@@ -1045,3 +1045,133 @@ app.filter("过滤器名字",function("服务")){
 }
 ```
 [Angular自定义关键词检索过滤器](https://wscats.github.io/angular-tutorial/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%B3%E9%94%AE%E8%AF%8D%E6%A3%80%E7%B4%A2%E8%BF%87%E6%BB%A4%E5%99%A8(%E7%AE%80%E7%89%88).html)
+
+## 路由
+
+**UI路由**
+### 引入JS文件
+开始引入angular和ui-route的js文件
+```javascript
+<script type="text/javascript" src="angular.js" ></script>
+<script type="text/javascript" src="angular-ui-router.js"></script>
+```
+与原生angular路由不同的是，ui路由用**ui-view**而不是**ng-view**
+```javascript
+<div ui-view></div>
+```
+在angular服务中注入**ui.router**模块
+```javascript
+var app = angular.module('wscats', ['ui.router']);
+```
+### 配置路由
+用到**$stateProvider**和**$urlRouterProvider**两个服务
+```javascript
+/* 注入$stateProvider，$urlRouterProvider */
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+	/* 使用when来对一些不合法的路由进行重定向 */
+	$urlRouterProvider.when('', '/main');
+	/* 通过$stateProvider的state()函数来进行路由定义 */
+	$stateProvider.state('main', {
+		url: '/main',
+		templateUrl: 'views/main.html',
+		controller: 'mainCtrl'
+	}).state('main.a', {
+		url: '/pageMain1',
+		templateUrl: 'views/pageMain1.html',
+		controller: 'pageMain1Ctrl'
+	})
+}]);
+```
+主路由，路由地址为_#/main_
+```
+app.controller('mainCtrl', function($scope) {
+     $scope.name = 'Wscats';
+})
+```
+
+main路由下的子路由，路由地址为_#/main/pageMain1_
+
+```
+app.controller('pageMain1Ctrl',function($scope){
+     $scope.name = 'Oaoafly'
+})
+```
+### 嵌套路由
+此时我们就可以在_main.html_上放第二个`ui-view`这里比原生好的地方在于可以嵌套路由
+main.html
+```html
+<!--main-->
+{{name}}
+<div ui-view></div>
+```
+pageMain1.html
+```
+<!--pageMain1-->
+{{name}}
+```
+
+### 路由传参
+
+我们在生成一个新的子控制器
+```
+.state('main.b', {
+       url: '/pageMain2/:id',
+       templateUrl: 'views/pageMain2.html',
+       controller: 'pageMain2Ctrl'
+})
+```
+
+留意我们在url定义的路由中多了个`:id`，这样我们就可以在控制器之间传递参数
+```
+url: '/pageMain2/:id'
+```
+在控制器中我们注入$state服务
+
+```
+app.controller('pageMain2Ctrl', function($scope, $state) {
+	$scope.name = 'Hello Wscats Oaoafly'
+	console.log($state.params);
+})
+```
+
+用`$state.params`就可以访问到路由上的参数
+例如我们输入#/main/pageMain2/1，就会返回一个对象`Object {id: "1"}`
+
+### 一个视图多个ui-view
+
+当一个视图拥有多个ui-view,例如下面这样，平时我们一般一个视图只有一个`ui-view`的情况
+```
+<div ui-view name="first"></div>
+<div ui-view name="second"></div>
+```
+
+当拥有多个这样的`ui-view`我们就要加上**name**属性，并绑定它到路由配置中的views属性，让子视图决定渲染到哪一个`ui-view`里面
+
+```
+.state('main.a', {
+	url: '/pageMain1',
+	views: {
+		"first": {
+			templateUrl: 'views/pageMain1.html',
+			controller: 'pageMain1Ctrl'
+		}
+	}
+}).state('main.b', {
+	url: '/pageMain2/:id',
+	views: {
+		"first": {
+			templateUrl: 'views/pageMain2.html',
+			controller: 'pageMain2Ctrl'
+		}
+	}
+}).state('main.c', {
+	url: '/pageMain3/:id',
+	views: {
+		"second": {
+			templateUrl: 'views/pageMain3.html',
+			controller: 'pageMain3Ctrl'
+		}
+	}
+})
+```
+
