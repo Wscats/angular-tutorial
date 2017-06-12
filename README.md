@@ -1082,14 +1082,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 }]);
 ```
-主路由，路由地址为_#/main_
+主路由，路由地址为__#/main__
 ```
 app.controller('mainCtrl', function($scope) {
      $scope.name = 'Wscats';
 })
 ```
 
-main路由下的子路由，路由地址为_#/main/pageMain1_
+main路由下的子路由，路由地址为__#/main/pageMain1__
 
 ```
 app.controller('pageMain1Ctrl',function($scope){
@@ -1097,7 +1097,7 @@ app.controller('pageMain1Ctrl',function($scope){
 })
 ```
 ### 嵌套路由
-此时我们就可以在_main.html_上放第二个`ui-view`这里比原生好的地方在于可以嵌套路由
+此时我们就可以在__main.html__上放第二个`ui-view`这里比原生好的地方在于可以嵌套路由
 main.html
 ```html
 <!--main-->
