@@ -1175,6 +1175,7 @@ app.controller('pageMain2Ctrl', function($scope, $state) {
 })
 ```
 **ng路由**
+
 1.加载ng路由模块，引入angular.js之后
 
 ```html
@@ -1195,14 +1196,16 @@ angular.module('helloWscatsApp',['ngRoute'])
 **$routeProvider**
 
 两个核心方法`when()`和`otherwise()`
+
 |配置参数|用法|
-|-|-|
+| - | - |
 |controller|function或string类型。在当前模板上执行的controller函数，生成新的scope|
 |controllerAs|string类型，为controller指定别名|
 |template|string或function类型，视图所用的模板，这部分内容将被ngView引用|
 |templateUrl|string或function类型，当视图模板为单独的html文件或是使用了`<script type="text/ng-template">`定义模板时使用|
 |resolve|指定当前controller所依赖的其他模块|
 |redirectTo|重定向的地址|
+
 
 可以使用`$routeProvider`用来定义路由规则
 ```javascript
