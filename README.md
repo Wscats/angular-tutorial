@@ -1046,9 +1046,22 @@ app.filter("过滤器名字",function("服务")){
 ```
 [Angular自定义关键词检索过滤器](https://wscats.github.io/angular-tutorial/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%B3%E9%94%AE%E8%AF%8D%E6%A3%80%E7%B4%A2%E8%BF%87%E6%BB%A4%E5%99%A8(%E7%AE%80%E7%89%88).html)
 
+## 表单验证
+
+|value|value|
+|-|-|
+|$dirty|表单有填写记录|
+|$valid|字段内容合法的|
+|$invalid|字段内容是非法的|
+|$pristine|表单没有填写记录|
+|$error.required|值是必须的|
+
+[参考Angular表单验证DEMO](https://wscats.github.io/angular-tutorial/angular%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81.html)
+
 ## 路由
 
-**UI路由**
+### UI路由
+
 ### 引入JS文件
 开始引入angular和ui-route的js文件
 ```javascript
@@ -1139,6 +1152,7 @@ app.controller('pageMain2Ctrl', function($scope, $state) {
 
 ### 页面之间通信数据
 ### 路由之间通信数据
+
 >不同页面之前的控制器之间通信数据
 
 在url上传递和接受（拼接参数到url上，然后用$loacion.search()接受）
@@ -1195,7 +1209,8 @@ app.controller("page2Ctrl",function($state){
 	}
 })
 ```
-**ng路由**
+### ng路由
+
 1.下载ng路由文件
 
 引入angular-route.js到项目中,放在angular.js之后,然后在代码里面引入`ngRoute`模块
