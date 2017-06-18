@@ -93,7 +93,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular的ng-repeat嵌套](https://wscats.github.io/angular-tutorial/ng-repeat嵌套.html)|[NodeJs静态服务器](https://github.com/Wscats/angular-tutorial/tree/gh-pages/diyNodeServer)|
 |[Angular利用angular.module()实现模块化2](https://wscats.github.io/angular-tutorial/angular模块化2.html)|[Angular+Webpack](https://github.com/Wscats/angular-tutorial/tree/gh-pages/angular%2Bwebpack)|
 |[Angular中使用iframe](https://wscats.github.io/angular-tutorial/iframesdemo.html)|[百度定位DEMO](https://wscats.github.io/angular-tutorial/百度地图定位DEMO.html)|
-|[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-tutorial/ngCookie.html)|[Angular调用百度API接口实现公交线路查询](https://wscats.github.io/angular-tutorial/angular调用百度API接口实现公交线路查询.html)|
+|[Angular自定义cookie服务和ngCookie的使用](https://wscats.github.io/angular-tutorial/ngCookie.html)|[Angular调用百度API接口实现公交路线查询](https://wscats.github.io/angular-tutorial/angular调用百度API接口实现公交路线查询.html)|
 |[Angular调用百度API接口实现公交号查询](https://wscats.github.io/angular-tutorial/angular调用百度API接口实现公交号查询.html)||
 
 ## JS基础
