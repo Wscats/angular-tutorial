@@ -49,12 +49,13 @@
 				<div class="swiper-slide" ng-repeat="n in news" have-load="haveLoad()">{{n}}</div>
 			</div>
 		</div>
+		<swipered></swipered>
 	</body>
 	<script>
 		var app = angular.module('wsscat', []);
 		app.controller('indexCtrl', function($scope) {
 			$scope.news = ['wscats', 'autumns', 'hello'];
-			$scope.haveLoad = function(){
+			$scope.haveLoad = function() {
 				var swiper = new Swiper('.swiper-container');
 			}
 		})
@@ -79,6 +80,23 @@
 				}
 			};
 		});
+
+		app.directive('swipered', function() {
+			return {
+				template: '<div class="swiper-container">' +
+					'<div class="swiper-wrapper">' +
+					'<div class="swiper-slide" ng-repeat="n in news">{{n}}</div>' +
+					'</div>' +
+					'</div>',
+				link: function(scope, elm, attr) {
+					var swiper = new Swiper('.swiper-container', {
+						observer: true, //修改swiper自己或子元素时，自动初始化swiper
+						observeParents: true, //修改swiper的父元素时，自动初始化swiper
+					});
+				}
+			};
+		});
+
 		//第二种写法，把逻辑交给控制器，封装一个监听swiper是否已经完全渲染的组件
 		app.directive('haveLoad', function($window) {
 			return {
