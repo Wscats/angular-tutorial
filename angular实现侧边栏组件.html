@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="ngApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/*全局样式*/
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.left-button {
+			float: right;
+		}
+	</style>
+
+	<body ng-controller="indexCtrl">
+		<side-bar>
+			<!--transclude的插槽-->
+			<p>点击按钮滑动侧边栏</p>
+		</side-bar>
+		<button class="left-button" ng-click="directionTo('left')">left</button>
+		<button class="left-button" ng-click="directionTo('right')">right</button>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app = angular.module("ngApp", []);
+		app.controller("indexCtrl", function($scope) {
+			$scope.directionTo = function(direction) {
+				//通过事件广播，先把事件上传到父作用域
+				$scope.$emit("sidebar-move-left", direction)
+			}
+		})
+		app.directive("sideBar", function($rootScope) {
+			return {
+				template: `
+					<div ng-transclude class="nav-content" ng-class="{'sidebar-move-left':direction=='left','sidebar-move-right':direction=='right'}">
+					</div>
+					<style>
+					/*组件的样式*/
+					/*向左滑动的动画*/
+					@keyframes moveLeft {
+						from {}
+						to {
+							transform: translateX(-200px);
+						}
+					}
+					
+					.sidebar-move-left {
+						animation: moveLeft;
+						/*持续时间*/
+						animation-duration: 1s;
+						/*动画播放次数*/
+						animation-iteration-count: 1;
+						/*执行方向，动画执行结束时保持在它结束时的状态*/
+						animation-fill-mode: forwards;
+					}
+					/*向右边滑动的动画*/
+					
+					@keyframes moveRight {
+						from {
+							transform: translateX(-200px);
+						}
+						to {}
+					}
+					
+					.sidebar-move-right {
+						animation: moveRight;
+						/*持续时间*/
+						animation-duration: 1s;
+						/*动画播放次数*/
+						animation-iteration-count: 1;
+						/*执行方向，动画执行结束时保持在它结束时的状态*/
+						animation-fill-mode: forwards;
+					}
+					
+					.nav-content {
+						width: 200px;
+						position: fixed;
+						min-height: 100%;
+						background-color: #e1e1e1;
+						/*调试代码时经常使用border，帮我们定位到div的一个区域*/
+						/*border: 1px solid black;*/
+						z-index: 99;
+						/*使用透明度为0来隐藏元素*/
+						opacity: 1;
+					}
+					</style>
+				`,
+				//组件内部封闭的作用域，通信外部借助事件广播
+				scope: {},
+				transclude: true,
+				link: function(scope, ele, attr) {
+					//监听父作用域的事件广播，然后触发对应的动画
+					$rootScope.$on("sidebar-move-left", function(err, data) {
+						console.log(data)
+						scope.direction = data
+					})
+				}
+			}
+		})
+	</script>
+</html>
