@@ -30,7 +30,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[Angular内置指令](https://wscats.github.io/angular-tutorial/Angular内置指令.html)|[Angular自定义点击返回顶部指令](https://wscats.github.io/angular-tutorial/angular自定义点击返回顶部指令.html)|
 |[Angular实现选项卡(1)](https://wscats.github.io/angular-tutorial/angular实现选项卡.html)|[Angular实现选项卡(2)](https://wscats.github.io/angular-tutorial/angular实现选项卡2.html)|
 |[Angular封装swiper轮播图](https://wscats.github.io/angular-tutorial/angular封装swiper轮播图组件.html)|[Angular中使用ng-switch](https://wscats.github.io/angular-tutorial/ngSwitch.html)|
-|[Angular的ng-transclude](https://wscats.github.io/angular-tutorial/angular的ng-transclude.html)||
+|[Angular的ng-transclude](https://wscats.github.io/angular-tutorial/angular的ng-transclude.html)|[Angular侧边栏组件](https://wscats.github.io/angular-tutorial/angular实现侧边栏组件.html)|
 
 | Component | |
 | --------- | --------- |
