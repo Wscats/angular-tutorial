@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>一般浮动是什么情况呢？一般是一个盒子里使用了CSS float浮动属性，导致父级对象盒子不能被撑开，这样CSS float浮动就产生了</p>
+		<p>
+			1、对父级设置适合CSS高度 对父级设置适合高度样式清除浮动，这里对".area"设置一定高度即可，一般设置高度需要能确定内容高度才能设置。这里我们知道内容高度是300px，这样具体父级高度为300px
+		</p>
+		<p>
+			2、clear:both清除浮动 为了统一样式，我们新建一个样式选择器CSS命名为“.clearfix”，并且对应选择器样式为“clear:both”，然后我们在父级"</div>"结束前加此div引入"class="clearfix""样式，这样即可清除浮动
+		</p>
+		<p>
+			3、父级div定义overflow:hidden对父级CSS选择器加overflow:hidden样式，可以清除父级内使用float产生浮动。优点是可以很少CSS代码即可解决浮动产生，为什么加入overflow:hidden即可清除浮动呢？那是因为overflow:hidden属性相当于是让父级紧贴内容，这样即可紧贴其对象内内容（包括使用float的div盒子），从而实现了清除浮动
+		</p>
+		<p>推荐第三点和第二点解决清除浮动方法</p>
+		<div class="area">
+			<div class="leftarea">
+			</div>
+			<div class="rightarea">
+			</div>
+			<!--第二种方法 清除浮动-->
+			<div class="clearfix"></div>
+		</div>
+	</body>
+	<style>
+		.area {
+			background-color: green;
+			height: auto;
+			border: 2px solid;
+			margin: auto;
+			/*第一种方法 给父类高度*/
+			/*height: 300px;*/
+			/*第三种方法*/
+			/*overflow:hidden*/
+		}
+		
+		.rightarea {
+			float: left;
+			width: 30%;
+			height: 300px;
+			background-color: red;
+		}
+		
+		.leftarea {
+			float: left;
+			width: 30%;
+			height: 300px;
+			background-color: yellow;
+		}
+		
+		.clearfix:befor,
+		.clearfix:after {
+			content: '';
+			display: block;
+		}
+		
+		.clearfix {
+			/*清除浮动*/
+			clear: both;
+		}
+	</style>
+
+</html>
