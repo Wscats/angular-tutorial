@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+		<title>Wsscat的flex布局DEMO</title>
+	</head>
+	<style>
+		/*display: box; 是 2009版本. display: flex;是2011修订版*/
+		/*初始化*/
+		
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		/*设置了box属性 321*/
+		
+		.article1 {
+			width: 600px;
+			height: 200px;
+			display: -moz-box;
+			display: -webkit-box;
+			display: box;
+		}
+		
+		.sectionOne {
+			background: orange;
+			-moz-box-flex: 3;
+			-webkit-box-flex: 3;
+			box-flex: 3;
+		}
+		
+		.sectionTwo {
+			background: purple;
+			-moz-box-flex: 2;
+			-webkit-box-flex: 2;
+			box-flex: 2;
+		}
+		
+		.sectionThree {
+			-moz-box-flex: 1;
+			-webkit-box-flex: 1;
+			box-flex: 1;
+			background: green;
+		}
+		/*不设置flex属性*/
+		
+		.article2 section:nth-of-type(1) {
+			background: orange;
+			/*因为父元素没有设置 display: box;属性，所以不生效
+			 在这里就白白设置了
+			 * */
+			-moz-box-flex: 2;
+			-webkit-box-flex: 2;
+			box-flex: 2;
+		}
+		
+		.article2 section:nth-of-type(2) {
+			background: purple;
+		}
+		
+		.article2 section:nth-of-type(3) {
+			background: green;
+		}
+		/*设置的flex属性 321*/
+		
+		.article3 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+		}
+		
+		.article3 section:nth-of-type(1) {
+			background: orange;
+			flex: 3;
+		}
+		
+		.article3 section:nth-of-type(2) {
+			background: purple;
+			flex: 2;
+		}
+		
+		.article3 section:nth-of-type(3) {
+			background: green;
+			flex: 1;
+		}
+		/*用百分比*/
+		
+		.article4 {
+			width: 600px;
+			height: 200px;
+			float: left;
+		}
+		
+		.article4 section:nth-of-type(1) {
+			height: 200px;
+			background: orange;
+			/*3:6*/
+			width: 50%;
+			float: left;
+		}
+		
+		.article4 section:nth-of-type(2) {
+			height: 200px;
+			background: purple;
+			/*2:6*/
+			width: 33.3%;
+			float: left;
+		}
+		
+		.article4 section:nth-of-type(3) {
+			height: 200px;
+			background: green;
+			/*1:6*/
+			width: 16.6%;
+			float: left;
+		}
+		
+		.article5 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+		}
+		
+		.article5 section:nth-of-type(1) {
+			background: orange;
+			width: 50%;
+			/*变成了42.9%*/
+		}
+		
+		.article5 section:nth-of-type(2) {
+			background: purple;
+			width: 33.3%;
+			/*变成了28.56*/
+		}
+		
+		.article5 section:nth-of-type(3) {
+			background: green;
+			width: 33.3%;
+			/*变成了28.56*/
+			/*超出了16.6%*/
+			/*然后对超出的这16.6做一个分配;*/
+			/*16.6*(50%/116%) = 7.1;*/
+			/*16.6*(33.3%/116%) = 4.74;*/
+		}
+		
+		.article6 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: row-reverse;
+		}
+		
+		.article6 section:nth-of-type(1) {
+			background: orange;
+			flex: 3;
+		}
+		
+		.article6 section:nth-of-type(2) {
+			background: purple;
+			flex: 2;
+		}
+		
+		.article6 section:nth-of-type(3) {
+			background: green;
+			flex: 1;
+		}
+		
+		.article7 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.article7 section:nth-of-type(1) {
+			background: orange;
+			flex: 3;
+		}
+		
+		.article7 section:nth-of-type(2) {
+			background: purple;
+			flex: 2;
+		}
+		
+		.article7 section:nth-of-type(3) {
+			background: green;
+			flex: 1;
+		}
+		
+		.article8 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		
+		.article8 section:nth-of-type(1) {
+			background: orange;
+			flex: 3;
+		}
+		
+		.article8 section:nth-of-type(2) {
+			background: purple;
+			flex: 2;
+		}
+		
+		.article8 section:nth-of-type(3) {
+			background: green;
+			flex: 1;
+		}
+		
+		.article9 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+		.article9 section:nth-of-type(1) {
+			background: orange;
+			width: 300px;
+		}
+		
+		.article9 section:nth-of-type(2) {
+			background: purple;
+			width: 200px;
+		}
+		
+		.article9 section:nth-of-type(3) {
+			background: green;
+			width: 200px;
+		}
+		
+		.article10 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-wrap: wrap-reverse;
+		}
+		
+		.article10 section:nth-of-type(1) {
+			background: orange;
+			width: 300px;
+		}
+		
+		.article10 section:nth-of-type(2) {
+			background: purple;
+			width: 200px;
+		}
+		
+		.article10 section:nth-of-type(3) {
+			background: green;
+			width: 200px;
+		}
+		
+		.article11 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-flow: column wrap-reverse;
+		}
+		
+		.article11 section:nth-of-type(1) {
+			background: orange;
+			flex: 3;
+		}
+		
+		.article11 section:nth-of-type(2) {
+			background: purple;
+			flex: 2;
+		}
+		
+		.article11 section:nth-of-type(3) {
+			background: green;
+			flex: 1;
+		}
+		
+		.article12 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			justify-content: flex-end;
+		}
+		
+		.article12 section:nth-of-type(1) {
+			background: orange;
+			width: 100px;
+		}
+		
+		.article12 section:nth-of-type(2) {
+			background: purple;
+			width: 100px;
+		}
+		
+		.article12 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+		}
+		
+		.article13 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			justify-content: center;
+		}
+		
+		.article13 section:nth-of-type(1) {
+			background: orange;
+			width: 100px;
+		}
+		
+		.article13 section:nth-of-type(2) {
+			background: purple;
+			width: 100px;
+		}
+		
+		.article13 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+		}
+		
+		.article14 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.article14 section:nth-of-type(1) {
+			background: orange;
+			width: 100px;
+		}
+		
+		.article14 section:nth-of-type(2) {
+			background: purple;
+			width: 100px;
+		}
+		
+		.article14 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+		}
+		
+		.article15 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			justify-content: space-around;
+		}
+		
+		.article15 section:nth-of-type(1) {
+			background: orange;
+			width: 100px;
+		}
+		
+		.article15 section:nth-of-type(2) {
+			background: purple;
+			width: 100px;
+		}
+		
+		.article15 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+		}
+		
+		.article16 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: center;
+			background-color: #D7D7D7;
+		}
+		
+		.article16 section:nth-of-type(1) {
+			background: orange;
+			width: 300px;
+			height: 50px;
+		}
+		
+		.article16 section:nth-of-type(2) {
+			background: purple;
+			width: 200px;
+			height: 50px;
+		}
+		
+		.article16 section:nth-of-type(3) {
+			background: green;
+			width: 200px;
+			height: 50px;
+		}
+		
+		.article17 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			align-items:flex-end;
+			background-color: #D7D7D7;
+		}
+		
+		.article17 section:nth-of-type(1) {
+			background: orange;
+			width: 300px;
+			height: 50px;
+		}
+		
+		.article17 section:nth-of-type(2) {
+			background: purple;
+			width: 200px;
+			height: 50px;
+		}
+		
+		.article17 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+			height: 50px;
+		}
+		
+		.article18 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			align-items:center;
+			background-color: #D7D7D7;
+		}
+		
+		.article18 section:nth-of-type(1) {
+			background: orange;
+			width: 300px;
+			height: 50px;
+		}
+		
+		.article18 section:nth-of-type(2) {
+			background: purple;
+			width: 200px;
+			height: 50px;
+		}
+		
+		.article18 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+			height: 50px;
+		}
+		
+		.article19 {
+			width: 600px;
+			height: 200px;
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: flex;
+			background-color: #D7D7D7;
+		}
+		
+		.article19 section:nth-of-type(1) {
+			background: orange;
+			width: 300px;
+			height: 50px;
+			align-self:center;
+		}
+		
+		.article19 section:nth-of-type(2) {
+			background: purple;
+			width: 200px;
+			height: 50px;
+			align-self:flex-end;
+		}
+		
+		.article19 section:nth-of-type(3) {
+			background: green;
+			width: 100px;
+			height: 50px;
+			align-self:flex-start;
+		}
+	</style>
+
+	<body>
+		<!--设置display: box;-->
+		<p>设置display: box</p>
+		<article class="article1">
+			<section class="sectionOne">1</section>
+			<section class="sectionTwo">2</section>
+			<section class="sectionThree">3</section>
+		</article>
+
+		<!--不设置 display: box;-->
+		<p>不设置 display: box;</p>
+		<article class="article2">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<!--设置display: flex;-->
+		<p>设置display: flex;</p>
+		<article class="article3">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<!--用百分比-->
+		<p>用百分比</p>
+		<p>细心的会发现我们右边还有大概0.01%的宽度没有填充（由于是100不能完全等分三分），这就是使用百分比不好的一种表现</p>
+		<article class="article4">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<!--用百分比结合flex-->
+		<p style="float: left;">用百分比结合flex(溢出情况)</p>
+		<p>事实上这里可以不对父元素写display:flex</p>
+		<article class="article5">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;它默认是flex-direction:row，现在设置成flex-direction:row-reverse</p>
+		<article class="article6">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;它默认是flex-direction:row，现在设置成flex-direction:column</p>
+		<article class="article7">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;它默认是flex-direction:row，现在设置成flex-direction:column-reverse</p>
+		<article class="article8">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;固定值溢出的情况;它默认是flex-wrap:nowrap，现在设置成wrap</p>
+		<article class="article9">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;固定值溢出的情况;它默认是flex-wrap:nowrap，现在设置成wrap-reverse</p>
+		<article class="article10">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;固定值溢出的情况;它默认是flex-flow:row nowrap，其实就是flex-direction和flex-wrap合并在一起写，现在设置成colum wrap-reverse</p>
+		<article class="article11">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;不溢出的情况;它默认是justify-content:flex-start,现在设置成justify-content:flex-end</p>
+		<article class="article12">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;不溢出的情况;它默认是justify-content:flex-start,现在设置成justify-content:center</p>
+		<article class="article13">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;不溢出的情况;它默认是justify-content:flex-start,现在设置成justify-content:space-between</p>
+		<article class="article14">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;不溢出的情况;它默认是justify-content:flex-start,现在设置成justify-content:space-around</p>
+		<article class="article15">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+
+		<p>设置display: flex;宽度溢出的情况;高度不溢出并上下有空余部分;它默认是align-content:flex-start,现在设置成align-content:flex-start;注意：这属性在只有一行的伸缩容器上没有效果</p>
+		<article class="article16">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		
+		<p>设置display: flex;宽度不溢出的情况;高度不溢出并上下有空余部分;它默认是align-items:flex-start,现在设置成align-items:flex-end;注意：这属性在一行的伸缩容器上是有效果的</p>
+		<article class="article17">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		
+		<p>设置display: flex;宽度不溢出的情况;高度不溢出并上下有空余部分;它默认是align-items:flex-start,现在设置成align-items:center;注意：这属性在一行的伸缩容器上是有效果的</p>
+		<article class="article18">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+		
+		<p>定义flex子项单独在侧轴（纵轴）方向上的对齐方式,意思就是之前我们定义的位置都是针对父元素article来写定位样式，但align-self却可以对子元素section进行单独的定位</p>
+		<article class="article19">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+		</article>
+	</body>
+
+</html>
