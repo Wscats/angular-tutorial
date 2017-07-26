@@ -112,6 +112,11 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 |[video和audio标签Demo](https://wscats.github.io/angular-tutorial/h5+css3/video/video&&audio标签.html)|[canvas烟花效果](https://wscats.github.io/angular-tutorial/canvas烟花效果2.html)|
 |[canvas烟花效果汇总](https://wscats.github.io/angular-tutorial/canvas烟花效果汇总.html)||
 
+## CSS基础
+| CSS基础 | |
+| --------- | --------- |
+|[css浮动](https://wscats.github.io/angular-tutorial/h5+css3/video/css浮动问题.html)||
+
 
 ## Install
 angular版本1.0是在 2012年发布的。
