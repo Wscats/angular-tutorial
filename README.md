@@ -115,7 +115,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 ## CSS基础
 | CSS基础 | |
 | --------- | --------- |
-|[css浮动](https://wscats.github.io/angular-tutorial/h5+css3/video/css浮动问题.html)||
+|[css浮动](https://wscats.github.io/angular-tutorial/h5+css3/video/css浮动问题.html)|[flex布局](https://wscats.github.io/angular-tutorial/h5+css3/video/flex布局.html)|
 
 
 ## Install
