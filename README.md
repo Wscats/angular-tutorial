@@ -9,6 +9,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | --------- | --------- |
 |[Angular控制器](https://wscats.github.io/angular-tutorial/angular控制器.html)|[Angular表达式](https://wscats.github.io/angular-tutorial/angular表达式.html)|
 |[Angular事件广播](https://wscats.github.io/angular-tutorial/angular事件广播.html)|[Angular基于$window的数据通信](https://wscats.github.io/angular-tutorial/angular基于$window的数据通信.html)|
+|[Angular表达式执行函数](https://wscats.github.io/angular-tutorial/Angular表达式执行方法.html)||
 
 ## 双向数据绑定
 | bi-directional data binding |
