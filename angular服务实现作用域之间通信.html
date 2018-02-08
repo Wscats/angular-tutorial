@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body ng-app="ngapp">
+		<div>
+			<div style="border: 1px solid red; padding: 10px;" ng-controller="indexCtrl">
+				<p style="color: red;">scope1</p>
+				<input ng-model="name" />
+				<p>{{name}}</p>
+			</div>
+			<br />
+			<div style="border: 1px solid blue; padding: 10px;" ng-controller="homeCtrl">
+				<p style="color: blue;">scope2</p>
+				<p>{{tool.state}}</p>
+			</div>
+
+		</div>
+		<script src="/js/angular.js"></script>
+		<script>
+			var app = angular.module("ngapp", []);
+			app.controller("indexCtrl", function($scope, tool) {
+				$scope.name = "wscats"
+				$scope.$watch('name', function() {
+					tool.state = $scope.name
+				})
+			})
+			app.controller("homeCtrl", function($scope, tool) {
+				$scope.tool = tool
+			})
+			//构造式
+			app.service("tool", function() {
+				this.state = 2
+			})
+		</script>
+	</body>
+
+</html>
