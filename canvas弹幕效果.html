@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<input id="content" />
+		<button id="send">发送</button>
+		<button id="clear">清空</button>
+		<script type="text/javascript">
+			//生成一个画布的标签
+			var canvas = document.createElement("canvas");
+			canvas.width = window.innerWidth - 50;
+			canvas.height = window.innerHeight - 50;
+			canvas.style.backgroundColor = "#FFFFFF";
+
+			document.body.appendChild(canvas);
+			//制造二维空间
+			var ctx = canvas.getContext("2d");
+
+			function makeDanMu(content) {
+				this.x = window.innerWidth - 50;
+				this.y = Math.random() * window.innerHeight - 50;
+				this.xVal = 3;
+				this.content = content || "";
+				this.move = function() {
+					this.x = this.x - this.xVal;
+					ctx.font = "40px Arial";
+					ctx.fillText(this.content, this.x, this.y);
+					ctx.stroke();
+				}
+			}
+
+			var arr = [];
+			setInterval(function() {
+				ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+				for(var i = 0; i < arr.length; i++) {
+					arr[i].move();
+				}
+			}, 10)
+
+			document.getElementById("send").onclick = function() {
+				var content = document.getElementById("content").value;
+				var DM = new makeDanMu(content);
+				arr.push(DM);
+			}
+
+			document.getElementById("clear").onclick = function() {
+				arr.length = 0;
+			}
+		</script>
+	</body>
+
+</html>
