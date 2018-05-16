@@ -111,7 +111,7 @@ _:rabbit:angular的学习资料 These are about angular learning materials, hopi
 | HTML基础 | |
 | --------- | --------- |
 |[video和audio标签Demo](https://wscats.github.io/angular-tutorial/h5+css3/video/video&&audio标签.html)|[canvas烟花效果](https://wscats.github.io/angular-tutorial/canvas烟花效果2.html)|
-|[canvas烟花效果汇总](https://wscats.github.io/angular-tutorial/canvas烟花效果汇总.html)||
+|[canvas烟花效果汇总](https://wscats.github.io/angular-tutorial/canvas烟花效果汇总.html)|[canvas弹幕效果](https://wscats.github.io/angular-tutorial/canvas弹幕效果.html)|
 
 ## CSS基础
 | CSS基础 | |
