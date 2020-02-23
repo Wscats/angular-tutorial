@@ -9,7 +9,7 @@
 |[Angular表达式执行函数](https://wscats.github.io/angular-tutorial/Angular表达式执行方法.html)||
 
 ## 双向数据绑定
-| bi-directional data binding |
+| bind-directional data binding |
 | --------- |
 |[Angular的$watch,$apply和$digest](https://wscats.github.io/angular-tutorial/angular的$watch,$apply和$digest.html)|
 
